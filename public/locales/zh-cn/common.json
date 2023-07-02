@@ -1,0 +1,13 @@
+{
+  "animals": {
+    "Cheetah": "Cheetah",
+    "Lion": "Lion",
+    "Leopard": "Leopard",
+    "Caracal": "Caracal",
+    "FennecFox": "耳郭狐",
+    "FENNECFOX": "耳郭狐"
+  },
+  "abilities": {
+    "Mark": "标记"
+  }
+}

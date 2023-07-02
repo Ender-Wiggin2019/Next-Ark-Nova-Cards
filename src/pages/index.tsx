@@ -1,8 +1,11 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { AnimalCardList } from '@/components/cards/animalCards/AnimalCardList';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
+
+import { getStaticPropsTranslations } from '@/utils/i18n';
 
 /**
  * SVGR Support
@@ -17,6 +20,7 @@ import Seo from '@/components/Seo';
 // to customize the default configuration.
 
 export default function HomePage() {
+  const { t } = useTranslation();
   return (
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
@@ -29,4 +33,12 @@ export default function HomePage() {
       </main>
     </Layout>
   );
+}
+
+export async function getServerSideProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await getStaticPropsTranslations(locale)),
+    },
+  };
 }
