@@ -9,7 +9,7 @@ export class KeyWord {
   );
   static POUCH = new KeyWord(
     'Pouch',
-    'You may place {} card(s) from your hand under this card to gain {Money-2}.'
+    'You may place {} card(s) from your hand under this card to gain {Appeal-2}.'
   );
   static HUNTER = new KeyWord(
     'Hunter',
@@ -158,7 +158,7 @@ export class KeyWord {
   );
   static HYPNOSIS = new KeyWord(
     'Hypnosis',
-    'After finishing this action, you may take 1 action {ActionCard} from an Action card in slot {Slot-1}, {Slot-2} or {Slot-3} of the player with the most {Appeal} .'
+    'After finishing this action, you may take 1 action {ActionCard} from an Action card in slot {Slot-1} , {Slot-2} or {Slot-3} of the player with the most {Appeal} .'
   );
   static SCAVENGING = new KeyWord(
     'Scavenging',

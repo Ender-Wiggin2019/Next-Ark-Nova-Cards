@@ -405,8 +405,8 @@
   .badge-icon {
   border: 2px solid #fff;
   border-radius: 50%;
-  height: 47px;
-  width: 47px;
+  height: 51px;
+  width: 51px;
 }
 
 .ark-card.zoo-card
@@ -489,8 +489,8 @@
   .badge-icon {
   border: 2px solid #fff;
   border-radius: 50%;
-  height: 51px;
-  width: 51px;
+  height: 55px;
+  width: 55px;
 }
 
 .ark-card.zoo-card .ark-card-wrapper .ark-card-bottom .zoo-card-bonuses {
@@ -3293,7 +3293,7 @@
   background-position-y: 50%;
 }
 
-.badge-icon[data-type='Partner-Zoo'] {
+.badge-icon[data-type='Partner_Zoo'] {
   background-position-x: 25%;
   background-position-y: 50%;
 }
@@ -3358,12 +3358,12 @@
   background-position-y: 83.3333333333%;
 }
 
-.badge-icon[data-type='ANIMAL-SIZE-4'] {
+.badge-icon[data-type='ANIMAL_SIZE_4'] {
   background-position-x: 100%;
   background-position-y: 83.3333333333%;
 }
 
-.badge-icon[data-type='ANIMAL-SIZE-2'] {
+.badge-icon[data-type='ANIMAL_SIZE_2'] {
   background-position-x: 0;
   background-position-y: 100%;
 }

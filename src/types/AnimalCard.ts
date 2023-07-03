@@ -1,6 +1,7 @@
 import { Ability } from '@/types/KeyWords';
 import { SpecialEnclosure } from '@/types/SpecialEnclosure';
 import { Tag } from '@/types/Tags';
+import { EndangeredCategory } from '@/types/EndangeredCategory';
 
 // export interface CardPosition {
 //     src: string;
@@ -11,6 +12,7 @@ export interface AnimalCard {
   id: string;
   name: string;
   latinName?: string;
+  endangeredCategory?: EndangeredCategory;
   image?: string;
 
   // upper
@@ -31,7 +33,7 @@ export interface AnimalCard {
   // bottom
   reputation?: number;
   appeal?: number;
-  conservationPoints?: number;
+  conservationPoint?: number;
 
   // meta data
   source: 'Base' | 'MarineWorld';

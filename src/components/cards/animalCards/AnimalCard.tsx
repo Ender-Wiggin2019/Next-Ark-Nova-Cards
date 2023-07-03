@@ -19,7 +19,7 @@ export const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
 
   let dataSize = 1;
   if (animal.reputation !== undefined) dataSize += 1;
-  if (animal.conservationPoints !== undefined) dataSize += 1;
+  if (animal.conservationPoint !== undefined) dataSize += 1;
 
   return (
     // <div>
@@ -71,9 +71,9 @@ export const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
           {animal.reputation !== undefined && (
             <div className='zoo-card-bonus reputation'>{animal.reputation}</div>
           )}
-          {animal.conservationPoints !== undefined && (
+          {animal.conservationPoint !== undefined && (
             <div className='zoo-card-bonus conservation'>
-              {animal.conservationPoints}
+              {animal.conservationPoint}
             </div>
           )}
           <div className='zoo-card-bonus appeal'>{animal.appeal}</div>

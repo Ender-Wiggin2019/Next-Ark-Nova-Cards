@@ -14,6 +14,9 @@ import AppealIcon from '@/components/icons/tokens/AppealIcon';
 import AnimalSizeIcon from '@/components/icons/buildings/AnimalSizeIcon';
 import EnclosureIcon from '@/components/icons/buildings/EnclosureIcon';
 import EmptySizeIcon from '@/components/icons/buildings/EmptySizeIcon';
+import Tag from '@/components/icons/Tag';
+import { AnimalTag } from '@/types/Tags';
+import TagIcon from '@/components/icons/tokens/TagIcon';
 
 interface ParseDescriptionProps {
   ability: Ability;
@@ -41,13 +44,13 @@ const ParseDescription: React.FC<ParseDescriptionProps> = ({ ability }) => {
       } else if (keyword === 'Snap') {
         return <Snap key={index} />;
       } else if (keyword === 'Slot') {
-        return <Strength key={index} value={parseInt(param || '0')} />;
+        return <Strength key={index} value={param || ''} />;
       } else if (keyword === 'Money') {
-        return <MoneyIcon key={index} value={parseInt(param || '0')} />;
+        return <MoneyIcon key={index} value={param || ''} />;
       } else if (keyword === 'Appeal') {
-        return <AppealIcon key={index} value={parseInt(param || '0')} />;
+        return <AppealIcon key={index} value={param || ''} />;
       } else if (keyword === 'ConservationPoint') {
-        return <ConservationIcon key={index} value={parseInt(param || '0')} />;
+        return <ConservationIcon key={index} value={param || ''} />;
       } else if (keyword === 'XToken') {
         return <XToken key={index} />;
       } else if (keyword === 'MultiplierToken') {
@@ -60,6 +63,8 @@ const ParseDescription: React.FC<ParseDescriptionProps> = ({ ability }) => {
         return <EnclosureIcon key={index} value={ability.value} />;
       } else if (keyword === 'Size' && param === 'X+') {
         return <EmptySizeIcon key={index} value={ability.value + '+'} />;
+      } else if (keyword === 'HerbivoreTag') {
+        return <TagIcon key={index} type={AnimalTag.Herbivore} />;
       }
     }
     return word;
