@@ -4,15 +4,14 @@ import {
   SpecialEnclosure,
   SpecialEnclosureType,
 } from '@/types/SpecialEnclosure';
-import { AnimalTag, OtherTag } from '@/types/Tags';
+import { AnimalTag, ContinentTag, OtherTag } from '@/types/Tags';
 // import {Size} from "@/types/Size";
 
 export const AnimalsData: AnimalCard[] = [
   {
-    id: '405',
+    id: '305',
     name: 'FennecFox',
     latinName: 'Heteractis magnifica',
-    image: 'path/to/lion.jpg',
     size: 5,
     rock: 1,
     water: 1,
@@ -22,7 +21,7 @@ export const AnimalsData: AnimalCard[] = [
     specialEnclosures: [
       new SpecialEnclosure(SpecialEnclosureType.LargeBirdAviary, 3),
     ],
-    abilities: [new Ability(KeyWord.MARK, 1)],
+    abilities: [new Ability(KeyWord.TEST, 3)],
     description: '',
     reefDwellerEffect: [new Ability(KeyWord.MARK, 1)],
     soloEffect: [],
@@ -30,5 +29,75 @@ export const AnimalsData: AnimalCard[] = [
     appeal: 3,
     conservationPoints: 10,
     source: 'MarineWorld',
+  },
+  {
+    id: '405',
+    name: 'FennecFox',
+    latinName: 'Heteractis magnifica',
+    size: 1,
+    price: 8,
+    tags: [AnimalTag.Predator, ContinentTag.Africa],
+    abilities: [new Ability(KeyWord.CLEVER, 1)],
+    description: '',
+    reefDwellerEffect: [new Ability(KeyWord.MARK, 1)],
+    soloEffect: [],
+    appeal: 3,
+    source: 'Base',
+  },
+  {
+    id: '413',
+    name: 'Cougar',
+    latinName: 'Heteractis magnifica',
+    size: 3,
+    rock: 1,
+    price: 10,
+    tags: [AnimalTag.Predator, ContinentTag.Americas],
+    abilities: [new Ability(KeyWord.JUMPING, 3)],
+    appeal: 5,
+    source: 'Base',
+  },
+  {
+    id: '514',
+    name: 'Emu',
+    latinName: 'Dromalus novaehollandiae',
+    size: 5,
+    price: 22,
+    requirements: [ContinentTag.Australia, ContinentTag.Australia],
+    tags: [AnimalTag.Bird, ContinentTag.Australia],
+    abilities: [new Ability(KeyWord.PEACOCKING)],
+    appeal: 7,
+    source: 'Base',
+  },
+  {
+    id: '521',
+    name: 'Horse',
+    latinName: 'Heteractis magnifica',
+    size: 1,
+    price: 7,
+    tags: [AnimalTag.Pet],
+    specialEnclosures: [
+      new SpecialEnclosure(SpecialEnclosureType.PettingZoo, 1),
+    ],
+    abilities: [new Ability(KeyWord.PETTING_ZOO_ANIMAL)],
+    appeal: 0,
+    reputation: 1,
+    source: 'Base',
+  },
+  {
+    id: '522',
+    name: 'Donkey',
+    latinName: 'Heteractis magnifica',
+    size: 1,
+    price: 7,
+    tags: [AnimalTag.Pet],
+    specialEnclosures: [
+      new SpecialEnclosure(SpecialEnclosureType.PettingZoo, 1),
+    ],
+    abilities: [
+      new Ability(KeyWord.INVENTIVE, 1),
+      new Ability(KeyWord.PETTING_ZOO_ANIMAL),
+    ],
+    appeal: 0,
+    source: 'Base',
   },
 ];

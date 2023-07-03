@@ -11,7 +11,7 @@ export interface AnimalCard {
   id: string;
   name: string;
   latinName?: string;
-  image: string;
+  image?: string;
 
   // upper
   size: number; // Size;
