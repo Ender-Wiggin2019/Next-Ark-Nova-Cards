@@ -36,6 +36,7 @@ export const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
             rock={animal.rock}
             water={animal.water}
             specialEnclosures={animal.specialEnclosures}
+            canBeInStandardEnclosure={animal.canBeInStandardEnclosure}
           />
           <div className='animal-card-cost'>
             <Money value={animal.price} />

@@ -19,7 +19,6 @@ const formatDataType = (tag: Tag): string => {
   // The keys are combined enum objects
   const keys = { ...AnimalTag, ...ContinentTag, ...OtherTag };
   // eslint-disable-next-line no-console
-  console.log(getKeyByValue(keys, tag));
   return getKeyByValue(keys, tag);
 };
 

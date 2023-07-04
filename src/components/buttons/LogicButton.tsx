@@ -1,19 +1,15 @@
-// TagButton.tsx
+// LogicButton.tsx
 import classNames from 'classnames';
 import * as React from 'react';
 
-import TagComponent from '@/components/icons/Tag';
-
-import { Tag } from '@/types/Tags';
-
-type TagButtonProps = {
+type LogicButtonProps = {
   isLoading?: boolean;
-  tag: Tag;
+  logic: 'And' | 'Or';
   selected: boolean;
 } & React.ComponentPropsWithRef<'button'>;
 
-const TagButton = React.forwardRef<HTMLButtonElement, TagButtonProps>(
-  ({ className, isLoading, tag, selected, ...rest }, ref) => {
+const LogicButton = React.forwardRef<HTMLButtonElement, LogicButtonProps>(
+  ({ className, isLoading, logic, selected, ...rest }, ref) => {
     return (
       <button
         ref={ref}
@@ -25,10 +21,10 @@ const TagButton = React.forwardRef<HTMLButtonElement, TagButtonProps>(
         )}
         {...rest}
       >
-        <TagComponent type={tag} />
+        {logic}
       </button>
     );
   }
 );
 
-export default TagButton;
+export default LogicButton;

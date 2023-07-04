@@ -1,14 +1,14 @@
 export enum AnimalTag {
+  // Base Game
   Bird = 'bird',
   Predator = 'predator',
   Reptile = 'reptile',
   Herbivore = 'herbivore',
-  Pet = 'pet',
-  Pet2 = 'pet2',
   Primate = 'primate',
+  Pet = 'pet',
   Bear = 'bear',
-  Bear2 = 'bear2',
-  Marine = 'marine',
+  // Marine World
+  SeaAnimal = 'seaAnimal',
 }
 
 export enum ContinentTag {
@@ -35,11 +35,11 @@ export enum OtherTag {
   Partner_Zoo = 'Partner Zoo',
   Reputation = 'reputation',
   Upgrade = 'upgrade',
-  Primate = 'primate',
   ANIMAL_SIZE_4 = 'ANIMAL-SIZE-4',
   ANIMAL_SIZE_2 = 'ANIMAL-SIZE-2',
   Rock = 'rock',
   Water = 'water',
+  University = 'university',
 }
 
 export type Tag = AnimalTag | ContinentTag | OtherTag;

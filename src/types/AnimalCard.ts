@@ -22,6 +22,7 @@ export interface AnimalCard {
   price: number;
   requirements?: Tag[];
   tags: Tag[];
+  canBeInStandardEnclosure?: boolean;
   specialEnclosures?: SpecialEnclosure[];
 
   // middle

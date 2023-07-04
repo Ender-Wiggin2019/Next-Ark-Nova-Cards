@@ -4,20 +4,18 @@ interface StandardEnclosureProps {
   size: number;
   rock?: number;
   water?: number;
-  forbidden?: boolean;
+  forbidden: boolean;
 }
 
 const StandardEnclosure: React.FC<StandardEnclosureProps> = ({
   size,
   rock = 0,
   water = 0,
-  forbidden = false,
+  forbidden,
 }) => {
-  if (forbidden) {
-    return null;
-  }
-
-  const classes = ['icon-enclosure-regular'];
+  const classes = [
+    forbidden ? 'icon-enclosure-forbidden' : 'icon-enclosure-regular',
+  ];
 
   if (rock > 1) {
     classes.push('rock-rock');

@@ -396,6 +396,13 @@
   width: 30px;
 }
 
+.filter-button .badge-icon {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+}
+
 .ark-card.zoo-card
   .ark-card-wrapper
   .ark-card-top
@@ -620,6 +627,13 @@
   text-align: center;
 }
 
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost
+  .animal-card-enclosure
+  > div.icon-enclosure-regular,
 .ark-card.zoo-card.animal-card
   .ark-card-wrapper
   .ark-card-top
@@ -3378,6 +3392,16 @@
   background-position-y: 100%;
 }
 
+.badge-icon[data-type='University'] {
+  background-position-x: 75%;
+  background-position-y: 100%;
+}
+
+.badge-icon[data-type='SeaAnimal'] {
+  background-position-x: 100%;
+  background-position-y: 100%;
+}
+
 .dijitTooltipContainer {
   --arkNovaActionCardScale: 0.8;
 }
@@ -4411,6 +4435,172 @@
   background-size: 1144.1340782122904%;
 }
 
+/* Marine World */
+
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost
+  .animal-card-enclosure-forbidden {
+  align-items: center;
+  background: #878787;
+  border-top-left-radius: 8px;
+  box-shadow: 0 2px 11px 4px #2f2f2f;
+  box-sizing: border-box;
+  display: flex;
+  height: 68px;
+  justify-content: center;
+  min-width: 77px;
+  padding-left: 7px;
+}
+
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost
+  .animal-card-enclosure-forbidden
+  > div {
+  color: #781102;
+  font-family: MyriadPro-Bold;
+  font-size: 35px;
+  height: 48px;
+  line-height: 45px;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost
+  .animal-card-enclosure-forbidden
+  > div.icon-enclosure-forbidden,
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost
+  .animal-card-enclosure-forbidden
+  > div.icon-enclosure-forbidden {
+  width: 55.2px;
+}
+
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost
+  .animal-card-enclosure-forbidden
+  > div.icon-enclosure-forbidden-rock,
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost
+  .animal-card-enclosure-forbidden
+  > div.icon-enclosure-forbidden-rock-rock,
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost
+  .animal-card-enclosure-forbidden
+  > div.icon-enclosure-forbidden-rock-water,
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost
+  .animal-card-enclosure-forbidden
+  > div.icon-enclosure-forbidden-water,
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost
+  .animal-card-enclosure-forbidden
+  > div.icon-enclosure-forbidden-water-water {
+  box-sizing: border-box;
+  padding-right: 31.44px;
+  width: 85.92px;
+}
+
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost
+  .animal-card-enclosure-forbidden
+  > div.icon-enclosure-special-large-bird-aviary {
+  color: #fff;
+  font-size: 22px;
+  line-height: 32px;
+  width: 42px;
+}
+
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost
+  .animal-card-enclosure-forbidden
+  > div.icon-enclosure-special-reptile-house {
+  color: #fff;
+  font-size: 24px;
+  line-height: 45px;
+  width: 33.84px;
+}
+
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost
+  .animal-card-enclosure-forbidden
+  > div.icon-enclosure-special-petting-zoo {
+  color: #fff;
+  box-sizing: border-box;
+  font-size: 32px;
+  line-height: 40px;
+  padding-right: 10px;
+  text-align: right;
+  width: 58.56px;
+}
+
+.arknova-icon.icon-enclosure-forbidden {
+  background-position: 12.596999482669426% 89.38%;
+  background-size: 1780.8695652173913%;
+}
+
+.arknova-icon.icon-enclosure-forbidden-rock {
+  background-position: 19.71642589620118% 89.38%;
+  background-size: 1144.1340782122904%;
+}
+
+.arknova-icon.icon-enclosure-forbidden-rock-rock {
+  background-position: 29.82878544676297% 89.38%;
+  background-size: 1144.1340782122904%;
+}
+
+.arknova-icon.icon-enclosure-forbidden-rock-water {
+  background-position: 39.94114499732477% 89.38%;
+  background-size: 1144.1340782122904%;
+}
+
+.arknova-icon.icon-enclosure-forbidden-water {
+  background-position: 50.053504547886575% 89.38%;
+  background-size: 1144.1340782122904%;
+}
+
+.arknova-icon.icon-enclosure-forbidden-water-water {
+  background-position: 60.16586409844836% 89.38%;
+  background-size: 1144.1340782122904%;
+}
+
+/* Break Point */
 .arknova-icon.icon-enclosure-size-2 {
   background-position: 19.019354838709678% 77.8897136797455%;
   background-size: 1853.3936651583713%;

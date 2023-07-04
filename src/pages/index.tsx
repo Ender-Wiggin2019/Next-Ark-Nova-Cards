@@ -27,8 +27,8 @@ export default function HomePage() {
       <Seo />
 
       <main>
-        <section className='bg-white'>
-          <AnimalCardList />
+        <section className='mt-48 bg-white'>
+          <AnimalCardList selectedTags={[]} />
         </section>
       </main>
     </Layout>
