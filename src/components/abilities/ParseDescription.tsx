@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import ActionCardIcon from '@/components/icons/actions/ActionCardIcon';
+import Determination from '@/components/icons/actions/Determination';
 import Strength from '@/components/icons/actions/Strength';
 import AnimalSizeIcon from '@/components/icons/buildings/AnimalSizeIcon';
 import EmptySizeIcon from '@/components/icons/buildings/EmptySizeIcon';
@@ -15,6 +17,7 @@ import MultiplierToken from '@/components/icons/tokens/MultiplierToken';
 import TagIcon from '@/components/icons/tokens/TagIcon';
 import XToken from '@/components/icons/tokens/XToken';
 
+import { ActionCardType } from '@/types/ActionCard';
 import { Ability } from '@/types/KeyWords';
 import { AnimalTag } from '@/types/Tags';
 
@@ -65,6 +68,24 @@ const ParseDescription: React.FC<ParseDescriptionProps> = ({ ability }) => {
         return <EmptySizeIcon key={index} value={ability.value + '+'} />;
       } else if (keyword === 'HerbivoreTag') {
         return <TagIcon key={index} type={AnimalTag.Herbivore} />;
+      } else if (keyword === 'Determination') {
+        return <Determination key={index} />;
+      } else if (keyword === 'AnimalActionCard') {
+        return (
+          <ActionCardIcon key={index} actionType={ActionCardType.ANIMAL} />
+        );
+      } else if (keyword === 'AssociationActionCard') {
+        return (
+          <ActionCardIcon key={index} actionType={ActionCardType.ASSOCIATION} />
+        );
+      } else if (keyword === 'BuildActionCard') {
+        return <ActionCardIcon key={index} actionType={ActionCardType.BUILD} />;
+      } else if (keyword === 'CardsActionCard') {
+        return <ActionCardIcon key={index} actionType={ActionCardType.CARDS} />;
+      } else if (keyword === 'SponsorsActionCard') {
+        return (
+          <ActionCardIcon key={index} actionType={ActionCardType.SPONSORS} />
+        );
       }
     }
     return word;

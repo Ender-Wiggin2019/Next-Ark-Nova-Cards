@@ -22,9 +22,12 @@ const Enclosures: React.FC<EnclosuresProps> = ({
   forbidden,
   specialEnclosures,
 }) => {
-  const hasSpecial = specialEnclosures && specialEnclosures.length > 0;
+  const hasSpecialEnclosures =
+    specialEnclosures && specialEnclosures.length > 0;
+  const needWide =
+    hasSpecialEnclosures || (rock && rock > 0) || (water && water > 0);
   const enclosureClass = classNames('animal-card-enclosure-cost', {
-    wide: hasSpecial,
+    wide: needWide,
   });
   return (
     <div className={enclosureClass}>
@@ -35,7 +38,7 @@ const Enclosures: React.FC<EnclosuresProps> = ({
           water={water}
           forbidden={forbidden}
         />
-        {hasSpecial && (
+        {hasSpecialEnclosures && (
           <SpecialEnclosureComponent specialEnclosures={specialEnclosures} />
         )}
       </div>

@@ -40,11 +40,11 @@ export class KeyWord {
   );
   static BOOST_BUILDING = new KeyWord(
     'Boost: Building',
-    'After finishing this action, you may place your Building Action card {BuildingActionCard} on {Slot-1} or {Slot-5}'
+    'After finishing this action, you may place your Building Action card {BuildActionCard} on {Slot-1} or {Slot-5}'
   );
   static BOOST_CARD = new KeyWord(
     'Boost: Card',
-    'After finishing this action, you may place your Card Action card {CardActionCard} on {Slot-1} or {Slot-5}'
+    'After finishing this action, you may place your Card Action card {CardsActionCard} on {Slot-1} or {Slot-5}'
   );
   static BOOST_SPONSORS = new KeyWord(
     'Boost: Sponsors',
@@ -61,11 +61,11 @@ export class KeyWord {
   );
   static ACTION_BUILDING = new KeyWord(
     'Action: Building',
-    'After finishing this action, you may take the Building action {BuildingActionCard} '
+    'After finishing this action, you may take the Building action {BuildActionCard} '
   );
   static ACTION_CARD = new KeyWord(
     'Action: Card',
-    'After finishing this action, you may take the Card action {CardActionCard} '
+    'After finishing this action, you may take the Card action {CardsActionCard} '
   );
   static ACTION_SPONSORS = new KeyWord(
     'Action: Sponsors',
@@ -82,11 +82,11 @@ export class KeyWord {
   );
   static MULTIPLIER_BUILDING = new KeyWord(
     'Multiplier: Building',
-    'Place 1 {MultiplierToken} on your Building Action card {BuildingActionCard} '
+    'Place 1 {MultiplierToken} on your Building Action card {BuildActionCard} '
   );
   static MULTIPLIER_CARD = new KeyWord(
     'Multiplier: Card',
-    'Place 1 {MultiplierToken} on your Card Action card {CardActionCard} '
+    'Place 1 {MultiplierToken} on your Card Action card {CardsActionCard} '
   );
   static MULTIPLIER_SPONSORS = new KeyWord(
     'Multiplier: Sponsors',
