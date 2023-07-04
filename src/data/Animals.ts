@@ -1,11 +1,11 @@
 import { AnimalCard } from '@/types/AnimalCard';
+import { EndangeredCategory } from '@/types/EndangeredCategory';
 import { Ability, KeyWord } from '@/types/KeyWords';
 import {
   SpecialEnclosure,
   SpecialEnclosureType,
 } from '@/types/SpecialEnclosure';
 import { AnimalTag, ContinentTag, OtherTag } from '@/types/Tags';
-import { EndangeredCategory } from '@/types/EndangeredCategory';
 // import {Size} from "@/types/Size";
 
 export const AnimalsData: AnimalCard[] = [
@@ -1072,7 +1072,7 @@ export const AnimalsData: AnimalCard[] = [
     requirements: [],
     tags: [AnimalTag.Reptile, ContinentTag.Americas],
     specialEnclosures: [
-      new SpecialEnclosure(SpecialEnclosureType.ReptileHouse, 1),
+      new SpecialEnclosure(SpecialEnclosureType.ReptileHouse, 2),
     ],
     abilities: [new Ability(KeyWord.SNAPPING_1)],
     appeal: 7,

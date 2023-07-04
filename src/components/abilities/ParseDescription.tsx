@@ -1,22 +1,22 @@
 import React from 'react';
-import TakeCardInRange from '@/components/icons/take_cards/TakeCardInRange';
+import { useTranslation } from 'react-i18next';
+
+import Strength from '@/components/icons/actions/Strength';
+import AnimalSizeIcon from '@/components/icons/buildings/AnimalSizeIcon';
+import EmptySizeIcon from '@/components/icons/buildings/EmptySizeIcon';
+import EnclosureIcon from '@/components/icons/buildings/EnclosureIcon';
+import LargeBirdAviary from '@/components/icons/buildings/LargeBirdAviary';
 import Snap from '@/components/icons/take_cards/Snap';
+import TakeCardInRange from '@/components/icons/take_cards/TakeCardInRange';
+import AppealIcon from '@/components/icons/tokens/AppealIcon';
+import ConservationIcon from '@/components/icons/tokens/ConservationIcon';
+import MoneyIcon from '@/components/icons/tokens/MoneyIcon';
+import MultiplierToken from '@/components/icons/tokens/MultiplierToken';
+import TagIcon from '@/components/icons/tokens/TagIcon';
+import XToken from '@/components/icons/tokens/XToken';
 
 import { Ability } from '@/types/KeyWords';
-import { useTranslation } from 'react-i18next';
-import Strength from '@/components/icons/actions/Strength';
-import MoneyIcon from '@/components/icons/tokens/MoneyIcon';
-import XToken from '@/components/icons/tokens/XToken';
-import LargeBirdAviary from '@/components/icons/buildings/LargeBirdAviary';
-import MultiplierToken from '@/components/icons/tokens/MultiplierToken';
-import ConservationIcon from '@/components/icons/tokens/ConservationIcon';
-import AppealIcon from '@/components/icons/tokens/AppealIcon';
-import AnimalSizeIcon from '@/components/icons/buildings/AnimalSizeIcon';
-import EnclosureIcon from '@/components/icons/buildings/EnclosureIcon';
-import EmptySizeIcon from '@/components/icons/buildings/EmptySizeIcon';
-import Tag from '@/components/icons/Tag';
 import { AnimalTag } from '@/types/Tags';
-import TagIcon from '@/components/icons/tokens/TagIcon';
 
 interface ParseDescriptionProps {
   ability: Ability;

@@ -1,7 +1,7 @@
+import { EndangeredCategory } from '@/types/EndangeredCategory';
 import { Ability } from '@/types/KeyWords';
 import { SpecialEnclosure } from '@/types/SpecialEnclosure';
 import { Tag } from '@/types/Tags';
-import { EndangeredCategory } from '@/types/EndangeredCategory';
 
 // export interface CardPosition {
 //     src: string;
