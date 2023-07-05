@@ -29,7 +29,7 @@ const filterAnimals = (
   textFilter = ''
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
-  console.log(lowercaseFilter);
+
   return animals.filter(
     (animal) =>
       (selectedTags.length === 0 ||

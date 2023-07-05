@@ -15,7 +15,7 @@ interface AnimalCardProps {
 }
 
 export const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   let dataSize = 1;
   if (animal.reputation !== undefined) dataSize += 1;

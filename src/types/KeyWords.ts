@@ -1,193 +1,187 @@
 export class KeyWord {
-  static CLEVER = new KeyWord(
-    'Clever',
-    'After finishing you may place any Action card on {Slot-1}'
-  );
+  static CLEVER = new KeyWord('Clever', 'abilities.clever_description');
   static SUN_BATHING = new KeyWord(
     'Sun Bathing',
-    'You may sell up to {} card(s) from your hand for {Money-4} each.'
+    'abilities.sun_bathing_description'
   );
-  static POUCH = new KeyWord(
-    'Pouch',
-    'You may place {} card(s) from your hand under this card to gain {Appeal-2}.'
+  static POUCH = new KeyWord('Pouch', 'abilities.pouch_description');
+  static HUNTER = new KeyWord('Hunter', 'abilities.hunter_description');
+  static SPRINT = new KeyWord('Sprint', 'abilities.sprint_description');
+  static PACK = new KeyWord('Pack', 'abilities.pack_description');
+  static JUMPING = new KeyWord('Jumping', 'abilities.jumping_description');
+  static INVENTIVE = new KeyWord(
+    'Inventive',
+    'abilities.inventive_description'
   );
-  static HUNTER = new KeyWord(
-    'Hunter',
-    'Reveal the {} topmost card(s) of the deck. Choose 1 Animal card and add it to your hand. Discard the other cards.'
-  );
-  static SPRINT = new KeyWord('Sprint', 'Draw {} card(s) from the deck.');
-  static PACK = new KeyWord(
-    'Pack',
-    'Gain {Appeal-1} for each predator icon in your zoo.'
-  );
-
-  static JUMPING = new KeyWord(
-    'Jumping',
-    'Advance the break token {} spaces. Gain {Money-3}.'
-  );
-  static INVENTIVE = new KeyWord('Inventive', 'Gain {} {XToken} -token.');
   static INVENTIVE_BEAR = new KeyWord(
     'Inventive',
-    'Gain {} {XToken} -token for each bear icon in all zoos (max.3).'
+    'abilities.inventive_bear_description'
   );
   static INVENTIVE_PRIMARY = new KeyWord(
     'Inventive',
-    'Gain 1/2/3 {XToken} -tokens for 1/3/5 primate icons in your zoo.'
+    'abilities.inventive_primary_description'
   );
   static BOOST_ASSOCIATION = new KeyWord(
     'Boost: Association',
-    'After finishing this action, you may place your Association Action card {AssociationActionCard} on {Slot-1} or {Slot-5}'
+    'abilities.boost_association_description'
   );
   static BOOST_BUILDING = new KeyWord(
     'Boost: Building',
-    'After finishing this action, you may place your Building Action card {BuildActionCard} on {Slot-1} or {Slot-5}'
+    'abilities.boost_building_description'
   );
   static BOOST_CARD = new KeyWord(
     'Boost: Card',
-    'After finishing this action, you may place your Card Action card {CardsActionCard} on {Slot-1} or {Slot-5}'
+    'abilities.boost_card_description'
   );
+
   static BOOST_SPONSORS = new KeyWord(
     'Boost: Sponsors',
-    'After finishing this action, you may place your Sponsors Action card {SponsorsActionCard} on {Slot-1} or {Slot-5}'
+    'abilities.boost_sponsors_description'
   );
+
   static BOOST_ANIMAL = new KeyWord(
     'Boost: Animal',
-    'After finishing this action, you may place your Animal Action card {AnimalActionCard} on {Slot-1} or {Slot-5}'
+    'abilities.boost_animal_description'
   );
 
   static ACTION_ASSOCIATION = new KeyWord(
     'Action: Association',
-    'After finishing this action, you may take the Association action {AssociationCard} '
+    'abilities.action_association_description'
   );
+
   static ACTION_BUILDING = new KeyWord(
     'Action: Building',
-    'After finishing this action, you may take the Building action {BuildActionCard} '
+    'abilities.action_building_description'
   );
+
   static ACTION_CARD = new KeyWord(
     'Action: Card',
-    'After finishing this action, you may take the Card action {CardsActionCard} '
+    'abilities.action_card_description'
   );
+
   static ACTION_SPONSORS = new KeyWord(
     'Action: Sponsors',
-    'After finishing this action, you may take the Sponsors Action {SponsorsActionCard} '
+    'abilities.action_sponsors_description'
   );
+
   static ACTION_ANIMAL = new KeyWord(
     'Action: Animal',
-    'After finishing this action, you may take the Animal action {AnimalActionCard} '
+    'abilities.action_animal_description'
   );
 
   static MULTIPLIER_ASSOCIATION = new KeyWord(
     'Multiplier: Association',
-    'Place 1 {MultiplierToken} on your Association Action card {AssociationCard} '
+    'abilities.multiplier_association_description'
   );
+
   static MULTIPLIER_BUILDING = new KeyWord(
     'Multiplier: Building',
-    'Place 1 {MultiplierToken} on your Building Action card {BuildActionCard} '
+    'abilities.multiplier_building_description'
   );
+
   static MULTIPLIER_CARD = new KeyWord(
     'Multiplier: Card',
-    'Place 1 {MultiplierToken} on your Card Action card {CardsActionCard} '
+    'abilities.multiplier_card_description'
   );
+
   static MULTIPLIER_SPONSORS = new KeyWord(
     'Multiplier: Sponsors',
-    'Place 1 {MultiplierToken} on your Sponsors Action card {SponsorsActionCard} '
+    'abilities.multiplier_sponsors_description'
   );
+
   static MULTIPLIER_ANIMAL = new KeyWord(
     'Multiplier: Animal',
-    'Place 1 {MultiplierToken} on your Animal Action card {AnimalActionCard} '
+    'abilities.multiplier_animal_description'
   );
 
   static FULL_THROATED = new KeyWord(
     'Full-throated',
-    'Hire an association worker.'
+    'abilities.full_throated_description'
   );
 
   static ICONIC_ANIMAL = new KeyWord(
     'Iconic Animal',
-    'Gain {Appeal-1} for each {} icon in all zoos (max. 8).'
+    'abilities.iconic_animal_description'
   );
 
   static RESISTANCE = new KeyWord(
     'Resistance',
-    'Draw 2 Final Scoring cards. Keep 1 and discard the other.'
+    'abilities.resistance_description'
   );
+
   static ASSERTION = new KeyWord(
     'Assertion',
-    'You may add any 1 of the unused base conservation projects to your hand.'
+    'abilities.assertion_description'
   );
-  static DIGGING = new KeyWord(
-    'Digging',
-    'Choose up to {}x: Discard 1 card from the display and replenish OR discard 1 card from your hand and draw 1 other from the deck.'
-  );
+
+  static DIGGING = new KeyWord('Digging', 'abilities.digging_description');
+
   static SPONSOR_MAGNET = new KeyWord(
     'Sponsor Magnet',
-    'Add all sponsors cards from the display to your hand.'
+    'abilities.sponsor_magnet_description'
   );
+
   static FLOCK_ANIMAL = new KeyWord(
     'Flock Animal',
-    'May share the existing enclosure of a {HerbivoreTag} with {Size-X+}.'
+    'abilities.flock_animal_description'
   );
+
   static DOMINANCE = new KeyWord(
     'Dominance',
-    'You may add the base conservation project {} to your hand if it is not already in the game.'
+    'abilities.dominance_description'
   );
+
   static PILFERING_1 = new KeyWord(
     'Pilfering 1',
-    'Draw 1 card from the hand of or take {Money-5} from the player with the most {Appeal}. They decide.'
+    'abilities.pilfering_1_description'
   );
+
   static PILFERING_2 = new KeyWord(
     'Pilfering 2',
-    'From both the player with the highest {Appeal} and the player with the most {ConservationPoint}, Draw 1 card from the hand of or take {Money-5} from that player. They decide.'
+    'abilities.pilfering_2_description'
   );
 
   static SNAPPING_1 = new KeyWord(
     'Snapping 1',
-    'Gain any 1 card from the display.'
+    'abilities.snapping_1_description'
   );
   static SNAPPING_2 = new KeyWord(
     'Snapping 2',
-    '2x: Gain any 1 card from the display. You may replenish in between.'
+    'abilities.snapping_2_description'
   );
-  static VENOM = new KeyWord(
-    'Venom',
-    'Each player ahead of you on the Appeal track gains {} Venom token(s).'
-  );
+  static VENOM = new KeyWord('Venom', 'abilities.venom_description');
   static CONSTRICTION = new KeyWord(
     'Constriction',
-    'Each player ahead of you on a track gains 1 Constriction token for each of those tracks ( {Appeal} and {ConservationPoint} ).'
+    'abilities.constriction_description'
   );
-  static HYPNOSIS = new KeyWord(
-    'Hypnosis',
-    'After finishing this action, you may take 1 action {ActionCard} from an Action card in slot {Slot-1} , {Slot-2} or {Slot-3} of the player with the most {Appeal} .'
-  );
+  static HYPNOSIS = new KeyWord('Hypnosis', 'abilities.hypnosis_description');
   static SCAVENGING = new KeyWord(
     'Scavenging',
-    'Shuffle the discard pile and draw {} cards. Add 1 to your hand and discard the other.'
+    'abilities.scavenging_description'
   );
   static POSTURING = new KeyWord(
     'Posturing',
-    'Up to {}x: You may place 1 free kiosk or pavilion.'
+    'abilities.posturing_description'
   );
   static PERCEPTION_2 = new KeyWord(
     'Perception 2',
-    'Draw 2 cards from the deck. Add 1 to your hand and discard the rest.'
+    'abilities.perception_2_description'
   );
   static PERCEPTION_4 = new KeyWord(
     'Perception 4',
-    'Draw 4 cards from the deck. Add 2 to your hand and discard the rest.'
+    'abilities.perception_4_description'
   );
-
   static DETERMINATION = new KeyWord(
     'Determination',
-    'After finishing this action, you take 1 other action {ActionCard}'
+    'abilities.determination_description'
   );
   static PEACOCKING = new KeyWord(
     'Peacocking',
-    'You may place a Large Bird Aviary {LargeBirdAviary} for free, if possible.'
+    'abilities.peacocking_description'
   );
   static PETTING_ZOO_ANIMAL = new KeyWord(
     'Petting Zoo Animal',
-    'Gain {Appeal-3} for each Petting Zoo Animal icon in your zoo.'
+    'abilities.petting_zoo_animal_description'
   );
   // static PERCEPTION = new KeyWord('Perception', 'gain {} health');
   // static PERCEPTION = new KeyWord('Perception', 'gain {} health');
