@@ -16,7 +16,7 @@ const AbilityComponent: React.FC<AbilityProps> = ({ ability, style }) => {
       <h6 className='animal-ability-title'>{ability.title}</h6>
       {style == 'full' && (
         <div className='animal-ability-desc sf-hidden'>
-          <ParseDescription ability={ability} />
+          <ParseDescription desc={ability} />
         </div>
       )}
     </>

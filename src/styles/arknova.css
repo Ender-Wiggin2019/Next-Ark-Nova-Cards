@@ -2609,7 +2609,7 @@
 .ark-card.zoo-card.sponsor-card .ark-card-wrapper .ark-card-middle {
   background: #006999;
   background: linear-gradient(90deg, #6596c0, #006999 50%, #6596c0);
-  height: 37px;
+  height: 37px; /* TODO: make it smaller */
 }
 
 .ark-card.zoo-card.sponsor-card
@@ -2730,8 +2730,10 @@
 }
 
 .dijitTooltipContainer ul.sponsor-effects-list {
-  font-size: 18px;
-  padding-left: 7px;
+  /*padding-left: 0px;*/
+  font-family: MyriadPro-Regular;
+  font-size: 17px;
+  margin-left: -2px;
 }
 
 .dijitTooltipContainer ul.sponsor-effects-list li:before {
@@ -2739,9 +2741,9 @@
   border-radius: 50%;
   content: '';
   display: inline-block;
-  height: 10px;
-  margin: 0 4px;
-  width: 10px;
+  height: 12px;
+  margin-right: 5px;
+  width: 12px;
 }
 
 .dijitTooltipContainer ul.sponsor-effects-list li.effect-immediate:before {

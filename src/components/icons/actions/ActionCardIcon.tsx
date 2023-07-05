@@ -4,7 +4,7 @@ import React from 'react';
 import { ActionCardType } from '@/types/ActionCard';
 
 interface actionTypeProps {
-  actionType: ActionCardType | undefined;
+  actionType?: ActionCardType;
 }
 
 const ActionCardIcon: React.FC<actionTypeProps> = ({ actionType }) => {

@@ -1,4 +1,3 @@
-// useAnimalData.js
 import { useContext } from 'react';
 
 import { AnimalDataContext } from './AnimalDataContext';

@@ -2,7 +2,8 @@ import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React, { useState } from 'react';
 
-import { AnimalCardList } from '@/components/cards/animalCards/AnimalCardList';
+import { AnimalCardList } from '@/components/cards/animal_cards/AnimalCardList';
+import { SponsorCardList } from '@/components/cards/sponsor_cards/SponsorCardList';
 import { RequirementFilter } from '@/components/filters/RequirementFilter';
 import { TagFilter } from '@/components/filters/TagFilter';
 import { TextFilter } from '@/components/filters/TextFilter'; // make sure to import your TextFilter
@@ -27,6 +28,11 @@ export default function HomePage(
       <TextFilter onTextChange={setTextFilter} /> {/* add this line */}
       <div className='mb-48'></div>
       <AnimalCardList
+        selectedTags={selectedTags}
+        selectedRequirements={selectedRequirements}
+        textFilter={textFilter}
+      />
+      <SponsorCardList
         selectedTags={selectedTags}
         selectedRequirements={selectedRequirements}
         textFilter={textFilter}

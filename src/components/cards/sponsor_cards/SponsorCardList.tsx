@@ -1,19 +1,21 @@
 import React from 'react';
 
-import { AnimalCard } from './AnimalCard';
-import { useAnimalData } from './useAnimalData';
+import CardList from '@/components/cards/shared/CardList';
 
-import { AnimalCard as AnimalCardType } from '@/types/AnimalCard';
+import { SponsorCard } from './SponsorCard';
+import { useSponsorData } from './useSponsorData';
+
+import { SponsorCard as SponsorCardType } from '@/types/SponsorCard';
 import { OtherTag, Tag } from '@/types/Tags';
 
-interface AnimalCardListProps {
+interface SponsorCardListProps {
   selectedTags?: Tag[];
   selectedRequirements?: Tag[];
   textFilter?: string;
   // ... any other filters
 }
 
-const hasRockAndWaterRequirements = (animal: AnimalCardType, req: Tag) => {
+const hasRockAndWaterRequirements = (animal: SponsorCardType, req: Tag) => {
   if (req === OtherTag.Rock) {
     return animal.rock && animal.rock > 0;
   } else if (req === OtherTag.Water) {
@@ -22,15 +24,15 @@ const hasRockAndWaterRequirements = (animal: AnimalCardType, req: Tag) => {
     return false;
   }
 };
-const filterAnimals = (
-  animals: AnimalCardType[],
+const filterSponsors = (
+  sponsors: SponsorCardType[],
   selectedTags: Tag[] = [],
   selectedRequirements: Tag[] = [],
   textFilter = ''
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
 
-  return animals.filter(
+  return sponsors.filter(
     (animal) =>
       (selectedTags.length === 0 ||
         selectedTags.some((tag) => animal.tags.includes(tag))) &&
@@ -43,37 +45,33 @@ const filterAnimals = (
       (textFilter === '' ||
         animal.id.toLowerCase().includes(lowercaseFilter) ||
         animal.name.toLowerCase().includes(lowercaseFilter) ||
-        (animal.latinName !== undefined &&
-          animal.latinName.toLowerCase().includes(lowercaseFilter)) ||
-        (animal.abilities !== undefined &&
-          animal.abilities.some(
-            (ability) =>
-              ability.title.toLowerCase().includes(lowercaseFilter) ||
-              ability.description.toLowerCase().includes(lowercaseFilter)
+        (animal.effects !== undefined &&
+          animal.effects.some((effect) =>
+            effect.effectDesc.toLowerCase().includes(lowercaseFilter)
           )))
   );
 };
 
-export const AnimalCardList: React.FC<AnimalCardListProps> = ({
+export const SponsorCardList: React.FC<SponsorCardListProps> = ({
   selectedTags,
   selectedRequirements,
   textFilter,
 }) => {
-  const animalsData = useAnimalData();
-  const filteredAnimals = filterAnimals(
-    animalsData,
+  const sponsorsData = useSponsorData();
+  const filteredSponsors = filterSponsors(
+    sponsorsData,
     selectedTags,
     selectedRequirements,
     textFilter
   );
 
   return (
-    <div className='grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6'>
-      {filteredAnimals.map((animal: AnimalCardType) => (
-        <div key={animal.id} className='scale-[1.8] pb-48'>
-          <AnimalCard key={animal.id} animal={animal} />
+    <CardList>
+      {filteredSponsors.map((sponsor: SponsorCardType) => (
+        <div key={sponsor.id} className='scale-150 pb-48'>
+          <SponsorCard key={sponsor.id} sponsor={sponsor} />
         </div>
       ))}
-    </div>
+    </CardList>
   );
 };
