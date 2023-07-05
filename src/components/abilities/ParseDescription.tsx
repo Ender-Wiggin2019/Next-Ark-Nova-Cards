@@ -1,5 +1,5 @@
+import { useTranslation } from 'next-i18next';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import ActionCardIcon from '@/components/icons/actions/ActionCardIcon';
 import Determination from '@/components/icons/actions/Determination';
@@ -26,7 +26,8 @@ interface ParseDescriptionProps {
 }
 
 const ParseDescription: React.FC<ParseDescriptionProps> = ({ ability }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
+
   const translatedTemplate = t(ability.keyword.descriptionTemplate);
   const valueFilledTemplate = translatedTemplate.replace(
     '{}',

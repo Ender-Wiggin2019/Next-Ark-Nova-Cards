@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
 
 interface TextFilterProps {
@@ -5,6 +6,7 @@ interface TextFilterProps {
 }
 
 export const TextFilter: React.FC<TextFilterProps> = ({ onTextChange }) => {
+  const { t } = useTranslation('common');
   const [text, setText] = useState<string>('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,7 +19,7 @@ export const TextFilter: React.FC<TextFilterProps> = ({ onTextChange }) => {
       type='text'
       value={text}
       onChange={handleChange}
-      placeholder='Filter text...'
+      placeholder={t('Filter text...')}
     />
   );
 };

@@ -1,3 +1,5 @@
+import type { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React, { useState } from 'react';
 
 import { AnimalCardList } from '@/components/cards/animalCards/AnimalCardList';
@@ -7,7 +9,13 @@ import { TextFilter } from '@/components/filters/TextFilter'; // make sure to im
 
 import { Tag } from '@/types/Tags';
 
-export default function HomePage() {
+type Props = {
+  // Add custom props here
+};
+
+export default function HomePage(
+  _props: InferGetStaticPropsType<typeof getStaticProps>
+) {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
   const [selectedRequirements, setSelectedRequirements] = useState<Tag[]>([]);
   const [textFilter, setTextFilter] = useState<string>(''); // add this line
@@ -26,3 +34,9 @@ export default function HomePage() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+  },
+});

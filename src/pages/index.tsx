@@ -1,11 +1,11 @@
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { AnimalCardList } from '@/components/cards/animalCards/AnimalCardList';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
-
-import { getStaticPropsTranslations } from '@/utils/i18n';
 
 /**
  * SVGR Support
@@ -19,8 +19,14 @@ import { getStaticPropsTranslations } from '@/utils/i18n';
 // Before you begin editing, follow all comments with `STARTERCONF`,
 // to customize the default configuration.
 
-export default function HomePage() {
-  const { t } = useTranslation();
+type Props = {
+  // Add custom props here
+};
+
+export default function HomePage(
+  _props: InferGetStaticPropsType<typeof getStaticProps>
+) {
+  const { t } = useTranslation<any>('common');
   return (
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
@@ -35,10 +41,16 @@ export default function HomePage() {
   );
 }
 
-export async function getServerSideProps({ locale }: { locale: string }) {
-  return {
-    props: {
-      ...(await getStaticPropsTranslations(locale)),
-    },
-  };
-}
+// export async function getServerSideProps({ locale }: { locale: string }) {
+//   return {
+//     props: {
+//       ...(await getStaticPropsTranslations(locale)),
+//     },
+//   };
+// }
+
+export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+  },
+});
