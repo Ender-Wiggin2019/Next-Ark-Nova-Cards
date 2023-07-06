@@ -10,9 +10,13 @@ module.exports = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'zh-CN'],
+    otherLanguages: ['zh-CN'],
+    defaultLanguage: 'en',
+    fallbackLng: ['en'],
+    localePath: path.resolve('./public/locales'),
+    localeStructure: '{{lng}}/{{ns}}',
   },
   /** To avoid issues when deploying to some paas (vercel...) */
-  localePath: path.resolve('./public/locales'),
 
   reloadOnPrerender: process.env.NODE_ENV === 'development',
 
