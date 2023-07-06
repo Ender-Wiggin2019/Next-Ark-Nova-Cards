@@ -10,20 +10,16 @@ module.exports = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'zh-CN'],
-    otherLanguages: ['zh-CN'],
-    defaultLanguage: 'en',
-    fallbackLng: ['en'],
-    localePath: path.resolve('./public/locales'),
-    localeStructure: '{{lng}}/{{ns}}',
   },
   /** To avoid issues when deploying to some paas (vercel...) */
-
+  localePath: path.resolve('./public/locales'),
+  localeStructure: '{{lng}}/{{ns}}',
   reloadOnPrerender: process.env.NODE_ENV === 'development',
 
   /**
    * @link https://github.com/i18next/next-i18next#6-advanced-configuration
    */
-  // saveMissing: false,
+  saveMissing: true,
   // strictMode: true,
   // serializeConfig: false,
   // react: { useSuspense: false }
