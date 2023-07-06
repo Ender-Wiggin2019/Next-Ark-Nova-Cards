@@ -29,7 +29,7 @@ interface ParseDescriptionProps {
 const ParseDescription: React.FC<ParseDescriptionProps> = ({ desc }) => {
   const { t } = useTranslation('common');
 
-  console.log(desc);
+  // console.log(desc);
   const translatedTemplate =
     desc instanceof Ability
       ? t(desc.keyword.descriptionTemplate)

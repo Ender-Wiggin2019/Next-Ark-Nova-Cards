@@ -1,5 +1,7 @@
 // !STARTERCONF You can delete this page
 import clsx from 'clsx';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import {
   HiArrowRight,
@@ -25,7 +27,9 @@ import Skeleton from '@/components/Skeleton';
 
 type Color = (typeof colorList)[number];
 
-export default function ComponentsPage() {
+export default function ComponentsPage(
+  _props: InferGetStaticPropsType<typeof getStaticProps>
+) {
   const [mode, setMode] = React.useState<'dark' | 'light'>('light');
   const [color, setColor] = React.useState<Color>('sky');
   function toggleMode() {
@@ -489,3 +493,13 @@ const colorList = [
   'pink',
   'rose',
 ] as const;
+
+type Props = {
+  // Add custom props here
+};
+
+export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+  },
+});

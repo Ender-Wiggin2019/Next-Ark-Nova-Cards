@@ -5,7 +5,7 @@
 //   return <>{children}</>;
 // }
 
-import { Analytics } from '@vercel/analytics/react';
+// import { Analytics } from '@vercel/analytics/react';
 import { Suspense } from 'react';
 
 // import { Footer } from '~/app/(main)/Footer'
@@ -30,7 +30,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <main className='flex flex-col items-center'>
             {' '}
             {/* <-- Add styles here */}
-            <div className='w-full max-w-5xl'>
+            <div className='w-full sm:md:max-w-3xl md:max-w-4xl lg:max-w-5xl'>
               {' '}
               {/* <-- Add this div */}
               {children}
@@ -40,7 +40,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </QueryProvider>
 
-      <Analytics />
+      {/*<Analytics />*/}
     </>
   );
 }

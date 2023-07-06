@@ -13,7 +13,7 @@ const LocaleSelector: React.FC<{
   const locales = router.locales ?? [currentLanguage];
 
   const languageNames = useMemo(() => {
-    return new Intl.DisplayNames([currentLanguage], {
+    return new Intl.DisplayNames(currentLanguage, {
       type: 'language',
     });
   }, [currentLanguage]);
@@ -34,7 +34,6 @@ const LocaleSelector: React.FC<{
 
   const languageChanged = useCallback(
     async (locale: string) => {
-      console.log('locale', locale);
       const option = capitalize(languageNames.of(locale) ?? locale);
       setValue({ value: locale, label: option });
 
@@ -50,14 +49,13 @@ const LocaleSelector: React.FC<{
   return (
     <Select.Root value={value.value} onValueChange={languageChanged}>
       <Select.Trigger
-        className='flex w-fit justify-start space-x-1 border-none font-bold text-zinc-800 transition-colors hover:text-lime-600 dark:text-zinc-200 dark:hover:text-lime-400 md:w-40'
+        className='md:w-30 flex w-fit justify-start space-x-1 border-none font-bold text-zinc-800 transition-colors hover:text-lime-600 dark:text-zinc-200 dark:hover:text-lime-400'
         aria-label={t('Placeholder')}
       >
         <Select.Value placeholder={t('Placeholder')} />
       </Select.Trigger>
       <Select.Content className='relative z-50' position='popper'>
         {locales.map((locale) => {
-          console.log('locale', locale);
           const label = capitalize(languageNames.of(locale) ?? locale);
           const option = {
             value: locale,

@@ -169,7 +169,7 @@ export const AnimalsData: AnimalCard[] = [
     size: 5,
     price: 22,
     requirements: [AnimalTag.Predator, AnimalTag.Predator, OtherTag.AnimalsII],
-    tags: [AnimalTag.Predator, ContinentTag.Americas],
+    tags: [AnimalTag.Predator, AnimalTag.Bear, ContinentTag.Americas],
     abilities: [
       new Ability(KeyWord.INVENTIVE),
       new Ability(KeyWord.FULL_THROATED),
@@ -210,7 +210,7 @@ export const AnimalsData: AnimalCard[] = [
     rock: 1,
     price: 11,
     requirements: [],
-    tags: [AnimalTag.Predator, ContinentTag.Americas],
+    tags: [AnimalTag.Predator, AnimalTag.Bear, ContinentTag.Americas],
     abilities: [new Ability(KeyWord.INVENTIVE, 1)],
     appeal: 4,
     source: 'Base',
