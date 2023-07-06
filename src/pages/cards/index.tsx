@@ -7,6 +7,8 @@ import { SponsorCardList } from '@/components/cards/sponsor_cards/SponsorCardLis
 import { RequirementFilter } from '@/components/filters/RequirementFilter';
 import { TagFilter } from '@/components/filters/TagFilter';
 import { TextFilter } from '@/components/filters/TextFilter'; // make sure to import your TextFilter
+import Layout from '@/components/layout/Layout';
+import Seo from '@/components/Seo';
 
 import { Tag } from '@/types/Tags';
 
@@ -22,22 +24,29 @@ export default function HomePage(
   const [textFilter, setTextFilter] = useState<string>(''); // add this line
 
   return (
-    <div>
-      <TagFilter onFilterChange={setSelectedTags} />
-      <RequirementFilter onFilterChange={setSelectedRequirements} />
-      <TextFilter onTextChange={setTextFilter} /> {/* add this line */}
-      <div className='mb-48'></div>
-      <AnimalCardList
-        selectedTags={selectedTags}
-        selectedRequirements={selectedRequirements}
-        textFilter={textFilter}
-      />
-      <SponsorCardList
-        selectedTags={selectedTags}
-        selectedRequirements={selectedRequirements}
-        textFilter={textFilter}
-      />
-    </div>
+    <Layout>
+      {/* <Seo templateTitle='Home' /> */}
+      <Seo />
+
+      <main>
+        <div className=''>
+          <TagFilter onFilterChange={setSelectedTags} />
+          <RequirementFilter onFilterChange={setSelectedRequirements} />
+          <TextFilter onTextChange={setTextFilter} /> {/* add this line */}
+          <div className='mb-48'></div>
+          <AnimalCardList
+            selectedTags={selectedTags}
+            selectedRequirements={selectedRequirements}
+            textFilter={textFilter}
+          />
+          <SponsorCardList
+            selectedTags={selectedTags}
+            selectedRequirements={selectedRequirements}
+            textFilter={textFilter}
+          />
+        </div>
+      </main>
+    </Layout>
   );
 }
 
