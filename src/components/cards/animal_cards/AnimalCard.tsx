@@ -110,9 +110,22 @@ export const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
         </div>
         {animal.abilities && (
           <div className='animal-ability'>
-            {animal.abilities.map((ability, index) => (
-              <Ability key={index} ability={ability} style='full' />
-            ))}
+            {animal.abilities.map((ability, index) => {
+              const isReefDweller =
+                animal.reefDwellerEffect !== undefined &&
+                animal.reefDwellerEffect.some(
+                  (reefDwellerAbility) =>
+                    reefDwellerAbility.keyword === ability.keyword
+                );
+              return (
+                <Ability
+                  key={index}
+                  ability={ability}
+                  isReefDweller={isReefDweller}
+                  style='full'
+                />
+              );
+            })}
           </div>
         )}
       </div>

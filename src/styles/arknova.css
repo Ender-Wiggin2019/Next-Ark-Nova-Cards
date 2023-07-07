@@ -858,7 +858,13 @@
   .ark-card-top
   .ark-card-top-left
   .animal-card-enclosure-cost.wide
-  .animal-card-enclosure {
+  .animal-card-enclosure,
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost.wide
+  .animal-card-enclosure-forbidden {
   border-bottom-right-radius: 8px;
   min-width: 110px;
 }
@@ -4871,6 +4877,22 @@
   background-size: 1780.8695652173913%;
 }
 
+.arknova-icon.icon-mark {
+  background-position: 32.215830315571652% 54.62046204620462%;
+  background-size: 1880.8695652173913%;
+}
+
+.arknova-icon.icon-reef-dweller {
+  background-position: 72.99821474113746% 89.55%;
+  background-size: 1800.9645390070923%;
+}
+
+/* replace original icons with these */
+.arknova-icon.icon-posturing {
+  background-position: 25.399198137609935% 54.62046204620462%;
+  background-size: 1510.8695652173913%;
+}
+
 .arknova-icon.icon-listener-your-zoo {
   background-position: 31.815830315571652% 54.62046204620462%;
   background-size: 1780.8695652173913%;
@@ -4995,11 +5017,11 @@
   background-size: 1780.8695652173913%;
 }
 .arknova-icon.icon-extra-shift {
-  background-position: 77.69821474113746% 89.55%;
-  background-size: 1890.8695652173913%;
+  background-position: 78.31821474113746% 89.55%;
+  background-size: 1950.8695652173913%;
 }
 .arknova-icon.icon-digging {
-  background-position: 51.2157268494568% 54.62046204620462%;
+  background-position: 65.2157268494568% 54.62046204620462%;
   background-size: 1780.8695652173913%;
 }
 
@@ -5271,6 +5293,22 @@
   height: 1.55em;
   width: 1.7em;
 }
+
+.icon-container .icon-mark {
+  height: 1.7em;
+  width: 1.4em;
+}
+
+.icon-container .icon-reef-dweller {
+  height: 1.7em;
+  width: 2em;
+}
+
+.icon-container .icon-posturing {
+  height: 1.5em;
+  width: 1.8em;
+}
+
 .icon-container .icon-extra-shift {
   height: 2em;
   width: 1.5em;
@@ -5298,7 +5336,7 @@
   font-family: MyriadPro-Bold;
   font-size: 0.9em;
   letter-spacing: -1px;
-  line-height: 0.7em;
+  line-height: 1em;
   margin-left: 0.1em;
 }
 

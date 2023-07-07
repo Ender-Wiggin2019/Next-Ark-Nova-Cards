@@ -22,10 +22,25 @@ const AbilityIcon: React.FC<Props> = ({ keyWord, value = '' }) => {
       ? 'digging'
       : null;
 
+  const valueClass =
+    keyWord === KeyWord.POUCH
+      ? 'pouch'
+      : keyWord === KeyWord.PERCEPTION_2 || keyWord === KeyWord.PERCEPTION_4
+      ? 'perception'
+      : keyWord === KeyWord.SUN_BATHING
+      ? 'sunbathing'
+      : keyWord === KeyWord.SHARK_ATTACK
+      ? 'text-white pl-1 pb-1 text-xs'
+      : keyWord === KeyWord.HUNTER
+      ? 'hunter'
+      : keyWord === KeyWord.DIGGING
+      ? 'text-white pl-2 pb-1 text-xs'
+      : '';
+
   return (
     <div className='icon-container'>
       <div className={`arknova-icon scale-90 icon-${keyWordClass}`}>
-        {value}
+        <div className={valueClass}>{value}</div>
       </div>
     </div>
   );

@@ -1942,7 +1942,7 @@ export const AnimalsData: AnimalCard[] = [
     specialEnclosures: [new SpecialEnclosure(SpecialEnclosureType.Aquarium, 1)],
     abilities: [new Ability(KeyWord.POSTURING, 1)],
     description: '',
-    reefDwellerEffect: [new Ability(KeyWord.REEF_MONEY, 3)],
+    reefDwellerEffect: [new Ability(KeyWord.POSTURING, 1)],
     soloEffect: [],
     reputation: 0,
     appeal: 4,
