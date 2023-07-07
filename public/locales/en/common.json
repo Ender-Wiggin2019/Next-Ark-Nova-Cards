@@ -7,6 +7,7 @@
     "FennecFox": "耳郭狐",
     "FENNECFOX": "耳郭狐"
   },
+  "Clever": "机灵",
   "abilities": {
     "Mark": "标记",
     "clever_description": "After finishing you may place any Action card on {Slot-1}",

@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next';
 import React from 'react';
 
 import ParseDescription from '@/components/abilities/ParseDescription';
@@ -23,6 +24,7 @@ interface AbilityProps {
 
 const AbilityComponent: React.FC<AbilityProps> = ({ ability, style }) => {
   // const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const keyword = ability.keyword;
   if (style == 'icon') {
     if (keyword === KeyWord.REEF_MONEY)
@@ -56,9 +58,14 @@ const AbilityComponent: React.FC<AbilityProps> = ({ ability, style }) => {
 
     // else if (keyword === KeyWord.APPEAL) return <AppealIcon value={ability.value} />;
   }
+
+  const keyWord =
+    ability.value.toString().length > 1
+      ? t(ability.keyword.name) + ':' + t(ability.value.toString())
+      : t(ability.keyword.name) + ' ' + t(ability.value.toString());
   return (
     <>
-      <h6 className='animal-ability-title'>{ability.title}</h6>
+      <h6 className='animal-ability-title'>{keyWord}</h6>
       {style == 'full' && (
         <div className='animal-ability-desc sf-hidden'>
           <ParseDescription desc={ability} />
