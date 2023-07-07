@@ -588,6 +588,17 @@
 .ark-card.zoo-card.animal-card
   .ark-card-wrapper
   .ark-card-top
+  > .arknova-reef-container {
+  height: 70px;
+  position: absolute;
+  right: 0px;
+  top: 80px;
+  width: 105px;
+}
+
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
   .ark-card-top-left
   .animal-card-enclosure-cost {
   height: 130px;
@@ -888,7 +899,7 @@
   .animal-ability-desc {
   font-family: MyriadPro-Regular;
   font-size: 17px;
-  line-height: 19px;
+  line-height: 24px;
   margin: 4px 0;
 }
 
@@ -4830,6 +4841,11 @@
   background-size: 1998.0487804878048%;
 }
 
+.arknova-icon.icon-reef-effect {
+  background-position: 6.7338062924120914% 1.2338062924120914%;
+  background-size: 675.0487804878048%;
+}
+
 .arknova-icon.icon-income {
   background-position: 49.12008281573499% 76.15344738206325%;
   background-size: 1765.5172413793102%;
@@ -4971,6 +4987,18 @@
 }
 
 .arknova-icon.icon-sunbathing {
+  background-position: 51.2157268494568% 54.62046204620462%;
+  background-size: 1780.8695652173913%;
+}
+.arknova-icon.icon-shark-attack {
+  background-position: 73.3557268494568% 54.62046204620462%;
+  background-size: 1780.8695652173913%;
+}
+.arknova-icon.icon-extra-shift {
+  background-position: 77.69821474113746% 89.55%;
+  background-size: 1890.8695652173913%;
+}
+.arknova-icon.icon-digging {
   background-position: 51.2157268494568% 54.62046204620462%;
   background-size: 1780.8695652173913%;
 }
@@ -5243,7 +5271,16 @@
   height: 1.55em;
   width: 1.7em;
 }
+.icon-container .icon-extra-shift {
+  height: 2em;
+  width: 1.5em;
+}
 
+.icon-container .icon-sunbathing,
+.icon-container .icon-shark-attack,
+.icon-container .icon-perception,
+.icon-container .icon-digging,
+.icon-container .icon-hunter,
 .icon-container .icon-pouch {
   align-items: flex-end;
   display: flex;
@@ -5251,7 +5288,11 @@
   justify-content: flex-start;
   width: 1.7em;
 }
-
+.icon-container .icon-sunbathing,
+.icon-container .icon-shark-attack,
+.icon-container .icon-perception,
+.icon-container .icon-digging,
+.icon-container .icon-hunter,
 .icon-container .icon-pouch span {
   color: #fff;
   font-family: MyriadPro-Bold;

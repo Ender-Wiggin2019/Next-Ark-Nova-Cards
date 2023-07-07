@@ -3,12 +3,19 @@ import { useTranslation } from 'next-i18next';
 import React from 'react';
 
 import Ability from '@/components/abilities/Ability';
+import AbilityComponent from '@/components/abilities/Ability';
+import Constriction from '@/components/icons/abilities/Constriction';
+import Hypnosis from '@/components/icons/abilities/Hypnosis';
+import Venom from '@/components/icons/abilities/Venom';
 import Enclosures from '@/components/icons/Enclosures';
+import Pilfering from '@/components/icons/interaction/Pilfering';
+import ReefEffect from '@/components/icons/marine_world/ReefEffect';
 import Money from '@/components/icons/Money';
 import Tag from '@/components/icons/Tag';
 import AnimalCardWrapper from '@/components/wrapper/AnimalWrapper';
 
 import { AnimalCard as AnimalCardType } from '@/types/AnimalCard';
+import { KeyWord } from '@/types/KeyWords';
 
 interface AnimalCardProps {
   animal: AnimalCardType;
@@ -30,6 +37,27 @@ export const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
     // </div>
     <AnimalCardWrapper id={animal.id}>
       <div className='ark-card-top'>
+        {animal.abilities?.map((ability, index) =>
+          ability.keyword === KeyWord.CONSTRICTION ? (
+            <Constriction key={index} />
+          ) : ability.keyword === KeyWord.HYPNOSIS ? (
+            <Hypnosis key={index} />
+          ) : ability.keyword === KeyWord.VENOM ? (
+            <Venom key={index} />
+          ) : ability.keyword === KeyWord.PILFERING_1 ||
+            ability.keyword === KeyWord.PILFERING_2 ? (
+            <Pilfering key={index} />
+          ) : null
+        )}
+        {animal.reefDwellerEffect !== undefined &&
+          animal.reefDwellerEffect.length > 0 && (
+            <ReefEffect>
+              <AbilityComponent
+                ability={animal.reefDwellerEffect[0]}
+                style='icon'
+              />
+            </ReefEffect>
+          )}
         <div className='ark-card-top-left'>
           <Enclosures
             size={animal.size}

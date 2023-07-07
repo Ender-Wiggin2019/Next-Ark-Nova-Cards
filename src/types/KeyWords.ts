@@ -259,6 +259,7 @@ export class KeyWord {
     'Monkey Gang',
     'abilities.monkey_gang_description'
   );
+  static APPEAL = new KeyWord('Appeal', 'abilities.appeal_description');
 
   constructor(public name: string, public descriptionTemplate: string) {}
 }

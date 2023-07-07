@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Kiosk: React.FC = () => {
+const Determination: React.FC = () => {
   return (
     <div className='icon-container icon-determination'>
       <div className='arknova-icon icon-determination'></div>
@@ -8,4 +8,4 @@ const Kiosk: React.FC = () => {
   );
 };
 
-export default Kiosk;
+export default Determination;
