@@ -1,8 +1,4 @@
-import {
-  GetServerSideProps,
-  GetStaticProps,
-  InferGetStaticPropsType,
-} from 'next';
+import { GetServerSideProps } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';

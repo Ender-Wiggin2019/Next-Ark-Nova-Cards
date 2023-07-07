@@ -4,9 +4,11 @@ import React from 'react';
 import ActionCardIcon from '@/components/icons/actions/ActionCardIcon';
 import Determination from '@/components/icons/actions/Determination';
 import Strength from '@/components/icons/actions/Strength';
+import Marketing from '@/components/icons/bonuses/Marketing';
 import AnimalSizeIcon from '@/components/icons/buildings/AnimalSizeIcon';
 import EmptySizeIcon from '@/components/icons/buildings/EmptySizeIcon';
 import EnclosureIcon from '@/components/icons/buildings/EnclosureIcon';
+import Kiosk from '@/components/icons/buildings/Kiosk';
 import LargeBirdAviary from '@/components/icons/buildings/LargeBirdAviary';
 import Snap from '@/components/icons/take_cards/Snap';
 import TakeCardInRange from '@/components/icons/take_cards/TakeCardInRange';
@@ -14,6 +16,7 @@ import AppealIcon from '@/components/icons/tokens/AppealIcon';
 import ConservationIcon from '@/components/icons/tokens/ConservationIcon';
 import MoneyIcon from '@/components/icons/tokens/MoneyIcon';
 import MultiplierToken from '@/components/icons/tokens/MultiplierToken';
+import ReputationIcon from '@/components/icons/tokens/ReputationIcon';
 import TagIcon from '@/components/icons/tokens/TagIcon';
 import XToken from '@/components/icons/tokens/XToken';
 
@@ -61,10 +64,14 @@ const ParseDescription: React.FC<ParseDescriptionProps> = ({ desc }) => {
         return <AppealIcon key={index} value={param || ''} />;
       } else if (keyword === 'ConservationPoint') {
         return <ConservationIcon key={index} value={param || ''} />;
+      } else if (keyword === 'Reputation') {
+        return <ReputationIcon key={index} value={param || ''} />;
       } else if (keyword === 'XToken') {
         return <XToken key={index} />;
       } else if (keyword === 'MultiplierToken') {
         return <MultiplierToken key={index} />;
+      } else if (keyword === 'Kiosk') {
+        return <Kiosk key={index} />;
       } else if (keyword === 'LargeBirdAviary') {
         return <LargeBirdAviary key={index} />;
       } else if (keyword === 'Size' && param === 'Animal') {
@@ -75,6 +82,10 @@ const ParseDescription: React.FC<ParseDescriptionProps> = ({ desc }) => {
         return <EmptySizeIcon key={index} value={value + '+'} />;
       } else if (keyword === 'HerbivoreTag') {
         return <TagIcon key={index} type={AnimalTag.Herbivore} />;
+      } else if (keyword === 'ReptileTag') {
+        return <TagIcon key={index} type={AnimalTag.Reptile} />;
+      } else if (keyword === 'SeaAnimalTag') {
+        return <TagIcon key={index} type={AnimalTag.SeaAnimal} />;
       } else if (keyword === 'Determination') {
         return <Determination key={index} />;
       } else if (keyword === 'AnimalActionCard') {
@@ -95,6 +106,8 @@ const ParseDescription: React.FC<ParseDescriptionProps> = ({ desc }) => {
         );
       } else if (keyword === 'ActionCard') {
         return <ActionCardIcon key={index} />;
+      } else if (keyword === 'Marketing') {
+        return <Marketing key={index} />;
       }
     }
     return word;

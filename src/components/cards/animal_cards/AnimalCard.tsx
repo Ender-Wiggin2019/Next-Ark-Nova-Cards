@@ -69,14 +69,15 @@ export const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
       </div>
       <div className='ark-card-bottom'>
         <div className='zoo-card-bonuses' data-size={dataSize.toString()}>
-          {animal.reputation !== undefined && (
+          {animal.reputation !== undefined && animal.reputation > 0 && (
             <div className='zoo-card-bonus reputation'>{animal.reputation}</div>
           )}
-          {animal.conservationPoint !== undefined && (
-            <div className='zoo-card-bonus conservation'>
-              {animal.conservationPoint}
-            </div>
-          )}
+          {animal.conservationPoint !== undefined &&
+            animal.conservationPoint > 0 && (
+              <div className='zoo-card-bonus conservation'>
+                {animal.conservationPoint}
+              </div>
+            )}
           <div className='zoo-card-bonus appeal'>{animal.appeal}</div>
         </div>
         {animal.abilities && (

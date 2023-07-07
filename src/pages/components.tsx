@@ -14,7 +14,6 @@ import {
 
 import Button from '@/components/buttons/Button';
 import IconButton from '@/components/buttons/IconButton';
-import TextButton from '@/components/buttons/TextButton';
 import Layout from '@/components/layout/Layout';
 import ArrowLink from '@/components/links/ArrowLink';
 import ButtonLink from '@/components/links/ButtonLink';
@@ -411,8 +410,8 @@ export default function ComponentsPage(
                   Button with a text style
                 </p>
                 <div className='space-x-2'>
-                  <TextButton>Primary Variant</TextButton>
-                  <TextButton variant='basic'>Basic Variant</TextButton>
+                  {/*<TextButton>Primary Variant</TextButton>*/}
+                  {/*<TextButton variant='basic'>Basic Variant</TextButton>*/}
                 </div>
               </li>
               <li className='space-y-2'>

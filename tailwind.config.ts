@@ -24,6 +24,16 @@ export default {
           950: 'rgb(var(--tw-color-primary-950) / <alpha-value>)',
         },
         dark: '#222222',
+        ark: {
+          animal: '#eb8a00',
+          animalDark: '#fcbd1a',
+          sponsor: '#006999',
+          sponsorDark: '#006999',
+          conversation: '#4c7d39',
+          conversationDark: '#1e541d',
+          endgame: '#a04d35',
+          endgameDark: '#a04d35',
+        },
       },
       keyframes: {
         flicker: {

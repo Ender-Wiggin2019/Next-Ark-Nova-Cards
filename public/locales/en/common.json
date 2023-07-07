@@ -55,7 +55,22 @@
     "perception_4_description": "Draw 4 cards from the deck. Add 2 to your hand and discard the rest.",
     "determination_description": "After finishing this action, you take 1 other action {ActionCard}",
     "peacocking_description": "You may place a Large Bird Aviary {LargeBirdAviary} for free, if possible.",
-    "petting_zoo_animal_description": "Gain {Appeal-3} for each Petting Zoo Animal icon in your zoo."
+    "petting_zoo_animal_description": "Gain {Appeal-3} for each Petting Zoo Animal icon in your zoo.",
+
+    "mark_description": "After finishing this action, mark 1 Animal card in the display.",
+    "trade_description": "You may trade exactly 1 {XToken} -Marker for {Money-5} or vice versa.",
+    "sea_animal_magnet_description": "Add all cards with the {SeaAnimalTag} icon from the display to your hand.",
+    "symbiosis_description": "Use 1 ability (not a Reef Dweller effect) of 1 other {SeaAnimalTag} card in your zoo.",
+    "helpful_description": "No Reef Dweller effect of its own.",
+    "extra_shift_description": "You may return 1 of your association workers to your notepad.",
+    "glide_description": "Discard up to 3 cards from your hand: For every icon on them, gain 1 of these 3 effects: {Reputation-1} / {Appeal-2} / {Kiosk} .",
+    "shark_attack_description": "Discard {} Animal card(s) in reputation range from the display: Gain half the {Appeal} of those cards (round down).",
+    "cut_down_description": "You may remove 1 empty standard enclosure from your zoo map and gain back its cost.",
+    "camouflage_description": "If you play 1 other animal during this turn, you may ignore 1 of its conditions",
+    "scuba_dive_description": "Reveal the X topmost cards of the deck. Choose 1 Sponsor card and add it to your hand. Discard the other cards. X is the number of {SeaAnimalTag} + {ReptileTag} in your zoo.",
+    "marketing_description": "{Marketing}",
+    "adapt_description": "Draw {} Final Scoring cards, then discard {} Final Scoring cards.",
+    "monkey_gang_description": "abilities.monkey_gang_description"
   },
   "Lion": "Lion"
 }

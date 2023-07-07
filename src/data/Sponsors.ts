@@ -875,4 +875,18 @@ export const SponsorsData: SponsorCard[] = [
     conservationPoint: 0,
     source: 'Base',
   },
+  {
+    id: '281',
+    name: 'ARCADE',
+    strength: 3,
+    rock: 0,
+    water: 0,
+    requirements: [],
+    tags: [],
+    effects: [],
+    reputation: 0,
+    appeal: 2,
+    conservationPoint: 0,
+    source: 'Base',
+  },
 ];

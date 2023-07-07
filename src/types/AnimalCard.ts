@@ -30,6 +30,7 @@ export interface AnimalCard {
   description?: string;
   reefDwellerEffect?: Ability[];
   soloEffect?: Ability[];
+  wave?: boolean;
 
   // bottom
   reputation?: number;

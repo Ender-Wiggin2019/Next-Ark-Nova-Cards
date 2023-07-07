@@ -191,9 +191,73 @@ export class KeyWord {
     '{Appeal-3} and {HerbivoreTag} and {Perception} and {Size-Animal} and also {AssociationActionCard} and {Size-X+}'
   );
 
-  static MARK = new KeyWord(
-    'Mark',
-    'After finishing this action, mark {} Animal card in the display {TakeCardInRange}'
+  // Marine World
+  static MARK = new KeyWord('Mark', 'abilities.mark_description');
+
+  static TRADE = new KeyWord('Trade', 'abilities.trade_description');
+
+  static SEA_ANIMAL_MAGNET = new KeyWord(
+    'Sea Animal Magnet',
+    'abilities.sea_animal_magnet_description'
+  );
+
+  static REEF_MONEY = new KeyWord('Money', 'abilities.reef_money_description');
+
+  static SYMBIOSIS = new KeyWord(
+    'Symbiosis',
+    'abilities.symbiosis_description'
+  );
+
+  static HELPFUL = new KeyWord('Helpful', 'abilities.helpful_description');
+
+  static TAKE_CARD_IN_RANGE = new KeyWord(
+    'Take Card in Range',
+    'abilities.take_card_in_range_description'
+  );
+
+  static REPUTATION = new KeyWord(
+    'Reputation',
+    'abilities.reputation_description'
+  );
+
+  static CONSERVATION_POINT = new KeyWord(
+    'Conservation Point',
+    'abilities.conservation_point_description'
+  );
+
+  static EXTRA_SHIFT = new KeyWord(
+    'Extra Shift',
+    'abilities.extra_shift_description'
+  );
+
+  static GLIDE = new KeyWord('Glide', 'abilities.glide_description');
+
+  static SHARK_ATTACK = new KeyWord(
+    'Shark Attack',
+    'abilities.shark_attack_description'
+  );
+
+  static CUT_DOWN = new KeyWord('Cut Down', 'abilities.cut_down_description');
+
+  static CAMOUFLAGE = new KeyWord(
+    'Camouflage',
+    'abilities.camouflage_description'
+  );
+
+  static SCUBA_DIVE = new KeyWord(
+    'Scuba Dive X',
+    'abilities.scuba_dive_description'
+  );
+
+  static MARKETING = new KeyWord(
+    'Marketing',
+    'abilities.marketing_description'
+  );
+
+  static ADAPT = new KeyWord('Adapt', 'abilities.adapt_description');
+  static MONKEY_GANG = new KeyWord(
+    'Monkey Gang',
+    'abilities.monkey_gang_description'
   );
 
   constructor(public name: string, public descriptionTemplate: string) {}

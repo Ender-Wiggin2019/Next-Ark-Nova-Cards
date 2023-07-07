@@ -714,6 +714,20 @@
   .ark-card-top-left
   .animal-card-enclosure-cost
   .animal-card-enclosure
+  > div.icon-enclosure-special-aquarium {
+  color: #fff;
+  font-size: 22px;
+  line-height: 45px;
+  width: 42px;
+  padding-right: 4px;
+}
+
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost
+  .animal-card-enclosure
   > div.icon-enclosure-special-petting-zoo {
   box-sizing: border-box;
   font-size: 32px;
@@ -874,6 +888,7 @@
   .animal-ability-desc {
   font-family: MyriadPro-Regular;
   font-size: 17px;
+  line-height: 19px;
   margin: 4px 0;
 }
 
@@ -1456,6 +1471,104 @@
 
 .zoo-card.animal-card[data-id='A528_BennettsWallaby'] .ark-card-top {
   background-image: url(/img/animals/A528_BennettsWallaby.jpg);
+}
+
+/* Marine World */
+.zoo-card.animal-card[data-id='A529_MagnificentSeaAnemone'] .ark-card-top {
+  background-image: url(/img/animals/A529_MagnificentSeaAnemone.jpg);
+}
+.zoo-card.animal-card[data-id='A530_OrangeClownfish'] .ark-card-top {
+  background-image: url(/img/animals/A530_OrangeClownfish.jpg);
+}
+.zoo-card.animal-card[data-id='A531_PaletteSurgeonfish'] .ark-card-top {
+  background-image: url(/img/animals/A531_PaletteSurgeonfish.jpg);
+}
+.zoo-card.animal-card[data-id='A532_Zooplankton'] .ark-card-top {
+  background-image: url(/img/animals/A532_Zooplankton.jpg);
+}
+.zoo-card.animal-card[data-id='A533_BlacksideHawkfish'] .ark-card-top {
+  background-image: url(/img/animals/A533_BlacksideHawkfish.jpg);
+}
+.zoo-card.animal-card[data-id='A534_SouthernBlue-RingedOctopl'] .ark-card-top {
+  background-image: url(/img/animals/A534_SouthernBlue-RingedOctopl.jpg);
+}
+.zoo-card.animal-card[data-id='A535_SharknoseGoby'] .ark-card-top {
+  background-image: url(/img/animals/A535_SharknoseGoby.jpg);
+}
+.zoo-card.animal-card[data-id='A536_LonghornCowfish'] .ark-card-top {
+  background-image: url(/img/animals/A536_LonghornCowfish.jpg);
+}
+.zoo-card.animal-card[data-id='A537_BlackbarTriggerfish'] .ark-card-top {
+  background-image: url(/img/animals/A537_BlackbarTriggerfish.jpg);
+}
+.zoo-card.animal-card[data-id='A538_DevilFirefish'] .ark-card-top {
+  background-image: url(/img/animals/A538_DevilFirefish.jpg);
+}
+.zoo-card.animal-card[data-id='A539_MericanWhitespottedFilefis'] .ark-card-top {
+  background-image: url(/img/animals/A539_MericanWhitespottedFilefis.jpg);
+}
+.zoo-card.animal-card[data-id='A540_GuineafowlPuffer'] .ark-card-top {
+  background-image: url(/img/animals/A540_GuineafowlPuffer.jpg);
+}
+.zoo-card.animal-card[data-id='A541_BluespottedRibbontailRay'] .ark-card-top {
+  background-image: url(/img/animals/A541_BluespottedRibbontailRay.jpg);
+}
+.zoo-card.animal-card[data-id='A542_Humpheadwrasse'] .ark-card-top {
+  background-image: url(/img/animals/A542_Humpheadwrasse.jpg);
+}
+.zoo-card.animal-card[data-id='A543_CoastalMantaRay'] .ark-card-top {
+  background-image: url(/img/animals/A543_CoastalMantaRay.jpg);
+}
+.zoo-card.animal-card[data-id='A544_CaribbeanReefShark'] .ark-card-top {
+  background-image: url(/img/animals/A544_CaribbeanReefShark.jpg);
+}
+.zoo-card.animal-card[data-id='A545_LongcombSawfish'] .ark-card-top {
+  background-image: url(/img/animals/A545_LongcombSawfish.jpg);
+}
+.zoo-card.animal-card[data-id='A546_SandTigerShark'] .ark-card-top {
+  background-image: url(/img/animals/A546_SandTigerShark.jpg);
+}
+.zoo-card.animal-card[data-id='A547_MediterraneanRainbow'] .ark-card-top {
+  background-image: url(/img/animals/A547_MediterraneanRainbow.jpg);
+}
+.zoo-card.animal-card[data-id='A548_LinedSeahorse'] .ark-card-top {
+  background-image: url(/img/animals/A548_LinedSeahorse.jpg);
+}
+.zoo-card.animal-card[data-id='A549_MmonOctopus'] .ark-card-top {
+  background-image: url(/img/animals/A549_MmonOctopus.jpg);
+}
+.zoo-card.animal-card[data-id='A550_CompassJellyfish'] .ark-card-top {
+  background-image: url(/img/animals/A550_CompassJellyfish.jpg);
+}
+.zoo-card.animal-card[data-id='A551_LoggerheadSeaTurtle'] .ark-card-top {
+  background-image: url(/img/animals/A551_LoggerheadSeaTurtle.jpg);
+}
+.zoo-card.animal-card[data-id='A552_GreenSeaTurtle'] .ark-card-top {
+  background-image: url(/img/animals/A552_GreenSeaTurtle.jpg);
+}
+.zoo-card.animal-card[data-id='A553_Tambaqui'] .ark-card-top {
+  background-image: url(/img/animals/A553_Tambaqui.jpg);
+}
+.zoo-card.animal-card[data-id='A554_AfricanPenguin'] .ark-card-top {
+  background-image: url(/img/animals/A554_AfricanPenguin.jpg);
+}
+.zoo-card.animal-card[data-id='A555_SoldenSnub-NosedMonkey'] .ark-card-top {
+  background-image: url(/img/animals/A555_SoldenSnub-NosedMonkey.jpg);
+}
+.zoo-card.animal-card[data-id='A556_Wolverine'] .ark-card-top {
+  background-image: url(/img/animals/A556_Wolverine.jpg);
+}
+.zoo-card.animal-card[data-id='A557_IetnamesePot-BelliedPig'] .ark-card-top {
+  background-image: url(/img/animals/A557_IetnamesePot-BelliedPig.jpg);
+}
+.zoo-card.animal-card[data-id='A558_NorthernMuriqui'] .ark-card-top {
+  background-image: url(/img/animals/A558_NorthernMuriqui.jpg);
+}
+.zoo-card.animal-card[data-id='A559_CoquerelsSifaka'] .ark-card-top {
+  background-image: url(/img/animals/A559_CoquerelsSifaka.jpg);
+}
+.zoo-card.animal-card[data-id='A560_BrahminyKite'] .ark-card-top {
+  background-image: url(/img/animals/A560_BrahminyKite.jpg);
 }
 
 .ark-card.zoo-card.project-card .ark-card-wrapper {
@@ -4562,6 +4675,20 @@
   .ark-card-top-left
   .animal-card-enclosure-cost
   .animal-card-enclosure-forbidden
+  > div.icon-enclosure-special-aquarium {
+  color: #fff;
+  font-size: 22px;
+  line-height: 45px;
+  width: 42px;
+  padding-right: 4px;
+}
+
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left
+  .animal-card-enclosure-cost
+  .animal-card-enclosure-forbidden
   > div.icon-enclosure-special-petting-zoo {
   color: #fff;
   box-sizing: border-box;
@@ -4573,32 +4700,32 @@
 }
 
 .arknova-icon.icon-enclosure-forbidden {
-  background-position: 12.596999482669426% 89.38%;
+  background-position: 12.596999482669426% 89.55%;
   background-size: 1780.8695652173913%;
 }
 
 .arknova-icon.icon-enclosure-forbidden-rock {
-  background-position: 19.71642589620118% 89.38%;
+  background-position: 19.71642589620118% 89.55%;
   background-size: 1144.1340782122904%;
 }
 
 .arknova-icon.icon-enclosure-forbidden-rock-rock {
-  background-position: 29.82878544676297% 89.38%;
+  background-position: 29.82878544676297% 89.55%;
   background-size: 1144.1340782122904%;
 }
 
 .arknova-icon.icon-enclosure-forbidden-rock-water {
-  background-position: 39.94114499732477% 89.38%;
+  background-position: 39.94114499732477% 89.55%;
   background-size: 1144.1340782122904%;
 }
 
 .arknova-icon.icon-enclosure-forbidden-water {
-  background-position: 50.053504547886575% 89.38%;
+  background-position: 50.053504547886575% 89.55%;
   background-size: 1144.1340782122904%;
 }
 
 .arknova-icon.icon-enclosure-forbidden-water-water {
-  background-position: 60.16586409844836% 89.38%;
+  background-position: 60.16586409844836% 89.55%;
   background-size: 1144.1340782122904%;
 }
 
@@ -4616,6 +4743,11 @@
 .arknova-icon.icon-enclosure-special-large-bird-aviary {
   background-position: 66.99821474113746% 67.37012987012987%;
   background-size: 2340.5714285714284%;
+}
+
+.arknova-icon.icon-enclosure-special-aquarium {
+  background-position: 66.99821474113746% 89.55%;
+  background-size: 2404.9645390070923%;
 }
 
 .arknova-icon.icon-enclosure-special-petting-zoo {
@@ -5042,6 +5174,11 @@
 }
 
 .icon-container .icon-enclosure-special-large-bird-aviary {
+  height: 1.7em;
+  width: 1.6em;
+}
+
+.icon-container .icon-enclosure-special-aquarium {
   height: 1.7em;
   width: 1.6em;
 }
