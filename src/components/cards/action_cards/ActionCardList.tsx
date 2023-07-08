@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import CardList from '@/components/cards/shared/CardList';
 
-import { AnimalCard } from './AnimalCard';
 import { useAnimalData } from './useAnimalData';
 
 import { AnimalCard as AnimalCardType } from '@/types/AnimalCard';
@@ -12,7 +11,6 @@ interface AnimalCardListProps {
   selectedTags?: Tag[];
   selectedRequirements?: Tag[];
   textFilter?: string;
-  onCardCountChange: (count: number) => void;
   // ... any other filters
 }
 
@@ -57,11 +55,10 @@ const filterAnimals = (
   );
 };
 
-export const AnimalCardList: React.FC<AnimalCardListProps> = ({
+export const ActionCardList: React.FC<AnimalCardListProps> = ({
   selectedTags,
   selectedRequirements,
   textFilter,
-  onCardCountChange,
 }) => {
   const animalsData = useAnimalData();
   const filteredAnimals = filterAnimals(
@@ -71,15 +68,11 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
     textFilter
   );
 
-  useEffect(() => {
-    onCardCountChange(filteredAnimals.length);
-  }, [filteredAnimals, onCardCountChange]);
-
   return (
     <CardList>
       {filteredAnimals.map((animal: AnimalCardType) => (
         <div key={animal.id} className='scale-150 pb-48'>
-          <AnimalCard key={animal.id} animal={animal} />
+          {/*<ActionCard key={animal.id} animal={animal} />*/}
         </div>
       ))}
     </CardList>

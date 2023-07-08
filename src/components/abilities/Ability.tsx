@@ -69,10 +69,13 @@ const AbilityComponent: React.FC<AbilityProps> = ({
     // else if (keyword === KeyWord.APPEAL) return <AppealIcon value={ability.value} />;
   }
 
+  // FIXME: it's a temporary solution, need to be refactored
   const keyWord =
     ability.value.toString().length > 1
       ? t(ability.keyword.name) + ':' + t(ability.value.toString())
-      : t(ability.keyword.name) + ' ' + t(ability.value.toString());
+      : ability.value.toString().length === 1
+      ? t(ability.keyword.name) + ' ' + t(ability.value.toString())
+      : t(ability.keyword.name);
   return (
     <div className='flex'>
       {isReefDweller !== undefined && isReefDweller && (

@@ -1,12 +1,17 @@
 import classNames from 'classnames';
 import { motion, Variants } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BiChevronDown } from 'react-icons/bi';
 
 import TagButton from '@/components/buttons/TagButton';
 
 import { AnimalTag, ContinentTag, OtherTag, Tag } from '@/types/Tags';
+
+type RequirementFilterProps = {
+  onFilterChange: (tags: Tag[]) => void;
+  reset: boolean;
+};
 
 const itemVariants: Variants = {
   open: {
@@ -17,9 +22,10 @@ const itemVariants: Variants = {
   closed: { opacity: 0, x: -100, transition: { duration: 0.2 } },
 };
 
-export const RequirementFilter: React.FC<{
-  onFilterChange: (tags: Tag[]) => void;
-}> = ({ onFilterChange }) => {
+export const RequirementFilter: React.FC<RequirementFilterProps> = ({
+  onFilterChange,
+  reset,
+}) => {
   const { t } = useTranslation('common');
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -45,9 +51,15 @@ export const RequirementFilter: React.FC<{
 
   // logic: and, or
 
-  React.useEffect(() => {
+  useEffect(() => {
     onFilterChange(selectedTags);
   }, [selectedTags]);
+
+  useEffect(() => {
+    if (reset) {
+      setSelectedTags([]);
+    }
+  }, [reset]);
 
   return (
     <motion.nav

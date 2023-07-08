@@ -12,16 +12,20 @@ const links = [
 
 export function Header() {
   return (
-    <header className='sticky top-0 z-50 bg-white'>
+    <header className='sticky top-0 z-50 bg-white/90'>
       <div className='layout flex h-14 items-center justify-between'>
-        <UnstyledLink href='/' className='font-bold hover:text-gray-600'>
-          Home
-        </UnstyledLink>
-        <div className='flex flex-1 justify-end md:justify-center'>
+        <div className='flex w-60 justify-start'>
+          <UnstyledLink href='/' className='font-bold hover:text-lime-600'>
+            Ark Nova Unofficial Website
+          </UnstyledLink>
+        </div>
+        <div className='flex flex-1 grow justify-end md:justify-center'>
           <NavigationBar.Mobile className='pointer-events-auto relative z-50 md:hidden' />
           <NavigationBar.Desktop className='pointer-events-auto relative z-50 hidden md:block' />
         </div>
-        <LocaleSelector />
+        <div className='flex w-48 justify-end'>
+          <LocaleSelector />
+        </div>
       </div>
     </header>
   );

@@ -1,6 +1,8 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { FiRotateCcw } from 'react-icons/fi';
 
 import { AnimalCardList } from '@/components/cards/animal_cards/AnimalCardList';
 import { SponsorCardList } from '@/components/cards/sponsor_cards/SponsorCardList';
@@ -10,6 +12,7 @@ import { TagFilter } from '@/components/filters/TagFilter';
 import { TextFilter } from '@/components/filters/TextFilter'; // make sure to import your TextFilter
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
+import { CardOdometer } from '@/components/ui/CardOdometer';
 
 import { CardType } from '@/types/Card';
 import { Tag } from '@/types/Tags';
@@ -21,10 +24,47 @@ type Props = {
 export default function HomePage(
   _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
+  const { t } = useTranslation('common');
+  const [reset, setReset] = useState<boolean>(false);
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
   const [selectedRequirements, setSelectedRequirements] = useState<Tag[]>([]);
   const [textFilter, setTextFilter] = useState<string>(''); // add this line
   const [selectedCardTypes, setSelectedCardTypes] = useState<CardType[]>([]);
+
+  const [animalCardsCount, setAnimalCardsCount] = useState<number>(0);
+  const [sponsorCardsCount, setSponsorCardsCount] = useState<number>(0);
+
+  useEffect(() => {
+    if (
+      selectedCardTypes.length !== 0 &&
+      !selectedCardTypes.includes(CardType.ANIMAL_CARD)
+    ) {
+      setAnimalCardsCount(0);
+    }
+    if (
+      selectedCardTypes.length !== 0 &&
+      !selectedCardTypes.includes(CardType.SPONSOR_CARD)
+    ) {
+      setSponsorCardsCount(0);
+    }
+  }, [selectedCardTypes]);
+
+  useEffect(() => {
+    if (reset) {
+      setReset(false);
+    }
+  }, [reset]);
+
+  const resetAll = () => {
+    setSelectedTags([]);
+    setSelectedRequirements([]);
+    setTextFilter('');
+    setSelectedCardTypes([]);
+    setAnimalCardsCount(0);
+    setSponsorCardsCount(0);
+
+    setReset(true);
+  };
 
   return (
     <Layout>
@@ -34,10 +74,36 @@ export default function HomePage(
       <main>
         <div className=''>
           <div className='flex flex-col space-y-4 p-2'>
-            <CardTypeFilter onFilterChange={setSelectedCardTypes} />
-            <TagFilter onFilterChange={setSelectedTags} />
-            <RequirementFilter onFilterChange={setSelectedRequirements} />
-            <TextFilter onTextChange={setTextFilter} />
+            <CardTypeFilter
+              onFilterChange={setSelectedCardTypes}
+              reset={reset}
+            />
+            <TagFilter onFilterChange={setSelectedTags} reset={reset} />
+            <RequirementFilter
+              onFilterChange={setSelectedRequirements}
+              reset={reset}
+            />
+            <div className='flex flex-row space-x-4'>
+              <TextFilter onTextChange={setTextFilter} reset={reset} />
+              <div className='group flex w-auto items-center justify-between space-x-2 rounded-2xl rounded-md bg-zinc-600 px-4 py-2 text-lg font-medium text-zinc-100 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md hover:bg-zinc-500 hover:text-lime-400 focus:outline-none focus-visible:ring-2 dark:from-zinc-900/30 dark:to-zinc-800/80 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20 dark:focus-visible:ring-yellow-500/80'>
+                <button onClick={resetAll}>
+                  <FiRotateCcw className='' />
+                </button>
+              </div>
+            </div>
+
+            <div className='flex flex-row space-x-4'>
+              <CardOdometer
+                value={animalCardsCount}
+                name={t('Animal')}
+                className='text-ark-animal hover:text-ark-animalDark'
+              />
+              <CardOdometer
+                value={sponsorCardsCount}
+                name={t('Sponsor')}
+                className='text-ark-sponsor hover:text-ark-sponsorDark'
+              />
+            </div>
           </div>
           <div className='mb-36'></div>
           {(selectedCardTypes.length === 0 ||
@@ -46,6 +112,7 @@ export default function HomePage(
               selectedTags={selectedTags}
               selectedRequirements={selectedRequirements}
               textFilter={textFilter}
+              onCardCountChange={setAnimalCardsCount}
             />
           )}
           {(selectedCardTypes.length === 0 ||
@@ -54,6 +121,7 @@ export default function HomePage(
               selectedTags={selectedTags}
               selectedRequirements={selectedRequirements}
               textFilter={textFilter}
+              onCardCountChange={setSponsorCardsCount}
             />
           )}
         </div>

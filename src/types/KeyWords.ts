@@ -271,8 +271,10 @@ export class Ability {
     const valueString = this.value.toString();
     if (valueString.length > 1) {
       return `${this.keyword.name}: ${valueString}`;
-    } else {
+    } else if (valueString.length === 1) {
       return `${this.keyword.name} ${valueString}`;
+    } else {
+      return this.keyword.name;
     }
   }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import CardList from '@/components/cards/shared/CardList';
 
@@ -12,6 +12,7 @@ interface SponsorCardListProps {
   selectedTags?: Tag[];
   selectedRequirements?: Tag[];
   textFilter?: string;
+  onCardCountChange: (count: number) => void;
   // ... any other filters
 }
 
@@ -56,6 +57,7 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
   selectedTags,
   selectedRequirements,
   textFilter,
+  onCardCountChange,
 }) => {
   const sponsorsData = useSponsorData();
   const filteredSponsors = filterSponsors(
@@ -64,6 +66,10 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
     selectedRequirements,
     textFilter
   );
+
+  useEffect(() => {
+    onCardCountChange(filteredSponsors.length);
+  }, [filteredSponsors, onCardCountChange]);
 
   return (
     <CardList>

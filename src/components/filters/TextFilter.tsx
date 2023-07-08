@@ -3,11 +3,15 @@ import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
 
-interface TextFilterProps {
+type TextFilterProps = {
   onTextChange: (newText: string) => void;
-}
+  reset: boolean;
+};
 
-export const TextFilter: React.FC<TextFilterProps> = ({ onTextChange }) => {
+export const TextFilter: React.FC<TextFilterProps> = ({
+  onTextChange,
+  reset,
+}) => {
   const { t } = useTranslation('common');
   const [text, setText] = useState<string>('');
 
@@ -27,6 +31,12 @@ export const TextFilter: React.FC<TextFilterProps> = ({ onTextChange }) => {
     setText(text);
     onTextChange(text);
   };
+
+  React.useEffect(() => {
+    if (reset) {
+      setText('');
+    }
+  }, [reset]);
 
   return (
     <div

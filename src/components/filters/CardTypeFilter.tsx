@@ -1,14 +1,20 @@
 // CategoryFilter.tsx
 import { useTranslation } from 'next-i18next';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import TextButton from '@/components/buttons/TextButton';
 
 import { CardType } from '@/types/Card';
 
-export const CardTypeFilter: React.FC<{
-  onFilterChange: (category: CardType[]) => void;
-}> = ({ onFilterChange }) => {
+type CardTypeFilterProps = {
+  onFilterChange: (tags: CardType[]) => void;
+  reset: boolean;
+};
+
+export const CardTypeFilter: React.FC<CardTypeFilterProps> = ({
+  onFilterChange,
+  reset,
+}) => {
   const { t } = useTranslation('common');
   const [selectedCategories, setSelectedCategories] = useState<CardType[]>([]);
 
@@ -20,9 +26,16 @@ export const CardTypeFilter: React.FC<{
     );
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     onFilterChange(selectedCategories);
   }, [selectedCategories]);
+
+  useEffect(() => {
+    if (reset) {
+      setSelectedCategories([]);
+    }
+  }, [reset]);
+
   return (
     <div className='flex gap-4'>
       <TextButton

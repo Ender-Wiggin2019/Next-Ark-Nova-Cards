@@ -13,7 +13,7 @@ export enum ActionCardType {
 
 export interface ActionCard {
   id: string;
-  name: string;
+  actionType: ActionCardType;
   latinName?: string;
   endangeredCategory?: EndangeredCategory;
   image?: string;
