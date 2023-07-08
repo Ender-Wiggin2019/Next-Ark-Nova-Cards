@@ -508,6 +508,17 @@
   shape-outside: polygon(0 90px, 0 167px, 67px 167px, 67px 90px);
 }
 
+.ark-card.zoo-card .ark-card-wrapper .ark-card-bottom .icon-container-wave {
+  /*align-items: flex-end;*/
+  /*margin-bottom: -20px;*/
+  position: absolute;
+  right: -9px;
+  top: 343px;
+  z-index: 1;
+  height: 100%;
+  /*transform: scale(5);*/
+}
+
 .ark-card.zoo-card
   .ark-card-wrapper
   .ark-card-bottom
@@ -4887,6 +4898,11 @@
   background-size: 1800.9645390070923%;
 }
 
+.arknova-icon.icon-wave {
+  background-position: 96.31821474113746% 89.55%;
+  background-size: 605.8695652173913%;
+}
+
 /* replace original icons with these */
 .arknova-icon.icon-posturing {
   background-position: 25.399198137609935% 54.62046204620462%;
@@ -5302,6 +5318,11 @@
 .icon-container .icon-reef-dweller {
   height: 1.7em;
   width: 2em;
+}
+
+.icon-container .icon-wave {
+  height: 2em;
+  width: 4.5em;
 }
 
 .icon-container .icon-posturing {

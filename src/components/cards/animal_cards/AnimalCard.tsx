@@ -10,6 +10,7 @@ import Venom from '@/components/icons/abilities/Venom';
 import Enclosures from '@/components/icons/Enclosures';
 import Pilfering from '@/components/icons/interaction/Pilfering';
 import ReefEffect from '@/components/icons/marine_world/ReefEffect';
+import WaveIcon from '@/components/icons/marine_world/WaveIcon';
 import Money from '@/components/icons/Money';
 import Tag from '@/components/icons/Tag';
 import AnimalCardWrapper from '@/components/wrapper/AnimalWrapper';
@@ -92,10 +93,13 @@ export const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
         <div className='ark-card-number'>{animal.id}</div>
         <div className='ark-card-title-wrapper'>
           <div className='ark-card-title pt-2'>{t(animal.name)}</div>
-          <div className='ark-card-subtitle sf-hidden'>{animal.latinName}</div>
+          <div className='ark-card-subtitle sf-hidden -mt-2'>
+            {animal.latinName}
+          </div>
         </div>
       </div>
       <div className='ark-card-bottom'>
+        {animal.wave !== undefined && animal.wave && <WaveIcon />}
         <div className='zoo-card-bonuses' data-size={dataSize.toString()}>
           {animal.reputation !== undefined && animal.reputation > 0 && (
             <div className='zoo-card-bonus reputation'>{animal.reputation}</div>
