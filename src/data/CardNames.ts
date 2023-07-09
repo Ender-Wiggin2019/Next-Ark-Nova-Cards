@@ -191,7 +191,24 @@ export const cardNames: Record<string, string> = {
   '262': 'S262_Explorer',
   '263': 'S263_WazaLargeAnimalProgram',
   '264': 'S264_FreerangeNewWorldMonkeys',
-  '274': 'S274_VictoryColumn',
+
+  '265': 'S265_FranchiseBusiness',
+  '266': 'S266_MarineBiologist',
+  '267': 'S267_FarmCat',
+  '268': 'S268_ConferenceOnEurope',
+  '269': 'S269_ConferenceOnAustralia',
+  '270': 'S270_MarineResearchExpedition',
+  '271': 'S271_ExcavationSite',
+  '272': 'S272_ExpansionArea',
+  '273': 'S273_Publications',
+  '274': 'S274_MascotStatue',
+  '275': 'S275_HorseWhisperer',
+  '276': 'S276_LandscapeGardener',
+  '277': 'S277_FieldResearchTypeDOrcas',
+  '278': 'S278_AmazonHouse',
+  '279': 'S279_UnderwaterTunnel',
+  '280': 'S280_Reconstruction',
+
   '281': 'S281_Arcade',
 
   // Marine World

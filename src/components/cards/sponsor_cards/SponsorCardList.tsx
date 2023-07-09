@@ -5,12 +5,14 @@ import CardList from '@/components/cards/shared/CardList';
 import { SponsorCard } from './SponsorCard';
 import { useSponsorData } from './useSponsorData';
 
+import { CardSource } from '@/types/CardSource';
 import { SponsorCard as SponsorCardType } from '@/types/SponsorCard';
 import { OtherTag, Tag } from '@/types/Tags';
 
 interface SponsorCardListProps {
   selectedTags?: Tag[];
   selectedRequirements?: Tag[];
+  selectedCardSources?: CardSource[];
   textFilter?: string;
   onCardCountChange: (count: number) => void;
   // ... any other filters
@@ -29,6 +31,7 @@ const filterSponsors = (
   sponsors: SponsorCardType[],
   selectedTags: Tag[] = [],
   selectedRequirements: Tag[] = [],
+  selectedCardSources: CardSource[] = [],
   textFilter = ''
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
@@ -43,6 +46,8 @@ const filterSponsors = (
             (animal.requirements && animal.requirements.includes(req)) ||
             hasRockAndWaterRequirements(animal, req)
         )) &&
+      (selectedCardSources.length === 0 ||
+        selectedCardSources.some((src) => animal.source === src)) &&
       (textFilter === '' ||
         animal.id.toLowerCase().includes(lowercaseFilter) ||
         animal.name.toLowerCase().includes(lowercaseFilter) ||
@@ -56,6 +61,7 @@ const filterSponsors = (
 export const SponsorCardList: React.FC<SponsorCardListProps> = ({
   selectedTags,
   selectedRequirements,
+  selectedCardSources = [],
   textFilter,
   onCardCountChange,
 }) => {
@@ -64,6 +70,7 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
     sponsorsData,
     selectedTags,
     selectedRequirements,
+    selectedCardSources,
     textFilter
   );
 
@@ -74,7 +81,7 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
   return (
     <CardList>
       {filteredSponsors.map((sponsor: SponsorCardType) => (
-        <div key={sponsor.id} className='scale-150 pb-48'>
+        <div key={sponsor.id} className='scale-150 pb-36'>
           <SponsorCard key={sponsor.id} sponsor={sponsor} />
         </div>
       ))}

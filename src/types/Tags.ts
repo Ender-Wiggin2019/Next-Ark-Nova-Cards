@@ -40,6 +40,7 @@ export enum OtherTag {
   Rock = 'rock',
   Water = 'water',
   University = 'university',
+  Kiosk = 'kiosk',
 }
 
 export type Tag = AnimalTag | ContinentTag | OtherTag;

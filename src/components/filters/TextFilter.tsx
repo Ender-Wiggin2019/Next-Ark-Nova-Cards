@@ -88,7 +88,7 @@ export const TextFilter: React.FC<TextFilterProps> = ({
         <input
           className='block w-full shrink-0 resize-none border-0 bg-transparent p-0 text-sm leading-6 text-zinc-800 placeholder-zinc-400 outline-none transition-[height] will-change-[height] focus:outline-none focus:ring-0 dark:text-zinc-200 dark:placeholder-zinc-500'
           value={text}
-          placeholder={t('Filter text...')}
+          placeholder={t('Filter text') + '...'}
           onChange={(event) => handleChange(event.target.value)}
           autoFocus
         />

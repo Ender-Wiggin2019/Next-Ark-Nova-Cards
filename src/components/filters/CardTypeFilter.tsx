@@ -40,16 +40,16 @@ export const CardTypeFilter: React.FC<CardTypeFilterProps> = ({
     <div className='flex gap-4'>
       <TextButton
         selected={selectedCategories.includes(CardType.ANIMAL_CARD)}
-        className='hover:text-ark-animal'
-        selectClassName='text-ark-animal ring-ark-animal/90 ring-2'
+        className='hover:text-amber-500'
+        selectClassName='text-amber-500 ring-amber-500/90 ring-2'
         onClick={() => handleCategoryChange(CardType.ANIMAL_CARD)}
       >
         {t('Animal Card')}
       </TextButton>
       <TextButton
         selected={selectedCategories.includes(CardType.SPONSOR_CARD)}
-        className='hover:text-ark-sponsor'
-        selectClassName='text-ark-sponsor ring-ark-sponsor/90 ring-2'
+        className='hover:text-sky-600'
+        selectClassName='text-sky-600 ring-sky-600/90 ring-2'
         onClick={() => handleCategoryChange(CardType.SPONSOR_CARD)}
       >
         {t('Sponsor Card')}

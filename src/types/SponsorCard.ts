@@ -1,3 +1,4 @@
+import { CardSource } from '@/types/CardSource';
 import { Effect } from '@/types/Effect';
 import { Tag } from '@/types/Tags';
 
@@ -27,5 +28,5 @@ export interface SponsorCard {
   conservationPoint?: number;
 
   // meta data
-  source: 'Base' | 'MarineWorld';
+  source: CardSource;
 }

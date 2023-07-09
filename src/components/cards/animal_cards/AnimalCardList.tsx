@@ -6,11 +6,13 @@ import { AnimalCard } from './AnimalCard';
 import { useAnimalData } from './useAnimalData';
 
 import { AnimalCard as AnimalCardType } from '@/types/AnimalCard';
+import { CardSource } from '@/types/CardSource';
 import { OtherTag, Tag } from '@/types/Tags';
 
 interface AnimalCardListProps {
   selectedTags?: Tag[];
   selectedRequirements?: Tag[];
+  selectedCardSources?: CardSource[];
   textFilter?: string;
   onCardCountChange: (count: number) => void;
   // ... any other filters
@@ -29,6 +31,7 @@ const filterAnimals = (
   animals: AnimalCardType[],
   selectedTags: Tag[] = [],
   selectedRequirements: Tag[] = [],
+  selectedCardSources: CardSource[] = [],
   textFilter = ''
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
@@ -43,6 +46,8 @@ const filterAnimals = (
             (animal.requirements && animal.requirements.includes(req)) ||
             hasRockAndWaterRequirements(animal, req)
         )) &&
+      (selectedCardSources.length === 0 ||
+        selectedCardSources.some((src) => animal.source === src)) &&
       (textFilter === '' ||
         animal.id.toLowerCase().includes(lowercaseFilter) ||
         animal.name.toLowerCase().includes(lowercaseFilter) ||
@@ -60,6 +65,7 @@ const filterAnimals = (
 export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   selectedTags,
   selectedRequirements,
+  selectedCardSources = [],
   textFilter,
   onCardCountChange,
 }) => {
@@ -68,6 +74,7 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
     animalsData,
     selectedTags,
     selectedRequirements,
+    selectedCardSources,
     textFilter
   );
 
@@ -78,7 +85,7 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   return (
     <CardList>
       {filteredAnimals.map((animal: AnimalCardType) => (
-        <div key={animal.id} className='scale-150 pb-48'>
+        <div key={animal.id} className='scale-150 pb-36'>
           <AnimalCard key={animal.id} animal={animal} />
         </div>
       ))}

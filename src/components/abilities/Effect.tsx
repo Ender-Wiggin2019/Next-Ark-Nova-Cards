@@ -16,9 +16,14 @@ const EffectComponent: React.FC<EffectProps> = ({ effect, style }) => {
   const effectClass = classNames(`effect-${effect.effectType.toLowerCase()}`, {
     [`text-${effect.fontSize}`]: effect.fontSize !== undefined,
   });
+
+  const startClass = effect.start !== undefined ? 'ml-' + effect.start : '';
+  const endClass = effect.end !== undefined ? 'w-' + effect.end : '';
   return (
     <>
-      <div className='dijitTooltipContainer'>
+      <div
+        className={classNames('dijitTooltipContainer', startClass, endClass)}
+      >
         <ul className='sponsor-effects-list'>
           <li className={effectClass}>
             <ParseDescription desc={effect} />

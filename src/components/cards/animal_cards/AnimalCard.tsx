@@ -1,4 +1,5 @@
 // AnimalCard.tsx
+import classNames from 'classnames';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
@@ -92,7 +93,13 @@ export const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
       <div className='ark-card-middle'>
         <div className='ark-card-number'>{animal.id}</div>
         <div className='ark-card-title-wrapper'>
-          <div className='ark-card-title pt-2'>{t(animal.name)}</div>
+          <div
+            className={classNames('ark-card-title pt-1', {
+              'scale-90 text-xs': t(animal.name).length > 28,
+            })}
+          >
+            {t(animal.name)}
+          </div>
           <div className='ark-card-subtitle sf-hidden -mt-2'>
             {animal.latinName}
           </div>

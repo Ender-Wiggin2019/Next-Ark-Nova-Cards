@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
@@ -22,7 +23,13 @@ export const SponsorCard: React.FC<AnimalCardProps> = ({ sponsor }) => {
       <div className='ark-card-middle'>
         <div className='ark-card-number sf-hidden'>{sponsor.id}</div>
         <div className='ark-card-title-wrapper'>
-          <div className='ark-card-title'>{t(sponsor.name)}</div>
+          <div
+            className={classNames('ark-card-title', {
+              'scale-75 text-sm': t(sponsor.name).length > 27,
+            })}
+          >
+            {t(sponsor.name)}
+          </div>
         </div>
       </div>
       {sponsor.effects && (

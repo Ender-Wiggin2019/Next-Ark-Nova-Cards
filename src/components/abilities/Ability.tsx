@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
@@ -77,16 +78,20 @@ const AbilityComponent: React.FC<AbilityProps> = ({
       ? t(ability.keyword.name) + ' ' + t(ability.value.toString())
       : t(ability.keyword.name);
   return (
-    <div className='flex'>
+    <div
+      className={classNames({
+        flex: isReefDweller !== undefined && isReefDweller,
+      })}
+    >
       {isReefDweller !== undefined && isReefDweller && (
         <div className='-ml-1 -mt-1'>
           <ReefDwellerIcon />
         </div>
       )}
-      <div>
+      <div className=''>
         <h6 className='animal-ability-title'>{keyWord}</h6>
         {style == 'full' && (
-          <div className='animal-ability-desc sf-hidden'>
+          <div className='animal-ability-desc'>
             <ParseDescription desc={ability} />
           </div>
         )}

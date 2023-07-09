@@ -23,7 +23,7 @@ import XToken from '@/components/icons/tokens/XToken';
 import { ActionCardType } from '@/types/ActionCard';
 import { Effect } from '@/types/Effect';
 import { Ability } from '@/types/KeyWords';
-import { AnimalTag } from '@/types/Tags';
+import { AnimalTag, OtherTag } from '@/types/Tags';
 
 interface ParseDescriptionProps {
   desc: Ability | Effect;
@@ -36,7 +36,7 @@ const ParseDescription: React.FC<ParseDescriptionProps> = ({ desc }) => {
   const translatedTemplate =
     desc instanceof Ability
       ? t(desc.keyword.descriptionTemplate)
-      : desc.effectDesc;
+      : t(desc.effectDesc);
   const valueFilledTemplate =
     desc instanceof Ability
       ? translatedTemplate.replace(/{}/g, String(desc.value))
@@ -86,6 +86,10 @@ const ParseDescription: React.FC<ParseDescriptionProps> = ({ desc }) => {
         return <TagIcon key={index} type={AnimalTag.Reptile} />;
       } else if (keyword === 'SeaAnimalTag') {
         return <TagIcon key={index} type={AnimalTag.SeaAnimal} />;
+      } else if (keyword === 'PrimateTag') {
+        return <TagIcon key={index} type={AnimalTag.Primate} />;
+      } else if (keyword === 'ScienceTag') {
+        return <TagIcon key={index} type={OtherTag.Science} />;
       } else if (keyword === 'Determination') {
         return <Determination key={index} />;
       } else if (keyword === 'AnimalActionCard') {
@@ -109,6 +113,16 @@ const ParseDescription: React.FC<ParseDescriptionProps> = ({ desc }) => {
       } else if (keyword === 'Marketing') {
         return <Marketing key={index} />;
       }
+    }
+    // FIXME: for now this is a hardcode solution
+    else if (word.startsWith('**') && word.endsWith('**')) {
+      return (
+        <span key={index} className='font-bold text-black'>
+          {word.slice(2, -2)}
+        </span>
+      ); // Remove ** and wrap with <b>
+    } else if (word === '<br>') {
+      return <br key={index} />;
     }
     return word;
   });

@@ -12,5 +12,7 @@ export interface Effect {
 
   // front end logic
   display?: boolean;
-  fontSize?: 'sm' | 'md' | 'lg';
+  fontSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl';
+  start?: number;
+  end?: number;
 }
