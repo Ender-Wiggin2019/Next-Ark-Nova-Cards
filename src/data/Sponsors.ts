@@ -1655,7 +1655,7 @@ export const SponsorsData: SponsorCard[] = [
         fontSize: 'md',
       },
       {
-        effectType: EffectType.INCOME,
+        effectType: EffectType.IMMEDIATE,
         effectDesc: 'sponsors.s275_desc2',
         display: true,
         fontSize: 'md',

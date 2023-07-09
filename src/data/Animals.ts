@@ -2067,7 +2067,7 @@ export const AnimalsData: AnimalCard[] = [
   },
   {
     id: '539',
-    name: 'MERICAN WHITESPOTTED FILEFIS',
+    name: 'AMERICAN WHITESPOTTED FILEFISH',
     latinName: 'Cantherhinmacrocerus',
     size: 1,
     rock: 0,
@@ -2133,7 +2133,7 @@ export const AnimalsData: AnimalCard[] = [
   },
   {
     id: '542',
-    name: 'HUMPHEADWRASSE',
+    name: 'HUMPHEAD WRASSE',
     latinName: 'Cheilinus undulatus',
     size: 3,
     rock: 0,
@@ -2287,7 +2287,7 @@ export const AnimalsData: AnimalCard[] = [
   },
   {
     id: '549',
-    name: 'MMON OCTOPUS',
+    name: 'COMMON OCTOPUS',
     latinName: 'Octopus vulgaris',
     size: 3,
     rock: 1,
@@ -2428,7 +2428,7 @@ export const AnimalsData: AnimalCard[] = [
   },
   {
     id: '555',
-    name: 'SOLDEN SNUB-NOSED MONKEY',
+    name: 'GOLDEN SNUB-NOSED MONKEY',
     latinName: 'Rhinopithecus roxellana',
     size: 3,
     rock: 1,
@@ -2466,7 +2466,7 @@ export const AnimalsData: AnimalCard[] = [
   },
   {
     id: '557',
-    name: 'IETNAMESE POT-BELLIED PIG',
+    name: 'Vietnamese Pot-Bellied Pig',
     latinName: 'Sus scrofa f. domestica',
     size: 1,
     canBeInStandardEnclosure: false,
