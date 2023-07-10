@@ -62,7 +62,6 @@ export default function HomePage(
   }, [reset]);
 
   const resetAll = () => {
-    console.log('reset all');
     setSelectedTags([]);
     setSelectedRequirements([]);
     setTextFilter('');

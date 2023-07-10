@@ -33,7 +33,6 @@ export const CardSourceFilter: React.FC<CardSourceFilterProps> = ({
   }, [selectedCardSource]);
 
   useEffect(() => {
-    console.log('reset', reset);
     if (reset) {
       setSelectedCardSource([]);
     }

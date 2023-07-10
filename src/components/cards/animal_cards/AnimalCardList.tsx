@@ -7,7 +7,13 @@ import { useAnimalData } from './useAnimalData';
 
 import { AnimalCard as AnimalCardType } from '@/types/AnimalCard';
 import { CardSource } from '@/types/CardSource';
-import { OtherTag, Tag } from '@/types/Tags';
+import {
+  isAnimalTag,
+  isContinentTag,
+  isOtherTag,
+  OtherTag,
+  Tag,
+} from '@/types/Tags';
 
 interface AnimalCardListProps {
   selectedTags?: Tag[];
@@ -18,15 +24,6 @@ interface AnimalCardListProps {
   // ... any other filters
 }
 
-const hasRockAndWaterRequirements = (animal: AnimalCardType, req: Tag) => {
-  if (req === OtherTag.Rock) {
-    return animal.rock && animal.rock > 0;
-  } else if (req === OtherTag.Water) {
-    return animal.water && animal.water > 0;
-  } else {
-    return false;
-  }
-};
 const filterAnimals = (
   animals: AnimalCardType[],
   selectedTags: Tag[] = [],
@@ -38,8 +35,18 @@ const filterAnimals = (
 
   return animals.filter(
     (animal) =>
-      (selectedTags.length === 0 ||
-        selectedTags.some((tag) => animal.tags.includes(tag))) &&
+      (selectedTags.filter(isAnimalTag).length === 0 ||
+        selectedTags
+          .filter(isAnimalTag)
+          .some((tag) => animal.tags.includes(tag))) &&
+      (selectedTags.filter(isContinentTag).length === 0 ||
+        selectedTags
+          .filter(isContinentTag)
+          .some((tag) => animal.tags.includes(tag))) &&
+      (selectedTags.filter(isOtherTag).length === 0 ||
+        selectedTags
+          .filter(isOtherTag)
+          .some((tag) => animal.tags.includes(tag))) &&
       (selectedRequirements.length === 0 ||
         selectedRequirements.some(
           (req) =>
@@ -91,4 +98,14 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
       ))}
     </CardList>
   );
+};
+
+const hasRockAndWaterRequirements = (animal: AnimalCardType, req: Tag) => {
+  if (req === OtherTag.Rock) {
+    return animal.rock && animal.rock > 0;
+  } else if (req === OtherTag.Water) {
+    return animal.water && animal.water > 0;
+  } else {
+    return false;
+  }
 };

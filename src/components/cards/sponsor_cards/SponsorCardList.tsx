@@ -7,7 +7,13 @@ import { useSponsorData } from './useSponsorData';
 
 import { CardSource } from '@/types/CardSource';
 import { SponsorCard as SponsorCardType } from '@/types/SponsorCard';
-import { OtherTag, Tag } from '@/types/Tags';
+import {
+  isAnimalTag,
+  isContinentTag,
+  isOtherTag,
+  OtherTag,
+  Tag,
+} from '@/types/Tags';
 
 interface SponsorCardListProps {
   selectedTags?: Tag[];
@@ -37,22 +43,32 @@ const filterSponsors = (
   const lowercaseFilter = textFilter.toLowerCase();
 
   return sponsors.filter(
-    (animal) =>
-      (selectedTags.length === 0 ||
-        selectedTags.some((tag) => animal.tags.includes(tag))) &&
+    (sponsor) =>
+      (selectedTags.filter(isAnimalTag).length === 0 ||
+        selectedTags
+          .filter(isAnimalTag)
+          .some((tag) => sponsor.tags.includes(tag))) &&
+      (selectedTags.filter(isContinentTag).length === 0 ||
+        selectedTags
+          .filter(isContinentTag)
+          .some((tag) => sponsor.tags.includes(tag))) &&
+      (selectedTags.filter(isOtherTag).length === 0 ||
+        selectedTags
+          .filter(isOtherTag)
+          .some((tag) => sponsor.tags.includes(tag))) &&
       (selectedRequirements.length === 0 ||
         selectedRequirements.some(
           (req) =>
-            (animal.requirements && animal.requirements.includes(req)) ||
-            hasRockAndWaterRequirements(animal, req)
+            (sponsor.requirements && sponsor.requirements.includes(req)) ||
+            hasRockAndWaterRequirements(sponsor, req)
         )) &&
       (selectedCardSources.length === 0 ||
-        selectedCardSources.some((src) => animal.source === src)) &&
+        selectedCardSources.some((src) => sponsor.source === src)) &&
       (textFilter === '' ||
-        animal.id.toLowerCase().includes(lowercaseFilter) ||
-        animal.name.toLowerCase().includes(lowercaseFilter) ||
-        (animal.effects !== undefined &&
-          animal.effects.some((effect) =>
+        sponsor.id.toLowerCase().includes(lowercaseFilter) ||
+        sponsor.name.toLowerCase().includes(lowercaseFilter) ||
+        (sponsor.effects !== undefined &&
+          sponsor.effects.some((effect) =>
             effect.effectDesc.toLowerCase().includes(lowercaseFilter)
           )))
   );
