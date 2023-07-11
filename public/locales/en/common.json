@@ -32,7 +32,7 @@
     "digging_description": "Choose up to {}x: Discard 1 card from the display and replenish OR discard 1 card from your hand and draw 1 other from the deck.",
     "sponsor_magnet_description": "Add all sponsors cards from the display to your hand.",
     "flock_animal_description": "May share the existing enclosure of a {HerbivoreTag} with {Size-X+}.",
-    "dominance_description": "You may add the base conservation project {} to your hand if it is not already in the game.",
+    "dominance_description": "You may add the base conservation project Primary to your hand if it is not already in the game.",
     "pilfering_1_description": "Draw 1 card from the hand of or take {Money-5} from the player with the most {Appeal}. They decide.",
     "pilfering_2_description": "From both the player with the highest {Appeal} and the player with the most {ConservationPoint}, Draw 1 card from the hand of or take {Money-5} from that player. They decide.",
     "snapping_1_description": "Gain any 1 card from the display.",

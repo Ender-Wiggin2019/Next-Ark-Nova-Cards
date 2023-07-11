@@ -171,7 +171,7 @@ export const AnimalsData: AnimalCard[] = [
     requirements: [AnimalTag.Predator, AnimalTag.Predator, OtherTag.AnimalsII],
     tags: [AnimalTag.Predator, AnimalTag.Bear, ContinentTag.Americas],
     abilities: [
-      new Ability(KeyWord.INVENTIVE),
+      new Ability(KeyWord.INVENTIVE_BEAR),
       new Ability(KeyWord.FULL_THROATED),
     ],
     appeal: 9,
@@ -856,7 +856,7 @@ export const AnimalsData: AnimalCard[] = [
     price: 17,
     requirements: [AnimalTag.Primate],
     tags: [AnimalTag.Primate, ContinentTag.Americas],
-    abilities: [new Ability(KeyWord.INVENTIVE)],
+    abilities: [new Ability(KeyWord.INVENTIVE_PRIMARY)],
     conservationPoint: 1,
     appeal: 6,
     source: CardSource.BASE,
