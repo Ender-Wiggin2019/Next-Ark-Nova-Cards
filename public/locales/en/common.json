@@ -54,7 +54,7 @@
     "symbiosis_description": "Use 1 ability (not a Reef Dweller effect) of 1 other {SeaAnimalTag} card in your zoo.",
     "helpful_description": "No Reef Dweller effect of its own.",
     "extra_shift_description": "You may return 1 of your association workers to your notepad.",
-    "glide_description": "Discard up to 3 cards from your hand: For every icon on them, gain 1 of these 3 effects: <br> {Reputation-1} / {Appeal-2} / {Kiosk} .",
+    "glide_description": "Discard up to {} cards from your hand: For every {SeaAnimalTag} icon on them, gain 1 of these 3 effects: <br> {Reputation-1} / {Appeal-2} / {Kiosk} .",
     "shark_attack_description": "Discard {} Animal card(s) in reputation range from the display: Gain half the {Appeal} of those cards (round down).",
     "cut_down_description": "You may remove 1 empty standard enclosure from your zoo map and gain back its cost.",
     "camouflage_description": "If you play 1 other animal during this turn, you may ignore 1 of its conditions",

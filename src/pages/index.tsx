@@ -81,7 +81,7 @@ export default function HomePage(
       <main>
         <div className=''>
           <div className='flex flex-col space-y-4 p-2'>
-            <div className='flex flex-row space-x-4'>
+            <div className='flex flex-col md:flex-row'>
               <CardTypeFilter
                 onFilterChange={setSelectedCardTypes}
                 reset={reset}

@@ -97,7 +97,7 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
   return (
     <CardList>
       {filteredSponsors.map((sponsor: SponsorCardType) => (
-        <div key={sponsor.id} className='scale-150 pb-36'>
+        <div key={sponsor.id} className='scale-125 pb-36 md:scale-150'>
           <SponsorCard key={sponsor.id} sponsor={sponsor} />
         </div>
       ))}
