@@ -904,6 +904,7 @@ export const AnimalsData: AnimalCard[] = [
     price: 15,
     requirements: [OtherTag.Science, OtherTag.Science],
     tags: [AnimalTag.Primate, ContinentTag.Americas],
+    reputation: 1,
     conservationPoint: 1,
     appeal: 4,
     source: CardSource.BASE,

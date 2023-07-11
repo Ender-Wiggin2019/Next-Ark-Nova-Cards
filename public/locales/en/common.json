@@ -98,7 +98,7 @@
     "s226_desc1": "Gain {ConservationPoint-1} for 5 different continent icons.",
     "s227_desc1": "Choose and mark on this card. Successively reveal cards from the deck and take the first card of the chosen kind.",
     "s227_desc2": "You must not play the other kind any more. Each time you play a small or large animal, you gain {Appeal-2} or {Appeal-4} respectively.",
-    "s228_desc1": "Each time you play only small animals in the Animals action {AnimalCardAction} , you may play 1 further small animal at the normal cost. After that, take 1 small animal from the <br> display (if available).",
+    "s228_desc1": "Each time you play only small animals in the Animals action {AnimalActionCard} , you may play 1 further small animal at the normal cost. After that, take 1 small animal from the <br> display (if available).",
     "s229_desc1": "Your cost to play a small animal is reduced by {Money-3} .",
     "s230_desc1": "Your cost to play a large animal is reduced by {Money-4} .",
     "s231_desc1": "**Income:** <br> Gain {Money-3} / {Money-6} / {Money-9} for 1/3/5 primate icons in your zoo.",
