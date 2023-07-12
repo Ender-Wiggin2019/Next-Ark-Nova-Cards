@@ -5,7 +5,7 @@ This project is an reimplementation of [ssimeonoff.github.io](https://github.com
 
 See a [demo](https://ark-nova.ender-wiggin.com/).
 
-![screenshot](https://raw.githubusercontent.com/Ender-Wiggin2019/PicGo-Images/main/img/CleanShot%202023-07-12%20at%2000.06.02%402x.png)
+![screenshot](https://ender-picgo.oss-cn-shenzhen.aliyuncs.com/img/CleanShot%202023-07-12%20at%2000.06.02%402x.png)
 
 ## Updates
 
