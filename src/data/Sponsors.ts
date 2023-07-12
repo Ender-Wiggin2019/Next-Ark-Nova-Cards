@@ -95,7 +95,11 @@ export const SponsorsData: SponsorCard[] = [
     ],
     tags: [OtherTag.Science],
     effects: [
-      { effectType: EffectType.PASSIVE, effectDesc: 'sponsors.s204_desc1' },
+      {
+        effectType: EffectType.PASSIVE,
+        effectDesc: 'sponsors.s204_desc1',
+        fontSize: 'lg',
+      },
     ],
     reputation: 0,
     appeal: 0,
