@@ -900,7 +900,7 @@ export const AnimalsData: AnimalCard[] = [
     id: '468',
     name: 'COTTON-TOP TAMARIN',
     latinName: 'Saguinus oedipus',
-    size: 5,
+    size: 1,
     price: 15,
     requirements: [OtherTag.Science, OtherTag.Science],
     tags: [AnimalTag.Primate, ContinentTag.Americas],
@@ -2467,7 +2467,7 @@ export const AnimalsData: AnimalCard[] = [
   },
   {
     id: '557',
-    name: 'Vietnamese Pot-Bellied Pig',
+    name: 'VIETNAMESE POT-BELLIED PIG',
     latinName: 'Sus scrofa f. domestica',
     size: 1,
     canBeInStandardEnclosure: false,

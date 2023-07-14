@@ -12,9 +12,9 @@ const links = [
 
 export function Header() {
   return (
-    <header className='sticky top-0 z-50 bg-white/90'>
+    <header className='sticky top-0 z-50 bg-white/75 backdrop-blur-md backdrop-filter'>
       <div className='layout flex h-14 items-center justify-between p-4'>
-        <div className='flex w-60 justify-start'>
+        <div className='flex hidden w-60 justify-start md:contents'>
           <UnstyledLink href='/' className='font-bold hover:text-lime-600'>
             Ark Nova Unofficial Website
           </UnstyledLink>

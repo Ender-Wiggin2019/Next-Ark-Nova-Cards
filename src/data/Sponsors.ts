@@ -783,8 +783,8 @@ export const SponsorsData: SponsorCard[] = [
     strength: 4,
     rock: 0,
     water: 0,
-    requirements: [AnimalTag.Primate],
-    tags: [],
+    requirements: [],
+    tags: [AnimalTag.Primate],
     effects: [
       {
         effectType: EffectType.PASSIVE,
@@ -804,8 +804,8 @@ export const SponsorsData: SponsorCard[] = [
     strength: 4,
     rock: 0,
     water: 0,
-    requirements: [AnimalTag.Reptile],
-    tags: [],
+    requirements: [],
+    tags: [AnimalTag.Reptile],
     effects: [
       {
         effectType: EffectType.PASSIVE,
@@ -825,8 +825,8 @@ export const SponsorsData: SponsorCard[] = [
     strength: 4,
     rock: 0,
     water: 0,
-    requirements: [AnimalTag.Bird],
-    tags: [],
+    requirements: [],
+    tags: [AnimalTag.Bird],
     effects: [
       {
         effectType: EffectType.PASSIVE,
@@ -846,8 +846,8 @@ export const SponsorsData: SponsorCard[] = [
     strength: 4,
     rock: 0,
     water: 0,
-    requirements: [AnimalTag.Predator],
-    tags: [],
+    requirements: [],
+    tags: [AnimalTag.Predator],
     effects: [
       {
         effectType: EffectType.PASSIVE,
@@ -867,8 +867,8 @@ export const SponsorsData: SponsorCard[] = [
     strength: 4,
     rock: 0,
     water: 0,
-    requirements: [AnimalTag.Herbivore],
-    tags: [],
+    requirements: [],
+    tags: [AnimalTag.Herbivore],
     effects: [
       {
         effectType: EffectType.PASSIVE,

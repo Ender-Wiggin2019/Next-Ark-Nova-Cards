@@ -37,7 +37,7 @@ export const TagFilter: React.FC<TagFilterProps> = ({
 
   return (
     <>
-      <div>
+      <div className=''>
         {Object.values(AnimalTag).map((tag, index) => (
           <TagButton
             key={index}

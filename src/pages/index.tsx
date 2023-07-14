@@ -80,7 +80,7 @@ export default function HomePage(
 
       <main>
         <div className=''>
-          <div className='flex flex-col space-y-4 p-2'>
+          <div className='flex flex-col space-y-4 px-2 py-2 md:px-4'>
             <div className='flex flex-col md:flex-row'>
               <CardTypeFilter
                 onFilterChange={setSelectedCardTypes}
@@ -120,7 +120,7 @@ export default function HomePage(
               />
             </div>
           </div>
-          <div className='mb-36'></div>
+          <div className='mb-8 md:mb-36'></div>
           {(selectedCardTypes.length === 0 ||
             selectedCardTypes.includes(CardType.ANIMAL_CARD)) && (
             <AnimalCardList
