@@ -39,7 +39,7 @@ const ParseDescription: React.FC<ParseDescriptionProps> = ({ desc }) => {
       : t(desc.effectDesc);
   const valueFilledTemplate =
     desc instanceof Ability
-      ? translatedTemplate.replace(/{}/g, String(desc.value))
+      ? translatedTemplate.replace(/{}/g, t(String(desc.value)))
       : translatedTemplate;
 
   // 根据关键字替换成对应的组件

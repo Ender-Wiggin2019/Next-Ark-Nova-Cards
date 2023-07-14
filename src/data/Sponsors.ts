@@ -1572,7 +1572,7 @@ export const SponsorsData: SponsorCard[] = [
   },
   {
     id: '272',
-    name: 'EXCAVATION SITE',
+    name: 'EXPANSION AREA',
     strength: 5,
     rock: 0,
     water: 0,

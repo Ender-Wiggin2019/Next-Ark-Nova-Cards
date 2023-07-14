@@ -497,7 +497,7 @@ export const AnimalsData: AnimalCard[] = [
       ContinentTag.Americas,
       ContinentTag.Americas,
     ],
-    tags: [AnimalTag.Herbivore, ContinentTag.Americas],
+    tags: [AnimalTag.Herbivore, ContinentTag.Americas, ContinentTag.Americas],
     abilities: [new Ability(KeyWord.ICONIC_ANIMAL, 'Americas')],
     appeal: 4,
     source: CardSource.BASE,
