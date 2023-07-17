@@ -34,6 +34,7 @@ export enum OtherTag {
   Appeal = 'appeal',
   Partner_Zoo = 'Partner Zoo',
   Reputation = 'reputation',
+  Reputation_3 = 'reputation_3',
   Upgrade = 'upgrade',
   ANIMAL_SIZE_4 = 'ANIMAL-SIZE-4',
   ANIMAL_SIZE_2 = 'ANIMAL-SIZE-2',

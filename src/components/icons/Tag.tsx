@@ -6,6 +6,7 @@ interface TagProps {
   type: Tag;
 }
 
+// key is the same as the css class name
 const getKeyByValue = (enumObject: any, value: string): string => {
   for (const enumMember in enumObject) {
     if (enumObject[enumMember] === value) {
@@ -23,7 +24,21 @@ const formatDataType = (tag: Tag): string => {
 };
 
 const TagComponent: React.FC<TagProps> = ({ type }) => {
-  return <div className='badge-icon' data-type={formatDataType(type)}></div>;
+  const dataType = formatDataType(type);
+  // if (dataType.startsWith('reputation')) {
+  //   console.log(dataType);
+  // }
+  console.log(dataType);
+  // special render rules
+  if (dataType === 'Reputation_3') {
+    return (
+      <div className='badge-icon' data-type='Reputation'>
+        3
+      </div>
+    );
+  } else {
+    return <div className='badge-icon' data-type={dataType}></div>;
+  }
 };
 
 export default TagComponent;
