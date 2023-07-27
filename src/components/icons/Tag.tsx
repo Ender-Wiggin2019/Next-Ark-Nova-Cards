@@ -25,10 +25,6 @@ const formatDataType = (tag: Tag): string => {
 
 const TagComponent: React.FC<TagProps> = ({ type }) => {
   const dataType = formatDataType(type);
-  // if (dataType.startsWith('reputation')) {
-  //   console.log(dataType);
-  // }
-  console.log(dataType);
   // special render rules
   if (dataType === 'Reputation_3') {
     return (
