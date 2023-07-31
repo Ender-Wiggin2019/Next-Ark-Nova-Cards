@@ -40,6 +40,7 @@ export const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
     <AnimalCardWrapper id={animal.id}>
       <div className='ark-card-top'>
         {animal.abilities?.map((ability, index) =>
+          // TODO: refactor this to use Ability component
           ability.keyword === KeyWord.CONSTRICTION ? (
             <Constriction key={index} />
           ) : ability.keyword === KeyWord.HYPNOSIS ? (

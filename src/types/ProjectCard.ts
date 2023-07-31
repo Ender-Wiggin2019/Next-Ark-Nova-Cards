@@ -1,12 +1,13 @@
 import { Bonus } from '@/types/Bonus';
 import { CardSource } from '@/types/CardSource';
+import { Effect } from '@/types/Effect';
 import { Tag } from '@/types/Tags';
 
 export interface ProjectSlot {
   position: 1 | 2 | 3;
   bonuses: Bonus[];
 }
-export enum ProjectCardType {
+export enum ProjectCategory {
   BASE = 'Base',
   NORMAL = 'Normal',
   RELEASE = 'Release',
@@ -17,12 +18,12 @@ export enum ProjectCardType {
 export interface ProjectCard {
   id: string;
   name: string;
-  type: ProjectCardType;
+  type: ProjectCategory;
   image?: string;
   tag: Tag;
-  bonus: ProjectSlot[];
-  placeBonus: Bonus[];
-  description?: string;
+  slots: ProjectSlot[];
+  placeBonuses: Bonus[];
+  description: Effect;
   // meta data
   source: CardSource;
 }

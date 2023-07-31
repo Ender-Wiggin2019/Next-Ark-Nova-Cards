@@ -19,8 +19,6 @@ interface ProjectCardListProps {
 }
 
 export const ProjectCardList: React.FC<ProjectCardListProps> = ({
-  selectedTags,
-  selectedRequirements,
   selectedCardSources = [],
   textFilter,
   onCardCountChange,

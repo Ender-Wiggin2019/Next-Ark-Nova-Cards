@@ -6,6 +6,6 @@ export enum BonusType {
 
 export interface Bonus {
   bonusType: BonusType;
-  bonusDesc: string;
+  bonusDesc?: string;
   bonusValue: number;
 }

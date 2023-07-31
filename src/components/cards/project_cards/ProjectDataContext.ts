@@ -1,5 +1,5 @@
 import { createContext } from 'react';
 
-import { AnimalsData } from '@/data/Animals';
+import { ProjectsData } from '@/data/Projects';
 
-export const ProjectDataContext = createContext(AnimalsData);
+export const ProjectDataContext = createContext(ProjectsData);

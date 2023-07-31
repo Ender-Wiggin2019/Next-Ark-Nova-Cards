@@ -4,6 +4,7 @@ export enum EffectType {
   IMMEDIATE = 'immediate',
   INCOME = 'income',
   ENDGAME = 'endgame',
+  CONSERVATION = 'conservation', // use for project card
 }
 
 export interface Effect {
