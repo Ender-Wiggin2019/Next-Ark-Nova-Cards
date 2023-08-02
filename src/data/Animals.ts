@@ -765,7 +765,7 @@ export const AnimalsData: AnimalCard[] = [
     size: 5,
     price: 28,
     requirements: [AnimalTag.Primate, AnimalTag.Primate, AnimalTag.Primate],
-    tags: [AnimalTag.Primate, ContinentTag.Africa],
+    tags: [AnimalTag.Primate, AnimalTag.Primate, ContinentTag.Africa],
     abilities: [new Ability(KeyWord.MULTIPLIER_CARD)],
     conservationPoint: 2,
     appeal: 9,

@@ -6,11 +6,12 @@ import clsxm from '@/lib/clsxm';
 
 import ParseDescription from '@/components/abilities/ParseDescription';
 import ReleaseAnimal from '@/components/icons/conservations/ReleaseAnimal';
-import SizeCard from '@/components/icons/take_cards/SizeCard';
 import ConservationIcon from '@/components/icons/tokens/ConservationIcon';
+import ReputationIcon from '@/components/icons/tokens/ReputationIcon';
 import TagIcon from '@/components/icons/tokens/TagIcon';
 import ProjectCardWrapper from '@/components/wrapper/ProjectWrapper';
 
+import { BonusType } from '@/types/Bonus';
 import {
   ProjectCard as ProjectCardType,
   ProjectCategory,
@@ -61,7 +62,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           {project.slots.map((slot, index) => (
             <div key={index} className='project-card-slot'>
               <div className='project-card-slot-indicator release'>
-                <SizeCard size='4' />
+                {/*<SizeCard size='4' />*/}
               </div>
               <div
                 id='card-P121_ReleaseSeacave_0'
@@ -69,7 +70,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 data-type='Reptile'
               ></div>
               <div className='project-card-slot-reward'>
-                <ConservationIcon value={5} />
+                {slot.bonuses.map((bonus, index) => {
+                  if (bonus.bonusType === BonusType.CONSERVATION_POINT) {
+                    return (
+                      <ConservationIcon key={index} value={bonus.bonusValue} />
+                    );
+                  } else if (bonus.bonusType === BonusType.REPUTATION) {
+                    return (
+                      <ReputationIcon key={index} value={bonus.bonusValue} />
+                    );
+                  }
+                })}
               </div>
             </div>
           ))}

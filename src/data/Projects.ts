@@ -1,3 +1,4 @@
+import { BonusType } from '@/types/Bonus';
 import { CardSource } from '@/types/CardSource';
 import { EffectType } from '@/types/Effect';
 import { ProjectCard, ProjectCategory } from '@/types/ProjectCard';
@@ -9,7 +10,38 @@ export const ProjectsData: ProjectCard[] = [
     name: '',
     type: ProjectCategory.BASE,
     tag: AnimalTag.SeaAnimal,
-    slots: [],
+    slots: [
+      {
+        position: 1,
+        bonuses: [
+          {
+            bonusType: BonusType.CONSERVATION_POINT,
+            bonusRequirement: AnimalTag.Reptile,
+            bonusValue: 5,
+          },
+        ],
+      },
+      {
+        position: 2,
+        bonuses: [
+          {
+            bonusType: BonusType.CONSERVATION_POINT,
+            bonusRequirement: AnimalTag.Reptile,
+            bonusValue: 3,
+          },
+        ],
+      },
+      {
+        position: 3,
+        bonuses: [
+          {
+            bonusType: BonusType.CONSERVATION_POINT,
+            bonusRequirement: AnimalTag.Reptile,
+            bonusValue: 2,
+          },
+        ],
+      },
+    ],
     placeBonuses: [],
     description: {
       effectType: EffectType.CONSERVATION,
