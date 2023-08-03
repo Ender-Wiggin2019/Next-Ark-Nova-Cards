@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface StandardEnclosureProps {
-  size: number;
+  size: number | string;
   rock?: number;
   water?: number;
   forbidden: boolean;

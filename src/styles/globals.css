@@ -76,3 +76,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+.hexagon {
+  @apply inline-block;
+  clip-path: polygon(50% 0%, 90% 20%, 90% 80%, 50% 100%, 10% 80%, 10% 20%);
+}

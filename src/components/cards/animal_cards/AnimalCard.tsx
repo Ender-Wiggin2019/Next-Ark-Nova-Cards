@@ -5,6 +5,7 @@ import React from 'react';
 
 import Ability from '@/components/abilities/Ability';
 import AbilityComponent from '@/components/abilities/Ability';
+import { AnimalModelCard } from '@/components/cards/animal_cards/models/AnimalModelCard';
 import Constriction from '@/components/icons/abilities/Constriction';
 import Hypnosis from '@/components/icons/abilities/Hypnosis';
 import Venom from '@/components/icons/abilities/Venom';
@@ -14,7 +15,14 @@ import ReefEffect from '@/components/icons/marine_world/ReefEffect';
 import WaveIcon from '@/components/icons/marine_world/WaveIcon';
 import Money from '@/components/icons/Money';
 import Tag from '@/components/icons/Tag';
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from '@/components/ui/hover-card';
 import AnimalCardWrapper from '@/components/wrapper/AnimalWrapper';
+
+import { getAnimalCardModel } from '@/utils/GetAnimalCardModel';
 
 import { AnimalCard as AnimalCardType } from '@/types/AnimalCard';
 import { KeyWord } from '@/types/KeyWords';
@@ -37,110 +45,122 @@ export const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
     //     <p>Price: {animal.price}</p>
     //     {/* add other fields as needed */}
     // </div>
-    <AnimalCardWrapper id={animal.id}>
-      <div className='ark-card-top'>
-        {animal.abilities?.map((ability, index) =>
-          // TODO: refactor this to use Ability component
-          ability.keyword === KeyWord.CONSTRICTION ? (
-            <Constriction key={index} />
-          ) : ability.keyword === KeyWord.HYPNOSIS ? (
-            <Hypnosis key={index} />
-          ) : ability.keyword === KeyWord.VENOM ? (
-            <Venom key={index} />
-          ) : ability.keyword === KeyWord.PILFERING_1 ||
-            ability.keyword === KeyWord.PILFERING_2 ? (
-            <Pilfering key={index} />
-          ) : null
-        )}
-        {animal.reefDwellerEffect !== undefined &&
-          animal.reefDwellerEffect.length > 0 && (
-            <ReefEffect>
-              <AbilityComponent
-                ability={animal.reefDwellerEffect[0]}
-                style='icon'
-              />
-            </ReefEffect>
-          )}
-        <div className='ark-card-top-left'>
-          <Enclosures
-            size={animal.size}
-            rock={animal.rock}
-            water={animal.water}
-            specialEnclosures={animal.specialEnclosures}
-            canBeInStandardEnclosure={animal.canBeInStandardEnclosure}
-          />
-          <div className='animal-card-cost'>
-            <Money value={animal.price} />
-          </div>
-
-          <div className='zoo-card-prerequisites'>
-            {animal.requirements &&
-              animal.requirements.map((tag, index) => (
-                <div key={index} className='zoo-card-badge'>
-                  <Tag type={tag} />
-                </div>
-              ))}
-          </div>
-        </div>
-        <div className='ark-card-top-right'>
-          {animal.tags.map((tag, index) => (
-            <div key={index} className='zoo-card-badge'>
-              <Tag type={tag} />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className='ark-card-middle'>
-        <div className='ark-card-number'>{animal.id}</div>
-        <div className='ark-card-title-wrapper'>
-          <div
-            className={classNames('ark-card-title pt-1', {
-              'scale-90 text-xs': t(animal.name).length > 28,
-            })}
-          >
-            {t(animal.name)}
-          </div>
-          <div className='ark-card-subtitle sf-hidden -mt-2'>
-            {animal.latinName}
-          </div>
-        </div>
-      </div>
-      <div className='ark-card-bottom'>
-        {animal.wave !== undefined && animal.wave && <WaveIcon />}
-        <div className='zoo-card-bonuses' data-size={dataSize.toString()}>
-          {animal.reputation !== undefined && animal.reputation > 0 && (
-            <div className='zoo-card-bonus reputation'>{animal.reputation}</div>
-          )}
-          {animal.conservationPoint !== undefined &&
-            animal.conservationPoint > 0 && (
-              <div className='zoo-card-bonus conservation'>
-                {animal.conservationPoint}
-              </div>
-            )}
-          <div className='zoo-card-bonus appeal'>{animal.appeal}</div>
-        </div>
-        {animal.abilities && (
-          <div className='animal-ability'>
-            {animal.abilities.map((ability, index) => {
-              const isReefDweller =
-                animal.reefDwellerEffect !== undefined &&
-                animal.reefDwellerEffect.some(
-                  (reefDwellerAbility) =>
-                    reefDwellerAbility.keyword === ability.keyword
-                );
-              return (
-                <Ability
-                  key={index}
-                  ability={ability}
-                  isReefDweller={isReefDweller}
-                  style='full'
+    <>
+      <HoverCard>
+        <HoverCardTrigger>
+          <AnimalCardWrapper id={animal.id}>
+            <div className='ark-card-top'>
+              {/*<AnimalModelHover model={getAnimalCardModel(animal)} />*/}
+              {animal.abilities?.map((ability, index) =>
+                // TODO: refactor this to use Ability component
+                ability.keyword === KeyWord.CONSTRICTION ? (
+                  <Constriction key={index} />
+                ) : ability.keyword === KeyWord.HYPNOSIS ? (
+                  <Hypnosis key={index} />
+                ) : ability.keyword === KeyWord.VENOM ? (
+                  <Venom key={index} />
+                ) : ability.keyword === KeyWord.PILFERING_1 ||
+                  ability.keyword === KeyWord.PILFERING_2 ? (
+                  <Pilfering key={index} />
+                ) : null
+              )}
+              {animal.reefDwellerEffect !== undefined &&
+                animal.reefDwellerEffect.length > 0 && (
+                  <ReefEffect>
+                    <AbilityComponent
+                      ability={animal.reefDwellerEffect[0]}
+                      style='icon'
+                    />
+                  </ReefEffect>
+                )}
+              <div className='ark-card-top-left'>
+                <Enclosures
+                  size={animal.size}
+                  rock={animal.rock}
+                  water={animal.water}
+                  specialEnclosures={animal.specialEnclosures}
+                  canBeInStandardEnclosure={animal.canBeInStandardEnclosure}
                 />
-              );
-            })}
-          </div>
-        )}
-      </div>
-    </AnimalCardWrapper>
+                <div className='animal-card-cost'>
+                  <Money value={animal.price} />
+                </div>
+
+                <div className='zoo-card-prerequisites'>
+                  {animal.requirements &&
+                    animal.requirements.map((tag, index) => (
+                      <div key={index} className='zoo-card-badge'>
+                        <Tag type={tag} />
+                      </div>
+                    ))}
+                </div>
+              </div>
+              <div className='ark-card-top-right'>
+                {animal.tags.map((tag, index) => (
+                  <div key={index} className='zoo-card-badge'>
+                    <Tag type={tag} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className='ark-card-middle'>
+              <div className='ark-card-number'>{animal.id}</div>
+              <div className='ark-card-title-wrapper'>
+                <div
+                  className={classNames('ark-card-title pt-1', {
+                    'scale-90 text-xs': t(animal.name).length > 28,
+                  })}
+                >
+                  {t(animal.name)}
+                </div>
+                <div className='ark-card-subtitle sf-hidden -mt-2'>
+                  {animal.latinName}
+                </div>
+              </div>
+            </div>
+            <div className='ark-card-bottom'>
+              {animal.wave !== undefined && animal.wave && <WaveIcon />}
+              <div className='zoo-card-bonuses' data-size={dataSize.toString()}>
+                {animal.reputation !== undefined && animal.reputation > 0 && (
+                  <div className='zoo-card-bonus reputation'>
+                    {animal.reputation}
+                  </div>
+                )}
+                {animal.conservationPoint !== undefined &&
+                  animal.conservationPoint > 0 && (
+                    <div className='zoo-card-bonus conservation'>
+                      {animal.conservationPoint}
+                    </div>
+                  )}
+                <div className='zoo-card-bonus appeal'>{animal.appeal}</div>
+              </div>
+              {animal.abilities && (
+                <div className='animal-ability'>
+                  {animal.abilities.map((ability, index) => {
+                    const isReefDweller =
+                      animal.reefDwellerEffect !== undefined &&
+                      animal.reefDwellerEffect.some(
+                        (reefDwellerAbility) =>
+                          reefDwellerAbility.keyword === ability.keyword
+                      );
+                    return (
+                      <Ability
+                        key={index}
+                        ability={ability}
+                        isReefDweller={isReefDweller}
+                        style='full'
+                      />
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </AnimalCardWrapper>
+        </HoverCardTrigger>
+        <HoverCardContent className='z-20 -mt-52 w-36 bg-zinc-50/90 p-2 text-xs'>
+          <AnimalModelCard model={getAnimalCardModel(animal)} />
+        </HoverCardContent>
+      </HoverCard>
+    </>
   );
 };

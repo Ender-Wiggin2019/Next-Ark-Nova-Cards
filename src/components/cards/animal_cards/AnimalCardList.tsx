@@ -2,11 +2,14 @@ import React, { useEffect } from 'react';
 
 import CardList from '@/components/cards/shared/CardList';
 
+import { getAnimalCardModel } from '@/utils/GetAnimalCardModel';
+
 import { AnimalCard } from './AnimalCard';
 import { useAnimalData } from './useAnimalData';
 
 import { AnimalCard as AnimalCardType } from '@/types/AnimalCard';
 import { CardSource } from '@/types/CardSource';
+import { SortOrder } from '@/types/Order';
 import {
   isAnimalTag,
   isContinentTag,
@@ -20,6 +23,8 @@ interface AnimalCardListProps {
   selectedRequirements?: Tag[];
   selectedCardSources?: CardSource[];
   textFilter?: string;
+  sortOrder?: SortOrder;
+  size?: number[];
   onCardCountChange: (count: number) => void;
   // ... any other filters
 }
@@ -29,7 +34,8 @@ const filterAnimals = (
   selectedTags: Tag[] = [],
   selectedRequirements: Tag[] = [],
   selectedCardSources: CardSource[] = [],
-  textFilter = ''
+  textFilter = '',
+  size: number[] = [0]
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
 
@@ -65,7 +71,8 @@ const filterAnimals = (
             (ability) =>
               ability.title.toLowerCase().includes(lowercaseFilter) ||
               ability.description.toLowerCase().includes(lowercaseFilter)
-          )))
+          ))) &&
+      (size.length === 0 || size.includes(0) || size.includes(animal.size))
   );
 };
 
@@ -75,6 +82,8 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   selectedCardSources = [],
   textFilter,
   onCardCountChange,
+  sortOrder = SortOrder.ID_ASC,
+  size = [0],
 }) => {
   const animalsData = useAnimalData();
   const filteredAnimals = filterAnimals(
@@ -82,8 +91,33 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
     selectedTags,
     selectedRequirements,
     selectedCardSources,
-    textFilter
+    textFilter,
+    size
   );
+
+  // 排序逻辑
+  switch (sortOrder) {
+    case SortOrder.ID_ASC:
+      filteredAnimals.sort((a, b) => a.id.localeCompare(b.id));
+      break;
+    case SortOrder.ID_DESC:
+      filteredAnimals.sort((a, b) => b.id.localeCompare(a.id));
+      break;
+    case SortOrder.DIFF_ASC:
+      filteredAnimals.sort(
+        (a, b) =>
+          getAnimalCardModel(a).diffWithSpecialEnclosure -
+          getAnimalCardModel(b).diffWithSpecialEnclosure
+      );
+      break;
+    case SortOrder.DIFF_DESC:
+      filteredAnimals.sort(
+        (a, b) =>
+          getAnimalCardModel(b).diffWithSpecialEnclosure -
+          getAnimalCardModel(a).diffWithSpecialEnclosure
+      );
+      break;
+  }
 
   useEffect(() => {
     onCardCountChange(filteredAnimals.length);
