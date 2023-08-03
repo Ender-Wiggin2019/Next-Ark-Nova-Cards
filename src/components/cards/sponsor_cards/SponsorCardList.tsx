@@ -20,6 +20,7 @@ interface SponsorCardListProps {
   selectedRequirements?: Tag[];
   selectedCardSources?: CardSource[];
   textFilter?: string;
+  strength?: number[];
   onCardCountChange: (count: number) => void;
   // ... any other filters
 }
@@ -38,7 +39,8 @@ const filterSponsors = (
   selectedTags: Tag[] = [],
   selectedRequirements: Tag[] = [],
   selectedCardSources: CardSource[] = [],
-  textFilter = ''
+  textFilter = '',
+  strength: number[] = [0]
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
 
@@ -70,7 +72,10 @@ const filterSponsors = (
         (sponsor.effects !== undefined &&
           sponsor.effects.some((effect) =>
             effect.effectDesc.toLowerCase().includes(lowercaseFilter)
-          )))
+          ))) &&
+      (strength.length === 0 ||
+        strength.includes(2) ||
+        strength.includes(sponsor.strength))
   );
 };
 
@@ -80,6 +85,7 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
   selectedCardSources = [],
   textFilter,
   onCardCountChange,
+  strength = [0],
 }) => {
   const sponsorsData = useSponsorData();
   const filteredSponsors = filterSponsors(
@@ -87,7 +93,8 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
     selectedTags,
     selectedRequirements,
     selectedCardSources,
-    textFilter
+    textFilter,
+    strength
   );
 
   useEffect(() => {

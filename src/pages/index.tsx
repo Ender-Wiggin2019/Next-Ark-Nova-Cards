@@ -4,11 +4,14 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React, { useEffect, useState } from 'react';
 import { FiRotateCcw } from 'react-icons/fi';
 
+import { SortButton } from '@/components/buttons/SortButton';
 import { AnimalCardList } from '@/components/cards/animal_cards/AnimalCardList';
 import { SponsorCardList } from '@/components/cards/sponsor_cards/SponsorCardList';
 import { CardSourceFilter } from '@/components/filters/CardSourceFilter';
 import { CardTypeFilter } from '@/components/filters/CardTypeFilter';
 import { RequirementFilter } from '@/components/filters/RequirementFilter';
+import { SizeFilter } from '@/components/filters/SizeFilter';
+import { StrengthFilter } from '@/components/filters/StrengthFilter';
 import { TagFilter } from '@/components/filters/TagFilter';
 import { TextFilter } from '@/components/filters/TextFilter'; // make sure to import your TextFilter
 import Layout from '@/components/layout/Layout';
@@ -18,6 +21,7 @@ import { Separator } from '@/components/ui/separator';
 
 import { CardType } from '@/types/Card';
 import { CardSource } from '@/types/CardSource';
+import { SortOrder } from '@/types/Order';
 import { Tag } from '@/types/Tags';
 
 type Props = {
@@ -36,6 +40,9 @@ export default function HomePage(
   const [selectedCardSources, setSelectedCardSources] = useState<CardSource[]>(
     []
   );
+  const [sortOrder, setSortOrder] = useState<SortOrder>(SortOrder.ID_ASC);
+  const [size, setSize] = useState<number[]>([0]);
+  const [strength, setStrength] = useState<number[]>([0]);
 
   const [animalCardsCount, setAnimalCardsCount] = useState<number>(0);
   const [sponsorCardsCount, setSponsorCardsCount] = useState<number>(0);
@@ -69,10 +76,14 @@ export default function HomePage(
     setSelectedCardSources([]);
     setAnimalCardsCount(0);
     setSponsorCardsCount(0);
+    setSortOrder(SortOrder.ID_ASC);
+    setSize([0]);
+    setStrength([0]);
 
     setReset(true);
   };
 
+  console.log('sortOrder2', sortOrder);
   return (
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
@@ -106,7 +117,11 @@ export default function HomePage(
                 <FiRotateCcw className='' />
               </div>
             </div>
-
+            <div className='flex flex-row space-x-4'>
+              <SortButton sortOrder={sortOrder} setSortOrder={setSortOrder} />
+              <SizeFilter onFilterChange={setSize} reset={reset} />
+              <StrengthFilter onFilterChange={setStrength} reset={reset} />
+            </div>
             <div className='flex flex-row space-x-4'>
               <CardOdometer
                 value={animalCardsCount}
@@ -128,7 +143,9 @@ export default function HomePage(
               selectedRequirements={selectedRequirements}
               selectedCardSources={selectedCardSources}
               textFilter={textFilter}
+              sortOrder={sortOrder}
               onCardCountChange={setAnimalCardsCount}
+              size={size}
             />
           )}
           {(selectedCardTypes.length === 0 ||
@@ -139,6 +156,7 @@ export default function HomePage(
               selectedCardSources={selectedCardSources}
               textFilter={textFilter}
               onCardCountChange={setSponsorCardsCount}
+              strength={strength}
             />
           )}
         </div>
