@@ -1230,7 +1230,7 @@ export const AnimalsData: AnimalCard[] = [
     water: 1,
     price: 23,
     requirements: [OtherTag.Partner_Zoo],
-    tags: [AnimalTag.Reptile, ContinentTag.Australia],
+    tags: [AnimalTag.Reptile, AnimalTag.Reptile, ContinentTag.Australia],
     specialEnclosures: [
       new SpecialEnclosure(SpecialEnclosureType.ReptileHouse, 3),
     ],

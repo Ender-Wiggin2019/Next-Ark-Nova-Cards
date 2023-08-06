@@ -40,7 +40,7 @@ const filterSponsors = (
   selectedRequirements: Tag[] = [],
   selectedCardSources: CardSource[] = [],
   textFilter = '',
-  strength: number[] = [0]
+  strength: number[] = [2]
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
 
@@ -74,6 +74,8 @@ const filterSponsors = (
             effect.effectDesc.toLowerCase().includes(lowercaseFilter)
           ))) &&
       (strength.length === 0 ||
+        strength.includes(0) ||
+        strength.includes(1) ||
         strength.includes(2) ||
         strength.includes(sponsor.strength))
   );
