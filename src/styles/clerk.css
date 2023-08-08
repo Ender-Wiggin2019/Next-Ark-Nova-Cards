@@ -1,0 +1,47 @@
+.cl-card,
+.cl-userButtonPopoverCard {
+  @apply border shadow-xl shadow-zinc-500/10 backdrop-blur-xl backdrop-saturate-150;
+  @apply border-zinc-200 bg-white/90 text-zinc-800;
+  @apply py-4;
+  --accent: theme('colors.zinc.900');
+  --accentDark: theme('colors.zinc.800');
+}
+
+.cl-formButtonPrimary {
+  --accent: theme('colors.lime.600');
+  --accentDark: theme('colors.zinc.800');
+  @apply text-zinc-50;
+}
+
+.cl-modalBackdrop {
+  @apply backdrop-blur-sm backdrop-saturate-150;
+}
+
+.cl-userButtonPopoverCard {
+  @apply w-64;
+}
+
+.cl-userButtonPopoverActions {
+  @apply mt-1;
+}
+
+.cl-userButtonPopoverCard .cl-userPreview {
+  @apply px-4;
+}
+
+.cl-formFieldInput {
+  @apply bg-transparent text-zinc-800;
+}
+
+.cl-userButtonPopoverActionButton {
+  @apply gap-1 px-2;
+}
+
+.cl-footerActionLink,
+.cl-formResendCodeLink {
+  @apply text-zinc-900 underline;
+}
+
+.cl-formFieldHintText {
+  font-size: 12px;
+}

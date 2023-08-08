@@ -2,6 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  text-rendering: optimizeLegibility;
+  background-color: var(--bg-color);
+  scroll-behavior: smooth;
+  scroll-padding-top: 3rem;
+}
+
+html.light {
+  --bg-color: theme('colors.zinc.50');
+}
+html.dark {
+  --bg-color: theme('colors.zinc.900');
+}
+
+[data-radix-popper-content-wrapper] {
+  z-index: 99999 !important;
+}
+
+[data-floating-ui-portal] {
+  z-index: 100000;
+}
+
+::selection {
+  background-color: theme('colors.lime.300');
+  color: theme('colors.lime.950');
+}
+
+@keyframes typing-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

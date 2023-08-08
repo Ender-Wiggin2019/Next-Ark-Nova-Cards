@@ -7,6 +7,7 @@ import '@/styles/colors.css';
 import '@/styles/ark.css';
 import '@/styles/arknova.css';
 import '@/styles/odometer.css';
+import '@/styles/clerk.css';
 
 /**
  * !STARTERCONF info
