@@ -14,9 +14,11 @@ Expect frequent improvements.
 
 Next up:
 
+- [x] Animal Value Model
+- [ ] User Login and write comments
 - [ ] Conservation Project cards and EndGame Scoring cards.
+- [ ] Maps
 - [ ] Action cards
-- [ ] maps
 
 ## Running Locally
 
@@ -31,6 +33,17 @@ git clone git@github.com:Ender-Wiggin2019/Next-Ark-Nova-Cards.git
 ```bash
 npm i
 ```
+
+**3. Set Environment Variables**
+
+```bash
+mv .env.example .env.local
+```
+
+For now, I use the following technologies:
+
+- [Clerk](https://www.clerk.dev/) for authentication. You can sign up for a free account [here](https://www.clerk.dev/). Once you have an account, you can create a new project and get your API keys. Then, you can add them to your `.env.local` file.
+- [PlanetScale](https://www.planetscale.com/) for database. It's not integrated yet, but will be implemented in the future.
 
 **3. Run App**
 
