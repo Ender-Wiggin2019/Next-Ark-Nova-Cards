@@ -1,8 +1,11 @@
 import { Separator } from '@/components/ui/separator';
 
 interface ModelCardProps {
+  id: string;
   model: AnimalCardModel;
+  showLink: boolean;
 }
+import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
@@ -15,8 +18,17 @@ import ReputationIcon from '@/components/icons/tokens/ReputationIcon';
 
 import { AnimalCardModel } from '@/types/AnimalCardModel';
 
-export const AnimalModelCard: React.FC<ModelCardProps> = ({ model }) => {
+export const AnimalModelCard: React.FC<ModelCardProps> = ({
+  id,
+  model,
+  showLink,
+}) => {
+  const router = useRouter();
   const { t } = useTranslation('common');
+  const handleNavigation = () => {
+    console.log('click');
+    router.push('/card/' + id);
+  };
   return (
     <div className='flex-col text-xs'>
       <div className='text-bold'>
@@ -112,6 +124,17 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({ model }) => {
           <MoneyIcon value={'-' + model.cost} color='text-red-400' />
         </div>
       </div>
+      {showLink && (
+        <div className='flex flex-col items-center'>
+          <Separator className='my-2 bg-zinc-300' />
+          <button
+            className='w-15 group flex items-center justify-center space-x-2 rounded-full bg-gradient-to-b from-zinc-50/20 to-white/80 px-4 py-2 text-xs font-medium text-lime-600 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md hover:text-lime-700 focus:outline-none focus-visible:ring-2 dark:from-zinc-900/30 dark:to-zinc-800/80 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20 dark:focus-visible:ring-yellow-500/80'
+            onClick={handleNavigation}
+          >
+            {t('View More')}
+          </button>
+        </div>
+      )}
     </div>
   );
 };

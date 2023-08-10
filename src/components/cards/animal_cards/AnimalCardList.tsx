@@ -127,7 +127,7 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
     <CardList>
       {filteredAnimals.map((animal: AnimalCardType) => (
         <div key={animal.id} className='scale-110 pb-10 md:scale-150 md:pb-36'>
-          <AnimalCard key={animal.id} animal={animal} />
+          <AnimalCard key={animal.id} animal={animal} showLink={true} />
         </div>
       ))}
     </CardList>

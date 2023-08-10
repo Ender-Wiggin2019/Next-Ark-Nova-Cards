@@ -29,9 +29,10 @@ import { KeyWord } from '@/types/KeyWords';
 
 interface AnimalCardProps {
   animal: AnimalCardType;
+  showLink: boolean;
 }
 
-export const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
+export const AnimalCard: React.FC<AnimalCardProps> = ({ animal, showLink }) => {
   const { t } = useTranslation('common');
 
   let dataSize = 1;
@@ -158,7 +159,11 @@ export const AnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
           </AnimalCardWrapper>
         </HoverCardTrigger>
         <HoverCardContent className='z-20 -mt-52 w-36 bg-zinc-50/90 p-2 text-xs'>
-          <AnimalModelCard model={getAnimalCardModel(animal)} />
+          <AnimalModelCard
+            id={animal.id}
+            model={getAnimalCardModel(animal)}
+            showLink={showLink}
+          />
         </HoverCardContent>
       </HoverCard>
     </>
