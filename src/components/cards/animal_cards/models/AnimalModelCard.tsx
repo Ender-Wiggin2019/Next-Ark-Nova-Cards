@@ -26,7 +26,6 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
   const router = useRouter();
   const { t } = useTranslation('common');
   const handleNavigation = () => {
-    console.log('click');
     router.push('/card/' + id);
   };
   return (

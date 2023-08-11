@@ -7,6 +7,7 @@ import React from 'react';
 import { AnimalCard } from '@/components/cards/animal_cards/AnimalCard';
 import { AnimalModelCard } from '@/components/cards/animal_cards/models/AnimalModelCard';
 import { SponsorCard } from '@/components/cards/sponsor_cards/SponsorCard';
+import { Comments } from '@/components/comments/Comments';
 // make sure to import your TextFilter
 import Layout from '@/components/layout/Layout';
 
@@ -17,7 +18,6 @@ import { getCardById, getCardTypeById } from '@/utils/GetCardById';
 import { AnimalCard as AnimalCardType } from '@/types/AnimalCard';
 import { CardType } from '@/types/Card';
 import { SponsorCard as SponsorCardType } from '@/types/SponsorCard';
-import Comments from '@/components/comments/Comments';
 type Props = {
   // Add custom props here
 };
@@ -36,28 +36,33 @@ export default function Page(
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
       {/* <Seo /> */}
-      <div className='mt-48 flex min-h-screen flex-col items-center py-2'>
-        {getCardTypeById(router.query.id) === CardType.ANIMAL_CARD ? (
-          <div className='flex scale-150 flex-row md:scale-[2] lg:scale-[2.2]'>
-            <div className='mr-3 flex-initial md:mr-10 lg:mr-20'>
-              <AnimalCard animal={card as AnimalCardType} showLink={false} />
-            </div>
-            <AnimalModelCard
-              id={card.id}
-              model={getAnimalCardModel(card as AnimalCardType)}
-              showLink={false}
-            />
+      <main>
+        <div className='flex flex-col'>
+          <div className='flex flex-col items-center border-2 py-2 py-48'>
+            {getCardTypeById(router.query.id) === CardType.ANIMAL_CARD ? (
+              <div className='flex scale-150 flex-row md:scale-[2] lg:scale-[2.2]'>
+                <div className='mr-3 flex-initial md:mr-10 lg:mr-20'>
+                  <AnimalCard
+                    animal={card as AnimalCardType}
+                    showLink={false}
+                  />
+                </div>
+                <AnimalModelCard
+                  id={card.id}
+                  model={getAnimalCardModel(card as AnimalCardType)}
+                  showLink={false}
+                />
+              </div>
+            ) : null}
+
+            {getCardTypeById(router.query.id) === CardType.SPONSOR_CARD && (
+              <SponsorCard sponsor={card as SponsorCardType} />
+            )}
           </div>
-        ) : null}
 
-        {getCardTypeById(router.query.id) === CardType.SPONSOR_CARD && (
-          <SponsorCard sponsor={card as SponsorCardType} />
-        )}
-      </div>
-
-      <Comments initialComments={[]} cardId='401' />
-
-      <main></main>
+          <Comments cardId='401' comments={[]} />
+        </div>
+      </main>
     </Layout>
   );
 }

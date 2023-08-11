@@ -83,7 +83,6 @@ export default function HomePage(
     setReset(true);
   };
 
-  console.log('sortOrder2', sortOrder);
   return (
     <Layout>
       {/* <Seo templateTitle='Home' /> */}

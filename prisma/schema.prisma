@@ -13,17 +13,16 @@ datasource db {
 
 model Comment {
   id        Int      @id @default(autoincrement())
-  cardId   Int
+  cardId   String   @db.VarChar(10)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   rating    Int
   title     String   @db.VarChar(255)
   content   String?
-  published Boolean  @default(false)
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
+  userId  String   @db.VarChar(255)
+  userInfo Json
 
-  @@index(authorId)
+  @@index(userId)
 }
 
 model Profile {
@@ -37,15 +36,14 @@ model Profile {
 
 model User {
   id      Int      @id @default(autoincrement())
-  email?   String   @unique
+  email   String   @unique
   name    String?
-  comments   Comment[]
-  animalCards   AnimalCard[]
   profile Profile?
 }
 
 model AnimalCard {
-  id        Int      @id @default(autoincrement())
+  id      Int      @id @default(autoincrement())
+  cardId        String   @db.VarChar(255)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   name      String   @db.VarChar(30)
@@ -78,8 +76,7 @@ model AnimalCard {
   // meta data
   source String
   published Boolean  @default(false)
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
+  userId  String   @db.VarChar(255)
 
-  @@index(authorId)
+  @@index(userId)
 }

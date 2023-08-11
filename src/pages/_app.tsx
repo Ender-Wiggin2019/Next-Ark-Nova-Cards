@@ -1,3 +1,4 @@
+import { ClerkProvider } from '@clerk/nextjs';
 import { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
 
@@ -15,7 +16,11 @@ import '@/styles/clerk.css';
  */
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <ClerkProvider {...pageProps}>
+      <Component {...pageProps} />
+    </ClerkProvider>
+  );
 }
 
 export default appWithTranslation(MyApp);

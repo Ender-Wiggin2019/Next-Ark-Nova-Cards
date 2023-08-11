@@ -56,7 +56,6 @@ export const SortButton: React.FC<SortButtonProps> = ({
       if (newSortOrder > SortOrder.DIFF_ASC) {
         newSortOrder = SortOrder.ID_ASC;
       }
-      console.log('newSortOrder', newSortOrder);
       return newSortOrder;
     });
   };
