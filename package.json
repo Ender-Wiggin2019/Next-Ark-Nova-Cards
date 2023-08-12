@@ -17,6 +17,7 @@
     "format:check": "prettier -c .",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
     "prepare": "husky install",
+    "postinstall": "prisma generate",
     "deploy": "vercel deploy --prod"
   },
   "dependencies": {
