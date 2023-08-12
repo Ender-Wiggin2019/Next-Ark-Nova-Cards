@@ -1,14 +1,16 @@
-import React, { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useEffect, useMemo } from 'react';
 
+import { RatedAnimalCard } from '@/components/cards/animal_cards/RatedAnimalCard';
 import CardList from '@/components/cards/shared/CardList';
 
 import { getAnimalCardModel } from '@/utils/GetAnimalCardModel';
 
-import { AnimalCard } from './AnimalCard';
 import { useAnimalData } from './useAnimalData';
 
-import { AnimalCard as AnimalCardType } from '@/types/AnimalCard';
+import { AnimalCard } from '@/types/AnimalCard';
 import { CardSource } from '@/types/CardSource';
+import { IAnimalCard, IRating } from '@/types/IAnimalCard';
 import { SortOrder } from '@/types/Order';
 import {
   isAnimalTag,
@@ -30,7 +32,7 @@ interface AnimalCardListProps {
 }
 
 const filterAnimals = (
-  animals: AnimalCardType[],
+  animals: AnimalCard[],
   selectedTags: Tag[] = [],
   selectedRequirements: Tag[] = [],
   selectedCardSources: CardSource[] = [],
@@ -76,6 +78,14 @@ const filterAnimals = (
   );
 };
 
+const fetchCardRatings = async () => {
+  const response = await fetch('/api/cards/ratings');
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+};
+
 export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   selectedTags,
   selectedRequirements,
@@ -85,6 +95,18 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   sortOrder = SortOrder.ID_ASC,
   size = [0],
 }) => {
+  // const shouldFetchRatings = sortOrder === SortOrder.RATING_DESC || sortOrder === SortOrder.RATING_ASC;
+  const shouldFetchRatings = true;
+  const {
+    data: cardRatings,
+    isLoading,
+    isError,
+    error,
+  } = useQuery(['cardRatings'], fetchCardRatings, {
+    enabled: shouldFetchRatings,
+    staleTime: Infinity,
+  });
+
   const animalsData = useAnimalData();
   const filteredAnimals = filterAnimals(
     animalsData,
@@ -95,46 +117,95 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
     size
   );
 
-  // 排序逻辑
-  switch (sortOrder) {
-    case SortOrder.ID_ASC:
-      filteredAnimals.sort((a, b) => a.id.localeCompare(b.id));
-      break;
-    case SortOrder.ID_DESC:
-      filteredAnimals.sort((a, b) => b.id.localeCompare(a.id));
-      break;
-    case SortOrder.DIFF_ASC:
-      filteredAnimals.sort(
-        (a, b) =>
-          getAnimalCardModel(a).diffWithSpecialEnclosure -
-          getAnimalCardModel(b).diffWithSpecialEnclosure
-      );
-      break;
-    case SortOrder.DIFF_DESC:
-      filteredAnimals.sort(
-        (a, b) =>
-          getAnimalCardModel(b).diffWithSpecialEnclosure -
-          getAnimalCardModel(a).diffWithSpecialEnclosure
-      );
-      break;
-  }
+  const combineDataWithRatings = (
+    animals: AnimalCard[],
+    ratings: IRating[]
+  ): IAnimalCard[] => {
+    return animals.map((animal) => {
+      const rating = ratings.find((r) => r.cardId === animal.id);
+      return {
+        id: animal.id,
+        animalCard: animal,
+        model: getAnimalCardModel(animal),
+        rating: rating ? rating._avg.rating : null,
+        ratingCount: rating ? rating._count : null,
+      };
+    });
+  };
+
+  const initialAnimalCards: IAnimalCard[] = useMemo(() => {
+    return filteredAnimals.map((animal) => ({
+      id: animal.id,
+      animalCard: animal,
+      model: getAnimalCardModel(animal),
+      rating: null,
+      ratingCount: null,
+    }));
+  }, [filteredAnimals]);
+
+  const ratedAnimalCards: IAnimalCard[] = useMemo(() => {
+    if (!cardRatings) {
+      return initialAnimalCards;
+    }
+    return combineDataWithRatings(filteredAnimals, cardRatings);
+  }, [filteredAnimals, cardRatings]);
 
   useEffect(() => {
     onCardCountChange(filteredAnimals.length);
   }, [filteredAnimals, onCardCountChange]);
 
+  // 排序逻辑
+  switch (sortOrder) {
+    case SortOrder.ID_ASC:
+      ratedAnimalCards.sort((a, b) => a.id.localeCompare(b.id));
+      break;
+    case SortOrder.ID_DESC:
+      ratedAnimalCards.sort((a, b) => b.id.localeCompare(a.id));
+      break;
+    case SortOrder.DIFF_ASC:
+      ratedAnimalCards.sort(
+        (a, b) =>
+          a.model.diffWithSpecialEnclosure - b.model.diffWithSpecialEnclosure
+      );
+      break;
+    case SortOrder.DIFF_DESC:
+      ratedAnimalCards.sort(
+        (a, b) =>
+          b.model.diffWithSpecialEnclosure - a.model.diffWithSpecialEnclosure
+      );
+      break;
+    // case SortOrder.RATING_ASC:
+    //   ratedAnimalCards.sort(
+    //       (a, b) =>
+    //           (a.ratingCount ?? -1) -
+    //           (b.ratingCount ?? -1)
+    //   );
+    //   break;
+    case SortOrder.RATING_DESC:
+      ratedAnimalCards.sort((a, b) => (b.rating ?? -1) - (a.rating ?? -1));
+      break;
+  }
+
+  console.log('ratedAnimalCards', ratedAnimalCards[0]);
   return (
     <CardList>
-      {filteredAnimals.map((animal: AnimalCardType) => (
-        <div key={animal.id} className='scale-110 pb-10 md:scale-150 md:pb-36'>
-          <AnimalCard key={animal.id} animal={animal} showLink={true} />
+      {ratedAnimalCards.map((ratedAnimalCard: IAnimalCard) => (
+        <div
+          key={ratedAnimalCard.id}
+          className='scale-110 pb-10 md:scale-150 md:pb-36'
+        >
+          <RatedAnimalCard
+            key={ratedAnimalCard.id}
+            cardData={ratedAnimalCard}
+            showLink={true}
+          />
         </div>
       ))}
     </CardList>
   );
 };
 
-const hasRockAndWaterRequirements = (animal: AnimalCardType, req: Tag) => {
+const hasRockAndWaterRequirements = (animal: AnimalCard, req: Tag) => {
   if (req === OtherTag.Rock) {
     return animal.rock && animal.rock > 0;
   } else if (req === OtherTag.Water) {

@@ -4,10 +4,12 @@ interface ModelCardProps {
   id: string;
   model: AnimalCardModel;
   showLink: boolean;
+  rating?: number | null;
 }
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
+import { Rating } from 'react-simple-star-rating';
 
 import clsxm from '@/lib/clsxm';
 
@@ -22,6 +24,7 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
   id,
   model,
   showLink,
+  rating,
 }) => {
   const router = useRouter();
   const { t } = useTranslation('common');
@@ -57,6 +60,16 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
             {/*<MoneyIcon value={model.diff} />*/}
           </span>
         </div>
+      )}
+      {rating && (
+        <Rating
+          emptyStyle={{ display: 'flex' }}
+          fillStyle={{ display: '-webkit-inline-box' }}
+          className='-mt-1'
+          readonly={true}
+          initialValue={rating}
+          size={16}
+        />
       )}
       <Separator className='my-2 bg-zinc-300' />
 

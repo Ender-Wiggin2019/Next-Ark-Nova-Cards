@@ -11,24 +11,6 @@ import { Button } from '@/components/ui/Button';
 import { UserArrowLeftIcon } from '../../../public';
 
 import { CommentDto } from '@/types/Comment';
-// import { type GuestbookDto } from '~/db/dto/guestbook.dto'
-
-// import { GuestbookFeeds } from './GuestbookFeeds'
-// import { GuestbookInput } from './GuestbookInput'
-
-// const comment: CommentDto = {
-//     id: '1',
-//     cardId: 1,
-//     rating: 2,
-//     title: 'title',
-//     content: 'content',
-//     userId: '1',
-//     userInfo: {
-//         firstName: 'firstName',
-//         lastName: 'lastName',
-//         imageUrl: 'imageUrl',
-//     }
-// }
 
 type CommentProps = {
   cardId: string;
@@ -38,7 +20,7 @@ export function Comments({ cardId, comments }: CommentProps) {
   const pathname = usePathname();
 
   return (
-    <section className='max-w-2xl'>
+    <section className='px-4 md:px-2'>
       <SignedOut>
         <SignInButton mode='modal' redirectUrl={pathname}>
           <Button type='button'>

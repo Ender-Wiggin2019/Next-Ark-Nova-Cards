@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import Image from 'next/image';
 import React from 'react';
+import { Rating } from 'react-simple-star-rating';
 import { useSnapshot } from 'valtio';
 import 'dayjs/locale/en-gb';
 
@@ -46,6 +47,14 @@ function Comment({
           <b className='text-sm font-bold dark:text-zinc-100'>
             {comment.userInfo.username ?? 'Anonymous'}
           </b>
+          <Rating
+            emptyStyle={{ display: 'flex' }}
+            fillStyle={{ display: '-webkit-inline-box' }}
+            className='-mt-1'
+            readonly={true}
+            initialValue={comment.rating}
+            size={16}
+          />
           <time
             dateTime={comment.createdAt.toString()}
             className='inline-flex select-none text-[12px] font-medium opacity-40'

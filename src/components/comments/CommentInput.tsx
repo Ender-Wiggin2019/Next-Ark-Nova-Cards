@@ -3,9 +3,12 @@
 import { useUser } from '@clerk/nextjs';
 import { useMutation } from '@tanstack/react-query';
 import { useState } from 'react';
+import { Rating } from 'react-simple-star-rating';
 
+import { Textarea } from '@/components/ui/textarea';
 type FormState = {
   userName: string;
+  rating: number;
   content: string;
 };
 
@@ -19,6 +22,7 @@ const CommentInput = ({
   const { user } = useUser();
   const [formState, setFormState] = useState<FormState>({
     userName: '',
+    rating: 0,
     content: '',
   });
   const [submitting, setSubmitting] = useState(false);
@@ -39,9 +43,9 @@ const CommentInput = ({
       body: JSON.stringify({
         ...formData,
         cardId,
-        rating: '5',
+        // rating: formData.rating,
         title: '',
-        content: formData.content,
+        // content: formData.content,
       }),
     });
     if (!response.ok) throw new Error('Failed to create comment.');
@@ -55,7 +59,7 @@ const CommentInput = ({
 
     try {
       await mutation.mutateAsync(formState);
-      setFormState({ userName: '', content: '' });
+      setFormState({ userName: '', rating: 0, content: '' });
       // upToDateCommentsQuery.refetch();
     } catch (error) {
       console.error('Failed to submit the comment:', error);
@@ -91,26 +95,26 @@ const CommentForm = ({
   setFormState: React.Dispatch<React.SetStateAction<FormState>>;
   submitting: boolean;
 }) => {
+  const handleRating = (rating: number) => {
+    setFormState((prev) => ({ ...prev, rating: rating }));
+
+    // other logic
+  };
   return (
-    <form onSubmit={onSubmit} className='flex flex-col items-start lg:w-[50%]'>
-      <label className='mb-2 flex flex-col' htmlFor='userName'>
-        Author
-      </label>
-      <input
-        className='w-full rounded-lg border-2 border-secondary bg-white px-4 py-2'
-        placeholder='Author'
-        name='userName'
-        required
-        value={formState.userName}
-        onChange={(e) =>
-          setFormState((prev) => ({ ...prev, userName: e.target.value }))
-        }
+    <form
+      onSubmit={onSubmit}
+      className='flex flex-col items-start gap-2 lg:w-[70%]'
+    >
+      <Rating
+        emptyStyle={{ display: 'flex' }}
+        fillStyle={{ display: '-webkit-inline-box' }}
+        onClick={handleRating}
       />
-      <label className='mb-2 mt-4 flex flex-col' htmlFor='content'>
-        Comment
-      </label>
-      <textarea
-        className='w-full rounded-lg border-2 border-secondary bg-white px-4 py-2'
+      {/*<label className='mb-2 mt-4 flex flex-col' htmlFor='content'>*/}
+      {/*  Comment*/}
+      {/*</label>*/}
+      <Textarea
+        className='w-full rounded-lg bg-white/80 px-4 py-2'
         placeholder='Comment'
         required
         rows={4}
@@ -119,10 +123,11 @@ const CommentForm = ({
         onChange={(e) =>
           setFormState((prev) => ({ ...prev, content: e.target.value }))
         }
-      ></textarea>
+      ></Textarea>
+
       <button
         disabled={submitting}
-        className='mt-4 rounded-lg bg-secondary px-8 py-4 text-white transition-transform disabled:opacity-50 lg:hover:scale-[1.04] '
+        className='w-15 group flex items-center justify-center space-x-2 rounded-full bg-gradient-to-b from-zinc-50/20 to-white/80 px-4 py-2 text-xs font-medium text-zinc-900 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md hover:text-lime-700 focus:outline-none focus-visible:ring-2 dark:from-zinc-900/30 dark:to-zinc-800/80 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20 dark:focus-visible:ring-yellow-500/80'
         type='submit'
       >
         {submitting ? 'Submitting' : 'Submit comment'}

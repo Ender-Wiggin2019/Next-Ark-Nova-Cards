@@ -54,6 +54,7 @@
     "react-markdown": "^8.0.7",
     "react-odometerjs": "^3.1.0",
     "react-query": "^3.39.3",
+    "react-simple-star-rating": "^5.1.7",
     "react-textarea-autosize": "^8.5.2",
     "tailwind-merge": "^1.13.2",
     "tailwindcss-animate": "^1.0.6",

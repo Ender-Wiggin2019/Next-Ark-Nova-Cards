@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 
-import { AnimalCard } from '@/components/cards/animal_cards/AnimalCard';
+import { BaseAnimalCard } from '@/components/cards/animal_cards/BaseAnimalCard';
 import { AnimalModelCard } from '@/components/cards/animal_cards/models/AnimalModelCard';
 import { SponsorCard } from '@/components/cards/sponsor_cards/SponsorCard';
 import { Comments } from '@/components/comments/Comments';
@@ -36,33 +36,28 @@ export default function Page(
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
       {/* <Seo /> */}
-      <main>
-        <div className='flex flex-col'>
-          <div className='flex flex-col items-center border-2 py-2 py-48'>
-            {getCardTypeById(router.query.id) === CardType.ANIMAL_CARD ? (
-              <div className='flex scale-150 flex-row md:scale-[2] lg:scale-[2.2]'>
-                <div className='mr-3 flex-initial md:mr-10 lg:mr-20'>
-                  <AnimalCard
-                    animal={card as AnimalCardType}
-                    showLink={false}
-                  />
-                </div>
-                <AnimalModelCard
-                  id={card.id}
-                  model={getAnimalCardModel(card as AnimalCardType)}
-                  showLink={false}
-                />
+      <div className='flex flex-col'>
+        <div className='flex flex-col items-center py-2 py-24 md:py-36 lg:pb-48 lg:pt-36'>
+          {getCardTypeById(router.query.id) === CardType.ANIMAL_CARD ? (
+            <div className='flex scale-150 flex-row md:scale-[2] lg:scale-[2.2]'>
+              <div className='mr-3 flex-initial md:mr-10 lg:mr-20'>
+                <BaseAnimalCard animal={card as AnimalCardType} />
               </div>
-            ) : null}
+              <AnimalModelCard
+                id={card.id}
+                model={getAnimalCardModel(card as AnimalCardType)}
+                showLink={false}
+              />
+            </div>
+          ) : null}
 
-            {getCardTypeById(router.query.id) === CardType.SPONSOR_CARD && (
-              <SponsorCard sponsor={card as SponsorCardType} />
-            )}
-          </div>
-
-          <Comments cardId='401' comments={[]} />
+          {getCardTypeById(router.query.id) === CardType.SPONSOR_CARD && (
+            <SponsorCard sponsor={card as SponsorCardType} />
+          )}
         </div>
-      </main>
+
+        <Comments cardId={router.query.id} comments={[]} />
+      </div>
     </Layout>
   );
 }
