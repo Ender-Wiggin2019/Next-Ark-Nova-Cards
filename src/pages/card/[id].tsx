@@ -6,7 +6,7 @@ import React from 'react';
 
 import { BaseAnimalCard } from '@/components/cards/animal_cards/BaseAnimalCard';
 import { AnimalModelCard } from '@/components/cards/animal_cards/models/AnimalModelCard';
-import { SponsorCard } from '@/components/cards/sponsor_cards/SponsorCard';
+import { BaseSponsorCard } from '@/components/cards/sponsor_cards/BaseSponsorCard';
 import { Comments } from '@/components/comments/Comments';
 // make sure to import your TextFilter
 import Layout from '@/components/layout/Layout';
@@ -51,12 +51,16 @@ export default function Page(
             </div>
           ) : null}
 
-          {getCardTypeById(router.query.id) === CardType.SPONSOR_CARD && (
-            <SponsorCard sponsor={card as SponsorCardType} />
-          )}
+          {getCardTypeById(router.query.id) === CardType.SPONSOR_CARD ? (
+            <div className='flex scale-150 flex-row md:scale-[2] lg:scale-[2.2]'>
+              <div className='mr-3 flex-initial md:mr-10 lg:mr-20'>
+                <BaseSponsorCard sponsor={card as SponsorCardType} />
+              </div>
+            </div>
+          ) : null}
         </div>
 
-        <Comments cardId={router.query.id} comments={[]} />
+        <Comments cardId={router.query.id} />
       </div>
     </Layout>
   );

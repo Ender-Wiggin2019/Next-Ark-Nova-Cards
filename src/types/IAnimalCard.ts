@@ -8,11 +8,3 @@ export interface IAnimalCard {
   rating?: number | null;
   ratingCount?: number | null;
 }
-
-export interface IRating {
-  _avg: {
-    rating: number;
-  };
-  _count: number;
-  cardId: string;
-}

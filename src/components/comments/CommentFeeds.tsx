@@ -1,16 +1,15 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import Image from 'next/image';
 import React from 'react';
 import { Rating } from 'react-simple-star-rating';
-import { useSnapshot } from 'valtio';
 import 'dayjs/locale/en-gb';
 
-import { commentState, setComments } from './comments.state';
+import { getAvgRatings } from '@/utils/GetAvgRatings';
 
+// import { commentState, setComments } from './comments.state';
 import { type CommentDto } from '@/types/Comment';
 
 dayjs.extend(relativeTime);
@@ -73,36 +72,35 @@ const CommentBlock = React.memo(Comment);
 
 export function CommentFeeds(props: {
   cardId: string;
-  comments?: CommentDto[];
+  comments: CommentDto[];
 }) {
-  const { data: feed } = useQuery(
-    ['guestbook'],
-    async () => {
-      const res = await fetch('/api/comments/lists?cardId=' + props.cardId);
-      const data = await res.json();
-      return data as CommentDto[];
-    },
-    {
-      refetchInterval: 30000,
-      initialData: props.comments ?? [],
-    }
-  );
-  const { comments } = useSnapshot(commentState);
-  React.useEffect(() => {
-    setComments(feed ?? []);
-  }, [feed]);
+  const { averageRating, numberOfRatings } = getAvgRatings(props.comments);
 
   return (
-    <div className='relative mt-12'>
-      <div className='absolute inset-0 flex items-center' aria-hidden='true' />
+    <div className='relative mt-2'>
+      <div
+        className='absolute inset-0 flex flex-row items-center gap-2'
+        aria-hidden='true'
+      />
 
-      <ul role='list' className='-mb-8 px-1 md:px-4'>
-        {comments.map((comment, idx) => (
+      <div className='group mb-2 flex w-72 items-center justify-center space-x-2 rounded-full bg-gradient-to-b from-zinc-50/20 to-white/80 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md focus:outline-none focus-visible:ring-2 dark:from-zinc-900/30 dark:to-zinc-800/80 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20 dark:focus-visible:ring-yellow-500/80'>
+        <Rating
+          emptyStyle={{ display: 'flex' }}
+          fillStyle={{ display: '-webkit-inline-box' }}
+          className='-mt-1'
+          readonly={true}
+          initialValue={averageRating}
+          size={22}
+        />
+        {averageRating.toFixed(2)} / 5 ({numberOfRatings} users)
+      </div>
+      <ul role='list' className='-mb-8 mt-2 px-1 md:px-4'>
+        {props.comments.map((comment, idx) => (
           <CommentBlock
             key={comment.id}
             comment={comment}
             idx={idx}
-            length={comments.length}
+            length={props.comments.length}
           />
         ))}
       </ul>

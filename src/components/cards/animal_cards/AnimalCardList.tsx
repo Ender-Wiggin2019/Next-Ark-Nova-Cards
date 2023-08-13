@@ -4,13 +4,15 @@ import React, { useEffect, useMemo } from 'react';
 import { RatedAnimalCard } from '@/components/cards/animal_cards/RatedAnimalCard';
 import CardList from '@/components/cards/shared/CardList';
 
+import { fetchCardRatings } from '@/utils/fetch';
 import { getAnimalCardModel } from '@/utils/GetAnimalCardModel';
 
 import { useAnimalData } from './useAnimalData';
 
 import { AnimalCard } from '@/types/AnimalCard';
 import { CardSource } from '@/types/CardSource';
-import { IAnimalCard, IRating } from '@/types/IAnimalCard';
+import { IAnimalCard } from '@/types/IAnimalCard';
+import { IRating } from '@/types/IRating';
 import { SortOrder } from '@/types/Order';
 import {
   isAnimalTag,
@@ -78,14 +80,6 @@ const filterAnimals = (
   );
 };
 
-const fetchCardRatings = async () => {
-  const response = await fetch('/api/cards/ratings');
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
-};
-
 export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   selectedTags,
   selectedRequirements,
@@ -95,16 +89,15 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   sortOrder = SortOrder.ID_ASC,
   size = [0],
 }) => {
-  // const shouldFetchRatings = sortOrder === SortOrder.RATING_DESC || sortOrder === SortOrder.RATING_ASC;
   const shouldFetchRatings = true;
   const {
     data: cardRatings,
-    isLoading,
-    isError,
-    error,
+    // isLoading,
+    // isError,
+    // error,
   } = useQuery(['cardRatings'], fetchCardRatings, {
     enabled: shouldFetchRatings,
-    staleTime: Infinity,
+    // staleTime: 60 * 1000,
   });
 
   const animalsData = useAnimalData();
@@ -154,7 +147,6 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
     onCardCountChange(filteredAnimals.length);
   }, [filteredAnimals, onCardCountChange]);
 
-  // 排序逻辑
   switch (sortOrder) {
     case SortOrder.ID_ASC:
       ratedAnimalCards.sort((a, b) => a.id.localeCompare(b.id));
@@ -174,19 +166,11 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
           b.model.diffWithSpecialEnclosure - a.model.diffWithSpecialEnclosure
       );
       break;
-    // case SortOrder.RATING_ASC:
-    //   ratedAnimalCards.sort(
-    //       (a, b) =>
-    //           (a.ratingCount ?? -1) -
-    //           (b.ratingCount ?? -1)
-    //   );
-    //   break;
     case SortOrder.RATING_DESC:
       ratedAnimalCards.sort((a, b) => (b.rating ?? -1) - (a.rating ?? -1));
       break;
   }
 
-  console.log('ratedAnimalCards', ratedAnimalCards[0]);
   return (
     <CardList>
       {ratedAnimalCards.map((ratedAnimalCard: IAnimalCard) => (

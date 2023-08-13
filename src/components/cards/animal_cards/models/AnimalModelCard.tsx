@@ -62,14 +62,18 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
         </div>
       )}
       {rating && (
-        <Rating
-          emptyStyle={{ display: 'flex' }}
-          fillStyle={{ display: '-webkit-inline-box' }}
-          className='-mt-1'
-          readonly={true}
-          initialValue={rating}
-          size={16}
-        />
+        <div className='flex flex-row gap-1'>
+          <Rating
+            emptyStyle={{ display: 'flex' }}
+            fillStyle={{ display: '-webkit-inline-box' }}
+            className='-mt-1'
+            readonly={true}
+            initialValue={rating}
+            allowFraction={true}
+            size={16}
+          />
+          {rating ? rating.toFixed(1) + ' / 5' : ''}
+        </div>
       )}
       <Separator className='my-2 bg-zinc-300' />
 

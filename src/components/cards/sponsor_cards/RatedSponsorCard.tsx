@@ -1,34 +1,33 @@
 import { HoverCard, HoverCardTrigger } from '@radix-ui/react-hover-card';
 import React from 'react';
 
-import { AnimalModelCard } from '@/components/cards/animal_cards/models/AnimalModelCard';
+import { SponsorHoverCard } from '@/components/cards/sponsor_cards/SponsorHoverCard';
 import { HoverCardContent } from '@/components/ui/hover-card';
 
-import { BaseAnimalCard } from './BaseAnimalCard';
+import { BaseSponsorCard } from './BaseSponsorCard';
 
-import { IAnimalCard } from '@/types/IAnimalCard';
+import { ISponsorCard } from '@/types/ISponsorCard';
 
-interface RatedAnimalCardProps {
-  cardData: IAnimalCard;
+interface RatedSponsorCardProps {
+  cardData: ISponsorCard;
   showLink: boolean;
 }
 
-export const RatedAnimalCard: React.FC<RatedAnimalCardProps> = ({
+export const RatedSponsorCard: React.FC<RatedSponsorCardProps> = ({
   cardData,
   showLink,
 }) => {
-  const { animalCard, model, rating, ratingCount } = cardData;
+  const { sponsorCard, rating, ratingCount } = cardData;
 
   return (
     <>
       <HoverCard>
         <HoverCardTrigger>
-          <BaseAnimalCard animal={animalCard} />
+          <BaseSponsorCard sponsor={sponsorCard} />
         </HoverCardTrigger>
         <HoverCardContent className='z-20 -mt-52 w-36 bg-zinc-50/90 p-2 text-xs'>
-          <AnimalModelCard
-            id={animalCard.id}
-            model={model}
+          <SponsorHoverCard
+            id={sponsorCard.id}
             showLink={showLink}
             rating={rating}
           />

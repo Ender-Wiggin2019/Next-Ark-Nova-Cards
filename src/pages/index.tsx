@@ -154,6 +154,7 @@ export default function HomePage(
               selectedRequirements={selectedRequirements}
               selectedCardSources={selectedCardSources}
               textFilter={textFilter}
+              sortOrder={sortOrder}
               onCardCountChange={setSponsorCardsCount}
               strength={strength}
             />

@@ -4,10 +4,10 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '@/lib/prisma-client';
 // POST /api/comments/create/
 export default async function post(req: NextApiRequest, res: NextApiResponse) {
-  const { cardId, rating, title, content, authorName } = req.body;
-  console.log('req.body', cardId, rating, title, content, authorName);
+  const { cardId, rating, title, content } = req.body;
+  // console.log('req.body', cardId, rating, title, content, authorName);
   const { userId } = getAuth(req);
-  console.log('userId', userId);
+  // console.log('userId', userId);
   const user = userId ? await clerkClient.users.getUser(userId) : null;
   if (!user) {
     return res.status(401).json({ error: 'Unauthorized' });
@@ -26,6 +26,5 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
       },
     },
   });
-  console.log('result', result);
   return res.status(201).json(result);
 }

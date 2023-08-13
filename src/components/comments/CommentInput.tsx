@@ -1,11 +1,15 @@
 'use client';
 
-import { useUser } from '@clerk/nextjs';
 import { useMutation } from '@tanstack/react-query';
-import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
+import React, { useEffect, useState } from 'react';
 import { Rating } from 'react-simple-star-rating';
 
 import { Textarea } from '@/components/ui/textarea';
+
+import { CommentDto } from '@/types/Comment';
+
 type FormState = {
   userName: string;
   rating: number;
@@ -13,43 +17,48 @@ type FormState = {
 };
 
 const CommentInput = ({
-  // initialComment,
   cardId,
+  comment,
 }: {
-  // initialComment: Comment;
   cardId: string;
+  comment?: CommentDto | null;
 }) => {
-  const { user } = useUser();
+  const { t } = useTranslation('common');
+  const router = useRouter();
+  const shouldUpdate = !!comment;
   const [formState, setFormState] = useState<FormState>({
     userName: '',
-    rating: 0,
-    content: '',
+    rating: comment?.rating || 0,
+    content: comment?.content || '',
   });
   const [submitting, setSubmitting] = useState(false);
 
-  // const upToDateCommentsQuery = useQuery<Comment[], Error>({
-  //   queryKey: [`comments-${cardId}`],
-  //   queryFn: async () => {
-  //     const response = await fetch(`/api/comments/list?cardId=${cardId}`);
-  //     if (!response.ok) throw new Error('Failed to fetch comments.');
-  //     return response.json();
-  //   },
-  // });
-
-  const mutation = useMutation(async (formData: FormState) => {
+  const createMutation = useMutation(async (formData: FormState) => {
     const response = await fetch('/api/comments/create', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         ...formData,
-        cardId,
-        // rating: formData.rating,
         title: '',
-        // content: formData.content,
+        cardId,
       }),
     });
     if (!response.ok) throw new Error('Failed to create comment.');
-    console.log('response', response);
+    return response.json();
+  });
+
+  const updateMutation = useMutation(async (formData: FormState) => {
+    if (!comment?.id) throw new Error('No comment ID provided for update.');
+    const response = await fetch(`/api/comments/update`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...formData,
+        cardId,
+        commentId: comment.id,
+      }),
+    });
+    if (!response.ok) throw new Error('Failed to update comment.');
     return response.json();
   });
 
@@ -58,27 +67,40 @@ const CommentInput = ({
     setSubmitting(true);
 
     try {
-      await mutation.mutateAsync(formState);
-      setFormState({ userName: '', rating: 0, content: '' });
+      if (shouldUpdate) {
+        await updateMutation.mutateAsync(formState);
+      } else {
+        await createMutation.mutateAsync(formState);
+      }
+      router.reload();
+      // setFormState({ userName: '', rating: comment?.rating || 0, content: comment?.content || '' });
       // upToDateCommentsQuery.refetch();
     } catch (error) {
       console.error('Failed to submit the comment:', error);
+    } finally {
+      setSubmitting(false);
     }
-
-    setSubmitting(false);
   };
 
+  useEffect(() => {
+    setFormState({
+      userName: '',
+      rating: comment?.rating || 0,
+      content: comment?.content || '',
+    });
+  }, [comment]);
   return (
     <>
-      <h2 className='mb-4 text-xl font-bold lg:text-2xl'>Add a comment</h2>
+      <h2 className='mb-4 text-xl font-bold lg:text-2xl'>
+        {t('Add a comment')}
+      </h2>
       <CommentForm
         onSubmit={onSubmit}
         formState={formState}
         setFormState={setFormState}
         submitting={submitting}
+        shouldUpdate={shouldUpdate}
       />
-
-      <h2 className='mb-4 text-xl font-bold lg:text-2xl'>Comments</h2>
       {/*<CommentList comments={upToDateCommentsQuery.data || []} />*/}
     </>
   );
@@ -89,12 +111,15 @@ const CommentForm = ({
   formState,
   setFormState,
   submitting,
+  shouldUpdate,
 }: {
   onSubmit: (e: React.FormEvent) => void;
   formState: FormState;
   setFormState: React.Dispatch<React.SetStateAction<FormState>>;
   submitting: boolean;
+  shouldUpdate: boolean;
 }) => {
+  const { t } = useTranslation();
   const handleRating = (rating: number) => {
     setFormState((prev) => ({ ...prev, rating: rating }));
 
@@ -103,16 +128,15 @@ const CommentForm = ({
   return (
     <form
       onSubmit={onSubmit}
-      className='flex flex-col items-start gap-2 lg:w-[70%]'
+      className='mb-4 flex flex-col items-start gap-2 lg:w-[70%]'
     >
       <Rating
         emptyStyle={{ display: 'flex' }}
         fillStyle={{ display: '-webkit-inline-box' }}
         onClick={handleRating}
+        size={24}
+        initialValue={formState.rating}
       />
-      {/*<label className='mb-2 mt-4 flex flex-col' htmlFor='content'>*/}
-      {/*  Comment*/}
-      {/*</label>*/}
       <Textarea
         className='w-full rounded-lg bg-white/80 px-4 py-2'
         placeholder='Comment'
@@ -127,31 +151,17 @@ const CommentForm = ({
 
       <button
         disabled={submitting}
-        className='w-15 group flex items-center justify-center space-x-2 rounded-full bg-gradient-to-b from-zinc-50/20 to-white/80 px-4 py-2 text-xs font-medium text-zinc-900 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md hover:text-lime-700 focus:outline-none focus-visible:ring-2 dark:from-zinc-900/30 dark:to-zinc-800/80 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20 dark:focus-visible:ring-yellow-500/80'
+        className='group flex w-24 items-center justify-center space-x-2 rounded-full bg-lime-500 px-4 py-2 text-xs font-medium text-zinc-900 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md hover:text-lime-700 focus:outline-none focus-visible:ring-2 dark:from-zinc-900/30 dark:to-zinc-800/80 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20 dark:focus-visible:ring-yellow-500/80'
         type='submit'
       >
-        {submitting ? 'Submitting' : 'Submit comment'}
+        {submitting
+          ? t('Submitting')
+          : shouldUpdate
+          ? t('Update')
+          : t('Submit')}
       </button>
     </form>
   );
 };
-
-// const CommentList = ({ comments }: { comments: Comment[] }) => {
-//   if (comments.length === 0)
-//     return (
-//       <div className='mt-4'>No comments yet. Be the first to add one!</div>
-//     );
-//
-//   return (
-//     <div className='flex flex-col gap-y-4'>
-//       {comments.map((comment) => (
-//         <div key={comment.id} className='flex flex-col'>
-//           <h3 className='font-bold'>{comment.userId}</h3>
-//           <div>{comment.rating}</div>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
 
 export default CommentInput;
