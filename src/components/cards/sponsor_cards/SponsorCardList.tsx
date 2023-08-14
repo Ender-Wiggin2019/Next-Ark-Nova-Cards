@@ -1,12 +1,19 @@
-import React, { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useEffect, useMemo } from 'react';
 
 import CardList from '@/components/cards/shared/CardList';
 
-import { SponsorCard } from './SponsorCard';
+import { fetchCardRatings } from '@/utils/fetch';
+
+import { RatedSponsorCard } from './RatedSponsorCard';
 import { useSponsorData } from './useSponsorData';
 
 import { CardSource } from '@/types/CardSource';
+import { IRating } from '@/types/IRating';
+import { ISponsorCard } from '@/types/ISponsorCard';
+import { SortOrder } from '@/types/Order';
 import { SponsorCard as SponsorCardType } from '@/types/SponsorCard';
+import { SponsorCard } from '@/types/SponsorCard';
 import {
   isAnimalTag,
   isContinentTag,
@@ -20,16 +27,17 @@ interface SponsorCardListProps {
   selectedRequirements?: Tag[];
   selectedCardSources?: CardSource[];
   textFilter?: string;
+  sortOrder?: SortOrder;
   strength?: number[];
   onCardCountChange: (count: number) => void;
   // ... any other filters
 }
 
-const hasRockAndWaterRequirements = (animal: SponsorCardType, req: Tag) => {
+const hasRockAndWaterRequirements = (sponsor: SponsorCardType, req: Tag) => {
   if (req === OtherTag.Rock) {
-    return animal.rock && animal.rock > 0;
+    return sponsor.rock && sponsor.rock > 0;
   } else if (req === OtherTag.Water) {
-    return animal.water && animal.water > 0;
+    return sponsor.water && sponsor.water > 0;
   } else {
     return false;
   }
@@ -87,8 +95,14 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
   selectedCardSources = [],
   textFilter,
   onCardCountChange,
+  sortOrder = SortOrder.ID_ASC,
   strength = [0],
 }) => {
+  const shouldFetchRatings = true;
+  const { data: cardRatings } = useQuery(['cardRatings'], fetchCardRatings, {
+    enabled: shouldFetchRatings,
+    // staleTime: 60 * 1000,
+  });
   const sponsorsData = useSponsorData();
   const filteredSponsors = filterSponsors(
     sponsorsData,
@@ -99,15 +113,65 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
     strength
   );
 
+  const combineDataWithRatings = (
+    sponsors: SponsorCard[],
+    ratings: IRating[]
+  ): ISponsorCard[] => {
+    return sponsors.map((sponsor) => {
+      const rating = ratings.find((r) => r.cardId === sponsor.id);
+      return {
+        id: sponsor.id,
+        sponsorCard: sponsor,
+        rating: rating ? rating._avg.rating : null,
+        ratingCount: rating ? rating._count : null,
+      };
+    });
+  };
+
+  const initialSponsorCards: ISponsorCard[] = useMemo(() => {
+    return filteredSponsors.map((sponsor) => ({
+      id: sponsor.id,
+      sponsorCard: sponsor,
+      rating: null,
+      ratingCount: null,
+    }));
+  }, [filteredSponsors]);
+
+  const ratedSponsorCards: ISponsorCard[] = useMemo(() => {
+    if (!cardRatings) {
+      return initialSponsorCards;
+    }
+    return combineDataWithRatings(filteredSponsors, cardRatings);
+  }, [filteredSponsors, cardRatings]);
+
   useEffect(() => {
     onCardCountChange(filteredSponsors.length);
   }, [filteredSponsors, onCardCountChange]);
 
+  switch (sortOrder) {
+    case SortOrder.ID_ASC:
+      ratedSponsorCards.sort((a, b) => a.id.localeCompare(b.id));
+      break;
+    case SortOrder.ID_DESC:
+      ratedSponsorCards.sort((a, b) => b.id.localeCompare(a.id));
+      break;
+    case SortOrder.RATING_DESC:
+      ratedSponsorCards.sort((a, b) => (b.rating ?? -1) - (a.rating ?? -1));
+      break;
+  }
+
   return (
     <CardList>
-      {filteredSponsors.map((sponsor: SponsorCardType) => (
-        <div key={sponsor.id} className='scale-110 pb-10 md:scale-150 md:pb-36'>
-          <SponsorCard key={sponsor.id} sponsor={sponsor} />
+      {ratedSponsorCards.map((ratedSponsorCard: ISponsorCard) => (
+        <div
+          key={ratedSponsorCard.id}
+          className='scale-110 pb-10 md:scale-150 md:pb-36'
+        >
+          <RatedSponsorCard
+            key={ratedSponsorCard.id}
+            cardData={ratedSponsorCard}
+            showLink={true}
+          />
         </div>
       ))}
     </CardList>

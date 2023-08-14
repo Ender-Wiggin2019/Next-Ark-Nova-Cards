@@ -17,20 +17,24 @@
     "format:check": "prettier -c .",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
     "prepare": "husky install",
+    "postinstall": "prisma generate",
     "deploy": "vercel deploy --prod"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.23.2",
     "@headlessui/react": "^1.7.15",
+    "@prisma/client": "^5.1.1",
     "@radix-ui/react-hover-card": "^1.0.6",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slider": "^1.1.2",
+    "@tanstack/react-query": "^4.32.6",
     "@vercel/analytics": "^1.0.1",
     "class-variance-authority": "^0.6.1",
     "classnames": "^2.3.2",
     "clsx": "^1.2.1",
     "dayjs": "^1.11.9",
     "framer-motion": "^10.12.18",
+    "hashids": "^2.3.0",
     "i18next": "^23.2.6",
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-http-backend": "^2.2.1",
@@ -50,10 +54,12 @@
     "react-markdown": "^8.0.7",
     "react-odometerjs": "^3.1.0",
     "react-query": "^3.39.3",
+    "react-simple-star-rating": "^5.1.7",
     "react-textarea-autosize": "^8.5.2",
     "tailwind-merge": "^1.13.2",
     "tailwindcss-animate": "^1.0.6",
-    "valtio": "^1.11.1"
+    "valtio": "^1.11.1",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.3.0",
@@ -81,6 +87,7 @@
     "postcss": "^8.4.23",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.1.13",
+    "prisma": "5.1.1",
     "tailwindcss": "^3.3.2",
     "typescript": "^4.9.5"
   },

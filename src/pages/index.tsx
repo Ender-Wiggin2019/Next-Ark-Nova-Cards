@@ -83,7 +83,6 @@ export default function HomePage(
     setReset(true);
   };
 
-  console.log('sortOrder2', sortOrder);
   return (
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
@@ -155,6 +154,7 @@ export default function HomePage(
               selectedRequirements={selectedRequirements}
               selectedCardSources={selectedCardSources}
               textFilter={textFilter}
+              sortOrder={sortOrder}
               onCardCountChange={setSponsorCardsCount}
               strength={strength}
             />

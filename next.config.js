@@ -10,6 +10,16 @@ const nextConfig = {
   },
 
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ender-picgo.oss-cn-shenzhen.aliyuncs.com',
+        port: '',
+        pathname: '/img/**',
+      },
+    ],
+  },
   // swcMinify: true,
 
   // Uncoment to add domain whitelist

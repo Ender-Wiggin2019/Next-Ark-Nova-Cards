@@ -42,3 +42,5 @@ robots.txt
 sitemap.xml
 sitemap-*.xml
 /public/images/cards/
+/public/locales/en/common.missing.json
+/public/img/icons.psd

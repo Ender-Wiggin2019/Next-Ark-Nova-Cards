@@ -410,7 +410,7 @@
   "AFRICAN PENGUIN": "AFRICAN PENGUIN",
   "GOLDEN SNUB-NOSED MONKEY": "GOLDEN SNUB-NOSED MONKEY",
   "WOLVERINE": "WOLVERINE",
-  "Vietnamese Pot-Bellied Pig": "Vietnamese Pot-Bellied Pig",
+  "VIETNAMESE POT-BELLIED PIG": "Vietnamese Pot-Bellied Pig",
   "NORTHERN MURIQUI": "NORTHERN MURIQUI",
   "Monkey Gang": "Monkey Gang",
   "COQUERELS SIFAKA": "COQUERELS SIFAKA",
@@ -496,5 +496,16 @@
   "UNDERWATER TUNNEL": "UNDERWATER TUNNEL",
   "RECONSTRUCTION": "RECONSTRUCTION",
   "ARCADE": "ARCADE",
-  "Digging": "Digging"
+  "Digging": "Digging",
+
+  "ID": "ID",
+  "Animal Value": "Animal Value",
+  "Cost": "Cost",
+  "WIP": "WIP",
+  "With SE": "With SE",
+  "Appeal": "Appeal",
+  "Money": "Money",
+  "Reputation": "Reputation",
+  "Conservation Point": "Conservation Point",
+  "Welcome to share your idea about this card": "Welcome to share your idea about this card"
 }

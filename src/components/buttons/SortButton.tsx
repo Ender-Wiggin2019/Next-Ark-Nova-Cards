@@ -1,9 +1,12 @@
 import { useTranslation } from 'next-i18next';
 import React from 'react';
-import { TbSortAscendingNumbers } from 'react-icons/tb';
-import { TbSortDescendingNumbers } from 'react-icons/tb';
-import { TbSortDescending2 } from 'react-icons/tb';
-import { TbSortAscending2 } from 'react-icons/tb';
+import {
+  TbSortAscending2,
+  TbSortAscendingNumbers,
+  TbSortDescending2,
+  TbSortDescendingNumbers,
+  TbStarHalfFilled,
+} from 'react-icons/tb';
 
 import TextButton from '@/components/buttons/TextButton';
 
@@ -30,6 +33,10 @@ export const SortButton: React.FC<SortButtonProps> = ({
         return t('Value');
       case SortOrder.DIFF_DESC:
         return t('Value');
+      // case SortOrder.RATING_ASC:
+      //   return t('Rating');
+      case SortOrder.RATING_DESC:
+        return t('Rating');
       default:
         return '';
     }
@@ -44,7 +51,9 @@ export const SortButton: React.FC<SortButtonProps> = ({
       case SortOrder.ID_DESC:
         return <TbSortDescendingNumbers />;
       case SortOrder.DIFF_DESC:
-        return <TbSortDescending2 />; // 返回降序图标
+        return <TbSortDescending2 />;
+      case SortOrder.RATING_DESC:
+        return <TbStarHalfFilled />;
       default:
         return null;
     }
@@ -53,10 +62,9 @@ export const SortButton: React.FC<SortButtonProps> = ({
   const handleSortOrderChange = () => {
     setSortOrder((oldSortOrder) => {
       let newSortOrder = oldSortOrder + 1;
-      if (newSortOrder > SortOrder.DIFF_ASC) {
+      if (newSortOrder > SortOrder.RATING_DESC) {
         newSortOrder = SortOrder.ID_ASC;
       }
-      console.log('newSortOrder', newSortOrder);
       return newSortOrder;
     });
   };

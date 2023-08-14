@@ -167,7 +167,7 @@ function Mobile(props: PopoverProps<'div'>) {
                 </svg>
               </Popover.Button>
               <h2 className='text-sm font-medium text-zinc-600 dark:text-zinc-400'>
-                站内导航
+                Go to
               </h2>
             </div>
             <nav className='mt-6'>

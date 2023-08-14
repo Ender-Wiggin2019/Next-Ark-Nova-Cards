@@ -499,5 +499,16 @@
   "UNDERWATER TUNNEL": "海底隧道",
   "RECONSTRUCTION": "重建",
   "ARCADE": "游乐中心",
-  "Digging": "刨挖"
+  "Digging": "刨挖",
+
+  "ID": "按编号排序",
+  "Animal Value": "动物模型",
+  "Cost": "花费",
+  "WIP": "正在写代码捏",
+  "With SE": "考虑特殊饲养区",
+  "Appeal": "魅力",
+  "Money": "金钱",
+  "Reputation": "声望",
+  "Conservation Point": "保护点数",
+  "Welcome to share your idea about this card": "欢迎分享你对这张卡牌的想法"
 }

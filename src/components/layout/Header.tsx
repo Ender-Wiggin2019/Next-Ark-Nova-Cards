@@ -7,12 +7,7 @@ import {
   UserButton,
   useUser,
 } from '@clerk/nextjs';
-import {
-  AnimatePresence,
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-} from 'framer-motion';
+import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
@@ -31,11 +26,6 @@ import {
   MailIcon,
   UserArrowLeftIcon,
 } from '../../../public';
-
-const links = [
-  { href: '/', label: 'Route 1' },
-  { href: '/', label: 'Route 2' },
-];
 
 export function Header() {
   const isHomePage = usePathname() === '/';
@@ -148,42 +138,7 @@ export function Header() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHomePage]);
 
-  const avatarTransform = useMotionTemplate`translate3d(${avatarX}rem, 0, 0) scale(${avatarScale})`;
-  const avatarBorderTransform = useMotionTemplate`translate3d(${avatarBorderX}rem, 0, 0) scale(${avatarBorderScale})`;
-
-  const [isShowingAltAvatar, setIsShowingAltAvatar] = React.useState(false);
-  const onAvatarContextMenu = React.useCallback(
-    (event: React.MouseEvent<HTMLDivElement>) => {
-      event.preventDefault();
-      setIsShowingAltAvatar((prev) => !prev);
-    },
-    []
-  );
   return (
-    // <header className='sticky top-0 z-50 bg-white/75 backdrop-blur-md backdrop-filter'>
-    //   <div className='layout flex h-14 items-center justify-between p-4'>
-    //     <div className='flex hidden w-60 justify-start md:contents'>
-    //       <UnstyledLink href='/' className='font-bold hover:text-lime-600'>
-    //         Ark Nova Unofficial Website
-    //       </UnstyledLink>
-    //     </div>
-    //     <div className='flex flex-1 grow justify-end md:justify-center'>
-    //       <NavigationBar.Mobile className='pointer-events-auto relative z-50 md:hidden' />
-    //       <NavigationBar.Desktop className='pointer-events-auto relative z-50 hidden md:block' />
-    //     </div>
-    //       <UserButton
-    //           afterSignOutUrl='/'
-    //           appearance={{
-    //               elements: {
-    //                   avatarBox: 'w-9 h-9 ring-2 ring-white/20',
-    //               },
-    //           }}
-    //       />
-    //     <div className='flex w-48 justify-end'>
-    //       <LocaleSelector />
-    //     </div>
-    //   </div>
-    // </header>
     <>
       <motion.header
         className={clsxm(
@@ -276,7 +231,6 @@ export function Header() {
 
 function UserInfo() {
   const [tooltipOpen, setTooltipOpen] = React.useState(false);
-  const pathname = usePathname();
   const { user } = useUser();
   const StrategyIcon = React.useMemo(() => {
     const strategy = user?.primaryEmailAddress?.verification.strategy;

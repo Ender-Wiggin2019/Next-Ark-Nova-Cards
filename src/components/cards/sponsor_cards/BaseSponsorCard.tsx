@@ -11,7 +11,7 @@ interface AnimalCardProps {
   sponsor: SponsorCardType;
 }
 
-export const SponsorCard: React.FC<AnimalCardProps> = ({ sponsor }) => {
+export const BaseSponsorCard: React.FC<AnimalCardProps> = ({ sponsor }) => {
   const { t } = useTranslation('common');
 
   return (
