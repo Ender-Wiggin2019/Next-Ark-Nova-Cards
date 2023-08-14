@@ -75,7 +75,9 @@ export function CommentFeeds(props: {
   comments: CommentDto[];
 }) {
   const { averageRating, numberOfRatings } = getAvgRatings(props.comments);
-
+  const withContentComments = props.comments.filter(
+    (comment) => comment.content.length > 0
+  );
   return (
     <div className='relative mt-2'>
       <div
@@ -83,7 +85,7 @@ export function CommentFeeds(props: {
         aria-hidden='true'
       />
 
-      <div className='group mb-2 flex w-72 items-center justify-center space-x-2 rounded-full bg-gradient-to-b from-zinc-50/20 to-white/80 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md focus:outline-none focus-visible:ring-2 dark:from-zinc-900/30 dark:to-zinc-800/80 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20 dark:focus-visible:ring-yellow-500/80'>
+      <div className='group mb-2 flex w-72 items-center justify-center gap-2 space-x-2 rounded-full bg-gradient-to-b from-zinc-50/20 to-white/80 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md focus:outline-none focus-visible:ring-2 dark:from-zinc-900/30 dark:to-zinc-800/80 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20 dark:focus-visible:ring-yellow-500/80'>
         <Rating
           emptyStyle={{ display: 'flex' }}
           fillStyle={{ display: '-webkit-inline-box' }}
@@ -95,12 +97,12 @@ export function CommentFeeds(props: {
         {averageRating.toFixed(2)} / 5 ({numberOfRatings} users)
       </div>
       <ul role='list' className='-mb-8 mt-2 px-1 md:px-4'>
-        {props.comments.map((comment, idx) => (
+        {withContentComments.map((comment, idx) => (
           <CommentBlock
             key={comment.id}
             comment={comment}
             idx={idx}
-            length={props.comments.length}
+            length={withContentComments.length}
           />
         ))}
       </ul>

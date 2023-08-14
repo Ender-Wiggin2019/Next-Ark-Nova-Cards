@@ -5,6 +5,7 @@ interface ModelCardProps {
   model: AnimalCardModel;
   showLink: boolean;
   rating?: number | null;
+  readonly?: boolean;
 }
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
@@ -25,12 +26,18 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
   model,
   showLink,
   rating,
+  readonly,
 }) => {
   const router = useRouter();
   const { t } = useTranslation('common');
   const handleNavigation = () => {
     router.push('/card/' + id);
   };
+
+  const handleRating = (rating: number) => {
+    // check if
+  };
+
   return (
     <div className='flex-col text-xs'>
       <div className='text-bold'>
@@ -67,10 +74,11 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
             emptyStyle={{ display: 'flex' }}
             fillStyle={{ display: '-webkit-inline-box' }}
             className='-mt-1'
-            readonly={true}
+            readonly={readonly ?? true}
             initialValue={rating}
             allowFraction={true}
             size={16}
+            onClick={handleRating}
           />
           {rating ? rating.toFixed(1) + ' / 5' : ''}
         </div>

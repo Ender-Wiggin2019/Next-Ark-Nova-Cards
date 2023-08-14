@@ -1,5 +1,6 @@
 // AnimalCard.tsx
 import classNames from 'classnames';
+import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
@@ -32,18 +33,19 @@ export const BaseAnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
   if (animal.conservationPoint !== undefined) dataSize += 1;
 
   return (
-    // <div>
-    //     <h2>{animal.name}</h2>
-    //     <img src={animal.image.toString()} alt={animal.name} />
-    //     <p>Price: {animal.price}</p>
-    //     {/* add other fields as needed */}
-    // </div>
     <>
-      {/*<HoverCard>*/}
-      {/*  <HoverCardTrigger>*/}
       <AnimalCardWrapper id={animal.id}>
         <div className='ark-card-top'>
-          {/*<AnimalModelHover model={getAnimalCardModel(animal)} />*/}
+          {animal.image && (
+            <Image
+              src={animal.image}
+              alt='animal Image'
+              width={373}
+              height={497}
+              className='absolute h-3/5 rounded-md'
+            />
+          )}
+          {/*<div className='absolute bg-blue-500 w-full h-1/2 z-0'></div>*/}
           {animal.abilities?.map((ability, index) =>
             // TODO: refactor this to use Ability component
             ability.keyword === KeyWord.CONSTRICTION ? (
@@ -149,15 +151,6 @@ export const BaseAnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
           )}
         </div>
       </AnimalCardWrapper>
-      {/*  </HoverCardTrigger>*/}
-      {/*  <HoverCardContent className='z-20 -mt-52 w-36 bg-zinc-50/90 p-2 text-xs'>*/}
-      {/*    <AnimalModelCard*/}
-      {/*      id={animal.id}*/}
-      {/*      model={getAnimalCardModel(animal)}*/}
-      {/*      showLink={showLink}*/}
-      {/*    />*/}
-      {/*  </HoverCardContent>*/}
-      {/*</HoverCard>*/}
     </>
   );
 };

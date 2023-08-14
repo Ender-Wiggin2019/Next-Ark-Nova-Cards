@@ -91,8 +91,8 @@ const CommentInput = ({
   }, [comment]);
   return (
     <>
-      <h2 className='mb-4 text-xl font-bold lg:text-2xl'>
-        {t('Add a comment')}
+      <h2 className='mb-4 text-xl font-bold text-zinc-900 lg:text-2xl'>
+        {t('Welcome to share your idea about this card')}
       </h2>
       <CommentForm
         onSubmit={onSubmit}
@@ -140,7 +140,6 @@ const CommentForm = ({
       <Textarea
         className='w-full rounded-lg bg-white/80 px-4 py-2'
         placeholder='Comment'
-        required
         rows={4}
         name='content'
         value={formState.content}

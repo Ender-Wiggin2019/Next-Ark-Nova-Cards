@@ -21,6 +21,7 @@ model Comment {
   content   String?
   userId  String   @db.VarChar(255)
   userInfo Json
+  likes    Int      @default(0)
 
   @@index(userId)
 }

@@ -486,6 +486,7 @@
   height: 73px;
   margin: 0 3px;
   width: 55px;
+  z-index: 3;
 }
 
 .ark-card.zoo-card
@@ -583,6 +584,13 @@
   background-size: 100%;
   height: 297px;
   width: 373px;
+}
+
+.ark-card.zoo-card.animal-card
+  .ark-card-wrapper
+  .ark-card-top
+  .ark-card-top-left {
+  z-index: 2;
 }
 
 .ark-card.zoo-card.animal-card

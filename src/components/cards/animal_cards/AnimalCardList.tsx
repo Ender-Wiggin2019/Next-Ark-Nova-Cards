@@ -1,3 +1,4 @@
+import { useUser } from '@clerk/nextjs';
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useMemo } from 'react';
 
@@ -89,6 +90,8 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   sortOrder = SortOrder.ID_ASC,
   size = [0],
 }) => {
+  const { user } = useUser();
+  const userId = user?.id ?? '';
   const shouldFetchRatings = true;
   const {
     data: cardRatings,
@@ -99,6 +102,12 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
     enabled: shouldFetchRatings,
     // staleTime: 60 * 1000,
   });
+
+  // const {
+  //   data: userCardRatings,
+  // } = useQuery(['userCardRatings', userId], fetchUserCardRatings, {
+  //   enabled: shouldFetchRatings,
+  // });
 
   const animalsData = useAnimalData();
   const filteredAnimals = filterAnimals(

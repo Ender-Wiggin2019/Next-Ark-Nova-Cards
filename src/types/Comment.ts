@@ -14,6 +14,7 @@ export const CommentDtoSchema = z.object({
     username: z.string().nullable().optional(),
     imageUrl: z.string().nullable().optional(),
   }),
+  likes: z.number().nullable().optional(),
 });
 export type CommentDto = z.infer<typeof CommentDtoSchema>;
-export const CommentHashids = new Hashids('guestbook');
+export const CommentHashids = new Hashids('comment');
