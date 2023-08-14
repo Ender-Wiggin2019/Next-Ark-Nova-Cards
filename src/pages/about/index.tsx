@@ -153,7 +153,7 @@ export default function HomePage(
             <AccordionTrigger>{t('about.faq.q_1')}</AccordionTrigger>
             <AccordionContent>
               <Trans i18nKey='about.faq.a_1'>
-                Nice! You can follow the instructions{' '}
+                Nice! You can follow the instructions
                 <Link
                   className='font-medium text-primary underline underline-offset-4'
                   href='https://github.com/Ender-Wiggin2019/Next-Ark-Nova-Cards/tree/main#help-to-translate'
@@ -172,14 +172,14 @@ export default function HomePage(
             <AccordionTrigger>{t('about.faq.q_3')}</AccordionTrigger>
             <AccordionContent>
               <Trans i18nKey='about.faq.a_3'>
-                Feel free to comment in the{' '}
+                Feel free to comment in the
                 <Link
                   className='font-medium text-primary underline underline-offset-4'
                   href='https://boardgamegeek.com/thread/3114327/new-ark-nova-card-website-marine-world-and-multi-l'
                 >
                   BGG thread
-                </Link>{' '}
-                or submit an issue at{' '}
+                </Link>
+                or submit an issue at
                 <Link
                   className='font-medium text-primary underline underline-offset-4'
                   href='https://github.com/Ender-Wiggin2019/Next-Ark-Nova-Cards/issues'
