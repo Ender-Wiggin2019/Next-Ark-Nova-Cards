@@ -1692,7 +1692,7 @@
     "@babel/runtime" "^7.13.10"
     "@radix-ui/react-visually-hidden" "1.0.3"
 
-"@radix-ui/react-accordion@latest":
+"@radix-ui/react-accordion@^1.1.2", "@radix-ui/react-accordion@latest":
   "integrity" "sha512-fDG7jcoNKVjSK6yfmuAs0EnPDro0WMXIhMtXdTBWqEioVW206ku+4Lw07e+13lUkFkpoEQ2PdeMIAGpdqEAmDg=="
   "resolved" "https://registry.npmjs.org/@radix-ui/react-accordion/-/react-accordion-1.1.2.tgz"
   "version" "1.1.2"
@@ -1965,7 +1965,7 @@
     "@radix-ui/react-use-previous" "1.0.1"
     "@radix-ui/react-visually-hidden" "1.0.3"
 
-"@radix-ui/react-popover@latest":
+"@radix-ui/react-popover@^1.0.6", "@radix-ui/react-popover@latest":
   "integrity" "sha512-cZ4defGpkZ0qTRtlIBzJLSzL6ht7ofhhW4i1+pkemjV1IKXm0wgCRnee154qlV6r9Ttunmh2TNZhMfV2bavUyA=="
   "resolved" "https://registry.npmjs.org/@radix-ui/react-popover/-/react-popover-1.0.6.tgz"
   "version" "1.0.6"

@@ -1,8 +1,11 @@
-import { HoverCard, HoverCardTrigger } from '@radix-ui/react-hover-card';
 import React from 'react';
 
 import { SponsorHoverCard } from '@/components/cards/sponsor_cards/SponsorHoverCard';
-import { HoverCardContent } from '@/components/ui/hover-card';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/Popover';
 
 import { BaseSponsorCard } from './BaseSponsorCard';
 
@@ -21,18 +24,19 @@ export const RatedSponsorCard: React.FC<RatedSponsorCardProps> = ({
 
   return (
     <>
-      <HoverCard>
-        <HoverCardTrigger>
+      <Popover>
+        <PopoverTrigger>
           <BaseSponsorCard sponsor={sponsorCard} />
-        </HoverCardTrigger>
-        <HoverCardContent className='z-20 -mt-52 w-36 bg-zinc-50/90 p-2 text-xs'>
+        </PopoverTrigger>
+        <PopoverContent className='z-20 -mt-56 w-48 bg-zinc-50/95 p-2 md:-mt-64 md:w-52'>
           <SponsorHoverCard
             id={sponsorCard.id}
             showLink={showLink}
             rating={rating}
+            ratingCount={ratingCount}
           />
-        </HoverCardContent>
-      </HoverCard>
+        </PopoverContent>
+      </Popover>
     </>
   );
 };

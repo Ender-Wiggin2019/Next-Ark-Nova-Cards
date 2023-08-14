@@ -5,7 +5,7 @@ interface CardListProps {
 }
 
 const CardList: React.FC<CardListProps> = ({ children }) => (
-  <div className='grid w-full grid-cols-2 gap-2 p-4 md:p-2 lg:grid-cols-3 xl:grid-cols-4'>
+  <div className='-py-1 grid w-full grid-cols-2 gap-2 px-4 lg:grid-cols-3 lg:px-2 xl:grid-cols-4'>
     {children}
   </div>
 );

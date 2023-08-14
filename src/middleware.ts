@@ -10,6 +10,7 @@ export default authMiddleware({
     '/',
     '/card/:path*',
     '/maps',
+    '/about',
   ],
 });
 

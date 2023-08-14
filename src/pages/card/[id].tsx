@@ -36,10 +36,10 @@ export default function Page(
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
       {/* <Seo /> */}
-      <div className='flex flex-col'>
-        <div className='flex flex-col items-center py-2 py-24 md:py-36 lg:pb-48 lg:pt-36'>
+      <div className='mb-24 flex flex-col'>
+        <div className='flex flex-col items-center py-24 md:py-36 lg:pb-48 lg:pt-36'>
           {getCardTypeById(router.query.id) === CardType.ANIMAL_CARD ? (
-            <div className='flex scale-150 flex-row md:scale-[2] lg:scale-[2.2]'>
+            <div className='flex flex-row md:scale-125 lg:scale-150'>
               <div className='mr-3 flex-initial md:mr-10 lg:mr-20'>
                 <BaseAnimalCard animal={card as AnimalCardType} />
               </div>
@@ -52,7 +52,7 @@ export default function Page(
           ) : null}
 
           {getCardTypeById(router.query.id) === CardType.SPONSOR_CARD ? (
-            <div className='flex scale-150 flex-row md:scale-[2] lg:scale-[2.2]'>
+            <div className='flex flex-row md:scale-125 lg:scale-150'>
               <div className='mr-3 flex-initial md:mr-10 lg:mr-20'>
                 <BaseSponsorCard sponsor={card as SponsorCardType} />
               </div>

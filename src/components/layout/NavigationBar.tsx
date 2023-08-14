@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslation } from 'next-i18next';
 import React from 'react';
 
 import { navigationItems } from '@/config/nav';
@@ -15,7 +16,6 @@ function NavItem({
   children: React.ReactNode;
 }) {
   const isActive = usePathname() === href;
-
   return (
     <li>
       <Link
@@ -43,6 +43,8 @@ function Desktop({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
+  const { t } = useTranslation('common');
+
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const radius = useMotionValue(0);
@@ -80,7 +82,7 @@ function Desktop({
       <ul className='flex bg-transparent px-3 text-sm font-medium text-zinc-800 dark:text-zinc-200 '>
         {navigationItems.map(({ href, text }) => (
           <NavItem key={href} href={href}>
-            {text}
+            {t(text)}
           </NavItem>
         ))}
       </ul>
@@ -105,10 +107,11 @@ function MobileNavItem({
 }
 
 function Mobile(props: PopoverProps<'div'>) {
+  const { t } = useTranslation('common');
   return (
     <Popover {...props}>
-      <Popover.Button className='group flex items-center rounded-full bg-gradient-to-b from-zinc-50/20 to-white/80 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md focus:outline-none focus-visible:ring-2 dark:from-zinc-900/30 dark:to-zinc-800/80 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20 dark:focus-visible:ring-yellow-500/80'>
-        前往
+      <Popover.Button className='group flex w-24 items-center rounded-full bg-gradient-to-b from-zinc-50/20 to-white/80 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md focus:outline-none focus-visible:ring-2 dark:from-zinc-900/30 dark:to-zinc-800/80 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20 dark:focus-visible:ring-yellow-500/80'>
+        {t('nav.go')}
         {/* Chevron */}
         <svg
           viewBox='0 0 8 6'
@@ -167,14 +170,14 @@ function Mobile(props: PopoverProps<'div'>) {
                 </svg>
               </Popover.Button>
               <h2 className='text-sm font-medium text-zinc-600 dark:text-zinc-400'>
-                Go to
+                {t('nav.go')}
               </h2>
             </div>
             <nav className='mt-6'>
               <ul className='-my-2 divide-y divide-zinc-500/20 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300'>
                 {navigationItems.map(({ href, text }) => (
                   <MobileNavItem key={href} href={href}>
-                    {text}
+                    {t(text)}
                   </MobileNavItem>
                 ))}
               </ul>
