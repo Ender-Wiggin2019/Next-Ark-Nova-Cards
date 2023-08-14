@@ -26,17 +26,17 @@ export const SortButton: React.FC<SortButtonProps> = ({
   const getSortOrderText = (sortOrder: SortOrder) => {
     switch (sortOrder) {
       case SortOrder.ID_ASC:
-        return t('ID');
+        return t('sort.ID_ASC');
       case SortOrder.ID_DESC:
-        return t('ID');
+        return t('sort.ID_DESC');
       case SortOrder.DIFF_ASC:
-        return t('Value');
+        return t('sort.DIFF_ASC');
       case SortOrder.DIFF_DESC:
-        return t('Value');
+        return t('sort.DIFF_DESC');
       // case SortOrder.RATING_ASC:
       //   return t('Rating');
       case SortOrder.RATING_DESC:
-        return t('Rating');
+        return t('sort.RATING_DESC');
       default:
         return '';
     }

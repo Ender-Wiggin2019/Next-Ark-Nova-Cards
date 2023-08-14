@@ -501,7 +501,13 @@
   "ARCADE": "游乐中心",
   "Digging": "刨挖",
 
-  "ID": "按编号排序",
+  "sort": {
+    "ID_ASC": "按编号升序",
+    "ID_DESC": "按编号降序",
+    "DIFF_ASC": "按模型升序",
+    "DIFF_DESC": "按模型降序",
+    "RATING_DESC": "按评分降序"
+  },
   "Animal Value": "动物模型",
   "Cost": "花费",
   "WIP": "正在写代码捏",

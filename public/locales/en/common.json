@@ -498,7 +498,13 @@
   "ARCADE": "ARCADE",
   "Digging": "Digging",
 
-  "ID": "ID",
+  "sort": {
+    "ID_ASC": "ID",
+    "ID_DESC": "ID",
+    "DIFF_ASC": "Value",
+    "DIFF_DESC": "Value",
+    "RATING_DESC": "Rating"
+  },
   "Animal Value": "Animal Value",
   "Cost": "Cost",
   "WIP": "WIP",

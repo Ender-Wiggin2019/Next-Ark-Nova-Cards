@@ -68,7 +68,7 @@ export class KeyWord {
   static ACTION_ASSOCIATION = new KeyWord(
     'Action: Association',
     'abilities.action_association_description',
-    10,
+    18,
     false
   );
 
@@ -231,7 +231,7 @@ export class KeyWord {
   static DETERMINATION = new KeyWord(
     'Determination',
     'abilities.determination_description',
-    10,
+    18,
     false
   );
   static PEACOCKING = new KeyWord(
