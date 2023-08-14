@@ -4,6 +4,7 @@ import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
 import { useUser } from '@clerk/nextjs';
 import { useQuery } from '@tanstack/react-query';
 import { usePathname } from 'next/navigation';
+import { useTranslation } from 'next-i18next';
 import React from 'react';
 
 import { CommentFeeds } from '@/components/comments/CommentFeeds';
@@ -22,6 +23,7 @@ type CommentProps = {
 };
 
 export function Comments({ cardId, initialComments }: CommentProps) {
+  const { t } = useTranslation('common');
   const { user } = useUser();
   // const state = useSnapshot(commentState);
   const pathname = usePathname();
@@ -59,7 +61,7 @@ export function Comments({ cardId, initialComments }: CommentProps) {
         <SignInButton mode='modal' redirectUrl={pathname}>
           <Button type='button'>
             <UserArrowLeftIcon className='mr-1 h-5 w-5' />
-            login to comment
+            {t('comment.login_to_comment')}
           </Button>
         </SignInButton>
       </SignedOut>

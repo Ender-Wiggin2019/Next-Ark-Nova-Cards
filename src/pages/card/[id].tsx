@@ -36,7 +36,7 @@ export default function Page(
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
       {/* <Seo /> */}
-      <div className='mb-48 flex flex-col'>
+      <div className='mb-24 flex flex-col'>
         <div className='flex flex-col items-center py-24 md:py-36 lg:pb-48 lg:pt-36'>
           {getCardTypeById(router.query.id) === CardType.ANIMAL_CARD ? (
             <div className='flex flex-row md:scale-125 lg:scale-150'>

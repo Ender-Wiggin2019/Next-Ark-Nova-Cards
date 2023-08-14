@@ -134,7 +134,7 @@ export default function HomePage(
               />
             </div>
           </div>
-          <div className='mb-8 md:mb-36'></div>
+          <div className='mb-2 md:mb-8'></div>
           {(selectedCardTypes.length === 0 ||
             selectedCardTypes.includes(CardType.ANIMAL_CARD)) && (
             <AnimalCardList

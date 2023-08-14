@@ -505,6 +505,47 @@
     "DIFF_DESC": "Value",
     "RATING_DESC": "Rating"
   },
+  "nav": {
+    "go": "Go to",
+    "home": "Home",
+    "cards": "Cards",
+    "about": "About",
+    "diy": "Card Maker"
+  },
+  "comment": {
+    "login_to_comment": "login to comment"
+  },
+  "about": {
+    "title": "About This Site",
+    "intro": "This is an open-source unofficial website of the board game Ark Nova. It is not affiliated with Capstone Games in any way.\nThis project gets inspiration from ssimeonoff's website and for players to easily search for cards and their effects.",
+    "features": {
+      "title": "Features",
+      "intro": "Currently, this site has the following features:",
+      "li_1": "All animal and sponsor cards in base game and Marine World expansion",
+      "li_2": "Multi-language support",
+      "li_3": "Filters for tags, requirements, keywords and so on",
+      "li_4": "Animal value calculation",
+      "li_5": "Rating and comments for each card",
+      "plan_title": "Future Plans",
+      "plan_intro": "In the future, I plan to add the following features:",
+      "plan_li_1": "Animal Card Maker",
+      "plan_li_2": "Maps",
+      "plan_li_3": "All other cards"
+    },
+    "thanks": {
+      "title": "Thanks",
+      "translation": "Thanks for the following players for helping with translation: 小z, 晓慜"
+    },
+    "faq": {
+      "title": "FAQ",
+      "q_1": "How can I assist with the translation?",
+      "a_1": "Nice! You can follow the instructions <1>here</1>.",
+      "q_2": "Is this website created for commercial purposes?",
+      "a_2": "No, it's a open-source website dedicated to this fantastic game. Original images and texts belong to Capstone Games. f there are any copyright concerns, I will address them.",
+      "q_3": "What if I have another question, suggestion, or bug report related to this website?",
+      "a_3": "Feel free to comment in the <1>BGG thread</1> or submit an issue at <3>GitHub</3>."
+    }
+  },
   "Animal Value": "Animal Value",
   "Cost": "Cost",
   "WIP": "WIP",
