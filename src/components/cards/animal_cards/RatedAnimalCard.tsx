@@ -1,8 +1,11 @@
-import { HoverCard, HoverCardTrigger } from '@radix-ui/react-hover-card';
 import React from 'react';
 
 import { AnimalModelCard } from '@/components/cards/animal_cards/models/AnimalModelCard';
-import { HoverCardContent } from '@/components/ui/hover-card';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/Popover';
 
 import { BaseAnimalCard } from './BaseAnimalCard';
 
@@ -21,19 +24,20 @@ export const RatedAnimalCard: React.FC<RatedAnimalCardProps> = ({
 
   return (
     <>
-      <HoverCard>
-        <HoverCardTrigger>
+      <Popover>
+        <PopoverTrigger>
           <BaseAnimalCard animal={animalCard} />
-        </HoverCardTrigger>
-        <HoverCardContent className='z-20 -mt-52 w-36 bg-zinc-50/90 p-2 text-xs'>
+        </PopoverTrigger>
+        <PopoverContent className='z-20 -mt-56 w-48 bg-zinc-50/95 p-2 md:-mt-64 md:w-52'>
           <AnimalModelCard
             id={animalCard.id}
             model={model}
             showLink={showLink}
             rating={rating}
+            ratingCount={ratingCount}
           />
-        </HoverCardContent>
-      </HoverCard>
+        </PopoverContent>
+      </Popover>
     </>
   );
 };

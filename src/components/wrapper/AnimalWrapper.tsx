@@ -14,7 +14,7 @@ const AnimalCardWrapper: React.FC<AnimalCardWrapperProps> = ({
   const animalName = cardNames[id];
 
   return (
-    <div className='player-board-hand' style={{ order: 4 }}>
+    <div className='' style={{ order: 4 }}>
       <div
         id={`card-${animalName}`}
         data-id={animalName}

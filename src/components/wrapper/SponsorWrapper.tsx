@@ -24,7 +24,7 @@ const SponsorCardWrapper: React.FC<SponsorCardWrapperProps> = ({
     //     <div className='ark-card-wrapper'>{children}</div>
     //   </div>
     // </div>
-    <div className='player-board-hand'>
+    <div className=''>
       <div
         id={`card-${sponsorName}`}
         data-id={sponsorName}

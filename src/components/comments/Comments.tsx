@@ -67,7 +67,7 @@ export function Comments({ cardId, initialComments }: CommentProps) {
       <SignedIn>
         <CommentInput cardId={cardId} comment={userComment} />
       </SignedIn>
-      <Separator />
+      <Separator className='mt-2' />
       <CommentFeeds cardId={cardId} comments={commentsFromAPI} />
     </section>
   );

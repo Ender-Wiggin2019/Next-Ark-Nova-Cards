@@ -88,7 +88,7 @@ const AbilityComponent: React.FC<AbilityProps> = ({
           <ReefDwellerIcon />
         </div>
       )}
-      <div className=''>
+      <div className='text-left'>
         <h6 className='animal-ability-title'>{keyWord}</h6>
         {style == 'full' && (
           <div className='animal-ability-desc'>

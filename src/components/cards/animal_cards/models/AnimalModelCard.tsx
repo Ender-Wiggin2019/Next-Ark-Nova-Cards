@@ -5,6 +5,7 @@ interface ModelCardProps {
   model: AnimalCardModel;
   showLink: boolean;
   rating?: number | null;
+  ratingCount?: number | null;
   readonly?: boolean;
 }
 import { useRouter } from 'next/router';
@@ -26,6 +27,7 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
   model,
   showLink,
   rating,
+  ratingCount,
   readonly,
 }) => {
   const router = useRouter();
@@ -80,7 +82,7 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
             size={16}
             onClick={handleRating}
           />
-          {rating ? rating.toFixed(1) + ' / 5' : ''}
+          {rating ? `${rating.toFixed(1)} (${ratingCount} ${t('users')})` : ''}
         </div>
       )}
       <Separator className='my-2 bg-zinc-300' />
