@@ -2864,6 +2864,11 @@
   "resolved" "https://registry.npmjs.org/@types/keygrip/-/keygrip-1.0.2.tgz"
   "version" "1.0.2"
 
+"@types/lodash@^4.14.197":
+  "integrity" "sha512-BMVOiWs0uNxHVlHBgzTIqJYmj+PgCo4euloGF+5m4okL3rEYzM2EEv78mw8zWSMM57dM7kVIgJ2QDvwHSoCI5g=="
+  "resolved" "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.197.tgz"
+  "version" "4.14.197"
+
 "@types/mdast@^3.0.0":
   "integrity" "sha512-Y/uImid8aAwrEA24/1tcRZwpxX3pIFTSilcNDKSPn+Y2iDywSEachzRuvgAYYLR3wpGXAsMbv5lvKLDZLeYPAw=="
   "resolved" "https://registry.npmjs.org/@types/mdast/-/mdast-3.0.11.tgz"
