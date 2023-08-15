@@ -42,7 +42,7 @@ export const BaseAnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
               alt='animal Image'
               width={373}
               height={497}
-              className='absolute h-3/5 rounded-md'
+              className='absolute h-3/5 rounded-md object-cover'
             />
           )}
           {/*<div className='absolute bg-blue-500 w-full h-1/2 z-0'></div>*/}

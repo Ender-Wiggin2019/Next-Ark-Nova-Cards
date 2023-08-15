@@ -1,3 +1,5 @@
+import { z } from 'zod';
+
 export enum AnimalTag {
   // Base Game
   Bird = 'bird',
@@ -55,5 +57,39 @@ export function isContinentTag(tag: string): boolean {
 export function isOtherTag(tag: string): boolean {
   return Object.values(OtherTag).includes(tag as OtherTag);
 }
+
+const animalTagValues = Object.values(AnimalTag);
+const continentTagValues = Object.values(ContinentTag);
+export const otherCardTags: OtherTag[] = [OtherTag.Science];
+export const otherTagRequirements: OtherTag[] = [
+  OtherTag.Science,
+  OtherTag.AnimalsII,
+  OtherTag.SponsorsII,
+  OtherTag.Appeal,
+  OtherTag.Partner_Zoo,
+  OtherTag.Reputation,
+  OtherTag.Rock,
+  OtherTag.Water,
+  OtherTag.University,
+];
+export const allCardTags = [
+  ...animalTagValues,
+  ...continentTagValues,
+  ...otherCardTags,
+];
+export const allRequirements = [
+  ...animalTagValues,
+  ...continentTagValues,
+  ...otherTagRequirements,
+];
+
+// Defining the schemas for individual enums
+const AnimalTagSchema = z.nativeEnum(AnimalTag);
+const ContinentTagSchema = z.nativeEnum(ContinentTag);
+const OtherTagSchema = z.nativeEnum(OtherTag);
+
+// Combining them for the Tag type
+export const TagSchema =
+  AnimalTagSchema.or(ContinentTagSchema).or(OtherTagSchema);
 
 export type Tag = AnimalTag | ContinentTag | OtherTag;

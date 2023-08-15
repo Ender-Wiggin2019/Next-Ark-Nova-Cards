@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import TagButton from '@/components/buttons/TagButton';
 
-import { AnimalTag, ContinentTag, OtherTag, Tag } from '@/types/Tags';
+import { AnimalTag, ContinentTag, otherCardTags, Tag } from '@/types/Tags';
 
 type TagFilterProps = {
   onFilterChange: (tags: Tag[]) => void;
@@ -26,8 +26,6 @@ export const TagFilter: React.FC<TagFilterProps> = ({
       setSelectedTags([]);
     }
   }, [reset]);
-
-  const otherTagRequirements: OtherTag[] = [OtherTag.Science];
 
   // logic: and, or
 
@@ -58,7 +56,7 @@ export const TagFilter: React.FC<TagFilterProps> = ({
           />
         ))}
 
-        {otherTagRequirements.map((tag, index) => (
+        {otherCardTags.map((tag, index) => (
           <TagButton
             key={index}
             tag={tag}

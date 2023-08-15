@@ -21,13 +21,13 @@ export class KeyWord {
     3
   );
   static INVENTIVE_BEAR = new KeyWord(
-    'Inventive',
+    'Inventive: Bear',
     'abilities.inventive_bear_description',
     3,
     false
   );
   static INVENTIVE_PRIMARY = new KeyWord(
-    'Inventive',
+    'Inventive: Primary',
     'abilities.inventive_primary_description',
     3,
     false
@@ -335,7 +335,89 @@ export class KeyWord {
     public model?: number,
     public multiply?: boolean
   ) {}
+
+  toObject(): object {
+    return {
+      name: this.name,
+      descriptionTemplate: this.descriptionTemplate,
+      model: this.model,
+      multiply: this.multiply,
+    };
+  }
+
+  static fromObject(obj: any): KeyWord {
+    return new KeyWord(
+      obj.name,
+      obj.descriptionTemplate,
+      obj.model,
+      obj.multiply
+    );
+  }
 }
+
+export const ALL_KEYWORDS = [
+  KeyWord.CLEVER,
+  KeyWord.SUN_BATHING,
+  KeyWord.POUCH,
+  KeyWord.HUNTER,
+  KeyWord.SPRINT,
+  KeyWord.PACK,
+  KeyWord.JUMPING,
+  KeyWord.INVENTIVE,
+  KeyWord.INVENTIVE_BEAR,
+  KeyWord.INVENTIVE_PRIMARY,
+  KeyWord.BOOST_ASSOCIATION,
+  KeyWord.BOOST_BUILDING,
+  KeyWord.BOOST_CARD,
+  KeyWord.BOOST_SPONSORS,
+  KeyWord.BOOST_ANIMAL,
+  KeyWord.ACTION_ASSOCIATION,
+  KeyWord.ACTION_BUILDING,
+  KeyWord.ACTION_CARD,
+  KeyWord.ACTION_SPONSORS,
+  KeyWord.ACTION_ANIMAL,
+  KeyWord.MULTIPLIER_ASSOCIATION,
+  KeyWord.MULTIPLIER_BUILDING,
+  KeyWord.MULTIPLIER_CARD,
+  KeyWord.MULTIPLIER_SPONSORS,
+  KeyWord.MULTIPLIER_ANIMAL,
+  KeyWord.FULL_THROATED,
+  KeyWord.ICONIC_ANIMAL,
+  KeyWord.RESISTANCE,
+  KeyWord.ASSERTION,
+  KeyWord.DIGGING,
+  KeyWord.SPONSOR_MAGNET,
+  KeyWord.FLOCK_ANIMAL,
+  KeyWord.DOMINANCE,
+  KeyWord.PILFERING_1,
+  KeyWord.PILFERING_2,
+  KeyWord.SNAPPING_1,
+  KeyWord.SNAPPING_2,
+  KeyWord.VENOM,
+  KeyWord.CONSTRICTION,
+  KeyWord.HYPNOSIS,
+  KeyWord.SCAVENGING,
+  KeyWord.POSTURING,
+  KeyWord.PERCEPTION_2,
+  KeyWord.PERCEPTION_4,
+  KeyWord.DETERMINATION,
+  KeyWord.PEACOCKING,
+  KeyWord.PETTING_ZOO_ANIMAL,
+  KeyWord.MARK,
+  KeyWord.TRADE,
+  KeyWord.SEA_ANIMAL_MAGNET,
+  KeyWord.SYMBIOSIS,
+  KeyWord.HELPFUL,
+  KeyWord.EXTRA_SHIFT,
+  KeyWord.GLIDE,
+  KeyWord.SHARK_ATTACK,
+  KeyWord.CUT_DOWN,
+  KeyWord.CAMOUFLAGE,
+  KeyWord.SCUBA_DIVE,
+  KeyWord.MARKETING,
+  KeyWord.ADAPT,
+  KeyWord.MONKEY_GANG,
+];
 
 export class Ability {
   constructor(public keyword: KeyWord, public value: string | number = '') {}
@@ -356,5 +438,17 @@ export class Ability {
       '{}',
       this.value.toString()
     );
+  }
+
+  toObject(): object {
+    return {
+      keyword: this.keyword.toObject(),
+      value: this.value,
+    };
+  }
+
+  static fromObject(obj: any): Ability {
+    const keyword = KeyWord.fromObject(obj.keyword);
+    return new Ability(keyword, obj.value);
   }
 }

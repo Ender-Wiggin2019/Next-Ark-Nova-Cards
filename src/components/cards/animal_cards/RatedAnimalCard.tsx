@@ -2,10 +2,10 @@ import React from 'react';
 
 import { AnimalModelCard } from '@/components/cards/animal_cards/models/AnimalModelCard';
 import {
-  Popover,
+  PopHover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/Popover';
+} from '@/components/ui/PopHover';
 
 import { BaseAnimalCard } from './BaseAnimalCard';
 
@@ -24,7 +24,7 @@ export const RatedAnimalCard: React.FC<RatedAnimalCardProps> = ({
 
   return (
     <>
-      <Popover>
+      <PopHover>
         <PopoverTrigger>
           <BaseAnimalCard animal={animalCard} />
         </PopoverTrigger>
@@ -37,7 +37,7 @@ export const RatedAnimalCard: React.FC<RatedAnimalCardProps> = ({
             ratingCount={ratingCount}
           />
         </PopoverContent>
-      </Popover>
+      </PopHover>
     </>
   );
 };

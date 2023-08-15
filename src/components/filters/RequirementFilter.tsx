@@ -6,7 +6,12 @@ import { BiChevronDown } from 'react-icons/bi';
 
 import TagButton from '@/components/buttons/TagButton';
 
-import { AnimalTag, ContinentTag, OtherTag, Tag } from '@/types/Tags';
+import {
+  AnimalTag,
+  ContinentTag,
+  otherTagRequirements,
+  Tag,
+} from '@/types/Tags';
 
 type RequirementFilterProps = {
   onFilterChange: (tags: Tag[]) => void;
@@ -36,18 +41,6 @@ export const RequirementFilter: React.FC<RequirementFilterProps> = ({
       prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
     );
   };
-
-  const otherTagRequirements: OtherTag[] = [
-    OtherTag.Science,
-    OtherTag.AnimalsII,
-    OtherTag.SponsorsII,
-    OtherTag.Appeal,
-    OtherTag.Partner_Zoo,
-    OtherTag.Reputation,
-    OtherTag.Rock,
-    OtherTag.Water,
-    OtherTag.University,
-  ];
 
   // logic: and, or
 
