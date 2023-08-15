@@ -13,7 +13,7 @@ const PopoverOnOpenChangeContext = React.createContext({
   > | null>,
 });
 
-const Popover: FC<React.ComponentProps<typeof PopoverPrimitive.Root>> = ({
+const PopHover: FC<React.ComponentProps<typeof PopoverPrimitive.Root>> = ({
   open,
   onOpenChange,
   ...props
@@ -84,4 +84,4 @@ const PopoverContent = React.forwardRef<
 });
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
-export { Popover, PopoverContent, PopoverTrigger };
+export { PopHover, PopoverContent, PopoverTrigger };

@@ -2,10 +2,10 @@ import React from 'react';
 
 import { SponsorHoverCard } from '@/components/cards/sponsor_cards/SponsorHoverCard';
 import {
-  Popover,
+  PopHover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/Popover';
+} from '@/components/ui/PopHover';
 
 import { BaseSponsorCard } from './BaseSponsorCard';
 
@@ -24,7 +24,7 @@ export const RatedSponsorCard: React.FC<RatedSponsorCardProps> = ({
 
   return (
     <>
-      <Popover>
+      <PopHover>
         <PopoverTrigger>
           <BaseSponsorCard sponsor={sponsorCard} />
         </PopoverTrigger>
@@ -36,7 +36,7 @@ export const RatedSponsorCard: React.FC<RatedSponsorCardProps> = ({
             ratingCount={ratingCount}
           />
         </PopoverContent>
-      </Popover>
+      </PopHover>
     </>
   );
 };

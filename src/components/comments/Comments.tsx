@@ -9,7 +9,7 @@ import React from 'react';
 
 import { CommentFeeds } from '@/components/comments/CommentFeeds';
 import CommentInput from '@/components/comments/CommentInput';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
 import { UserArrowLeftIcon } from '../../../public';

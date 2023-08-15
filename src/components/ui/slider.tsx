@@ -21,6 +21,10 @@ const Slider = React.forwardRef<
       colorClasses.bg = 'bg-blue-500';
       colorClasses.border = 'border-blue-500';
       break;
+    case 'zinc':
+      colorClasses.bg = 'bg-zinc-900';
+      colorClasses.border = 'border-zinc-900';
+      break;
     default:
       break;
   }

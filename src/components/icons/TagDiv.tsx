@@ -1,4 +1,4 @@
-// TagButton.tsx
+// TagDiv.tsx
 import classNames from 'classnames';
 import * as React from 'react';
 import { twMerge } from 'tailwind-merge';
@@ -7,20 +7,17 @@ import TagComponent from '@/components/icons/Tag';
 
 import { Tag } from '@/types/Tags';
 
-type TagButtonProps = {
+type TagDivProps = {
   isLoading?: boolean;
   tag: Tag;
   selected: boolean;
-  onTagClick?: (tag: Tag) => void;
-} & React.ComponentPropsWithRef<'button'>;
+} & React.ComponentPropsWithRef<'div'>;
 
-const TagButton = React.forwardRef<HTMLButtonElement, TagButtonProps>(
-  ({ className, isLoading, tag, selected, onTagClick, ...rest }, ref) => {
+const TagDiv = React.forwardRef<HTMLDivElement, TagDivProps>(
+  ({ className, isLoading, tag, selected, ...rest }, ref) => {
     return (
-      <button
+      <div
         ref={ref}
-        type='button'
-        onClick={() => onTagClick && onTagClick(tag)}
         className={twMerge(
           classNames(
             'filter-button group h-auto rounded-full bg-gradient-to-b from-zinc-50/50 to-white/90 p-2 text-sm shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:from-zinc-900/50 dark:to-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20',
@@ -32,9 +29,9 @@ const TagButton = React.forwardRef<HTMLButtonElement, TagButtonProps>(
         {...rest}
       >
         <TagComponent type={tag} />
-      </button>
+      </div>
     );
   }
 );
 
-export default TagButton;
+export default TagDiv;

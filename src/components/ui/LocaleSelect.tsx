@@ -104,7 +104,7 @@ const Separator = React.forwardRef<
 ));
 Separator.displayName = SelectPrimitive.Separator.displayName;
 
-export const Select = Object.freeze({
+export const LocaleSelect = Object.freeze({
   Root,
   Group,
   Value,
