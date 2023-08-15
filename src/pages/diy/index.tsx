@@ -3,7 +3,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import { useState } from 'react';
 import { z } from 'zod';
-
+import { debounce } from 'lodash';
 import { BaseAnimalCard } from '@/components/cards/animal_cards/BaseAnimalCard';
 import { AnimalCardForm } from '@/components/forms/AnimalCardForm';
 import Layout from '@/components/layout/Layout';
@@ -28,19 +28,19 @@ export default function Page(
   _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   const initialDiyAnimalCard = {
-    id: '305',
-    name: 'FENNECFOX',
-    latinName: 'Heteractis magnifica',
-    image:
-      'https://ender-picgo.oss-cn-shenzhen.aliyuncs.com/img/CleanShot%202023-08-13%20at%2021.54.00.png',
+    id: '001',
+    name: '',
+    latinName: '',
+    // image:
+    //   'https://ender-picgo.oss-cn-shenzhen.aliyuncs.com/img/CleanShot%202023-08-13%20at%2021.54.00.png',
     size: 5,
     rock: 1,
     water: 1,
     price: 20,
-    requirements: [OtherTag.AnimalsII, OtherTag.Science],
-    tags: [AnimalTag.SeaAnimal, AnimalTag.Bird],
-    specialEnclosures: [new SpecialEnclosure(SpecialEnclosureType.Aquarium, 3)],
-    abilities: [new Ability(KeyWord.POSTURING, 3)],
+    requirements: [],
+    tags: [],
+    specialEnclosures: [],
+    abilities: [],
     description: '',
     reefDwellerEffect: [new Ability(KeyWord.MARK, 1)],
     soloEffect: [],
@@ -79,6 +79,7 @@ export default function Page(
     setDiyAnimalCard(animalCard);
     // console.log(animalCard);  // 这里可以实时获取到转换后的AnimalCard对象
   };
+  const debouncedHandleValuesChange = debounce(handleValuesChange, 300);
 
   return (
     <Layout>
@@ -94,7 +95,7 @@ export default function Page(
                 <CardDescription>Create your own animal card.</CardDescription>
               </CardHeader>
               <CardContent>
-                <AnimalCardForm onValuesChange={handleValuesChange} />
+                <AnimalCardForm onValuesChange={debouncedHandleValuesChange} />
               </CardContent>
               {/*<CardFooter className="flex justify-between">*/}
               {/*  <Button variant="outline">Cancel</Button>*/}
