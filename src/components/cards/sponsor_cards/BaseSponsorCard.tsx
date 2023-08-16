@@ -33,7 +33,7 @@ export const BaseSponsorCard: React.FC<AnimalCardProps> = ({ sponsor }) => {
         </div>
       </div>
       {sponsor.effects && (
-        <div className='ark-card-bottom'>
+        <div className='ark-card-bottom text-start'>
           {sponsor.effects.map((effect, index) => {
             if (effect.display === undefined || effect.display) {
               return <Effect key={index} effect={effect} style='full' />;
