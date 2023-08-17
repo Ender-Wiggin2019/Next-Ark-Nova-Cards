@@ -3,7 +3,6 @@ import { Terminal } from 'lucide-react';
 import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
-import { z } from 'zod';
 
 import { cn } from '@/lib/utils';
 
@@ -31,20 +30,26 @@ import {
 import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
 
-import { AnimalCardSchema } from '@/types/AnimalCard';
+import { AnimalCardSchema, AnimalCardSchemaDto } from '@/types/AnimalCard';
 import { CardSource } from '@/types/CardSource';
 import { ALL_KEYWORDS, KeyWord } from '@/types/KeyWords';
 import { SpecialEnclosureType } from '@/types/SpecialEnclosure';
 import { allCardTags, allRequirements, Tag } from '@/types/Tags';
 
 type AnimalCardFormProps = {
-  onValuesChange: (values: z.infer<typeof AnimalCardSchema>) => void;
+  defaultValues?: AnimalCardSchemaDto;
+  isResetting?: boolean;
+  onValuesChange: (values: AnimalCardSchemaDto) => void;
 };
-export const AnimalCardForm = ({ onValuesChange }: AnimalCardFormProps) => {
+export const AnimalCardForm = ({
+  defaultValues,
+  isResetting,
+  onValuesChange,
+}: AnimalCardFormProps) => {
   const { t } = useTranslation();
-  const form = useForm<z.infer<typeof AnimalCardSchema>>({
+  const form = useForm<AnimalCardSchemaDto>({
     resolver: zodResolver(AnimalCardSchema),
-    defaultValues: {
+    defaultValues: defaultValues || {
       id: 'FAN',
       name: '',
       latinName: '',
@@ -70,6 +75,12 @@ export const AnimalCardForm = ({ onValuesChange }: AnimalCardFormProps) => {
   });
 
   const values = form.watch();
+
+  useEffect(() => {
+    if (isResetting && defaultValues) {
+      form.reset(defaultValues);
+    }
+  }, [isResetting, defaultValues, form]);
 
   useEffect(() => {
     onValuesChange(values);
@@ -111,15 +122,28 @@ export const AnimalCardForm = ({ onValuesChange }: AnimalCardFormProps) => {
   const clearRequirements = () => {
     setSelectedRequirements([]);
   };
+
+  const exportToJson = () => {
+    const tmp = values;
+    tmp.image = ''; // FIXME: data storage?
+    const dataStr =
+      'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(tmp));
+    const downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute('href', dataStr);
+    downloadAnchorNode.setAttribute('download', 'animal.json');
+    document.body.appendChild(downloadAnchorNode);
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+  };
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
+      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
         <FormField
           control={form.control}
           name='name'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t('Animal Name')}</FormLabel>
+              <FormLabel>{t('diy.animal_name')}</FormLabel>
               <FormControl>
                 <Input placeholder='name' {...field} />
               </FormControl>
@@ -394,7 +418,7 @@ export const AnimalCardForm = ({ onValuesChange }: AnimalCardFormProps) => {
               })
             }
           >
-            {t('Add New Enclosure')}
+            {t('diy.add_new_enclosure')}
           </Button>
         </div>
 
@@ -597,7 +621,7 @@ export const AnimalCardForm = ({ onValuesChange }: AnimalCardFormProps) => {
               abilitiesAppend({ keyword: KeyWord.CLEVER, value: 1 })
             }
           >
-            {t('Add New Ability')}
+            {t('diy.add_new_ability')}
           </Button>
         </div>
 
@@ -649,20 +673,16 @@ export const AnimalCardForm = ({ onValuesChange }: AnimalCardFormProps) => {
           <AlertTitle>Notice</AlertTitle>
           <AlertDescription>This function is still in beta.</AlertDescription>
         </Alert>
-        {/*<Button type="submit">Submit</Button>*/}
-
-        {/*<div className="w-full flex">*/}
-        {/*    <div className="w-1/2">*/}
-        {/*        <h3>Last submitted values:</h3>*/}
-        {/*        <code>{JSON.stringify(form.getValues())}</code>*/}
-        {/*    </div>*/}
-        {/*</div>*/}
+        <Button variant='outline' type='submit'>
+          {t('diy.export_json')}
+        </Button>
       </form>
     </Form>
   );
 
-  function onSubmit(values: z.infer<typeof AnimalCardSchema>) {
+  function onSubmit(values: AnimalCardSchemaDto) {
     console.log(values);
+    exportToJson();
     // Handle the form submission...
   }
 };

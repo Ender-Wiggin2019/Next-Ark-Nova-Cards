@@ -4130,6 +4130,10 @@
   width: 373px;
 }
 
+.ark-card .ark-card-wrapper .shadow {
+  box-shadow: 2px 2px 4px -1px #000;
+}
+
 .ark-card .ark-card-wrapper .ark-card-top {
   border-radius: 7px 7px 0 0;
   display: flex;

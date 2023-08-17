@@ -180,6 +180,8 @@
     "s281_desc1": "**Income:** Gain {Money-1} per {Appeal-10} .",
     "s281_desc2": "Gain 2 {Appeal-2} for each zoo with less appeal (score first)."
   },
+  "Inventive: Bear": "Inventive: Bear",
+  "Inventive: Primary": "Inventive: Primary",
   "Lion": "Lion",
   "1": "1",
   "2": "2",
@@ -546,6 +548,16 @@
       "a_3": "Feel free to comment in the <1>BGG thread</1> or submit an issue at <3>GitHub</3>."
     }
   },
+  "diy": {
+    "card_maker": "Card Maker",
+    "create_your_own_animal_card": "Create your own animal card.",
+    "Download": "Download Image",
+    "animal_name": "Animal Name",
+    "add_new_enclosure": "Add New Enclosure",
+    "add_new_ability": "Add New Ability",
+    "export_json": "Export as JSON",
+    "import_json": "Import JSON"
+  },
   "Animal Value": "Animal Value",
   "Cost": "Cost",
   "WIP": "WIP",
@@ -554,5 +566,8 @@
   "Money": "Money",
   "Reputation": "Reputation",
   "Conservation Point": "Conservation Point",
+  "Conservation": "Conservation",
+  "Tags": "Tags",
+  "Size": "Size",
   "Welcome to share your idea about this card": "Welcome to share your idea about this card"
 }

@@ -231,6 +231,7 @@ export const AnimalsData: AnimalCard[] = [
     name: 'EURASIAN BROWN BEAR',
     latinName: 'Ursus arctos arctos',
     size: 5,
+    water: 1,
     price: 20,
     requirements: [AnimalTag.Bear, OtherTag.AnimalsII],
     tags: [AnimalTag.Predator, AnimalTag.Bear, ContinentTag.Europe],

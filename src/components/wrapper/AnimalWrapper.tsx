@@ -21,7 +21,7 @@ const AnimalCardWrapper: React.FC<AnimalCardWrapperProps> = ({
         className='ark-card zoo-card animal-card tooltipable'
         draggable={false}
       >
-        <div className='ark-card-wrapper'>{children}</div>
+        <div className='ark-card-wrapper shadow-none'>{children}</div>
       </div>
     </div>
   );
