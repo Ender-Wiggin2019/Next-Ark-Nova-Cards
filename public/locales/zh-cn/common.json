@@ -183,6 +183,8 @@
     "s281_desc1": "**收入:** 每 {Appeal-10} 获得 {Money-1}  。",
     "s281_desc2": "每个门票比你少的玩家使你获得 {Appeal-2}  (此效果最先结算)。"
   },
+  "Inventive: Bear": "创造力: 熊",
+  "Inventive: Primary": "创造力: 灵长类",
   "Lion": "狮子",
   "1": "1",
   "2": "2",
@@ -549,6 +551,18 @@
       "a_3": "你可以在<1>BGG主题</1>或者<3>GitHub</3>中反馈。"
     }
   },
+  "diy": {
+    "card_maker": "卡牌制作器",
+    "create_your_own_animal_card": "创造属于你的动物。",
+    "Download": "下载图片",
+    "animal_name": "动物名称",
+    "add_new_enclosure": "添加饲养区",
+    "add_new_ability": "添加自创能力",
+    "export_json": "导出配置文件",
+    "import_json": "导入配置文件",
+    "add_exist_ability": "添加现有能力",
+    "bug": "功能上有个bug, 请不要删除自创能力前面的现有能力。"
+  },
   "Animal Value": "动物模型",
   "Cost": "花费",
   "WIP": "正在写代码捏",
@@ -557,5 +571,9 @@
   "Money": "金钱",
   "Reputation": "声望",
   "Conservation Point": "保护点数",
+  "Conservation": "保护点数",
+  "Tags": "标志",
+  "Size": "饲养区大小",
+
   "Welcome to share your idea about this card": "欢迎分享你对这张卡牌的想法"
 }

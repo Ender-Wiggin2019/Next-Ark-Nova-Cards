@@ -554,9 +554,11 @@
     "Download": "Download Image",
     "animal_name": "Animal Name",
     "add_new_enclosure": "Add New Enclosure",
-    "add_new_ability": "Add New Ability",
+    "add_new_ability": "Customized Ability",
     "export_json": "Export as JSON",
-    "import_json": "Import JSON"
+    "import_json": "Import JSON",
+    "add_exist_ability": "Existing Ability",
+    "bug": "This function has a unsolved bug. Please do not delete original abilities before your customized abilities."
   },
   "Animal Value": "Animal Value",
   "Cost": "Cost",

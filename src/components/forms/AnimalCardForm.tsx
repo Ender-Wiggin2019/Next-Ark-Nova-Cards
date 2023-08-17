@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Terminal } from 'lucide-react';
 import { useTranslation } from 'next-i18next';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 
 import { cn } from '@/lib/utils';
@@ -75,6 +75,32 @@ export const AnimalCardForm = ({
   });
 
   const values = form.watch();
+
+  const [displayModes, setDisplayModes] = useState<string[]>([]); // "new" or "exist"
+
+  const addNewAbility = () => {
+    abilitiesAppend({
+      keyword: KeyWord.fromObject({ name: '', descriptionTemplate: '' }),
+      value: '',
+    });
+    setDisplayModes((prev) => [...prev, 'new']);
+  };
+
+  const addExistingAbility = () => {
+    abilitiesAppend({ keyword: KeyWord.CLEVER, value: 1 });
+
+    // abilitiesAppend({ keyword: KeyWord.fromObject(KeyWord.CLEVER.toObject()), value: 1 })
+    setDisplayModes((prev) => [...prev, 'exist']);
+  };
+
+  // FIXME: it's a system bug and I don't know how to fix it. Temporary setting a warning for users.
+  function hasExistBeforeNew(displayModes: string[], index: number): boolean {
+    if (displayModes[index] === 'new') return false;
+    const newIndex = displayModes
+      .slice(index, displayModes.length)
+      .indexOf('new');
+    return newIndex >= 0;
+  }
 
   useEffect(() => {
     if (isResetting && defaultValues) {
@@ -547,54 +573,101 @@ export const AnimalCardForm = ({
         <div>
           {abilitiesField.map((field, index) => (
             <div key={field.id} className='flex w-full flex-row gap-4'>
-              <FormField
-                control={form.control}
-                name={`abilities.${index}.keyword`}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className={cn(index !== 0 && 'sr-only')}>
-                      Abilities
-                    </FormLabel>
-                    <Select
-                      onValueChange={(value) => {
-                        field.onChange(
-                          ALL_KEYWORDS.find((kw) => kw.name === value)
-                        );
-                      }}
-                      defaultValue={field.value.name}
-                    >
-                      <FormControl>
-                        <SelectTrigger id='Abilities' className='w-48'>
-                          <SelectValue placeholder='Select' />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent position='popper' className='h-48'>
-                        {ALL_KEYWORDS.map((keyword, index) => (
-                          <SelectItem key={index} value={keyword.name}>
-                            {t(keyword.name)}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name={`abilities.${index}.value`}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className={cn(index !== 0 && 'sr-only')}>
-                      Value
-                    </FormLabel>
-                    <FormControl>
-                      <Input placeholder='value' {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              {displayModes[index] === 'exist' ? (
+                <>
+                  <FormField
+                    control={form.control}
+                    name={`abilities.${index}.keyword`}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className={cn(index !== 0 && 'sr-only')}>
+                          Abilities
+                        </FormLabel>
+                        <Select
+                          onValueChange={(value) => {
+                            field.onChange(
+                              ALL_KEYWORDS.find((kw) => kw.name === value)
+                            );
+                          }}
+                          defaultValue={field.value.name}
+                        >
+                          <FormControl>
+                            <SelectTrigger id='Abilities' className='w-48'>
+                              <SelectValue placeholder='Select' />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent position='popper' className='h-48'>
+                            {ALL_KEYWORDS.map((keyword, index) => (
+                              <SelectItem key={index} value={keyword.name}>
+                                {t(keyword.name)}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name={`abilities.${index}.value`}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className={cn(index !== 0 && 'sr-only')}>
+                          Value
+                        </FormLabel>
+                        <FormControl>
+                          <Input placeholder='value' {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />{' '}
+                </>
+              ) : (
+                <>
+                  <FormField
+                    control={form.control}
+                    name={`abilities.${index}.keyword.name`}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className={cn(index !== 0 && 'sr-only')}>
+                          {t('Keyword')}
+                        </FormLabel>
+                        <FormControl>
+                          <Input placeholder='keyword' {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name={`abilities.${index}.keyword.descriptionTemplate`}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className={cn(index !== 0 && 'sr-only')}>
+                          {t('Description')}
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder='description'
+                            onKeyPress={(
+                              e: React.KeyboardEvent<
+                                HTMLInputElement | HTMLTextAreaElement
+                              >
+                            ) => {
+                              e.key === 'Enter' && e.preventDefault();
+                            }}
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </>
+              )}
               <FormItem>
                 <FormLabel className={cn(index !== 0 && 'sr-only')}>
                   {' '}
@@ -604,7 +677,16 @@ export const AnimalCardForm = ({
                   <button
                     type='button'
                     className='border-1 w-10 rounded-lg border border-zinc-200 p-2'
-                    onClick={() => abilitiesRemove(index)}
+                    onClick={() => {
+                      if (hasExistBeforeNew(displayModes, index)) {
+                        alert(t('diy.bug'));
+                        return;
+                      }
+                      abilitiesRemove(index);
+                      setDisplayModes((prev) =>
+                        prev.filter((_, idx) => idx !== index)
+                      );
+                    }}
                   >
                     X
                   </button>
@@ -612,18 +694,34 @@ export const AnimalCardForm = ({
               </FormItem>
             </div>
           ))}
-          <Button
-            type='button'
-            variant='outline'
-            size='sm'
-            className='mt-2'
-            onClick={() =>
-              abilitiesAppend({ keyword: KeyWord.CLEVER, value: 1 })
-            }
-          >
-            {t('diy.add_new_ability')}
-          </Button>
+          <div className='flex gap-2'>
+            <Button
+              type='button'
+              variant='outline'
+              size='sm'
+              className='mt-2 w-1/2'
+              onClick={addNewAbility}
+            >
+              {t('diy.add_new_ability')}
+            </Button>
+            <Button
+              type='button'
+              variant='outline'
+              size='sm'
+              className='mt-2 w-1/2'
+              onClick={addExistingAbility}
+            >
+              {t('diy.add_exist_ability')}
+            </Button>
+          </div>
         </div>
+        {/*{hasExistBeforeNew(displayModes) && <Alert variant="destructive">*/}
+        {/*    <AlertCircle className="h-4 w-4" />*/}
+        {/*    <AlertTitle>Error</AlertTitle>*/}
+        {/*    <AlertDescription>*/}
+        {/*        {t('diy.bug')}*/}
+        {/*    </AlertDescription>*/}
+        {/*</Alert>}*/}
 
         <FormField
           control={form.control}
