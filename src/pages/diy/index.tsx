@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { BaseAnimalCard } from '@/components/cards/animal_cards/BaseAnimalCard';
 import { AnimalCardForm } from '@/components/forms/AnimalCardForm';
 import Layout from '@/components/layout/Layout';
+import Seo from '@/components/Seo';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -143,55 +144,54 @@ export default function Page(
 
   return (
     <Layout>
-      <main>
-        <section className='bg-white/0'>
-          <div className='mt-10 flex min-h-screen flex-col items-center justify-center gap-10 text-start text-black md:flex-row md:items-start md:gap-20'>
-            <div className='scale-125 py-8 md:mt-2 xl:mr-5 xl:mt-12 xl:scale-150'>
-              <div ref={downloadRef} className=''>
-                <BaseAnimalCard animal={valuesToAnimalCard(diyAnimalCard)} />
-              </div>
+      <Seo templateTitle='Ark Nova Card Maker' />
+      <section className='bg-white/0'>
+        <div className='mt-10 flex min-h-screen flex-col items-center justify-center gap-10 text-start text-black md:flex-row md:items-start md:gap-20'>
+          <div className='scale-125 py-8 md:mt-2 xl:mr-5 xl:mt-12 xl:scale-150'>
+            <div ref={downloadRef} className=''>
+              <BaseAnimalCard animal={valuesToAnimalCard(diyAnimalCard)} />
             </div>
-            <Card className='w-[370px] bg-white/75'>
-              <CardHeader>
-                <CardTitle>{t('diy.card_maker')}</CardTitle>
-                <CardDescription>
-                  {t('diy.create_your_own_animal_card')}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <AnimalCardForm
-                  defaultValues={diyAnimalCard}
-                  onValuesChange={debouncedHandleValuesChange}
-                  isResetting={isResetting}
-                />
-              </CardContent>
-              <CardFooter className='flex flex-col justify-start gap-4'>
-                <div className='grid w-full max-w-sm items-center gap-1.5'>
-                  <Label htmlFor='animal-json-import'>
-                    {t('diy.import_json')}
-                  </Label>
-                  <Input
-                    id='animal-json-import'
-                    type='file'
-                    value=''
-                    className=''
-                    onChange={handleJsonImport}
-                  />
-                </div>
-                {/*<Button variant="outline">*/}
-                {/*  {t('diy.import_json')}*/}
-                {/*</Button>*/}
-                <Button
-                  className='w-36 bg-lime-500 hover:bg-lime-400'
-                  onClick={handleDownloadImage}
-                >
-                  {t('diy.Download')}
-                </Button>
-              </CardFooter>
-            </Card>
           </div>
-        </section>
-      </main>
+          <Card className='w-[370px] bg-white/75'>
+            <CardHeader>
+              <CardTitle>{t('diy.card_maker')}</CardTitle>
+              <CardDescription>
+                {t('diy.create_your_own_animal_card')}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <AnimalCardForm
+                defaultValues={diyAnimalCard}
+                onValuesChange={debouncedHandleValuesChange}
+                isResetting={isResetting}
+              />
+            </CardContent>
+            <CardFooter className='flex flex-col justify-start gap-4'>
+              <div className='grid w-full max-w-sm items-center gap-1.5'>
+                <Label htmlFor='animal-json-import'>
+                  {t('diy.import_json')}
+                </Label>
+                <Input
+                  id='animal-json-import'
+                  type='file'
+                  value=''
+                  className=''
+                  onChange={handleJsonImport}
+                />
+              </div>
+              {/*<Button variant="outline">*/}
+              {/*  {t('diy.import_json')}*/}
+              {/*</Button>*/}
+              <Button
+                className='w-36 bg-lime-500 hover:bg-lime-400'
+                onClick={handleDownloadImage}
+              >
+                {t('diy.Download')}
+              </Button>
+            </CardFooter>
+          </Card>
+        </div>
+      </section>
     </Layout>
   );
 }

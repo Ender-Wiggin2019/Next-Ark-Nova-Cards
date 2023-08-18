@@ -10,6 +10,7 @@ import { BaseSponsorCard } from '@/components/cards/sponsor_cards/BaseSponsorCar
 import { Comments } from '@/components/comments/Comments';
 // make sure to import your TextFilter
 import Layout from '@/components/layout/Layout';
+import Seo from '@/components/Seo';
 
 import { getAllCardIds } from '@/utils/GetAllCardIds';
 import { getAnimalCardModel } from '@/utils/GetAnimalCardModel';
@@ -34,8 +35,7 @@ export default function Page(
   if (typeof card !== 'object') return null;
   return (
     <Layout>
-      {/* <Seo templateTitle='Home' /> */}
-      {/* <Seo /> */}
+      <Seo templateTitle={`Ark Nova Card #${card.id} ${card.name}`} />
       <div className='mb-24 flex flex-col'>
         <div className='flex flex-col items-center py-24 md:py-36 lg:pb-48 lg:pt-36'>
           {getCardTypeById(router.query.id) === CardType.ANIMAL_CARD ? (

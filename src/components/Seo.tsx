@@ -5,17 +5,16 @@ import { useRouter } from 'next/router';
 const defaultMeta = {
   title: 'Ark Nova Unofficial Website',
   siteName: 'Ark Nova Unofficial Website',
-  description:
-    'An unofficial website with cards, maps and actions for board game Ark Nova',
+  description: 'Ark Nova cards, ratings, comments and card maker.',
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
-  url: 'https://tsnext-tw.thcl.dev',
+  url: 'https://ark-nova.ender-wiggin.com',
   type: 'website',
   robots: 'follow, index',
   /**
    * No need to be filled, will be populated with openGraph function
    * If you wish to use a normal image, just specify the path below
    */
-  image: 'https://tsnext-tw.thcl.dev/images/large-og.png',
+  image: 'https://ark-nova.ender-wiggin.com/images/large-og.png',
 };
 
 type SeoProps = {
