@@ -38,7 +38,7 @@ export const AnimalsData: AnimalCard[] = [
     latinName: 'Acinonyx jubatus',
     endangeredCategory: EndangeredCategory.VULNERABLE,
     size: 5,
-    price: 19,
+    price: 17,
     tags: [AnimalTag.Predator, AnimalTag.Predator, ContinentTag.Africa],
     abilities: [new Ability(KeyWord.SPRINT, 3)],
     appeal: 6,
