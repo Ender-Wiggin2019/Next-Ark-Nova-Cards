@@ -156,7 +156,13 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
       ratedSponsorCards.sort((a, b) => b.id.localeCompare(a.id));
       break;
     case SortOrder.RATING_DESC:
-      ratedSponsorCards.sort((a, b) => (b.rating ?? -1) - (a.rating ?? -1));
+      ratedSponsorCards.sort((a, b) => {
+        if ((b.rating ?? -1) !== (a.rating ?? -1)) {
+          return (b.rating ?? -1) - (a.rating ?? -1);
+        } else {
+          return (b.ratingCount ?? -1) - (a.ratingCount ?? -1);
+        }
+      });
       break;
   }
 

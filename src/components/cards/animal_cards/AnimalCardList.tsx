@@ -176,7 +176,13 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
       );
       break;
     case SortOrder.RATING_DESC:
-      ratedAnimalCards.sort((a, b) => (b.rating ?? -1) - (a.rating ?? -1));
+      ratedAnimalCards.sort((a, b) => {
+        if ((b.rating ?? -1) !== (a.rating ?? -1)) {
+          return (b.rating ?? -1) - (a.rating ?? -1);
+        } else {
+          return (b.ratingCount ?? -1) - (a.ratingCount ?? -1);
+        }
+      });
       break;
   }
 

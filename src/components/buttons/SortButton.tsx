@@ -62,7 +62,8 @@ export const SortButton: React.FC<SortButtonProps> = ({
   const handleSortOrderChange = () => {
     setSortOrder((oldSortOrder) => {
       let newSortOrder = oldSortOrder + 1;
-      if (newSortOrder > SortOrder.RATING_DESC) {
+      if (newSortOrder > Object.keys(SortOrder).length / 2 - 1) {
+        // enum will be compiled to an object with both keys and values
         newSortOrder = SortOrder.ID_ASC;
       }
       return newSortOrder;
