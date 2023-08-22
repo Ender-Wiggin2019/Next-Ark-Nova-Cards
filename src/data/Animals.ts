@@ -1598,6 +1598,7 @@ export const AnimalsData: AnimalCard[] = [
     name: 'AUSTRALIAN PELICAN',
     latinName: 'Pelecaus conspicillatus',
     size: 4,
+    water: 2,
     price: 13,
     requirements: [],
     tags: [AnimalTag.Bird, ContinentTag.Australia],
