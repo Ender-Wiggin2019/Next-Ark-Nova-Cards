@@ -31,7 +31,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className='relative text-zinc-800 dark:text-zinc-800'>
           <main className='flex flex-col items-center'>
             {/* <-- Add styles here */}
-            <div className='w-full sm:px-8 sm:md:max-w-3xl md:max-w-4xl lg:max-w-6xl'>
+            <div className='w-full sm:px-8 sm:md:max-w-3xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl'>
               {/* <-- Add this div */}
               {children}
             </div>
