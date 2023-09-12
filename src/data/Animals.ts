@@ -2397,7 +2397,7 @@ export const AnimalsData: AnimalCard[] = [
     water: 0,
     price: 15,
     requirements: [],
-    tags: [AnimalTag.SeaAnimal, ContinentTag.Americas],
+    tags: [AnimalTag.SeaAnimal, AnimalTag.Herbivore, ContinentTag.Americas],
     specialEnclosures: [new SpecialEnclosure(SpecialEnclosureType.Aquarium, 1)],
     abilities: [new Ability(KeyWord.ADAPT, 1)],
     description: '',
