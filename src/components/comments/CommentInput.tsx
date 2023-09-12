@@ -92,7 +92,7 @@ const CommentInput = ({
   return (
     <>
       <h2 className='mb-4 text-xl font-bold text-zinc-900 lg:text-2xl'>
-        {t('Welcome to share your idea about this card')}
+        {t('Welcome to share your idea')}
       </h2>
       <CommentForm
         onSubmit={onSubmit}

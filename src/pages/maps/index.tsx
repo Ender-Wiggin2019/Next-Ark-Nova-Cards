@@ -1,17 +1,23 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
-import { useTranslation } from 'next-i18next';
+import { Trans, useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 
 import { MapBoards } from '@/data/MapBoards';
-
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 import TextButton from '@/components/buttons/TextButton';
 import { Comments } from '@/components/comments/Comments';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
 import { MapBoard } from '@/types/MapBoard';
+import Link from 'next/link';
 type Props = {
   // Add custom props here
 };
@@ -36,7 +42,7 @@ export default function HomePage(
             <div key={mapBoard.id} className='justify-self-center'>
               <TextButton
                 selected={selectedMap === mapBoard}
-                className='hover:text-lime-600'
+                className='h-12 hover:text-lime-600'
                 selectClassName='text-lime-600 ring-lime-600/90 ring-2'
                 onClick={() => handleSelectMap(mapBoard)}
               >
@@ -45,7 +51,7 @@ export default function HomePage(
             </div>
           ))}
         </div>
-        <div className='mt-24 flex w-full flex-col items-start justify-center rounded-lg bg-white/30 p-2 shadow-lg lg:p-4'>
+        <div className='mt-24 flex w-full flex-col items-start justify-center rounded-lg bg-white/80 p-2 shadow-lg lg:p-4'>
           <Image
             alt='aaa'
             src={`/img/maps/${selectedMap.image}.jpg`}
@@ -53,7 +59,7 @@ export default function HomePage(
             width={1000}
             height={1000}
           />
-          <h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>
+          <h1 className='scroll-m-20 pt-4 text-2xl font-extrabold tracking-tight text-lime-700 lg:text-4xl'>
             {t(selectedMap.name)}
           </h1>
           {selectedMap.description.length > 0 && (
@@ -62,11 +68,20 @@ export default function HomePage(
             </p>
           )}
           {selectedMap.description.length > 1 && (
-            <ul className='my-6 ml-6 list-disc'>
-              {selectedMap.description.slice(1).map((description, index) => (
-                <li key={index}>{t(description)}</li>
-              ))}
-            </ul>
+            <Accordion type='single' collapsible className='w-full'>
+              <AccordionItem value='item-1'>
+                <AccordionTrigger>{t('maps.tips')}</AccordionTrigger>
+                <AccordionContent>
+                  <ul className='my-6 ml-6 list-disc'>
+                    {selectedMap.description
+                      .slice(1)
+                      .map((description, index) => (
+                        <li key={index}>{t(description)}</li>
+                      ))}
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           )}
         </div>
         <Comments cardId={selectedMap.id} />
