@@ -1,23 +1,24 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
-import { Trans, useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { MapBoards } from '@/data/MapBoards';
+
+import TextButton from '@/components/buttons/TextButton';
+import { Comments } from '@/components/comments/Comments';
+import Layout from '@/components/layout/Layout';
+import Seo from '@/components/Seo';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import TextButton from '@/components/buttons/TextButton';
-import { Comments } from '@/components/comments/Comments';
-import Layout from '@/components/layout/Layout';
-import Seo from '@/components/Seo';
 
 import { MapBoard } from '@/types/MapBoard';
-import Link from 'next/link';
 type Props = {
   // Add custom props here
 };
@@ -25,11 +26,25 @@ type Props = {
 export default function HomePage(
   _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
+  const router = useRouter();
   const { t } = useTranslation('common');
-  const [selectedMap, setSelectedMap] = React.useState<MapBoard>(MapBoards[0]);
-
+  const queryMapBoard = getMapFromQuery();
+  const [selectedMap, setSelectedMap] = React.useState<MapBoard>(queryMapBoard);
   function handleSelectMap(map: MapBoard) {
     setSelectedMap(map);
+    router.push('/maps/?map=' + map.id, undefined, { shallow: true });
+  }
+
+  useEffect(() => {
+    // The counter changed!
+    const map = getMapFromQuery();
+    setSelectedMap(map || MapBoards[0]);
+  }, [router.query.map]);
+
+  function getMapFromQuery(): MapBoard {
+    const id = router.query.map ? router.query.map : MapBoards[0].id;
+    const map = MapBoards.find((map) => map.id === id);
+    return map || MapBoards[0];
   }
   return (
     <Layout>
