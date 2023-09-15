@@ -15,12 +15,12 @@
     "boost_card_description": "After finishing this action, you may place your Card Action card {CardsActionCard} on {Slot-1} or {Slot-5} .",
     "boost_sponsors_description": "After finishing this action, you may place your Sponsors Action card {SponsorsActionCard} on {Slot-1} or {Slot-5} .",
     "boost_animal_description": "After finishing this action, you may place your Animal Action card {AnimalActionCard} on {Slot-1} or {Slot-5} .",
-    "action_association_description": "After finishing this action, you may take the Association action {AssociationCard} .",
+    "action_association_description": "After finishing this action, you may take the Association action {AssociationActionCard} .",
     "action_building_description": "After finishing this action, you may take the Building action {BuildActionCard} .",
     "action_card_description": "After finishing this action, you may take the Card action {CardsActionCard} .",
     "action_sponsors_description": "After finishing this action, you may take the Sponsors Action {SponsorsActionCard} .",
     "action_animal_description": "After finishing this action, you may take the Animal action {AnimalActionCard} .",
-    "multiplier_association_description": "Place 1 {MultiplierToken} on your Association Action card {AssociationCard} .",
+    "multiplier_association_description": "Place 1 {MultiplierToken} on your Association Action card {AssociationActionCard} .",
     "multiplier_building_description": "Place 1 {MultiplierToken} on your Building Action card {BuildActionCard} .",
     "multiplier_card_description": "Place 1 {MultiplierToken} on your Card Action card {CardsActionCard} .",
     "multiplier_sponsors_description": "Place 1 {MultiplierToken} on your Sponsors Action card {SponsorsActionCard} .",
@@ -520,7 +520,7 @@
   },
   "about": {
     "title": "About This Site",
-    "intro": "This is an open-source unofficial website of the board game Ark Nova. It is not affiliated with Capstone Games in any way.\nThis project gets inspiration from ssimeonoff's website and for players to easily search for cards and their effects.",
+    "intro": "This is an open-source unofficial website of the board game Ark Nova. It is not affiliated with Capstone Games in any way.\nThis project gets inspiration from ssimeonoff's website and for players to easily search for cards and their effects. The initial data for this site is sourced from <1>Cillie's List of animal cards</1>, while the icons and styles were borrowed from <3>BGA</3>. If there are any copyright concerns, I will address them.",
     "features": {
       "title": "Features",
       "intro": "Currently, this site has the following features:",

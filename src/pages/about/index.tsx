@@ -33,7 +33,28 @@ export default function HomePage(
             {t('about.title')}
           </h1>
           <p className='leading-7 [&:not(:first-child)]:mt-6'>
-            {t('about.intro')}
+            {/*{t('about.intro')}*/}
+            <Trans i18nKey='about.intro'>
+              This is an open-source unofficial website of the board game Ark
+              Nova. It is not affiliated with Capstone Games in any way. This
+              project gets inspiration from ssimeonoff's website and for players
+              to easily search for cards and their effects. The initial data for
+              this site is sourced from
+              <Link
+                className='font-medium text-primary underline underline-offset-4'
+                href='https://boardgamegeek.com/filepage/225656/cards-part-1-v09-english'
+              >
+                Cillie's List of animal cards
+              </Link>
+              , while the icons and styles were borrowed from
+              <Link
+                className='font-medium text-primary underline underline-offset-4'
+                href='https://boardgamearena.com/gamepanel?game=arknova'
+              >
+                BGA
+              </Link>
+              If there are any copyright concerns, I will address them.
+            </Trans>
           </p>
           <h2 className='mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0'>
             {t('about.features.title')}

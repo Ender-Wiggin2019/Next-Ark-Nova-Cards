@@ -191,7 +191,7 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
       {ratedAnimalCards.map((ratedAnimalCard: IAnimalCard) => (
         <div
           key={ratedAnimalCard.id}
-          className='-mb-8 -ml-6 scale-75 md:scale-100 lg:mb-2 lg:ml-8 xl:ml-0'
+          className=' -mb-12 scale-75 sm:mb-1 sm:scale-90 md:mb-4 md:scale-100'
         >
           <RatedAnimalCard
             key={ratedAnimalCard.id}

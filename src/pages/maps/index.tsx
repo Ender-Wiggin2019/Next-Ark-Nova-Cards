@@ -36,7 +36,6 @@ export default function HomePage(
   }
 
   useEffect(() => {
-    // The counter changed!
     const map = getMapFromQuery();
     setSelectedMap(map || MapBoards[0]);
   }, [router.query.map]);
@@ -48,13 +47,12 @@ export default function HomePage(
   }
   return (
     <Layout>
-      {/* <Seo templateTitle='Home' /> */}
-      <Seo />
+      <Seo templateTitle='Ark Nova Maps' />
 
-      <main className='flex flex-col space-y-4 px-2 py-2 md:px-4'>
+      <div className='flex flex-col px-2 py-2 md:px-4'>
         <div className='grid grid-cols-3 justify-center gap-4 md:grid-cols-3 lg:grid-cols-4'>
           {MapBoards.map((mapBoard) => (
-            <div key={mapBoard.id} className='justify-self-center'>
+            <div key={mapBoard.id} className='w-min justify-self-center'>
               <TextButton
                 selected={selectedMap === mapBoard}
                 className='h-12 hover:text-lime-600'
@@ -66,7 +64,7 @@ export default function HomePage(
             </div>
           ))}
         </div>
-        <div className='mt-24 flex w-full flex-col items-start justify-center rounded-lg bg-white/80 p-2 shadow-lg lg:p-4'>
+        <div className='mt-4 flex w-full flex-col items-start justify-center rounded-lg bg-white/80 p-2 shadow-lg lg:p-4'>
           <Image
             alt='aaa'
             src={`/img/maps/${selectedMap.image}.jpg`}
@@ -100,7 +98,7 @@ export default function HomePage(
           )}
         </div>
         <Comments cardId={selectedMap.id} />
-      </main>
+      </div>
     </Layout>
   );
 }
