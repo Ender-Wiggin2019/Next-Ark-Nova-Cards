@@ -1414,7 +1414,7 @@ export const AnimalsData: AnimalCard[] = [
     size: 3,
     price: 18,
     requirements: [ContinentTag.Asia],
-    tags: [AnimalTag.Bird],
+    tags: [AnimalTag.Bird, ContinentTag.Asia],
     abilities: [new Ability(KeyWord.POSTURING, 2)],
     appeal: 7,
     source: CardSource.BASE,
