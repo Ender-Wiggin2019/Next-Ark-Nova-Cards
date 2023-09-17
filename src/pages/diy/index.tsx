@@ -73,7 +73,7 @@ export default function Page(
       return;
     }
 
-    toPng(downloadRef.current, { quality: 1 })
+    toPng(downloadRef.current, { quality: 0.8, pixelRatio: 7 })
       .then((dataUrl) => {
         const link = document.createElement('a');
         link.download = diyAnimalCard.name + '.png';
