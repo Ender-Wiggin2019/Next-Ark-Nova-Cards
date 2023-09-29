@@ -1,8 +1,9 @@
 // AnimalCard.tsx
-import classNames from 'classnames';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
+
+import { cn } from '@/lib/utils';
 
 import Ability from '@/components/abilities/Ability';
 import AbilityComponent from '@/components/abilities/Ability';
@@ -102,7 +103,7 @@ export const BaseAnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
           <div className='ark-card-number'>{animal.id}</div>
           <div className='ark-card-title-wrapper'>
             <div
-              className={classNames('ark-card-title pt-1', {
+              className={cn('ark-card-title pt-1', {
                 'scale-90 text-xs': t(animal.name).length > 28,
               })}
             >

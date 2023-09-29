@@ -1,19 +1,13 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-// !STARTERCONF Change these default meta
 const defaultMeta = {
   title: 'Ark Nova Unofficial Website',
   siteName: 'Ark Nova Unofficial Website',
   description: 'Ark Nova cards, ratings, comments and card maker.',
-  /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
   url: 'https://ark-nova.ender-wiggin.com',
   type: 'website',
   robots: 'follow, index',
-  /**
-   * No need to be filled, will be populated with openGraph function
-   * If you wish to use a normal image, just specify the path below
-   */
   image: 'https://ark-nova.ender-wiggin.com/images/large-og.png',
 };
 
@@ -90,8 +84,6 @@ export default function Seo(props: SeoProps) {
   );
 }
 
-// !STARTERCONF this is the default favicon, you can generate your own from https://realfavicongenerator.net/
-// ! then replace the whole /public/favicon folder and favicon.ico
 const favicons: Array<React.ComponentPropsWithoutRef<'link'>> = [
   {
     rel: 'apple-touch-icon',

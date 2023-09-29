@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import React from 'react';
+
+import { cn } from '@/lib/utils';
 
 import { ActionCardType } from '@/types/ActionCard';
 
@@ -14,8 +15,8 @@ const ActionCardIcon: React.FC<actionTypeProps> = ({ actionType }) => {
       : 'icon-action-card-' + actionType.toLowerCase();
 
   return (
-    <div className={classNames('icon-container', actionClass)}>
-      <div className={classNames('arknova-icon', actionClass)}></div>
+    <div className={cn('icon-container', actionClass)}>
+      <div className={cn('arknova-icon', actionClass)}></div>
     </div>
   );
 };

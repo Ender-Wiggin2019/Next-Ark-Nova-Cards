@@ -1,5 +1,4 @@
-import clsxm from '@/lib/clsxm';
-
+import { cn } from '@/lib/utils';
 export function Prose({
   children,
   className,
@@ -8,8 +7,6 @@ export function Prose({
   className?: string;
 }) {
   return (
-    <div className={clsxm(className, 'prose dark:prose-invert')}>
-      {children}
-    </div>
+    <div className={cn(className, 'prose dark:prose-invert')}>{children}</div>
   );
 }

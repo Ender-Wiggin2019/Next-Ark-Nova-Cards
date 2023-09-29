@@ -1,25 +1,39 @@
 import { ClerkProvider } from '@clerk/nextjs';
 import { AppProps } from 'next/app';
+import Script from 'next/script';
 import { appWithTranslation } from 'next-i18next';
 
 import '@/styles/globals.css';
-// !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
-import '@/styles/colors.css';
 import '@/styles/ark.css';
 import '@/styles/arknova.css';
 import '@/styles/odometer.css';
 import '@/styles/clerk.css';
 
-/**
- * !STARTERCONF info
- * ? `Layout` component is called in every page using `np` snippets. If you have consistent layout across all page, you can add it here too
- */
-
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ClerkProvider {...pageProps}>
-      <Component {...pageProps} />
-    </ClerkProvider>
+    <>
+      <Script
+        strategy='afterInteractive'
+        src='https://www.googletagmanager.com/gtag/js?id=G-49MVJ63XFT'
+      ></Script>
+      <Script
+        id='google-analytics'
+        strategy='afterInteractive'
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-49MVJ63XFT', {
+            page_path: window.location.pathname,
+          });
+        `,
+        }}
+      />
+      <ClerkProvider {...pageProps}>
+        <Component {...pageProps} />
+      </ClerkProvider>
+    </>
   );
 }
 

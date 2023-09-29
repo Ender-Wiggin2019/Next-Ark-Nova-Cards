@@ -1,13 +1,13 @@
 import React from 'react';
 
-import clsxm from '@/lib/clsxm';
+import { cn } from '@/lib/utils';
 
 type ContainerProps = React.ComponentPropsWithoutRef<'div'>;
 
 const OuterContainer = React.forwardRef<HTMLDivElement, ContainerProps>(
   function OuterContainer({ className, children, ...props }, ref) {
     return (
-      <div ref={ref} className={clsxm('sm:px-8', className)} {...props}>
+      <div ref={ref} className={cn('sm:px-8', className)} {...props}>
         <div className='mx-auto max-w-7xl lg:px-8'>{children}</div>
       </div>
     );
@@ -22,7 +22,7 @@ const InnerContainer = React.forwardRef<HTMLDivElement, ContainerProps>(
     return (
       <div
         ref={ref}
-        className={clsxm('relative px-4 sm:px-8 lg:px-12', className)}
+        className={cn('relative px-4 sm:px-8 lg:px-12', className)}
         {...props}
       >
         <div className='mx-auto max-w-2xl lg:max-w-5xl'>{children}</div>

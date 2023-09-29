@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import React from 'react';
+
+import { cn } from '@/lib/utils';
 
 import SpecialEnclosureComponent from '@/components/icons/SpecialEnclosure';
 
@@ -26,7 +27,7 @@ const Enclosures: React.FC<EnclosuresProps> = ({
     specialEnclosures && specialEnclosures.length > 0;
   const needWide =
     hasSpecialEnclosures || (rock && rock > 0) || (water && water > 0);
-  const enclosureClass = classNames('animal-card-enclosure-cost', {
+  const enclosureClass = cn('animal-card-enclosure-cost', {
     wide: needWide,
   });
 

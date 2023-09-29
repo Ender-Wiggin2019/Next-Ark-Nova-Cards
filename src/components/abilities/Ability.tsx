@@ -1,6 +1,7 @@
-import classNames from 'classnames';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
+
+import { cn } from '@/lib/utils';
 
 import ParseDescription from '@/components/abilities/ParseDescription';
 import AbilityIcon from '@/components/icons/abilities/AbilityIcon';
@@ -79,7 +80,7 @@ const AbilityComponent: React.FC<AbilityProps> = ({
       : t(ability.keyword.name);
   return (
     <div
-      className={classNames({
+      className={cn({
         flex: isReefDweller !== undefined && isReefDweller,
       })}
     >

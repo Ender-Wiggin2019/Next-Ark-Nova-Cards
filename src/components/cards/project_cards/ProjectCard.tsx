@@ -2,7 +2,7 @@
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
-import clsxm from '@/lib/clsxm';
+import { cn } from '@/lib/utils';
 
 import ParseDescription from '@/components/abilities/ParseDescription';
 import ReleaseAnimal from '@/components/icons/conservations/ReleaseAnimal';
@@ -55,7 +55,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           <div className='zoo-card-bonus reputation'>1</div>
         </div>
         <div
-          className={clsxm('project-card-slots-container', {
+          className={cn('project-card-slots-container', {
             release: project.type === ProjectCategory.RELEASE,
           })}
         >

@@ -1,10 +1,11 @@
 import { type PopoverProps, Popover, Transition } from '@headlessui/react';
-import classNames from 'classnames';
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
+
+import { cn } from '@/lib/utils';
 
 import { navigationItems } from '@/config/nav';
 
@@ -20,7 +21,7 @@ function NavItem({
     <li>
       <Link
         href={href}
-        className={classNames(
+        className={cn(
           'relative block whitespace-nowrap px-3 py-2 transition',
           isActive
             ? 'text-lime-600 dark:text-lime-400'
@@ -62,7 +63,7 @@ function Desktop({
   return (
     <nav
       onMouseMove={handleMouseMove}
-      className={classNames(
+      className={cn(
         'group relative',
         'rounded-full bg-gradient-to-b from-zinc-50/70 to-white/90',
         'shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md',

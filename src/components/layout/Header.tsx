@@ -7,13 +7,13 @@ import {
   UserButton,
   useUser,
 } from '@clerk/nextjs';
-import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
-import clsxm from '@/lib/clsxm';
 // import { url } from '~/lib'
 import { clamp } from '@/lib/math';
+import { cn } from '@/lib/utils';
 
 import LocaleSelector from '@/components/layout/LocaleSelector';
 import { Container } from '@/components/ui/Container';
@@ -33,11 +33,6 @@ export function Header() {
   const headerRef = React.useRef<HTMLDivElement>(null);
   const avatarRef = React.useRef<HTMLDivElement>(null);
   const isInitial = React.useRef(true);
-
-  const avatarX = useMotionValue(0);
-  const avatarScale = useMotionValue(1);
-  const avatarBorderX = useMotionValue(0);
-  const avatarBorderScale = useMotionValue(1);
 
   React.useEffect(() => {
     const downDelay = avatarRef.current?.offsetTop ?? 0;
@@ -92,38 +87,8 @@ export function Header() {
       }
     }
 
-    function updateAvatarStyles() {
-      if (!isHomePage) {
-        return;
-      }
-
-      const fromScale = 1;
-      const toScale = 36 / 64;
-      const fromX = 0;
-      const toX = 2 / 16;
-
-      const scrollY = downDelay - window.scrollY;
-
-      let scale = (scrollY * (fromScale - toScale)) / downDelay + toScale;
-      scale = clamp(scale, fromScale, toScale);
-
-      let x = (scrollY * (fromX - toX)) / downDelay + toX;
-      x = clamp(x, fromX, toX);
-
-      avatarX.set(x);
-      avatarScale.set(scale);
-
-      const borderScale = 1 / (toScale / scale);
-
-      avatarBorderX.set((-toX + x) * borderScale);
-      avatarBorderScale.set(borderScale);
-
-      setProperty('--avatar-border-opacity', scale === toScale ? '1' : '0');
-    }
-
     function updateStyles() {
       updateHeaderStyles();
-      updateAvatarStyles();
       isInitial.current = false;
     }
 
@@ -141,7 +106,7 @@ export function Header() {
   return (
     <>
       <motion.header
-        className={clsxm(
+        className={cn(
           'pointer-events-none relative z-50 mb-[var(--header-mb,0px)] flex flex-col',
           isHomePage
             ? 'h-[var(--header-height,180px)]'
@@ -175,21 +140,7 @@ export function Header() {
                   damping: 30,
                   stiffness: 200,
                 }}
-              >
-                {/*<AnimatePresence>*/}
-                {/*    {!isHomePage && (*/}
-                {/*        <motion.div*/}
-                {/*            layoutId="avatar"*/}
-                {/*            layout*/}
-                {/*            onContextMenu={onAvatarContextMenu}*/}
-                {/*        >*/}
-                {/*            <Avatar>*/}
-                {/*                <Avatar.Image alt={isShowingAltAvatar} />*/}
-                {/*            </Avatar>*/}
-                {/*        </motion.div>*/}
-                {/*    )}*/}
-                {/*</AnimatePresence>*/}
-              </motion.div>
+              ></motion.div>
               <div className='flex flex-1 justify-end md:justify-center'>
                 <NavigationBar.Mobile className='pointer-events-auto relative z-50 md:hidden' />
                 <NavigationBar.Desktop className='pointer-events-auto relative z-50 hidden md:block' />
@@ -204,22 +155,6 @@ export function Header() {
                   <LocaleSelector />
                 </div>
               </motion.div>
-              {/*
-              <AnimatePresence>
-                {!isHomePage && (
-                  <motion.div
-                    className="absolute left-14 top-1 flex h-8 items-center"
-                    initial={{ opacity: 0, scale: 0.3 }}
-                    animate={{
-                      opacity: 1,
-                      scale: 1,
-                      transition: { delay: 1 },
-                    }}
-                  >
-                    <Activity />
-                  </motion.div>
-                )}
-              </AnimatePresence> */}
             </div>
           </Container>
         </div>

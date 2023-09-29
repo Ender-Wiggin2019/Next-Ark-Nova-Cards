@@ -66,9 +66,11 @@ export default function HomePage(
         </div>
         <div className='mt-4 flex w-full flex-col items-start justify-center rounded-lg bg-white/80 p-2 shadow-lg lg:p-4'>
           <Image
-            alt='aaa'
+            alt={selectedMap.name}
+            priority={true}
             src={`/img/maps/${selectedMap.image}.jpg`}
             className='w-full rounded-md object-contain shadow-lg'
+            quality={85}
             width={1000}
             height={1000}
           />

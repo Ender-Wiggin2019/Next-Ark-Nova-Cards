@@ -1,6 +1,6 @@
 import Image, { type ImageProps } from 'next/image';
 
-import clsxm from '@/lib/clsxm';
+import { cn } from '@/lib/utils';
 
 type BleedThroughImageProps = ImageProps & {
   dimensions: {
@@ -34,7 +34,7 @@ export function BleedThroughImage({
         unoptimized
         placeholder={lqip ? 'blur' : 'empty'}
         blurDataURL={lqip}
-        className={clsxm('relative z-20 rounded-xl md:rounded-3xl', className)}
+        className={cn('relative z-20 rounded-xl md:rounded-3xl', className)}
         {...props}
         alt={alt ?? ''}
       />

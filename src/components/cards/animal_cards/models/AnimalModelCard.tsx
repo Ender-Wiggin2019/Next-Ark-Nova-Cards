@@ -14,7 +14,7 @@ import { useTranslation } from 'next-i18next';
 import React from 'react';
 import { Rating } from 'react-simple-star-rating';
 
-import clsxm from '@/lib/clsxm';
+import { cn } from '@/lib/utils';
 
 import AppealIcon from '@/components/icons/tokens/AppealIcon';
 import ConservationIcon from '@/components/icons/tokens/ConservationIcon';
@@ -43,7 +43,7 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
       <div className='text-bold'>
         {t('Animal Value')}:&nbsp;
         <span
-          className={clsxm(
+          className={cn(
             'text-bold',
             { 'text-lime-600': model.cost >= 0 },
             { 'text-red-600': model.diff < 0 }
@@ -57,7 +57,7 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
         <div className='text-bold'>
           {t('With SE')}:&nbsp;
           <span
-            className={clsxm(
+            className={cn(
               'text-bold',
               { 'text-lime-600': model.diffWithSpecialEnclosure >= 0 },
               { 'text-red-600': model.diffWithSpecialEnclosure < 0 }
