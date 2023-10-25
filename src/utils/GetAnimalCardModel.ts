@@ -1,4 +1,8 @@
-import { AnimalCard } from '@/types/AnimalCard';
+import {
+  AnimalCard,
+  getAnimalActualSize,
+  isSeaAnimal,
+} from '@/types/AnimalCard';
 import { AbilityModel, AnimalCardModel } from '@/types/AnimalCardModel';
 import { KeyWord } from '@/types/KeyWords';
 
@@ -21,7 +25,7 @@ export const getAnimalCardModel = (animal: AnimalCard): AnimalCardModel => {
   const conservationPoint = animal.conservationPoint
     ? getValueByKeyWord(animal.conservationPoint, KeyWord.CONSERVATION_POINT)
     : 0;
-  const cost = animal.size * 2 + animal.price;
+  const cost = animal.price + getAnimalActualSize(animal) * 2;
 
   const abilities = animal.abilities
     ? animal.abilities.map((ability) => {
