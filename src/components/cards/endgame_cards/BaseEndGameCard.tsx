@@ -1,8 +1,9 @@
-import { EndGameCard } from '@/types/EndGameCard';
+import { EndGameCard, getCSSDataId } from '@/types/EndGameCard';
 import React from 'react';
 import { useTranslation } from 'next-i18next';
 import { IconFactory } from '@/components/icons/IconFactory';
 import { IconName } from '@/types/IconName';
+import ParseDescription from '@/components/abilities/ParseDescription';
 
 type EndGameCardProps = {
   card: EndGameCard;
@@ -10,7 +11,7 @@ type EndGameCardProps = {
 
 export const BaseEndGameCard: React.FC<EndGameCardProps> = ({ card }) => {
   const { t } = useTranslation('common');
-  const dataId = card.dataId || '';
+  const dataId = getCSSDataId(card);
   return (
     <div
       id={`card-${dataId}`}
@@ -37,10 +38,10 @@ export const BaseEndGameCard: React.FC<EndGameCardProps> = ({ card }) => {
         </div>
         <div className='ark-card-bottom'>
           <div className='project-card-description'>
-            {card.description}
-            <div className='icon-container icon-container-conservation'>
-              <div className='arknova-icon icon-conservation' />
-            </div>
+            <ParseDescription desc={card.description} />
+            {/*<div className='icon-container icon-container-conservation'>*/}
+            {/*  <div className='arknova-icon icon-conservation' />*/}
+            {/*</div>*/}
             <table className='score-map'>
               <tbody>
                 <tr>

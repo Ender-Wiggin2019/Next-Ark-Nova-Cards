@@ -31,6 +31,7 @@ import { Icon } from '@/types/Icon';
 
 export const IconFactory: React.FC<Icon> = ({ iconName, params }) => {
   const value = params?.value || '';
+  const type = params?.type || '';
   if (iconName === IconName.MONEY) return <MoneyIcon value={value} />;
   else if (iconName === IconName.REPUTATION)
     return <ReputationIcon value={value} />;
@@ -74,11 +75,11 @@ export const IconFactory: React.FC<Icon> = ({ iconName, params }) => {
     return <Kiosk />;
   } else if (iconName === IconName.LARGE_BIRD_AVIARY) {
     return <LargeBirdAviary />;
-  } else if (iconName === IconName.SIZE && value === 'Animal') {
+  } else if (iconName === IconName.SIZE && type === 'Animal') {
     return <AnimalSizeIcon value={value} />;
-  } else if (iconName === IconName.SIZE && value === 'Enclosure') {
+  } else if (iconName === IconName.SIZE && type === 'Enclosure') {
     return <EnclosureIcon value={value} />;
-  } else if (iconName === IconName.SIZE && value === 'X+') {
+  } else if (iconName === IconName.SIZE && type === 'X+') {
     return <EmptySizeIcon value={value + '+'} />;
   } else if (iconName === IconName.HERBIVORE) {
     return <TagIcon type={AnimalTag.Herbivore} />;

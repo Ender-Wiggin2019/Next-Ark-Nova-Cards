@@ -624,5 +624,8 @@
   "Conservation": "Conservation",
   "Tags": "Tags",
   "Size": "Size",
-  "Welcome to share your idea": "Welcome to share your idea"
+  "Welcome to share your idea": "Welcome to share your idea",
+  "endgame": {
+    "desc1": "Gain {ConservationPoint} for **large** **animals** in your zoo."
+  }
 }
