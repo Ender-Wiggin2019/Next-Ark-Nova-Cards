@@ -12,6 +12,8 @@ export default authMiddleware({
     '/maps',
     '/about',
     '/diy',
+    '/projects',
+    '/endgames',
   ],
 });
 
