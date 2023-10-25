@@ -17,7 +17,7 @@
     "boost_animal_description": "在当前行动完成后，你可以将你的动物行动牌 {AnimalActionCard} 放置在 {Slot-1} 或者 {Slot-5} 。",
     "action_association_description": "此行动结束后，你可以立即执行 <br> 协会行动 {AssociationActionCard} 。",
     "action_building_description": "此行动结束后，你可以立即执行 <br> 建造行动{BuildActionCard} 。",
-    "action_card_description": "此行动结束后，你可以立即执行 <br> 卡牌行动 {CardsActionCard} 。",
+    "action_cards_description": "此行动结束后，你可以立即执行 <br> 卡牌行动 {CardsActionCard} 。",
     "action_sponsors_description": "此行动结束后，你可以立即执行 <br> 赞助商行动 {SponsorsActionCard} 。",
     "action_animal_description": "此行动结束后，你可以立即执行 <br> 动物行动 {AnimalActionCard} 。",
     "multiplier_association_description": "将一个 {MultiplierToken} 放置在你的协会行动牌上 {AssociationActionCard} 。",

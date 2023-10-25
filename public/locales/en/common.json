@@ -17,7 +17,7 @@
     "boost_animal_description": "After finishing this action, you may place your Animal Action card {AnimalActionCard} on {Slot-1} or {Slot-5} .",
     "action_association_description": "After finishing this action, you may take the Association action {AssociationActionCard} .",
     "action_building_description": "After finishing this action, you may take the Building action {BuildActionCard} .",
-    "action_card_description": "After finishing this action, you may take the Card action {CardsActionCard} .",
+    "action_cards_description": "After finishing this action, you may take the Card action {CardsActionCard} .",
     "action_sponsors_description": "After finishing this action, you may take the Sponsors Action {SponsorsActionCard} .",
     "action_animal_description": "After finishing this action, you may take the Animal action {AnimalActionCard} .",
     "multiplier_association_description": "Place 1 {MultiplierToken} on your Association Action card {AssociationActionCard} .",
