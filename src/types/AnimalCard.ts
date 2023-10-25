@@ -9,13 +9,10 @@ import { Ability } from '@/types/KeyWords';
 import {
   SpecialEnclosure,
   SpecialEnclosureSchema,
+  SpecialEnclosureType,
 } from '@/types/SpecialEnclosure';
 import { Tag, TagSchema } from '@/types/Tags';
-// export interface CardPosition {
-//     src: string;
-//     x: number;
-//     y: number;
-// }
+
 export interface AnimalCard {
   id: string;
   name: string;
@@ -47,6 +44,28 @@ export interface AnimalCard {
 
   // meta data
   source: CardSource;
+}
+
+/**
+ * Check if the animal is a sea animal
+ * @param animal interface AnimalCard
+ * @returns return the size of sea animal. if not a sea animal, return -1
+ */
+export function isSeaAnimal(animal: AnimalCard): number {
+  // FIXME: why specialEnclosures is a class? should change to interface
+  if (animal.specialEnclosures) {
+    for (const specialEnclosure of animal.specialEnclosures) {
+      if (specialEnclosure.type === SpecialEnclosureType.Aquarium) {
+        return specialEnclosure.size;
+      }
+    }
+  }
+  return -1;
+}
+
+export function getAnimalActualSize(animal: AnimalCard): number {
+  const seaAnimalSize = isSeaAnimal(animal);
+  return seaAnimalSize != -1 ? seaAnimalSize : animal.size;
 }
 
 // Keyword schema

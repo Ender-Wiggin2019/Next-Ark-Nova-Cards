@@ -10,7 +10,7 @@ export enum SpecialEnclosureType {
 export class SpecialEnclosure {
   constructor(public type: SpecialEnclosureType, public size: number) {}
 
-  toObject(): Record<string, any> {
+  toObject(): { type: SpecialEnclosureType; size: number } {
     return {
       type: this.type,
       size: this.size,

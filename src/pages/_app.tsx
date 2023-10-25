@@ -4,7 +4,6 @@ import Script from 'next/script';
 import { appWithTranslation } from 'next-i18next';
 
 import '@/styles/globals.css';
-import '@/styles/ark.css';
 import '@/styles/arknova.css';
 import '@/styles/odometer.css';
 import '@/styles/clerk.css';

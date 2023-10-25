@@ -5,7 +5,6 @@ import React from 'react';
 
 import { cn } from '@/lib/utils';
 
-import Ability from '@/components/abilities/Ability';
 import AbilityComponent from '@/components/abilities/Ability';
 import Constriction from '@/components/icons/abilities/Constriction';
 import Hypnosis from '@/components/icons/abilities/Hypnosis';
@@ -140,7 +139,7 @@ export const BaseAnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
                       reefDwellerAbility.keyword === ability.keyword
                   );
                 return (
-                  <Ability
+                  <AbilityComponent
                     key={index}
                     ability={ability}
                     isReefDweller={isReefDweller}
