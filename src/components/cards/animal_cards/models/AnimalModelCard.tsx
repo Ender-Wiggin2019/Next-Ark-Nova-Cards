@@ -1,13 +1,4 @@
 import { Separator } from '@/components/ui/separator';
-
-interface ModelCardProps {
-  id: string;
-  model: AnimalCardModel;
-  showLink: boolean;
-  rating?: number | null;
-  ratingCount?: number | null;
-  readonly?: boolean;
-}
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
@@ -22,6 +13,15 @@ import MoneyIcon from '@/components/icons/tokens/MoneyIcon';
 import ReputationIcon from '@/components/icons/tokens/ReputationIcon';
 
 import { AnimalCardModel } from '@/types/AnimalCardModel';
+
+interface ModelCardProps {
+  id: string;
+  model: AnimalCardModel;
+  showLink: boolean;
+  rating?: number | null;
+  ratingCount?: number | null;
+  readonly?: boolean;
+}
 
 export const AnimalModelCard: React.FC<ModelCardProps> = ({
   id,

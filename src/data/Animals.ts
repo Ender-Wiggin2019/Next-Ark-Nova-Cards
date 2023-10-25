@@ -718,7 +718,7 @@ export const AnimalsData: AnimalCard[] = [
     price: 20,
     requirements: [ContinentTag.Africa],
     tags: [AnimalTag.Primate, ContinentTag.Africa],
-    abilities: [new Ability(KeyWord.ACTION_CARD)],
+    abilities: [new Ability(KeyWord.ACTION_CARDS)],
     appeal: 8,
     source: CardSource.BASE,
   },

@@ -29,6 +29,11 @@ interface ParseDescriptionProps {
   desc: Ability | Effect;
 }
 
+/**
+ * Transform a plain text description to a React component
+ * @param desc Ability | Effect
+ * @constructor
+ */
 const ParseDescription: React.FC<ParseDescriptionProps> = ({ desc }) => {
   const { t } = useTranslation('common');
 
