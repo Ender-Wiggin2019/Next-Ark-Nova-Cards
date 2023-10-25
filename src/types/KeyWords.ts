@@ -381,7 +381,7 @@ export class KeyWord {
   );
 
   constructor(
-    public name: IconName,
+    public name: IconName | string,
     public descriptionTemplate: string,
     public model?: number,
     public multiply?: boolean
