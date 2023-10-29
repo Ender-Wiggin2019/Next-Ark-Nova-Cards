@@ -86,6 +86,8 @@ export enum IconName {
   PRIMATE = 'Primate',
   BIRD = 'Bird',
   SCIENCE = 'Science',
+  ROCK = 'Rock',
+  WATER = 'Water',
 
   // actionCard
   ACTION_CARD = 'Action Card',
@@ -98,4 +100,19 @@ export enum IconName {
   // buildings
   LARGE_BIRD_AVIARY = 'Large Bird Aviary',
   KIOSK = 'Kiosk',
+
+  // endgames
+
+  EMPTY_ENCLOSURE = 'Empty Enclosure',
+  SPONSOR_CARD = 'Sponsor Card',
+  CONSERVATION_PROJECT = 'Conservation Project',
+  ANIMAL_CATEGORIES = 'Animal Categories',
+  CONTINENT_CATEGORIES = 'Continent Categories',
+  DIFFERENT_SHAPE = 'Different Shape',
+  ONE_ANIMAL_TAG = 'One Animal Tag',
+  ONE_CONTINENT_TAG = 'One Continent Tag',
+  ONE_TAG = 'One Tag',
+  KIOSK_PAVILION_PAIR = 'Kiosk and Pavilion Pair',
+  CONDITION = 'Condition',
+  ICONS_COMPARE_WITH_PLAYER = 'Icons Compare with Player',
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SponsorHoverCard } from '@/components/cards/sponsor_cards/SponsorHoverCard';
+import { EndGameHoverCard } from '@/components/cards/endgame_cards/EndGameHoverCard';
 import {
   PopHover,
   PopoverContent,
@@ -10,7 +10,6 @@ import {
 import { BaseEndGameCard } from './BaseEndGameCard';
 
 import { IEndGameCard } from '@/types/EndGameCard';
-import { EndGameHoverCard } from '@/components/cards/endgame_cards/EndGameHoverCard';
 
 interface RatedEndGameCardProps {
   cardData: IEndGameCard;

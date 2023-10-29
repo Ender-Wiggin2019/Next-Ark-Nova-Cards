@@ -2,25 +2,19 @@ import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React, { useEffect, useState } from 'react';
+import { FiRotateCcw } from 'react-icons/fi';
+
+import { SortButton } from '@/components/buttons/SortButton';
+import { EndGameCardList } from '@/components/cards/endgame_cards/EndGameCardList';
+import { CardSourceFilter } from '@/components/filters/CardSourceFilter';
+import { TextFilter } from '@/components/filters/TextFilter';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
-import { EndGameCardList } from '@/components/cards/endgame_cards/EndGameCardList';
+import { CardOdometer } from '@/components/ui/CardOdometer';
+
 import { CardType } from '@/types/Card';
 import { CardSource } from '@/types/CardSource';
 import { SortOrder } from '@/types/Order';
-import { CardTypeFilter } from '@/components/filters/CardTypeFilter';
-import { Separator } from '@/components/ui/separator';
-import { CardSourceFilter } from '@/components/filters/CardSourceFilter';
-import { TagFilter } from '@/components/filters/TagFilter';
-import { RequirementFilter } from '@/components/filters/RequirementFilter';
-import { TextFilter } from '@/components/filters/TextFilter';
-import { FiRotateCcw } from 'react-icons/fi';
-import { SortButton } from '@/components/buttons/SortButton';
-import { SizeFilter } from '@/components/filters/SizeFilter';
-import { StrengthFilter } from '@/components/filters/StrengthFilter';
-import { CardOdometer } from '@/components/ui/CardOdometer';
-import { AnimalCardList } from '@/components/cards/animal_cards/AnimalCardList';
-import { SponsorCardList } from '@/components/cards/sponsor_cards/SponsorCardList';
 
 type Props = {
   // Add custom props here

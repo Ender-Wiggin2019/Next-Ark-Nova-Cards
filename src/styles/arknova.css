@@ -2481,6 +2481,18 @@
   .icon-reputation {
   font-size: 1.5em;
 }
+.ark-card.zoo-card.scoring-card
+  .ark-card-wrapper
+  .project-card-description
+  .icon-all-animals {
+  font-size: 2em;
+}
+.ark-card.zoo-card.scoring-card
+  .ark-card-wrapper
+  .project-card-description
+  .icon-all-continents {
+  font-size: 2em;
+}
 
 .ark-card.zoo-card.scoring-card .ark-card-wrapper .ark-card-middle {
   background: #a04d35;
@@ -4512,13 +4524,13 @@
 }
 
 .arknova-icon.icon-all-animals {
-  background-position: 74.09434454000521% 1.1318619128466327%;
-  background-size: 1581.4671814671815%;
+  background-position: 74.21434454000521% 1.1318619128466327%;
+  background-size: 1495.4671814671815%;
 }
 
 .arknova-icon.icon-all-continents {
-  background-position: 57.90703713321216% 54.47065277015908%;
-  background-size: 1671.8367346938776%;
+  background-position: 57.99703713321216% 54.47065277015908%;
+  background-size: 1455.4671814671815%;
 }
 
 .arknova-icon.icon-animal-size-2 {
@@ -4891,9 +4903,9 @@
   background-size: 2089.795918367347%;
 }
 
-.arknova-icon.icon-hollywood {
-  background-position: 97.75108612317915% 1.10803324099723%;
-  background-size: 2238.251366120219%;
+.arknova-icon.icon-one-animal {
+  background-position: 98.55108612317915% 1.10803324099723%;
+  background-size: 1838.251366120219%;
 }
 
 .arknova-icon.icon-hunter {
@@ -4906,9 +4918,9 @@
   background-size: 1625.3968253968253%;
 }
 
-.arknova-icon.icon-icecream {
-  background-position: 59.40463645943098% 1.1441647597254003%;
-  background-size: 1365.3333333333335%;
+.arknova-icon.icon-one-continent {
+  background-position: 58.80463645943098% 1.1441647597254003%;
+  background-size: 1838.251366120219%;
 }
 
 .arknova-icon.icon-immediate {
@@ -5322,13 +5334,13 @@
 }
 
 .icon-container .icon-all-continents {
-  height: 1.6em;
-  width: 1.6em;
+  height: 1.75em;
+  width: 1.9em;
 }
 
 .icon-container .icon-all-animals {
   height: 1.75em;
-  width: 1.6em;
+  width: 1.9em;
 }
 
 .icon-container .icon-add-worker,
@@ -5469,9 +5481,9 @@
   width: 2em;
 }
 
-.icon-container .icon-hollywood {
+.icon-container .icon-one-animal {
   height: 1.8em;
-  width: 1.2em;
+  width: 1.8em;
 }
 
 .icon-container .icon-lake {
@@ -5479,8 +5491,8 @@
   width: 1.3em;
 }
 
-.icon-container .icon-icecream {
-  height: 2em;
+.icon-container .icon-one-continent {
+  height: 1.8em;
   width: 1.8em;
 }
 
@@ -7009,7 +7021,7 @@
   .zoo-map
   .map-infos
   .map-desc
-  .icon-container-hollywood {
+  .icon-container-one-continent {
   font-size: 1em;
 }
 

@@ -1,5 +1,6 @@
-import { IconName } from '@/types/IconName';
 import React from 'react';
+
+import { IconName } from '@/types/IconName';
 
 type Props = {
   iconName: IconName;

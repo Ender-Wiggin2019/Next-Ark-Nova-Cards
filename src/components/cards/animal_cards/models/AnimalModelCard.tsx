@@ -1,4 +1,3 @@
-import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
@@ -11,6 +10,7 @@ import AppealIcon from '@/components/icons/tokens/AppealIcon';
 import ConservationIcon from '@/components/icons/tokens/ConservationIcon';
 import MoneyIcon from '@/components/icons/tokens/MoneyIcon';
 import ReputationIcon from '@/components/icons/tokens/ReputationIcon';
+import { Separator } from '@/components/ui/separator';
 
 import { AnimalCardModel } from '@/types/AnimalCardModel';
 
