@@ -2,26 +2,108 @@ import { Separator } from '@/components/ui/separator';
 
 interface HoverCardProps {
   id: string;
+  card: EndGameCard;
   showLink: boolean;
   rating?: number | null;
   ratingCount?: number | null;
 }
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 import { Rating } from 'react-simple-star-rating';
 
+import { cn } from '@/lib/utils';
+
+import { EndGameCard } from '@/types/EndGameCard';
+
 export const EndGameHoverCard: React.FC<HoverCardProps> = ({
   id,
+  card,
   showLink,
   rating,
   ratingCount,
 }) => {
-  const router = useRouter();
   const { t } = useTranslation('common');
+
   return (
     <div className='flex-col text-xs'>
+      {card.originalArray && (
+        <div className=''>
+          <span className='text-bold'>
+            {t('This card has been changed')}:&nbsp;
+          </span>
+          <table className='score-map mt-1 p-0 text-center text-xs text-zinc-600'>
+            <tbody>
+              <tr>
+                <th></th>
+                {card.originalArray.map((obj) => {
+                  return (
+                    <td key={obj.requirement} className='m-0 p-0 text-xs'>
+                      {obj.requirement}
+                    </td>
+                  );
+                })}
+              </tr>
+              <tr>
+                <th />
+                <td />
+                <td />
+                <td />
+                <td />
+              </tr>
+            </tbody>
+          </table>
+
+          <table className='score-map mt-1 p-0 text-center text-xs'>
+            <tbody>
+              <tr>
+                <th></th>
+                {card.scoreArray.map((obj, idx) => {
+                  return (
+                    <td
+                      key={obj.requirement}
+                      className={cn(
+                        'm-0 p-0 text-xs',
+                        {
+                          'text-lime-600':
+                            card.originalArray &&
+                            obj.requirement <
+                              card.originalArray[idx].requirement,
+                        },
+                        {
+                          'text-red-700':
+                            card.originalArray &&
+                            obj.requirement >
+                              card.originalArray[idx].requirement,
+                        }
+                      )}
+                    >
+                      {obj.requirement}
+                    </td>
+                  );
+                })}
+              </tr>
+              <tr>
+                <th />
+                <td />
+                <td />
+                <td />
+                <td />
+              </tr>
+            </tbody>
+          </table>
+          {/*  <span*/}
+          {/*      className={cn(*/}
+          {/*          'text-bold',*/}
+          {/*          { 'text-lime-600': model.diffWithSpecialEnclosure >= 0 },*/}
+          {/*          { 'text-red-600': model.diffWithSpecialEnclosure < 0 }*/}
+          {/*      )}*/}
+          {/*  >*/}
+          {/*  {model.diffWithSpecialEnclosure}*/}
+          {/*    /!*<MoneyIcon value={model.diff} />*!/*/}
+          {/*</span>*/}
+        </div>
+      )}
       {rating && (
         <div className='flex flex-row gap-1'>
           <Rating

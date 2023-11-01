@@ -6,6 +6,8 @@ import React from 'react';
 
 import { BaseAnimalCard } from '@/components/cards/animal_cards/BaseAnimalCard';
 import { AnimalModelCard } from '@/components/cards/animal_cards/models/AnimalModelCard';
+import { BaseEndGameCard } from '@/components/cards/endgame_cards/BaseEndGameCard';
+import { EndGameHoverCard } from '@/components/cards/endgame_cards/EndGameHoverCard';
 import { BaseSponsorCard } from '@/components/cards/sponsor_cards/BaseSponsorCard';
 import { Comments } from '@/components/comments/Comments';
 // make sure to import your TextFilter
@@ -18,6 +20,7 @@ import { getCardById, getCardTypeById } from '@/utils/GetCardById';
 
 import { AnimalCard as AnimalCardType } from '@/types/AnimalCard';
 import { CardType } from '@/types/Card';
+import { EndGameCard as EndGameCardType } from '@/types/EndGameCard';
 import { SponsorCard as SponsorCardType } from '@/types/SponsorCard';
 type Props = {
   // Add custom props here
@@ -56,6 +59,19 @@ export default function Page(
               <div className='mr-3 flex-initial md:mr-10 lg:mr-20'>
                 <BaseSponsorCard sponsor={card as SponsorCardType} />
               </div>
+            </div>
+          ) : null}
+
+          {getCardTypeById(router.query.id) === CardType.END_GAME_CARD ? (
+            <div className='flex flex-row md:scale-125 lg:scale-150'>
+              <div className='mr-3 flex-initial md:mr-10 lg:mr-20'>
+                <BaseEndGameCard card={card as EndGameCardType} />
+              </div>
+              <EndGameHoverCard
+                id={card.id}
+                showLink={false}
+                card={card as EndGameCardType}
+              />
             </div>
           ) : null}
         </div>

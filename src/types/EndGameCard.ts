@@ -10,6 +10,7 @@ export interface EndGameCard {
   topIcon: Icon;
   bottomIcon: Icon;
   scoreArray: EndGameScoreArray;
+  originalArray?: EndGameScoreArray;
   source: CardSource;
 }
 

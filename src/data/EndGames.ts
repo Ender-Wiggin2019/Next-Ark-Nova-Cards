@@ -26,6 +26,12 @@ export const EndGameData: EndGameCard[] = [
       { requirement: 3, conservationPoint: 3 },
       { requirement: 4, conservationPoint: 4 },
     ],
+    originalArray: [
+      { requirement: 1, conservationPoint: 1 },
+      { requirement: 2, conservationPoint: 2 },
+      { requirement: 4, conservationPoint: 3 },
+      { requirement: 5, conservationPoint: 4 },
+    ],
     source: CardSource.BASE,
   },
   {
@@ -74,6 +80,12 @@ export const EndGameData: EndGameCard[] = [
       { requirement: 5, conservationPoint: 3 },
       { requirement: 7, conservationPoint: 4 },
     ],
+    originalArray: [
+      { requirement: 3, conservationPoint: 1 },
+      { requirement: 4, conservationPoint: 2 },
+      { requirement: 5, conservationPoint: 3 },
+      { requirement: 6, conservationPoint: 4 },
+    ],
     source: CardSource.BASE,
   },
   {
@@ -119,6 +131,12 @@ export const EndGameData: EndGameCard[] = [
       { requirement: 3, conservationPoint: 2 },
       { requirement: 4, conservationPoint: 3 },
       { requirement: 5, conservationPoint: 4 },
+    ],
+    originalArray: [
+      { requirement: 3, conservationPoint: 1 },
+      { requirement: 4, conservationPoint: 2 },
+      { requirement: 5, conservationPoint: 3 },
+      { requirement: 6, conservationPoint: 4 },
     ],
     source: CardSource.BASE,
   },
@@ -186,6 +204,12 @@ export const EndGameData: EndGameCard[] = [
       { requirement: 7, conservationPoint: 3 },
       { requirement: 9, conservationPoint: 4 },
     ],
+    originalArray: [
+      { requirement: 3, conservationPoint: 1 },
+      { requirement: 6, conservationPoint: 2 },
+      { requirement: 8, conservationPoint: 3 },
+      { requirement: 10, conservationPoint: 4 },
+    ],
     source: CardSource.BASE,
   },
   {
@@ -227,6 +251,12 @@ export const EndGameData: EndGameCard[] = [
       { requirement: 5, conservationPoint: 3 },
       { requirement: 6, conservationPoint: 4 },
     ],
+    originalArray: [
+      { requirement: 1, conservationPoint: 1 },
+      { requirement: 3, conservationPoint: 2 },
+      { requirement: 5, conservationPoint: 3 },
+      { requirement: 7, conservationPoint: 4 },
+    ],
     source: CardSource.BASE,
   },
   {
@@ -248,6 +278,12 @@ export const EndGameData: EndGameCard[] = [
       { requirement: 4, conservationPoint: 2 },
       { requirement: 6, conservationPoint: 3 },
       { requirement: 7, conservationPoint: 4 },
+    ],
+    originalArray: [
+      { requirement: 2, conservationPoint: 1 },
+      { requirement: 4, conservationPoint: 2 },
+      { requirement: 6, conservationPoint: 3 },
+      { requirement: 8, conservationPoint: 4 },
     ],
     source: CardSource.BASE,
   },

@@ -31,6 +31,7 @@ export const RatedEndGameCard: React.FC<RatedEndGameCardProps> = ({
         <PopoverContent className='z-20 -mt-56 w-48 bg-zinc-50/95 p-2 md:-mt-64 md:w-52'>
           <EndGameHoverCard
             id={endGameCard.id}
+            card={endGameCard}
             showLink={showLink}
             rating={rating}
             ratingCount={ratingCount}

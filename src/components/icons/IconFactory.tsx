@@ -12,15 +12,18 @@ import Determination from '@/components/icons/actions/Determination';
 import Strength from '@/components/icons/actions/Strength';
 import AllAnimalCategories from '@/components/icons/bonuses/AllAnimalCategories';
 import AllContinentCategories from '@/components/icons/bonuses/AllContinentCategories';
+import Condition from '@/components/icons/bonuses/Condition';
 import Marketing from '@/components/icons/bonuses/Marketing';
 import OneAnimalCategory from '@/components/icons/bonuses/OneAnimalCategory';
 import OneContinentCategory from '@/components/icons/bonuses/OneContinentCategory';
 import SponsorCard from '@/components/icons/bonuses/SponsorCard';
 import AnimalSizeIcon from '@/components/icons/buildings/AnimalSizeIcon';
+import DifferentShape from '@/components/icons/buildings/DifferentShape';
 import EmptyEnclosure from '@/components/icons/buildings/EmptyEnclosure';
 import EmptySizeIcon from '@/components/icons/buildings/EmptySizeIcon';
 import EnclosureIcon from '@/components/icons/buildings/EnclosureIcon';
 import Kiosk from '@/components/icons/buildings/Kiosk';
+import KioskPavilionPair from '@/components/icons/buildings/KioskPavilionPair';
 import LargeBirdAviary from '@/components/icons/buildings/LargeBirdAviary';
 import PlaceCubeOnConservation from '@/components/icons/conservations/PlaceCubeOnConservation';
 import Snap from '@/components/icons/take_cards/Snap';
@@ -132,6 +135,12 @@ export const IconFactory: React.FC<Icon> = ({ iconName, params }) => {
     return <OneAnimalCategory />;
   } else if (iconName === IconName.ONE_CONTINENT_TAG) {
     return <OneContinentCategory />;
+  } else if (iconName === IconName.KIOSK_PAVILION_PAIR) {
+    return <KioskPavilionPair />;
+  } else if (iconName === IconName.DIFFERENT_SHAPE) {
+    return <DifferentShape />;
+  } else if (iconName === IconName.CONDITION) {
+    return <Condition />;
   } else if (getTag(iconName) !== null) {
     return <TagIcon type={getTag(iconName) as Tag} />;
   } else {
