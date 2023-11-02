@@ -5,6 +5,7 @@ import { AnimalCard } from '@/types/AnimalCard';
 import { CardType } from '@/types/Card';
 import { EndGameCard } from '@/types/EndGameCard';
 import { SponsorCard } from '@/types/SponsorCard';
+import { EndGameData } from '@/data/EndGames';
 export function getCardById(
   id: string
 ): AnimalCard | SponsorCard | EndGameCard | undefined {
@@ -12,6 +13,8 @@ export function getCardById(
     return AnimalsData.find((card) => card.id === id);
   else if (getCardTypeById(id) === CardType.SPONSOR_CARD)
     return SponsorsData.find((card) => card.id === id);
+  else if (getCardTypeById(id) === CardType.END_GAME_CARD)
+    return EndGameData.find((card) => card.id === id);
   return undefined;
 }
 

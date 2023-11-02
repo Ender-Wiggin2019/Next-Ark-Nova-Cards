@@ -67,12 +67,10 @@ export const EndGameData: EndGameCard[] = [
       effectDesc: 'endgame.desc3',
     },
     topIcon: {
-      iconName: IconName.SIZE,
-      params: { value: '2', type: 'Animal' },
+      iconName: IconName.SCIENCE,
     },
     bottomIcon: {
-      iconName: IconName.SIZE,
-      params: { value: '2', type: 'Animal' },
+      iconName: IconName.SCIENCE,
     },
     scoreArray: [
       { requirement: 3, conservationPoint: 1 },
@@ -413,7 +411,7 @@ export const EndGameData: EndGameCard[] = [
     bottomIcon: {
       iconName: IconName.CONTINENT_CATEGORIES,
     },
-    scoreArray: [{ requirement: 'endgame.desc9-1', conservationPoint: 1 }],
+    scoreArray: [{ requirement: 'endgame.desc17-1', conservationPoint: 1 }],
     source: CardSource.MARINE_WORLD,
   },
 ];
