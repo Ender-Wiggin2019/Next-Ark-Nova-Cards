@@ -42,7 +42,7 @@ export const BaseEndGameCard: React.FC<EndGameCardProps> = ({ card }) => {
           </div>
         </div>
         <div className='ark-card-bottom'>
-          <div className='project-card-description'>
+          <div className='project-card-description text-sm leading-none'>
             {!isText && <ParseDescription desc={card.description} />}
             {!isTable && <div className='mb-4' />}
             {/*<div className='icon-container icon-container-conservation'>*/}
@@ -100,10 +100,11 @@ export const BaseEndGameCard: React.FC<EndGameCardProps> = ({ card }) => {
                 ))}
             </div>
             {isText && (
-              <div className='flex-row items-start'>
+              <div className='-ml-4 flex-row items-start'>
                 {/*<div className="flex-shrink-0 scale-[2.5] border-2">*/}
                 {/*  <IconFactory {...card.bottomIcon} />*/}
                 {/*</div>*/}
+                {/*<div className=""><IconFactory {...card.bottomIcon} /></div>*/}
                 <IconFactory {...card.bottomIcon} />
                 <div className='inline-block w-1/2'>
                   <ParseDescription
