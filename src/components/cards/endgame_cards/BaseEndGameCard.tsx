@@ -38,7 +38,7 @@ export const BaseEndGameCard: React.FC<EndGameCardProps> = ({ card }) => {
         <div className='ark-card-middle'>
           <div className='ark-card-number sf-hidden'>{card.id}</div>
           <div className='ark-card-title-wrapper'>
-            <div className='ark-card-title'>{card.name}</div>
+            <div className='ark-card-title'>{t(card.name)}</div>
           </div>
         </div>
         <div className='ark-card-bottom'>
