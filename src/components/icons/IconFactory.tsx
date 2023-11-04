@@ -1,33 +1,45 @@
 import React from 'react';
-import TakeCardInRange from '@/components/icons/take_cards/TakeCardInRange';
-import Snap from '@/components/icons/take_cards/Snap';
-import Strength from '@/components/icons/actions/Strength';
-import MoneyIcon from '@/components/icons/tokens/MoneyIcon';
-import AppealIcon from '@/components/icons/tokens/AppealIcon';
-import ConservationIcon from '@/components/icons/tokens/ConservationIcon';
-import ReputationIcon from '@/components/icons/tokens/ReputationIcon';
-import XToken from '@/components/icons/tokens/XToken';
-import MultiplierToken from '@/components/icons/tokens/MultiplierToken';
-import Kiosk from '@/components/icons/buildings/Kiosk';
-import LargeBirdAviary from '@/components/icons/buildings/LargeBirdAviary';
-import AnimalSizeIcon from '@/components/icons/buildings/AnimalSizeIcon';
-import EnclosureIcon from '@/components/icons/buildings/EnclosureIcon';
-import EmptySizeIcon from '@/components/icons/buildings/EmptySizeIcon';
-import TagIcon from '@/components/icons/tokens/TagIcon';
-import { AnimalTag, OtherTag } from '@/types/Tags';
-import Determination from '@/components/icons/actions/Determination';
-import ActionCardIcon from '@/components/icons/actions/ActionCardIcon';
-import { ActionCardType } from '@/types/ActionCard';
-import Marketing from '@/components/icons/bonuses/Marketing';
-import { IconName } from '@/types/IconName';
+
 import AbilityIcon from '@/components/icons/abilities/AbilityIcon';
-import Trade from '@/components/icons/abilities/Trade';
-import Clever from '@/components/icons/actions/Clever';
-import Mark from '@/components/icons/abilities/Mark';
-import Posturing from '@/components/icons/abilities/Posturing';
 import Boost from '@/components/icons/abilities/Boost';
 import ExtraShift from '@/components/icons/abilities/ExtraShift';
+import Mark from '@/components/icons/abilities/Mark';
+import Posturing from '@/components/icons/abilities/Posturing';
+import Trade from '@/components/icons/abilities/Trade';
+import ActionCardIcon from '@/components/icons/actions/ActionCardIcon';
+import Clever from '@/components/icons/actions/Clever';
+import Determination from '@/components/icons/actions/Determination';
+import Strength from '@/components/icons/actions/Strength';
+import AllAnimalCategories from '@/components/icons/bonuses/AllAnimalCategories';
+import AllContinentCategories from '@/components/icons/bonuses/AllContinentCategories';
+import Condition from '@/components/icons/bonuses/Condition';
+import Marketing from '@/components/icons/bonuses/Marketing';
+import OneAnimalCategory from '@/components/icons/bonuses/OneAnimalCategory';
+import OneContinentCategory from '@/components/icons/bonuses/OneContinentCategory';
+import SponsorCard from '@/components/icons/bonuses/SponsorCard';
+import AnimalSizeIcon from '@/components/icons/buildings/AnimalSizeIcon';
+import DifferentShape from '@/components/icons/buildings/DifferentShape';
+import EmptyEnclosure from '@/components/icons/buildings/EmptyEnclosure';
+import EmptySizeIcon from '@/components/icons/buildings/EmptySizeIcon';
+import EnclosureIcon from '@/components/icons/buildings/EnclosureIcon';
+import Kiosk from '@/components/icons/buildings/Kiosk';
+import KioskPavilionPair from '@/components/icons/buildings/KioskPavilionPair';
+import LargeBirdAviary from '@/components/icons/buildings/LargeBirdAviary';
+import PlaceCubeOnConservation from '@/components/icons/conservations/PlaceCubeOnConservation';
+import Snap from '@/components/icons/take_cards/Snap';
+import TakeCardInRange from '@/components/icons/take_cards/TakeCardInRange';
+import AppealIcon from '@/components/icons/tokens/AppealIcon';
+import ConservationIcon from '@/components/icons/tokens/ConservationIcon';
+import MoneyIcon from '@/components/icons/tokens/MoneyIcon';
+import MultiplierToken from '@/components/icons/tokens/MultiplierToken';
+import ReputationIcon from '@/components/icons/tokens/ReputationIcon';
+import TagIcon from '@/components/icons/tokens/TagIcon';
+import XToken from '@/components/icons/tokens/XToken';
+
+import { ActionCardType } from '@/types/ActionCard';
 import { Icon } from '@/types/Icon';
+import { IconName } from '@/types/IconName';
+import { AnimalTag, getTag, OtherTag, Tag } from '@/types/Tags';
 
 export const IconFactory: React.FC<Icon> = ({ iconName, params }) => {
   const value = params?.value || '';
@@ -81,6 +93,12 @@ export const IconFactory: React.FC<Icon> = ({ iconName, params }) => {
     return <EnclosureIcon value={value} />;
   } else if (iconName === IconName.SIZE && type === 'X+') {
     return <EmptySizeIcon value={value + '+'} />;
+  } else if (iconName === IconName.SIZE && type === 'Empty') {
+    return <EmptySizeIcon value='' />;
+  } else if (iconName === IconName.EMPTY_ENCLOSURE) {
+    return <EmptyEnclosure />;
+  } else if (iconName === IconName.CONSERVATION_PROJECT) {
+    return <PlaceCubeOnConservation />;
   } else if (iconName === IconName.HERBIVORE) {
     return <TagIcon type={AnimalTag.Herbivore} />;
   } else if (iconName === IconName.REPTILE) {
@@ -107,6 +125,24 @@ export const IconFactory: React.FC<Icon> = ({ iconName, params }) => {
     return <ActionCardIcon />;
   } else if (iconName === IconName.MARKETING) {
     return <Marketing />;
+  } else if (iconName === IconName.SPONSOR_CARD) {
+    return <SponsorCard />;
+  } else if (iconName === IconName.ANIMAL_CATEGORIES) {
+    return <AllAnimalCategories />;
+  } else if (iconName === IconName.CONTINENT_CATEGORIES) {
+    return <AllContinentCategories />;
+  } else if (iconName === IconName.ONE_ANIMAL_TAG) {
+    return <OneAnimalCategory />;
+  } else if (iconName === IconName.ONE_CONTINENT_TAG) {
+    return <OneContinentCategory />;
+  } else if (iconName === IconName.KIOSK_PAVILION_PAIR) {
+    return <KioskPavilionPair />;
+  } else if (iconName === IconName.DIFFERENT_SHAPE) {
+    return <DifferentShape />;
+  } else if (iconName === IconName.CONDITION) {
+    return <Condition />;
+  } else if (getTag(iconName) !== null) {
+    return <TagIcon type={getTag(iconName) as Tag} />;
   } else {
     return <div>{iconName + value}</div>; // 如果没有命中则显示纯文本
   }

@@ -8,4 +8,5 @@ export enum CardType {
   ANIMAL_CARD = 'AnimalCard',
   SPONSOR_CARD = 'SponsorCard',
   ACTION_CARD = 'ActionCard',
+  END_GAME_CARD = 'EndGameCard',
 }

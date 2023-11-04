@@ -276,7 +276,7 @@
   "SENEGAL BUSHBABY": "SENEGAL BUSHBABY",
   "africa": "africa",
   "COLLARED MANGABEY": "COLLARED MANGABEY",
-  "Action: Card": "Action: Card",
+  "Action: Cards": "Action: Cards",
   "RING-TAILED LEMUR": "RING-TAILED LEMUR",
   "MANTLED GUEREZA": "MANTLED GUEREZA",
   "BARBARY MACAQUE": "BARBARY MACAQUE",
@@ -513,7 +513,8 @@
     "cards": "Cards",
     "about": "About",
     "diy": "Card Maker",
-    "maps": "Maps"
+    "maps": "Maps",
+    "endgames": "Final Scoring"
   },
   "comment": {
     "login_to_comment": "login to comment"
@@ -626,6 +627,26 @@
   "Size": "Size",
   "Welcome to share your idea": "Welcome to share your idea",
   "endgame": {
-    "desc1": "Gain {ConservationPoint} for **large** **animals** in your zoo."
+    "desc1": "Gain {ConservationPoint} for **large** **animals** in your zoo.",
+    "desc2": "Gain {ConservationPoint} for **small** **animals** in your zoo.",
+    "desc3": "Gain {ConservationPoint} for **research** **icons** in your zoo.",
+    "desc4": "Gain {ConservationPoint} for **building** of your zoo.",
+    "desc4-1": "{ConservationPoint-1} for connecting **all** **water** **spaces** .",
+    "desc4-2": "{ConservationPoint-1} for connecting **all** **rock** **spaces** .",
+    "desc4-3": "{ConservationPoint-1} for connecting **all** **boarder** **spaces** .",
+    "desc4-4": "{ConservationPoint-1} for completely covering **the** **zoo** **map** .",
+    "desc5": "Gain {ConservationPoint} for **supporting** **conservation** **projects**",
+    "desc6": "Gain {ConservationPoint} for **empty** **building** **spaces** in your zo0.",
+    "desc7": "Gain {ConservationPoint} for the **reputation** of your zoo.",
+    "desc8": "Gain {ConservationPoint} for **sponsors** **cards** in your zoo.",
+    "desc9-1": "Gain {ConservationPoint-1} for each **animal** **category** **icon** of which you have more than the person to your right. Max. {ConservationPoint-4} .",
+    "desc10": "Gain {ConservationPoint} for **rock** **icons** in your zoo.",
+    "desc11": "Gain {ConservationPoint} for **water** **icons** in your zoo.",
+    "desc12": "Gain {ConservationPoint} for **different** **shaped** **buildings** in your zoo.",
+    "desc13": "Choose 1 **continent** **icon** you did **not** **support** a **Base** **Conservation** **Project** with. Gain {ConservationPoint} for those icons.",
+    "desc14": "Choose 1 **animal** **category** **icon** you did **not** **support** a **Base** **Conservation** **Project** with. Gain {ConservationPoint} for those icons.",
+    "desc15": "Gain {ConservationPoint} for **sets** **of** **kiosk** **and** **pavilion** (do not have to be adjacent).",
+    "desc16": "Gain {ConservationPoint} for **conditions** **on** **cards** in your zoo.",
+    "desc17-1": "Gain {ConservationPoint-1} for each **continent** **icon** of which you have more than the person to your right. Icons on **your** **partner** **zoos** count **twice** . Max. {ConservationPoint-4} ."
   }
 }

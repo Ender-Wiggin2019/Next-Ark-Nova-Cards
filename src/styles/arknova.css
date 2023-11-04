@@ -2481,6 +2481,18 @@
   .icon-reputation {
   font-size: 1.5em;
 }
+.ark-card.zoo-card.scoring-card
+  .ark-card-wrapper
+  .project-card-description
+  .icon-all-animals {
+  font-size: 2em;
+}
+.ark-card.zoo-card.scoring-card
+  .ark-card-wrapper
+  .project-card-description
+  .icon-all-continents {
+  font-size: 2em;
+}
 
 .ark-card.zoo-card.scoring-card .ark-card-wrapper .ark-card-middle {
   background: #a04d35;
@@ -2529,17 +2541,13 @@
   .ark-card-wrapper
   .ark-card-bottom
   .project-card-description {
-  font-size: 19px;
-  line-height: 30px;
+  font-size: 18px;
+  line-height: 22px;
   padding: 0 15px;
   text-align: center;
 }
 
-.ark-card.zoo-card.scoring-card
-  .ark-card-wrapper
-  .ark-card-bottom
-  .project-card-description
-  .score-map {
+.score-map {
   border-collapse: separate;
   border-spacing: 5px 0;
   font-size: 30px;
@@ -2547,74 +2555,35 @@
   width: 100%;
 }
 
-.ark-card.zoo-card.scoring-card
-  .ark-card-wrapper
-  .ark-card-bottom
-  .project-card-description
-  .score-map
-  th {
+.score-map th {
   font-size: 34px;
   text-align: center;
 }
 
-.ark-card.zoo-card.scoring-card
-  .ark-card-wrapper
-  .ark-card-bottom
-  .project-card-description
-  .score-map
-  th
-  .icon-conservation {
+.score-map th .icon-conservation {
   font-size: 1.3em;
 }
 
-.ark-card.zoo-card.scoring-card
-  .ark-card-wrapper
-  .ark-card-bottom
-  .project-card-description
-  .score-map
-  td {
+.score-map td {
   font-family: MyriadPro-Bold;
   font-size: 38px;
 }
 
-.ark-card.zoo-card.scoring-card
-  .ark-card-wrapper
-  .ark-card-bottom
-  .project-card-description
-  .score-map
-  tr:first-of-type
-  td {
+.score-map tr:first-of-type td {
   background: #ce9d89;
   height: 60px;
   width: 60px;
 }
 
-.ark-card.zoo-card.scoring-card
-  .ark-card-wrapper
-  .ark-card-bottom
-  .project-card-description
-  .score-map
-  tr:nth-of-type(2) {
+.score-map tr:nth-of-type(2) {
   height: 5px;
 }
 
-.ark-card.zoo-card.scoring-card
-  .ark-card-wrapper
-  .ark-card-bottom
-  .project-card-description
-  .score-map
-  tr:nth-of-type(2)
-  td {
+.score-map tr:nth-of-type(2) td {
   background: #9a4730;
 }
 
-.ark-card.zoo-card.scoring-card
-  .ark-card-wrapper
-  .ark-card-bottom
-  .project-card-description
-  .score-map
-  tr:nth-of-type(3)
-  td {
+.score-map tr:nth-of-type(3) td {
   background: #b8b490;
   height: 60px;
   width: 60px;
@@ -2713,6 +2682,48 @@
 .zoo-card.scoring-card[data-id='F011_AquaticPark'] .ark-card-top {
   background-position-x: 0;
   background-position-y: 100%;
+}
+
+.zoo-card.scoring-card[data-id='F012_DesignerZoo'] .ark-card-top {
+  background-image: url(/img/objectives2.jpg) !important;
+
+  background-position-x: 0;
+  background-position-y: 0;
+}
+
+.zoo-card.scoring-card[data-id='F013_SpecializedHabitatZoo'] .ark-card-top {
+  background-image: url(/img/objectives2.jpg) !important;
+
+  background-position-x: 25%;
+  background-position-y: 0;
+}
+
+.zoo-card.scoring-card[data-id='F014_SpecializedSpeciesZoo'] .ark-card-top {
+  background-image: url(/img/objectives2.jpg) !important;
+
+  background-position-x: 50%;
+  background-position-y: 0;
+}
+
+.zoo-card.scoring-card[data-id='F015_CateredPicnicAreas'] .ark-card-top {
+  background-image: url(/img/objectives2.jpg) !important;
+
+  background-position-x: 75%;
+  background-position-y: 0;
+}
+
+.zoo-card.scoring-card[data-id='F016_AccessibleZoo'] .ark-card-top {
+  background-image: url(/img/objectives2.jpg) !important;
+
+  background-position-x: 100%;
+  background-position-y: 0;
+}
+
+.zoo-card.scoring-card[data-id='F017_InternationalZoo'] .ark-card-top {
+  background-image: url(/img/objectives2.jpg) !important;
+
+  background-position-x: 0;
+  background-position-y: 50%;
 }
 
 .ark-card.zoo-card.sponsor-card .ark-card-wrapper {
@@ -4512,13 +4523,13 @@
 }
 
 .arknova-icon.icon-all-animals {
-  background-position: 74.09434454000521% 1.1318619128466327%;
-  background-size: 1581.4671814671815%;
+  background-position: 74.21434454000521% 1.1318619128466327%;
+  background-size: 1495.4671814671815%;
 }
 
 .arknova-icon.icon-all-continents {
-  background-position: 57.90703713321216% 54.47065277015908%;
-  background-size: 1671.8367346938776%;
+  background-position: 57.99703713321216% 54.47065277015908%;
+  background-size: 1455.4671814671815%;
 }
 
 .arknova-icon.icon-animal-size-2 {
@@ -4891,9 +4902,9 @@
   background-size: 2089.795918367347%;
 }
 
-.arknova-icon.icon-hollywood {
-  background-position: 97.75108612317915% 1.10803324099723%;
-  background-size: 2238.251366120219%;
+.arknova-icon.icon-one-animal {
+  background-position: 98.55108612317915% 1.10803324099723%;
+  background-size: 1838.251366120219%;
 }
 
 .arknova-icon.icon-hunter {
@@ -4906,9 +4917,13 @@
   background-size: 1625.3968253968253%;
 }
 
-.arknova-icon.icon-icecream {
-  background-position: 59.40463645943098% 1.1441647597254003%;
-  background-size: 1365.3333333333335%;
+.arknova-icon.icon-one-continent {
+  background-position: 58.80463645943098% 1.1441647597254003%;
+  background-size: 1838.251366120219%;
+}
+.arknova-icon.icon-pavilion {
+  background-position: 51.81463645943098% 1.1441647597254003%;
+  background-size: 1569.3486590038312%;
 }
 
 .arknova-icon.icon-immediate {
@@ -4938,6 +4953,11 @@
 
 .arknova-icon.icon-kiosk {
   background-position: 0.5215123859191656% 54.680616740088105%;
+  background-size: 1569.3486590038312%;
+}
+
+.arknova-icon.icon-different-shape {
+  background-position: 0.5215123859191656% 90.780616740088105%;
   background-size: 1569.3486590038312%;
 }
 
@@ -5322,13 +5342,13 @@
 }
 
 .icon-container .icon-all-continents {
-  height: 1.6em;
-  width: 1.6em;
+  height: 1.75em;
+  width: 1.9em;
 }
 
 .icon-container .icon-all-animals {
   height: 1.75em;
-  width: 1.6em;
+  width: 1.9em;
 }
 
 .icon-container .icon-add-worker,
@@ -5371,6 +5391,11 @@
 .icon-container .icon-kiosk {
   height: 1.55em;
   width: 1.7em;
+}
+
+.icon-container .icon-different-shape {
+  height: 1.55em;
+  width: 1.8em;
 }
 
 .icon-container .icon-mark {
@@ -5469,9 +5494,9 @@
   width: 2em;
 }
 
-.icon-container .icon-hollywood {
+.icon-container .icon-one-animal {
   height: 1.8em;
-  width: 1.2em;
+  width: 1.8em;
 }
 
 .icon-container .icon-lake {
@@ -5479,9 +5504,14 @@
   width: 1.3em;
 }
 
-.icon-container .icon-icecream {
-  height: 2em;
+.icon-container .icon-one-continent {
+  height: 1.8em;
   width: 1.8em;
+}
+
+.icon-container .icon-pavilion {
+  height: 1.55em;
+  width: 1.7em;
 }
 
 .action-card-level {
@@ -7009,7 +7039,7 @@
   .zoo-map
   .map-infos
   .map-desc
-  .icon-container-hollywood {
+  .icon-container-one-continent {
   font-size: 1em;
 }
 

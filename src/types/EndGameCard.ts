@@ -1,6 +1,6 @@
-import { Icon } from '@/types/Icon';
 import { CardSource } from '@/types/CardSource';
 import { Effect } from '@/types/Effect';
+import { Icon } from '@/types/Icon';
 
 export interface EndGameCard {
   id: string;
@@ -10,6 +10,7 @@ export interface EndGameCard {
   topIcon: Icon;
   bottomIcon: Icon;
   scoreArray: EndGameScoreArray;
+  originalArray?: EndGameScoreArray;
   source: CardSource;
 }
 
@@ -22,17 +23,20 @@ export function getCSSDataId(endGameCard: EndGameCard) {
   return `F${endGameCard.id}_${name}`;
 }
 
+export function isTableLayout(endGameCard: EndGameCard) {
+  return !endGameCard.scoreArray.some(
+    (score) => typeof score.requirement === 'string'
+  );
+}
+
 type EndGameScore = {
-  requirement: number;
+  requirement: number | string;
   conservationPoint: number;
 };
 
-type EndGameScoreArray = [
-  EndGameScore,
-  EndGameScore,
-  EndGameScore,
-  EndGameScore
-];
+type EndGameScoreArray =
+  | [EndGameScore, EndGameScore, EndGameScore, EndGameScore]
+  | [EndGameScore];
 
 export interface IEndGameCard {
   id: string;

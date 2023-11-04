@@ -1,8 +1,4 @@
-import {
-  AnimalCard,
-  getAnimalActualSize,
-  isSeaAnimal,
-} from '@/types/AnimalCard';
+import { AnimalCard, getAnimalActualSize } from '@/types/AnimalCard';
 import { AbilityModel, AnimalCardModel } from '@/types/AnimalCardModel';
 import { KeyWord } from '@/types/KeyWords';
 

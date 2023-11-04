@@ -46,7 +46,7 @@ export enum OtherTag {
   Kiosk = 'kiosk',
 }
 
-export function isAnimalTag(tag: Tag): boolean {
+export function isAnimalTag(tag: string): boolean {
   return Object.values(AnimalTag).includes(tag as AnimalTag);
 }
 
@@ -56,6 +56,20 @@ export function isContinentTag(tag: string): boolean {
 
 export function isOtherTag(tag: string): boolean {
   return Object.values(OtherTag).includes(tag as OtherTag);
+}
+
+export function getTag(tagName: string) {
+  tagName = tagName.toLowerCase();
+  switch (true) {
+    case isOtherTag(tagName):
+      return tagName as keyof typeof OtherTag as OtherTag;
+    case isAnimalTag(tagName):
+      return tagName as keyof typeof OtherTag as AnimalTag;
+    case isContinentTag(tagName):
+      return tagName as keyof typeof OtherTag as ContinentTag;
+    default:
+      return null;
+  }
 }
 
 const animalTagValues = Object.values(AnimalTag);
