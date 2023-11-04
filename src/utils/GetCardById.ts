@@ -1,11 +1,11 @@
 import { AnimalsData } from '@/data/Animals';
+import { EndGameData } from '@/data/EndGames';
 import { SponsorsData } from '@/data/Sponsors';
 
 import { AnimalCard } from '@/types/AnimalCard';
 import { CardType } from '@/types/Card';
 import { EndGameCard } from '@/types/EndGameCard';
 import { SponsorCard } from '@/types/SponsorCard';
-import { EndGameData } from '@/data/EndGames';
 export function getCardById(
   id: string
 ): AnimalCard | SponsorCard | EndGameCard | undefined {

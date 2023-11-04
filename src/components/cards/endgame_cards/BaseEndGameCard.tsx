@@ -100,13 +100,15 @@ export const BaseEndGameCard: React.FC<EndGameCardProps> = ({ card }) => {
                 ))}
             </div>
             {isText && (
-              <div className='-ml-4 flex-row items-start'>
+              <div className='-ml-4 flex items-center justify-between'>
                 {/*<div className="flex-shrink-0 scale-[2.5] border-2">*/}
                 {/*  <IconFactory {...card.bottomIcon} />*/}
                 {/*</div>*/}
-                {/*<div className=""><IconFactory {...card.bottomIcon} /></div>*/}
-                <IconFactory {...card.bottomIcon} />
-                <div className='inline-block w-1/2'>
+                <div className='w-10 shrink-0'>
+                  <IconFactory {...card.bottomIcon} />
+                </div>
+                {/*<IconFactory {...card.bottomIcon} />*/}
+                <div className='inline-block w-1/2 shrink-0'>
                   <ParseDescription
                     desc={{
                       effectType: EffectType.ENDGAME,

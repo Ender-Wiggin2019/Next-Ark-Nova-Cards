@@ -513,7 +513,8 @@
     "cards": "Cards",
     "about": "About",
     "diy": "Card Maker",
-    "maps": "Maps"
+    "maps": "Maps",
+    "endgames": "Final Scoring"
   },
   "comment": {
     "login_to_comment": "login to comment"
@@ -638,7 +639,6 @@
     "desc6": "Gain {ConservationPoint} for **empty** **building** **spaces** in your zo0.",
     "desc7": "Gain {ConservationPoint} for the **reputation** of your zoo.",
     "desc8": "Gain {ConservationPoint} for **sponsors** **cards** in your zoo.",
-    "desc9": "Gain {ConservationPoint-1} for each animal category icon of which you have more than the person to your right. Max. {ConservationPoint-4} .",
     "desc9-1": "Gain {ConservationPoint-1} for each **animal** **category** **icon** of which you have more than the person to your right. Max. {ConservationPoint-4} .",
     "desc10": "Gain {ConservationPoint} for **rock** **icons** in your zoo.",
     "desc11": "Gain {ConservationPoint} for **water** **icons** in your zoo.",
@@ -647,7 +647,6 @@
     "desc14": "Choose 1 **animal** **category** **icon** you did **not** **support** a **Base** **Conservation** **Project** with. Gain {ConservationPoint} for those icons.",
     "desc15": "Gain {ConservationPoint} for **sets** **of** **kiosk** **and** **pavilion** (do not have to be adjacent).",
     "desc16": "Gain {ConservationPoint} for **conditions** **on** **cards** in your zoo.",
-    "desc17": "Gain {ConservationPoint-1} for each continent icon of which you have more than the person to your right. Icons on your partner zoos count twice. Max. {ConservationPoint-4} .",
     "desc17-1": "Gain {ConservationPoint-1} for each **continent** **icon** of which you have more than the person to your right. Icons on **your** **partner** **zoos** count **twice** . Max. {ConservationPoint-4} ."
   }
 }

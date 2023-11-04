@@ -26,9 +26,9 @@ export const EndGameHoverCard: React.FC<HoverCardProps> = ({
   const { t } = useTranslation('common');
 
   return (
-    <div className='flex-col text-xs'>
+    <div className='flex flex-col items-center justify-end text-xs '>
       {card.originalArray && (
-        <div className=''>
+        <div className='mb-2'>
           <span className='text-bold'>
             {t('This card has been changed')}:&nbsp;
           </span>
@@ -119,7 +119,7 @@ export const EndGameHoverCard: React.FC<HoverCardProps> = ({
         </div>
       )}
       {showLink && (
-        <div className='flex flex-col items-center'>
+        <div className='flex w-full flex-col items-center'>
           <Separator className='my-2 bg-zinc-300' />
           <Link
             href={'/card/' + id}
