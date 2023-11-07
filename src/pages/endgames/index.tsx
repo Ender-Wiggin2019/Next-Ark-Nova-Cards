@@ -51,7 +51,7 @@ export default function EndGamePage(
   return (
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
-      <Seo />
+      <Seo templateTitle='Final Scoring Cards' />
 
       <main>
         <div className='flex flex-col space-y-4 px-2 py-2 md:px-4'>
