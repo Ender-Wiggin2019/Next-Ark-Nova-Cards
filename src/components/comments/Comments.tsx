@@ -56,7 +56,7 @@ export function Comments({ cardId, initialComments }: CommentProps) {
     return null;
   }, [user, commentsFromAPI]);
   return (
-    <section className='px-4 md:px-2'>
+    <section className='px-0 py-2'>
       <SignedOut>
         <SignInButton mode='modal' redirectUrl={pathname}>
           <Button type='button'>
