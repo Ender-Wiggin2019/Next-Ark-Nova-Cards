@@ -7,12 +7,18 @@ export function getAvgRatings(comments: CommentDto[]): {
   if (!comments || comments.length === 0) {
     return { averageRating: 0, numberOfRatings: 0 };
   }
+  // only count non-zero ratings
+  const nonZeroRatingComments = comments.filter(
+    (comment) => comment.rating !== 0
+  );
 
-  let totalRating = 0;
-  for (const comment of comments) {
-    totalRating += comment.rating;
+  if (nonZeroRatingComments.length === 0) {
+    return { averageRating: 0, numberOfRatings: 0 };
   }
-
-  const averageRating = totalRating / comments.length;
-  return { averageRating, numberOfRatings: comments.length };
+  const totalRating = nonZeroRatingComments.reduce(
+    (accumulator: number, comment: CommentDto) => accumulator + comment.rating,
+    0
+  );
+  const averageRating = totalRating / nonZeroRatingComments.length;
+  return { averageRating, numberOfRatings: nonZeroRatingComments.length };
 }

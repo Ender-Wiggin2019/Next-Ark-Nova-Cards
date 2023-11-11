@@ -6,6 +6,11 @@ import { prisma } from '@/lib/prisma-client';
 export default async function get(req: NextApiRequest, res: NextApiResponse) {
   const comments = await prisma.comment.groupBy({
     by: ['cardId'],
+    where: {
+      rating: {
+        gte: 1,
+      },
+    },
     _avg: { rating: true },
     _count: true,
   });
