@@ -11,6 +11,7 @@ import '@/styles/clerk.css';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Script async src="https://eu.umami.is/script.js" data-website-id="7ca59e5d-76b3-4d83-aa67-3327ba14a232"></Script>
       <Script
         strategy='afterInteractive'
         src='https://www.googletagmanager.com/gtag/js?id=G-49MVJ63XFT'
