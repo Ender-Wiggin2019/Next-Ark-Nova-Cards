@@ -15,9 +15,10 @@ Expect frequent improvements.
 Next up:
 
 - [x] Animal Value Model
-- [ ] User Login and write comments
-- [ ] Conservation Project cards and EndGame Scoring cards.
-- [ ] Maps
+- [x] User Login and write comments
+- [ ] Conservation Project cards
+- [x] EndGame Scoring cards.
+- [x] Maps
 - [ ] Action cards
 
 ## Running Locally
