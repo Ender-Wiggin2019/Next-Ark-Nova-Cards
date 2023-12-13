@@ -74,7 +74,7 @@
     "s207_desc1": "Gain {ConservationPoint-1} each for 2 different continent and/or animal category icons. For each {ConservationPoint-1} that you gain this way, all other players gain {Money-2} .",
     "s208_desc1": "Each time a research icon is played into any zoo, gain {Money-2} .",
     "s208_desc3": "Gain {ConservationPoint-1} for 5 different animal category icons.",
-    "s209_desc1": "Income: Gain 1 X-token.",
+    "s209_desc1": "Income: Gain 1 {XToken} -token.",
     "s210_desc1": "Each time you play an Americas icon into your zoo, you may build 1 kiosk for free.",
     "s211_desc1": "Each time you play a Europe icon into your zoo, you may build a 1-space enclosure for free.",
     "s211_desc2": "Gain {ConservationPoint-1} for 5 occupied 1-space enclosures.",
@@ -125,7 +125,7 @@
     "s246_desc3": "Place next to at least 2 rock spaces.",
     "s247_desc1": "Each time you play a primate icon into your zoo, gain {Appeal-2} .",
     "s247_desc3": "Place next to at least 1 rock space.",
-    "s248_desc1": "Each time you play a primate icon into your zoo, gain 1 X-token.",
+    "s248_desc1": "Each time you play a primate icon into your zoo, gain 1 {XToken} -token.",
     "s249_desc1": "Each time you play a bird icon into your zoo, draw 2 cards from the deck. Keep 1 and discard the other (Perception 2).",
     "s250_desc1": "Each time you play a reptile icon into your zoo, you may sell up to 2 cards from your hand for each (Sunbathing 2).",
     "s251_desc1": "Each time a bear icon is played into any zoo, gain {Appeal-2} .",
@@ -538,7 +538,7 @@
     },
     "thanks": {
       "title": "Thanks",
-      "translation": "Thanks for the following players for helping with translation: 小z, 晓慜"
+      "translation": "Thanks for the following players for helping with translation: 小z, 晓慜, Yannick."
     },
     "faq": {
       "title": "FAQ",
