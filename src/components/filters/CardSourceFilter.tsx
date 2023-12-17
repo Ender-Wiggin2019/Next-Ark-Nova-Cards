@@ -39,7 +39,7 @@ export const CardSourceFilter: React.FC<CardSourceFilterProps> = ({
   }, [reset]);
 
   return (
-    <div className='flex gap-4'>
+    <div className='flex justify-between gap-4'>
       <TextButton
         selected={selectedCardSource.includes(CardSource.BASE)}
         className='hover:text-zinc-500'

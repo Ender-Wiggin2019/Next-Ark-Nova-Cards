@@ -28,7 +28,7 @@ export const CardTypeFilter: React.FC<CardTypeFilterProps> = ({
 
   useEffect(() => {
     onFilterChange(selectedCategories);
-  }, [selectedCategories]);
+  }, [selectedCategories, onFilterChange]);
 
   useEffect(() => {
     if (reset) {
@@ -37,7 +37,7 @@ export const CardTypeFilter: React.FC<CardTypeFilterProps> = ({
   }, [reset]);
 
   return (
-    <div className='flex gap-4'>
+    <div className='flex justify-between gap-4'>
       <TextButton
         selected={selectedCategories.includes(CardType.ANIMAL_CARD)}
         className='hover:text-amber-500'

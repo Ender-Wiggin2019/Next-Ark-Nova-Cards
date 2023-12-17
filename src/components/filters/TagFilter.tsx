@@ -35,7 +35,7 @@ export const TagFilter: React.FC<TagFilterProps> = ({
 
   return (
     <>
-      <div className=''>
+      <div className='xl:grid-cols-auto grid grid-cols-4 gap-2 md:grid-cols-6 lg:grid-cols-8'>
         {Object.values(AnimalTag).map((tag, index) => (
           <TagButton
             key={index}

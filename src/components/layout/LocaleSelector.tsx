@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 import { LocaleSelect } from '../ui/LocaleSelect';
 
@@ -56,11 +56,12 @@ const LocaleSelector: React.FC<{
       </LocaleSelect.Trigger>
       <LocaleSelect.Content className='relative z-50' position='popper'>
         {locales.map((locale) => {
-          const label = capitalize(languageNames.of(locale) ?? locale);
-          const option = {
-            value: locale,
-            label,
-          };
+          let label = capitalize(languageNames.of(locale) ?? locale);
+          if (label.startsWith('中文')) label = '中文'; // temporary fix for zh-CN display length
+          // const option = {
+          //   value: locale,
+          //   label,
+          // };
           return (
             <LocaleSelect.Item key={locale} value={locale}>
               <span className='inline-flex select-none items-center space-x-2 font-bold'>
