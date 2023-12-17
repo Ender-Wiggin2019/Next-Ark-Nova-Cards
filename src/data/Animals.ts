@@ -669,7 +669,7 @@ export const AnimalsData: AnimalCard[] = [
     price: 10,
     requirements: [],
     tags: [AnimalTag.Herbivore, ContinentTag.Australia],
-    abilities: [new Ability(KeyWord.VENOM, 2)],
+    abilities: [new Ability(KeyWord.VENOM, 1)],
     appeal: 4,
     source: CardSource.BASE,
   },
