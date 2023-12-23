@@ -1213,7 +1213,7 @@ export const AnimalsData: AnimalCard[] = [
     name: 'SLOW WORM',
     latinName: 'Anguis fragilis',
     size: 1,
-    rock: 1,
+    water: 1,
     price: 4,
     requirements: [],
     tags: [AnimalTag.Reptile, ContinentTag.Europe],

@@ -934,7 +934,7 @@ export const SponsorsData: SponsorCard[] = [
     strength: 5,
     rock: 1,
     water: 0,
-    requirements: [],
+    requirements: [OtherTag.Reputation],
     tags: [AnimalTag.Herbivore],
     effects: [
       { effectType: EffectType.PASSIVE, effectDesc: 'sponsors.s243_desc1' },
