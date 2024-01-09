@@ -1821,7 +1821,7 @@ export const SponsorsData: SponsorCard[] = [
     tags: [],
     effects: [
       {
-        effectType: EffectType.INCOME,
+        effectType: EffectType.IMMEDIATE,
         effectDesc: 'sponsors.s282_desc1',
         display: true,
         fontSize: 'md',

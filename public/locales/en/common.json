@@ -183,6 +183,8 @@
     "s282_desc1": "Find a **person** Sponsor card.",
     "s282_desc2": "Each time a **person** Sponsor card is played into **any** **zoo** , gain {Money-2} and {Appeal-1} ."
   },
+  "CAPYBARA": "CAPYBARA",
+  "Water Affinity": "Water Affinity",
   "Inventive: Bear": "Inventive: Bear",
   "Inventive: Primary": "Inventive: Primary",
   "Lion": "Lion",
@@ -502,6 +504,7 @@
   "RECONSTRUCTION": "RECONSTRUCTION",
   "ARCADE": "ARCADE",
   "Digging": "Digging",
+  "PROMOTION TEAM": "PROMOTION TEAM",
 
   "sort": {
     "ID_ASC": "ID",

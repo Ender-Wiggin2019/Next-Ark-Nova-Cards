@@ -182,8 +182,11 @@
     "s280_desc1": "你不会再获得放置奖励。",
     "s280_desc2": "你可以重建三个建筑，你可以免费建造一个贩售亭和票亭。",
     "s281_desc1": "**收入:** 每 {Appeal-10} 获得 {Money-1}  。",
-    "s281_desc2": "每个门票比你少的玩家使你获得 {Appeal-2}  (此效果最先结算)。"
+    "s281_desc2": "每个门票比你少的玩家使你获得 {Appeal-2}  (此效果最先结算)。",
+    "s282_desc1": "找到一张 **人物** 赞助商.",
+    "s282_desc2": "每当有玩家打出一张 **人物** 赞助商时, 获得 {Money-2} and {Appeal-1} ."
   },
+  "CAPYBARA": "水豚",
   "Water Affinity": "水亲和",
   "Inventive: Bear": "创造力: 熊",
   "Inventive: Primary": "创造力: 灵长类",
@@ -504,6 +507,7 @@
   "RECONSTRUCTION": "重建",
   "ARCADE": "游乐中心",
   "Digging": "刨挖",
+  "PROMOTION TEAM": "推销团队",
 
   "sort": {
     "ID_ASC": "按编号升序",
