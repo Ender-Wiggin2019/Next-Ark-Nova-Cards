@@ -996,6 +996,10 @@
   display: none;
 }
 
+.zoo-card.animal-card[data-id='A341_Capybara'] .ark-card-top {
+  background-image: url(/img/animals/A341_Capybara.jpg);
+}
+
 .zoo-card.animal-card[data-id='A401_Cheetah'] .ark-card-top {
   background-image: url(/img/animals/A401_Cheetah.jpg);
 }
@@ -3244,6 +3248,10 @@
   background-image: url(/img/sponsors/S281_Arcade.jpg);
 }
 
+.zoo-card.sponsor-card[data-id='S282_PromotionTeam'] .ark-card-wrapper {
+  background-image: url(/img/sponsors/S282_PromotionTeam.jpg);
+}
+
 [data-starting-appeal='10']
   .zoo-card.sponsor-card[data-id='S207_BasicResearch']
   .ark-card-wrapper {
@@ -4211,6 +4219,16 @@
   justify-content: center;
   width: 30px;
   writing-mode: vertical-rl;
+}
+
+.ark-card .ark-card-wrapper .ark-card-middle .ark-card-exp {
+  align-items: center;
+  display: flex;
+  float: left;
+  font-family: MyriadPro-Cond;
+  height: 50px;
+  justify-content: center;
+  width: 50px;
 }
 
 .ark-card .ark-card-wrapper .ark-card-bottom {

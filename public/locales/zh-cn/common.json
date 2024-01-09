@@ -61,7 +61,8 @@
     "scuba_dive_description": "展示牌堆顶X张牌.选择一张 赞助商加入手牌。丢弃剩余的牌。X为你动物园内 {SeaAnimalTag} + {ReptileTag} 。",
     "marketing_description": "{Marketing}",
     "adapt_description": "抽取{}张终局记分牌, 然后丢弃{}张终局记分牌。",
-    "monkey_gang_description": "展示牌堆顶的牌，直到出现第一张带有 {PrimateTag} 的牌，将其加入你的手牌 . 将剩余的牌置于牌堆底."
+    "monkey_gang_description": "展示牌堆顶的牌，直到出现第一张带有 {PrimateTag} 的牌，将其加入你的手牌 . 将剩余的牌置于牌堆底.",
+    "water_affinity_description": "如果萌宠馆临水，获得 {Appeal-2} 。"
   },
   "sponsors": {
     "s201_desc1": "从牌库抽一张牌或者从声望范围内获得一张牌。",
@@ -183,6 +184,7 @@
     "s281_desc1": "**收入:** 每 {Appeal-10} 获得 {Money-1}  。",
     "s281_desc2": "每个门票比你少的玩家使你获得 {Appeal-2}  (此效果最先结算)。"
   },
+  "Water Affinity": "水亲和",
   "Inventive: Bear": "创造力: 熊",
   "Inventive: Primary": "创造力: 灵长类",
   "Lion": "狮子",

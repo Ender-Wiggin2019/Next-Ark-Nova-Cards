@@ -1809,6 +1809,30 @@ export const SponsorsData: SponsorCard[] = [
     reputation: 0,
     appeal: 2,
     conservationPoint: 0,
-    source: CardSource.BASE,
+    source: CardSource.PROMO,
+  },
+  {
+    id: '282',
+    name: 'PROMOTION TEAM',
+    strength: 5,
+    rock: 0,
+    water: 0,
+    requirements: [],
+    tags: [],
+    effects: [
+      {
+        effectType: EffectType.INCOME,
+        effectDesc: 'sponsors.s282_desc1',
+        display: true,
+        fontSize: 'md',
+      },
+      {
+        effectType: EffectType.ENDGAME,
+        effectDesc: 'sponsors.s282_desc2',
+        display: true,
+        fontSize: 'md',
+      },
+    ],
+    source: CardSource.PROMO,
   },
 ];

@@ -33,6 +33,25 @@ export const AnimalsData: AnimalCard[] = [
   //   source: CardSource.MARINE_WORLD,
   // },
   {
+    id: '341',
+    name: 'CAPYBARA',
+    latinName: 'Hydrochoerus hydrochaeris',
+    size: 1,
+    canBeInStandardEnclosure: false,
+    specialEnclosures: [
+      new SpecialEnclosure(SpecialEnclosureType.PettingZoo, 1),
+    ],
+    price: 7,
+    requirements: [],
+    tags: [AnimalTag.Pet],
+    abilities: [
+      new Ability(KeyWord.PETTING_ZOO_ANIMAL),
+      new Ability(KeyWord.WATER_AFFINITY, 2),
+    ],
+    appeal: 0,
+    source: CardSource.PROMO,
+  },
+  {
     id: '401',
     name: 'CHEETAH',
     latinName: 'Acinonyx jubatus',

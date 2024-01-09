@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
+import { GiSevenPointedStar } from 'react-icons/gi';
 
 import { cn } from '@/lib/utils';
 
@@ -18,6 +19,7 @@ import Tag from '@/components/icons/Tag';
 import AnimalCardWrapper from '@/components/wrapper/AnimalWrapper';
 
 import { AnimalCard as AnimalCardType } from '@/types/AnimalCard';
+import { CardSource } from '@/types/CardSource';
 import { KeyWord } from '@/types/KeyWords';
 
 interface AnimalCardProps {
@@ -100,6 +102,11 @@ export const BaseAnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
 
         <div className='ark-card-middle'>
           <div className='ark-card-number'>{animal.id}</div>
+          {animal.source === CardSource.PROMO && (
+            <div className='ark-card-exp'>
+              <GiSevenPointedStar className='opacity-30' />
+            </div>
+          )}
           <div className='ark-card-title-wrapper'>
             <div
               className={cn('ark-card-title pt-1', {

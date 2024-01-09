@@ -56,6 +56,14 @@ export const CardSourceFilter: React.FC<CardSourceFilterProps> = ({
       >
         {t('Marine World')}
       </TextButton>
+      <TextButton
+        selected={selectedCardSource.includes(CardSource.PROMO)}
+        className='hover:text-pink-500'
+        selectClassName='text-pink-500 ring-pink-500/90 ring-2'
+        onClick={() => handleCategoryChange(CardSource.PROMO)}
+      >
+        {t('Promo')}
+      </TextButton>
       {/*<TextButton onClick={() => handleCategoryChange(null)}>All Cards</TextButton>*/}
     </div>
   );

@@ -380,6 +380,13 @@ export class KeyWord {
     3
   );
 
+  static WATER_AFFINITY = new KeyWord(
+    IconName.WATER_AFFINITY,
+    'abilities.water_affinity_description',
+    5,
+    false
+  );
+
   constructor(
     public name: IconName | string,
     public descriptionTemplate: string,

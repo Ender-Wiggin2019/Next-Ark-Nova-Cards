@@ -1,4 +1,5 @@
 export const cardNames: Record<string, string> = {
+  '341': 'A341_Capybara',
   '401': 'A401_Cheetah',
   '402': 'A402_Lion',
   '403': 'A403_Leopard',
@@ -210,6 +211,7 @@ export const cardNames: Record<string, string> = {
   '280': 'S280_Reconstruction',
 
   '281': 'S281_Arcade',
+  '282': 'S282_PromotionTeam',
 
   // Marine World
   '529': 'A529_MagnificentSeaAnemone',

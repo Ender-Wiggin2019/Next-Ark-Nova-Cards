@@ -61,7 +61,8 @@
     "scuba_dive_description": "Reveal the X topmost cards of the deck. Choose 1 Sponsor card and add it to your hand. Discard the other cards. X is the number of {SeaAnimalTag} + {ReptileTag} in your zoo.",
     "marketing_description": "{Marketing} .",
     "adapt_description": "Draw {} Final Scoring cards, then discard {} Final Scoring cards.",
-    "monkey_gang_description": "Reveal cards from the deck. Take the first card with {PrimateTag} into your hand. Tuck the other cards under the deck."
+    "monkey_gang_description": "Reveal cards from the deck. Take the first card with {PrimateTag} into your hand. Tuck the other cards under the deck.",
+    "water_affinity_description": "Gain {Appeal-2} if the petting zoo is adjacent to a water space."
   },
   "sponsors": {
     "s201_desc1": "Take 1 card from the deck or in reputation range.",
@@ -178,7 +179,9 @@
     "s280_desc1": "Do not gain placement bonuses anymore.",
     "s280_desc2": "You may reposition up to 3 buildings. You may build 1 pavilion and 1 kiosk.",
     "s281_desc1": "**Income:** Gain {Money-1} per {Appeal-10} .",
-    "s281_desc2": "Gain 2 {Appeal-2} for each zoo with less appeal (score first)."
+    "s281_desc2": "Gain 2 {Appeal-2} for each zoo with less appeal (score first).",
+    "s282_desc1": "Find a **person** Sponsor card.",
+    "s282_desc2": "Each time a **person** Sponsor card is played into **any** **zoo** , gain {Money-2} and {Appeal-1} ."
   },
   "Inventive: Bear": "Inventive: Bear",
   "Inventive: Primary": "Inventive: Primary",

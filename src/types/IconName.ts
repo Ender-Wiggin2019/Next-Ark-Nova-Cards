@@ -69,6 +69,7 @@ export enum IconName {
   MARKETING = 'Marketing',
   ADAPT = 'Adapt',
   MONKEY_GANG = 'Monkey Gang',
+  WATER_AFFINITY = 'Water Affinity',
 
   // game components
   SIZE = 'Size',
