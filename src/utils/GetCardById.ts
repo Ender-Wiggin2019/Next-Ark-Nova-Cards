@@ -19,7 +19,8 @@ export function getCardById(
 }
 
 export function getCardTypeById(id: string) {
-  if (parseInt(id) > 400) return CardType.ANIMAL_CARD;
+  // HACK: works for current card set
+  if (parseInt(id) > 450 || parseInt(id) === 341) return CardType.ANIMAL_CARD;
   else if (parseInt(id) <= 50) return CardType.END_GAME_CARD;
   else if (parseInt(id) <= 500) return CardType.SPONSOR_CARD;
   return undefined;
