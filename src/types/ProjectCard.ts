@@ -6,12 +6,13 @@ import { Tag } from '@/types/Tags';
 export interface ProjectSlot {
   position: 1 | 2 | 3;
   bonuses: Bonus[];
+  indicator?: number;
 }
 export enum ProjectCategory {
   BASE = 'Base',
   NORMAL = 'Normal',
   RELEASE = 'Release',
-  ZOO = 'Zoo',
+  BREED = 'Breed',
   MARINE = 'Marine',
 }
 

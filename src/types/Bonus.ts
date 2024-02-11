@@ -8,7 +8,7 @@ export enum BonusType {
 
 export interface Bonus {
   bonusType: BonusType;
-  bonusRequirement: Tag;
+  bonusRequirement?: Tag | 'release';
   bonusDesc?: string;
   bonusValue: number;
 }

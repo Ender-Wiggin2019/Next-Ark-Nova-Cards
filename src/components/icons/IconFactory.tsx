@@ -41,7 +41,12 @@ import { Icon } from '@/types/Icon';
 import { IconName } from '@/types/IconName';
 import { AnimalTag, getTag, OtherTag, Tag } from '@/types/Tags';
 
-export const IconFactory: React.FC<Icon> = ({ iconName, params }) => {
+export const IconFactory: React.FC<Icon> = ({
+  iconName,
+  params,
+  notBadge,
+  slotCubeHolder,
+}) => {
   const value = params?.value || '';
   const type = params?.type || '';
   if (iconName === IconName.MONEY) return <MoneyIcon value={value} />;
@@ -99,16 +104,16 @@ export const IconFactory: React.FC<Icon> = ({ iconName, params }) => {
     return <EmptyEnclosure />;
   } else if (iconName === IconName.CONSERVATION_PROJECT) {
     return <PlaceCubeOnConservation />;
-  } else if (iconName === IconName.HERBIVORE) {
-    return <TagIcon type={AnimalTag.Herbivore} />;
-  } else if (iconName === IconName.REPTILE) {
-    return <TagIcon type={AnimalTag.Reptile} />;
-  } else if (iconName === IconName.SEA_ANIMAL) {
-    return <TagIcon type={AnimalTag.SeaAnimal} />;
-  } else if (iconName === IconName.PRIMATE) {
-    return <TagIcon type={AnimalTag.Primate} />;
-  } else if (iconName === IconName.SCIENCE) {
-    return <TagIcon type={OtherTag.Science} />;
+    // } else if (iconName === IconName.HERBIVORE) {
+    //   return <TagIcon type={AnimalTag.Herbivore} />;
+    // } else if (iconName === IconName.REPTILE) {
+    //   return <TagIcon type={AnimalTag.Reptile} />;
+    // } else if (iconName === IconName.SEA_ANIMAL) {
+    //   return <TagIcon type={AnimalTag.SeaAnimal} />;
+    // } else if (iconName === IconName.PRIMATE) {
+    //   return <TagIcon type={AnimalTag.Primate} />;
+    // } else if (iconName === IconName.SCIENCE) {
+    //   return <TagIcon type={OtherTag.Science} />;
   } else if (iconName === IconName.DETERMINATION) {
     return <Determination />;
   } else if (iconName === IconName.ANIMAL_ACTION_CARD) {
@@ -142,7 +147,13 @@ export const IconFactory: React.FC<Icon> = ({ iconName, params }) => {
   } else if (iconName === IconName.CONDITION) {
     return <Condition />;
   } else if (getTag(iconName) !== null) {
-    return <TagIcon type={getTag(iconName) as Tag} />;
+    return (
+      <TagIcon
+        type={getTag(iconName) as Tag}
+        notBadge={notBadge}
+        slotCubeHolder={slotCubeHolder}
+      />
+    );
   } else {
     return <div>{iconName + value}</div>; // 如果没有命中则显示纯文本
   }
