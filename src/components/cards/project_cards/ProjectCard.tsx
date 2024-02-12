@@ -33,6 +33,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     );
   };
 
+  // console.log('3333', project.tag);
   return (
     // <div>
     //     <h2>{project.name}</h2>

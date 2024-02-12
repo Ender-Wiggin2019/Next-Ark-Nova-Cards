@@ -27,7 +27,7 @@ const ProjectCardWrapper: React.FC<ProjectCardWrapperProps> = ({
   }
 
   return (
-    <div className='player-board-hand' style={{ order: 4 }}>
+    <div className='' style={{ order: 4 }}>
       <div
         id={`card-${projectName}`}
         data-id={projectName}

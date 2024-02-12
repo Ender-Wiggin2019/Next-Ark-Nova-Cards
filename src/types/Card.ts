@@ -7,6 +7,7 @@ export type Card = AnimalCard | SponsorCard | ActionCard;
 export enum CardType {
   ANIMAL_CARD = 'AnimalCard',
   SPONSOR_CARD = 'SponsorCard',
+  CONSERVATION_CARD = 'ConservationCard',
   ACTION_CARD = 'ActionCard',
   END_GAME_CARD = 'EndGameCard',
 }

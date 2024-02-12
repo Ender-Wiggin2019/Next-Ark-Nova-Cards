@@ -18,7 +18,13 @@ const getKeyByValue = (enumObject: any, value: string): string => {
   return '';
 };
 
-const notBadgeList: Tag[] = [OtherTag.ANIMAL_SIZE_4, OtherTag.ANIMAL_SIZE_2];
+const notBadgeList: Tag[] = [
+  OtherTag.ANIMAL_SIZE_4,
+  OtherTag.ANIMAL_SIZE_2,
+  OtherTag.ALL_ANIMALS,
+  OtherTag.ALL_CONTINENTS,
+];
+const otherTagList: Tag[] = [OtherTag.ALL_ANIMALS, OtherTag.ALL_CONTINENTS];
 const formatDataType = (tag: Tag): string => {
   // The keys are combined enum objects
   const keys = { ...AnimalTag, ...ContinentTag, ...OtherTag };
@@ -30,18 +36,20 @@ const formatDataType = (tag: Tag): string => {
  * TagIcon component
  * @param type
  * @param notBadge
+ * @param slotCubeHolder
  * @constructor
  */
 const TagIcon: React.FC<TagProps> = ({ type, notBadge, slotCubeHolder }) => {
-  if (notBadgeList.includes(type)) {
+  if (!notBadge && notBadgeList.includes(type)) {
     notBadge = true;
   }
+  const otherTag = otherTagList.includes(type);
   if (slotCubeHolder) {
     return (
       // <div className={`icon-container icon-container-${formatDataType(type)}`}>
       <div
         className={cn('project-card-slot-cube-holder badge-icon')}
-        data-type={formatDataType(type)}
+        data-type={otherTag ? type : formatDataType(type)}
       ></div>
       // </div>
     );

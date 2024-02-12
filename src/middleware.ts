@@ -8,15 +8,16 @@ export default authMiddleware({
     '/api/comments/lists',
     '/api/cards/ratings',
     '/',
+    '/:path*',
     '/card/:path*',
-    '/maps',
-    '/about',
-    '/diy',
-    '/projects',
-    '/endgames',
+    // '/maps',
+    // '/about',
+    // '/diy',
+    // '/projects',
+    // '/endgames',
   ],
 });
 
 export const config = {
-  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
+  matcher: ['/((?!_next|studio|.*\\..*).*)'],
 };

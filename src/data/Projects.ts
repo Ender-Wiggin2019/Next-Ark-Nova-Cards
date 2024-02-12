@@ -58,7 +58,7 @@ export const ProjectsData: ProjectCard[] = [
     id: '102',
     name: 'HABITAT DIVERSITY',
     type: ProjectCategory.BASE,
-    tag: OtherTag.ALL_ANIMALS,
+    tag: OtherTag.ALL_CONTINENTS,
     slots: [
       {
         position: 1,

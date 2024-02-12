@@ -15,8 +15,24 @@ interface ProjectCardListProps {
   selectedCardSources?: CardSource[];
   textFilter?: string;
   onCardCountChange: (count: number) => void;
-  // ... any other filters
 }
+
+const filterCards = (
+  cards: ProjectCardType[],
+  selectedCardSources: CardSource[] = [],
+  textFilter = ''
+) => {
+  const lowercaseFilter = textFilter.toLowerCase();
+
+  return cards.filter(
+    (card) =>
+      (selectedCardSources.length === 0 ||
+        selectedCardSources.some((src) => card.source === src)) &&
+      (textFilter === '' ||
+        card.id.toLowerCase().includes(lowercaseFilter) ||
+        card.name.toLowerCase().includes(lowercaseFilter))
+  );
+};
 
 export const ProjectCardList: React.FC<ProjectCardListProps> = ({
   selectedCardSources = [],
@@ -25,14 +41,23 @@ export const ProjectCardList: React.FC<ProjectCardListProps> = ({
 }) => {
   const projectsData = useProjectData();
 
+  const filteredConservations = filterCards(
+    projectsData,
+    selectedCardSources,
+    textFilter
+  );
+
   useEffect(() => {
-    onCardCountChange(projectsData.length);
-  }, [projectsData, onCardCountChange]);
+    onCardCountChange(filteredConservations.length);
+  }, [projectsData, onCardCountChange, filteredConservations.length]);
 
   return (
     <CardList>
-      {projectsData.map((project: ProjectCardType) => (
-        <div key={project.id} className='scale-110 pb-10 md:scale-150 md:pb-36'>
+      {filteredConservations.map((project: ProjectCardType) => (
+        <div
+          key={project.id}
+          className='-mb-8 -ml-6 scale-75 md:scale-100 lg:mb-2 lg:ml-8 xl:ml-0'
+        >
           <ProjectCard key={project.id} project={project} />
         </div>
       ))}

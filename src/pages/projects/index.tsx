@@ -82,6 +82,7 @@ export default function HomePage(
           <div className='flex flex-col space-y-4 px-2 py-2 md:px-4'>
             <div className='flex flex-col md:flex-row'>
               <CardTypeFilter
+                cardTypes={[CardType.CONSERVATION_CARD, CardType.END_GAME_CARD]}
                 onFilterChange={setSelectedCardTypes}
                 reset={reset}
               />

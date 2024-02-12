@@ -15,6 +15,9 @@ import { CardOdometer } from '@/components/ui/CardOdometer';
 import { CardType } from '@/types/Card';
 import { CardSource } from '@/types/CardSource';
 import { SortOrder } from '@/types/Order';
+import { CardTypeFilter } from '@/components/filters/CardTypeFilter';
+import { Separator } from '@/components/ui/separator';
+import { ProjectCardList } from '@/components/cards/project_cards/ProjectCardList';
 
 type Props = {
   // Add custom props here
@@ -24,6 +27,7 @@ export default function EndGamePage(
   _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   const { t } = useTranslation('common');
+  const [conservationCount, setConservationCount] = useState<number>(0);
   const [endGameCardsCount, setEndGameCardsCount] = useState<number>(0);
   const [reset, setReset] = useState<boolean>(false);
   const [textFilter, setTextFilter] = useState<string>(''); // add this line
@@ -43,6 +47,7 @@ export default function EndGamePage(
     setTextFilter('');
     setSelectedCardTypes([]);
     setSelectedCardSources([]);
+    setConservationCount(0);
     setEndGameCardsCount(0);
     setSortOrder(SortOrder.ID_ASC);
 
@@ -51,16 +56,17 @@ export default function EndGamePage(
   return (
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
-      <Seo templateTitle='Final Scoring Cards' />
+      <Seo templateTitle='Cards' />
 
       <main>
         <div className='flex flex-col space-y-4 px-2 py-2 md:px-4'>
           <div className='flex flex-col md:flex-row'>
-            {/*<CardTypeFilter*/}
-            {/*    onFilterChange={setSelectedCardTypes}*/}
-            {/*    reset={reset}*/}
-            {/*/>*/}
-            {/*<Separator orientation='vertical' className='mr-5 bg-zinc-900' />*/}
+            <CardTypeFilter
+              cardTypes={[CardType.CONSERVATION_CARD, CardType.END_GAME_CARD]}
+              onFilterChange={setSelectedCardTypes}
+              reset={reset}
+            />
+            <Separator orientation='vertical' className='mr-5 bg-zinc-900' />
             <CardSourceFilter
               onFilterChange={setSelectedCardSources}
               reset={reset}
@@ -80,24 +86,36 @@ export default function EndGamePage(
           </div>
           <div className='flex flex-row space-x-4'>
             <CardOdometer
+              value={conservationCount}
+              name={t('Conservation')}
+              className='text-lime-500 hover:text-lime-600'
+            />
+            <CardOdometer
               value={endGameCardsCount}
               name={t('Endgame')}
               className='text-amber-500 hover:text-amber-600'
             />
-            {/*<CardOdometer*/}
-            {/*    value={sponsorCardsCount}*/}
-            {/*    name={t('Sponsor')}*/}
-            {/*    className='text-sky-600 hover:text-sky-700'*/}
-            {/*/>*/}
           </div>
         </div>
         <div className='mb-2 md:mb-8'></div>
-        <EndGameCardList
-          selectedCardSources={selectedCardSources}
-          textFilter={textFilter}
-          sortOrder={sortOrder}
-          onCardCountChange={setEndGameCardsCount}
-        />
+        {(selectedCardTypes.includes(CardType.CONSERVATION_CARD) ||
+          selectedCardTypes.length === 0) && (
+          <ProjectCardList
+            selectedCardSources={selectedCardSources}
+            textFilter={textFilter}
+            // sortOrder={sortOrder}
+            onCardCountChange={setConservationCount}
+          />
+        )}
+        {(selectedCardTypes.includes(CardType.END_GAME_CARD) ||
+          selectedCardTypes.length === 0) && (
+          <EndGameCardList
+            selectedCardSources={selectedCardSources}
+            textFilter={textFilter}
+            sortOrder={sortOrder}
+            onCardCountChange={setEndGameCardsCount}
+          />
+        )}
       </main>
     </Layout>
   );
