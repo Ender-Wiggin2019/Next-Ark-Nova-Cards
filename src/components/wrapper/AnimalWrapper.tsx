@@ -14,15 +14,13 @@ const AnimalCardWrapper: React.FC<AnimalCardWrapperProps> = ({
   const animalName = cardNames[id];
 
   return (
-    <div className='' style={{ order: 4 }}>
-      <div
-        id={`card-${animalName}`}
-        data-id={animalName}
-        className='ark-card zoo-card animal-card tooltipable'
-        draggable={false}
-      >
-        <div className='ark-card-wrapper shadow-none'>{children}</div>
-      </div>
+    <div
+      id={`card-${animalName}`}
+      data-id={animalName}
+      className='ark-card zoo-card animal-card tooltipable'
+      draggable={false}
+    >
+      <div className='ark-card-wrapper shadow-none'>{children}</div>
     </div>
   );
 };

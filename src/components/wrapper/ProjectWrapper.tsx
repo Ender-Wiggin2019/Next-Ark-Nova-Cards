@@ -22,20 +22,17 @@ const ProjectCardWrapper: React.FC<ProjectCardWrapperProps> = ({
     projectName = `P${id}_${toCamelCase(targetName)}Breeding`;
   } else if (project.type === ProjectCategory.RELEASE) {
     const targetName = name.replace(' NATIONAL PARK', '');
-    console.log('2222', targetName, projectName);
     projectName = `P${id}_Release${toCamelCase(targetName)}`;
   }
 
   return (
-    <div className='' style={{ order: 4 }}>
-      <div
-        id={`card-${projectName}`}
-        data-id={projectName}
-        className='ark-card zoo-card project-card tooltipable'
-        draggable={false}
-      >
-        <div className='ark-card-wrapper'>{children}</div>
-      </div>
+    <div
+      id={`card-${projectName}`}
+      data-id={projectName}
+      className='ark-card zoo-card project-card tooltipable'
+      draggable={false}
+    >
+      <div className='ark-card-wrapper'>{children}</div>
     </div>
   );
 };

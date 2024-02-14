@@ -14,24 +14,12 @@ const SponsorCardWrapper: React.FC<SponsorCardWrapperProps> = ({
   const sponsorName = cardNames[id];
 
   return (
-    // <div className='player-board-inPlay-sponsors' style={{ order: 4 }}>
-    //   <div
-    //     id={`card-${animalName}`}
-    //     data-id={animalName}
-    //     className='ark-card zoo-card animal-card tooltipable'
-    //     draggable={false}
-    //   >
-    //     <div className='ark-card-wrapper'>{children}</div>
-    //   </div>
-    // </div>
-    <div className=''>
-      <div
-        id={`card-${sponsorName}`}
-        data-id={sponsorName}
-        className='ark-card zoo-card sponsor-card tooltipable'
-      >
-        <div className='ark-card-wrapper'>{children}</div>
-      </div>
+    <div
+      id={`card-${sponsorName}`}
+      data-id={sponsorName}
+      className='ark-card zoo-card sponsor-card tooltipable'
+    >
+      <div className='ark-card-wrapper'>{children}</div>
     </div>
   );
 };

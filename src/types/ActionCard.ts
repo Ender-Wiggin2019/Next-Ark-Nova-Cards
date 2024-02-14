@@ -1,3 +1,4 @@
+import { CardSource } from '@/types/CardSource';
 import { EndangeredCategory } from '@/types/EndangeredCategory';
 import { Ability } from '@/types/KeyWords';
 import { SpecialEnclosure } from '@/types/SpecialEnclosure';
@@ -40,5 +41,5 @@ export interface ActionCard {
   conservationPoint?: number;
 
   // meta data
-  source: 'Base' | 'MarineWorld';
+  source: CardSource;
 }

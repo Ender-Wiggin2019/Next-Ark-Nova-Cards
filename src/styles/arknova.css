@@ -8096,7 +8096,7 @@
 }
 
 .player-board-hand {
-  --arkNovaZooCardScale: 0.4;
+  --arkNovaZooCardScale: 0.3;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;

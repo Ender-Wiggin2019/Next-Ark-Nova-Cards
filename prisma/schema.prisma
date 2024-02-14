@@ -81,3 +81,60 @@ model AnimalCard {
 
   @@index(userId)
 }
+
+model SetUp {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  total    Int
+  card_1  String   @db.VarChar(10)
+  card_2  String   @db.VarChar(10)
+  card_3  String   @db.VarChar(10)
+  card_4  String   @db.VarChar(10)
+  card_5  String   @db.VarChar(10)
+  card_6  String   @db.VarChar(10)
+  card_7  String   @db.VarChar(10)
+  card_8  String   @db.VarChar(10)
+  map_1  String   @db.VarChar(10)
+  map_2  String   @db.VarChar(10)
+  endgame_1   String   @db.VarChar(10)
+  endgame_2   String   @db.VarChar(10)
+  conservation_1  String   @db.VarChar(10)
+  conservation_2  String   @db.VarChar(10)
+  conservation_3  String   @db.VarChar(10)
+  title     String   @db.VarChar(255)
+  content   String?
+  likes    Int      @default(0)
+
+  @@index(id)
+}
+
+model UserSetUp {
+  id        Int      @id @default(autoincrement())
+  set_up_Id   String   @db.VarChar(10)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  rating    Int
+  title     String   @db.VarChar(255)
+  content   String?
+  userId  String   @db.VarChar(255)
+  userInfo Json
+  likes    Int      @default(0)
+  card_1  String   @db.VarChar(10)
+  card_2  String   @db.VarChar(10)
+  card_3  String   @db.VarChar(10)
+  card_4  String   @db.VarChar(10)
+  card_5  String   @db.VarChar(10)
+  card_6  String   @db.VarChar(10)
+  card_7  String   @db.VarChar(10)
+  card_8  String   @db.VarChar(10)
+  map_1  String   @db.VarChar(10)
+  map_2  String   @db.VarChar(10)
+  endgame_1   String   @db.VarChar(10)
+  endgame_2   String   @db.VarChar(10)
+  conservation_1  String   @db.VarChar(10)
+  conservation_2  String   @db.VarChar(10)
+  conservation_3  String   @db.VarChar(10)
+
+  @@index(set_up_Id)
+}

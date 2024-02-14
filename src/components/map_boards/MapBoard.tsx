@@ -1,20 +1,23 @@
-import NextImage from '@/components/NextImage';
-
-import { MapBoard } from '@/types/MapBoard';
+import Image from 'next/image';
+import { MapBoards } from '@/data/MapBoards';
 
 type MapBoardProps = {
-  mapBoard: MapBoard;
+  id: string;
 };
 
-export function MapBoard({ mapBoard }: MapBoardProps) {
+export function MapBoard({ id }: MapBoardProps) {
+  const mapBoard = MapBoards.find((mapBoard) => mapBoard.id === id);
+  if (!mapBoard) return null;
   return (
     <div>
-      <NextImage
-        key={mapBoard.id}
-        src={mapBoard.image}
+      <Image
         alt={mapBoard.name}
-        width={500}
-        height={300}
+        priority={true}
+        src={`/img/maps/${mapBoard.image}.jpg`}
+        className='w-full rounded-md object-contain shadow-lg'
+        quality={85}
+        width={1000}
+        height={1000}
       />
     </div>
   );

@@ -13,3 +13,11 @@ export const fetchUserCardRatings = async (userId: string) => {
   }
   return response.json();
 };
+
+export const fetchAllQuizs = async () => {
+  const response = await fetch('/api/quiz/lists');
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+};

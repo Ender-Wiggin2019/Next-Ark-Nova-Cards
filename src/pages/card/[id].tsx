@@ -35,7 +35,6 @@ export default function Page(
   const { t } = useTranslation('common');
   if (typeof router.query.id !== 'string') return null;
   const card = getCardById(router.query.id);
-  console.log('type', card);
   if (typeof card !== 'object') return null;
   return (
     <Layout>
