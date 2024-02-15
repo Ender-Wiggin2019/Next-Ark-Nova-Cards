@@ -1,8 +1,10 @@
-import { clerkClient, getAuth } from '@clerk/nextjs/server';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { prisma } from '@/lib/prisma-client';
+
 import { generateSetUp } from '@/utils/GenerateRandomCards';
+
+import { CardSource } from '@/types/CardSource';
 // POST /api/comments/create/
 export default async function post(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -12,11 +14,23 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
   const apiKey = req.headers['x-api-key'];
 
   console.log(apiKey, apiKey !== process.env.API_SECRET_KEY);
+
+  let setUpType = req.body.setUpType;
+  let cardSources;
+  if (!setUpType) {
+    return res.status(400).json({ error: 'Bad Request' });
+  } else if (setUpType === 'BASE') {
+    cardSources = [CardSource.BASE];
+  } else {
+    setUpType = 'ALL EXP';
+    cardSources = [CardSource.BASE, CardSource.MARINE_WORLD, CardSource.PROMO];
+  }
   //   if (!apiKey || apiKey !== process.env.API_SECRET_KEY) {
   //     return res.status(401).json({ error: 'Unauthorized' });
   //   }
 
-  const { cards, maps, finalScoring, conservations } = generateSetUp();
+  const { cards, maps, finalScoring, conservations } =
+    generateSetUp(cardSources);
   const result = await prisma.setUp.create({
     data: {
       total: 0,
@@ -35,7 +49,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
       conservation_1: conservations[0],
       conservation_2: conservations[1],
       conservation_3: conservations[2],
-      title: '',
+      title: setUpType,
       content: '',
       likes: 0,
     },

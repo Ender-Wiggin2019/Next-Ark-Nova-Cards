@@ -3,10 +3,8 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
-import { RiAlarmWarningFill } from 'react-icons/ri';
 
 import Layout from '@/components/layout/Layout';
-import ArrowLink from '@/components/links/ArrowLink';
 import Seo from '@/components/Seo';
 
 export default function Page(
@@ -14,7 +12,7 @@ export default function Page(
 ) {
   // 处理表单提交
   const handleSubmit = async () => {
-    return;
+    // return;
     try {
       const response = await fetch('/api/quiz/create', {
         method: 'POST',
@@ -22,6 +20,7 @@ export default function Page(
           'Content-Type': 'application/json',
           // 'X-API-Key': 'c&wUxR5V8jV$hZnSMcsD%',
         },
+        body: JSON.stringify({ setUpType: 'ALL EXP' }),
       });
 
       if (!response.ok) {
@@ -30,6 +29,7 @@ export default function Page(
 
       const result = await response.json();
       console.log('Success:', result);
+
       // 处理结果...
     } catch (error) {
       console.error('An error occurred:', error);
