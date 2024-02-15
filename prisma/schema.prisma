@@ -111,7 +111,7 @@ model SetUp {
 
 model UserSetUp {
   id        Int      @id @default(autoincrement())
-  set_up_Id   String   @db.VarChar(10)
+  set_up_id   String   @db.VarChar(10)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   rating    Int
@@ -133,5 +133,5 @@ model UserSetUp {
   endgame_1   Boolean   @db.Bit(1)
   endgame_2   Boolean   @db.Bit(1)
 
-  @@index(set_up_Id)
+  @@index(set_up_id)
 }

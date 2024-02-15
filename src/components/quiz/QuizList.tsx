@@ -52,26 +52,6 @@ export const QuizList: React.FC = () => {
     // staleTime: 60 * 1000,
   });
   const todayQuiz = allQuizs ? allQuizs[0] : null;
-  const [handList, setHandList] = useState<string[]>([]);
-  const [disableHand, setDisableHand] = useState(false);
-
-  // const [endGameList, setEndGameList] = useState<string[]>([]);
-  // const [disableEndGame, setDisableEndGame] = useState(false);
-  console.log('5555', allQuizs);
-
-  function numArray(n: number) {
-    return Array.from({ length: n }, (_, index) => index + 1);
-  }
-  // const handList = Array.from({ length: NUMBER_HAND }, (_, index) => index + 1);
-  // const mapList = Array.from({ length: NUMBER_MAP }, (_, index) => index + 1);
-
-  const handleHandSelect = (id: string, add: boolean) => {
-    if (handList.length < 4 && add) setHandList([...handList, id]);
-    if (!add) setHandList(handList.filter((i) => i !== id));
-    if (add && handList.length >= 3) setDisableHand(true);
-    else if (!add && handList.length >= 4) setDisableHand(false);
-    console.log('5555', handList, disableHand);
-  };
 
   return (
     <div className=''>

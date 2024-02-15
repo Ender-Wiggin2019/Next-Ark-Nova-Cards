@@ -35,8 +35,50 @@ export const Quiz: React.FC<any> = (todayQuiz) => {
     // console.log('5555', handList, disableHand);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log('handList', handList);
+    const cardList = [
+      todayQuiz.card_1,
+      todayQuiz.card_2,
+      todayQuiz.card_3,
+      todayQuiz.card_4,
+      todayQuiz.card_5,
+      todayQuiz.card_6,
+      todayQuiz.card_7,
+      todayQuiz.card_8,
+    ];
+    const res: boolean[] = [];
+    for (let i = 0; i < cardList.length; i++) {
+      if (handList.includes(cardList[i])) {
+        res.push(true);
+      } else {
+        res.push(false);
+      }
+    }
+
+    try {
+      const response = await fetch('/api/quiz/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // 'X-API-Key': 'c&wUxR5V8jV$hZnSMcsD%',
+        },
+        body: JSON.stringify({ setUpType: 'ALL EXP', cards: res }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log('Success:', result);
+
+      // 处理结果...
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+
+    console.log('res', res);
   };
 
   return (
