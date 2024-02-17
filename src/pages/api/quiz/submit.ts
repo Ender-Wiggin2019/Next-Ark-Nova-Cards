@@ -40,7 +40,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
 
   const result = await prisma.userSetUp.create({
     data: {
-      set_up_Id: set_up_id,
+      set_up_id: set_up_id,
       rating: 5,
       card_1: cards[0],
       card_2: cards[1],

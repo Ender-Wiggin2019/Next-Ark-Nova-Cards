@@ -53,6 +53,12 @@ export function generateSetUpFinalScoring(
   return _.sampleSize(ids, NUMBER_FINAL_SCORING);
 }
 
+export function generateActionCards() {
+  const cards = ['CARDS', 'SPONSORS', 'ASSOCIATION', 'BUILD'];
+  const res = _.sampleSize(cards, 4);
+  return ['ANIMAL', ...res];
+}
+
 export function generateSetUp(
   cardSources: CardSource[] = [
     CardSource.BASE,
@@ -65,5 +71,8 @@ export function generateSetUp(
     maps: generateSetUpMaps(),
     finalScoring: generateSetUpFinalScoring(cardSources),
     conservations: generateSetUpConservations(cardSources),
+    action_cards: generateActionCards(),
+    oppo_action_cards: generateActionCards(),
+    position: _.sample([0, 1]),
   };
 }

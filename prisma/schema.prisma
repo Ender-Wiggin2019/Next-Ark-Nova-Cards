@@ -102,6 +102,7 @@ model SetUp {
   conservation_1  String   @db.VarChar(10)
   conservation_2  String   @db.VarChar(10)
   conservation_3  String   @db.VarChar(10)
+  game_setting String   @db.VarChar(255)
   title     String   @db.VarChar(255)
   content   String?
   likes    Int      @default(0)
