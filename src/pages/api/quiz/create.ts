@@ -51,6 +51,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
       conservation_3: conservations[2],
       title: setUpType,
       content: '',
+      game_setting: '',
 
       likes: 0,
     },
