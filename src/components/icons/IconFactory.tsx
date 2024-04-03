@@ -39,7 +39,7 @@ import XToken from '@/components/icons/tokens/XToken';
 import { ActionCardType } from '@/types/ActionCard';
 import { Icon } from '@/types/Icon';
 import { IconName } from '@/types/IconName';
-import { AnimalTag, getTag, OtherTag, Tag } from '@/types/Tags';
+import { getTag, Tag } from '@/types/Tags';
 
 export const IconFactory: React.FC<Icon> = ({
   iconName,

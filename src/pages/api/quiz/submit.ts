@@ -1,12 +1,9 @@
+import { clerkClient, getAuth } from '@clerk/nextjs/server';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { z } from 'zod';
 
 import { prisma } from '@/lib/prisma-client';
 
-import { generateSetUp } from '@/utils/GenerateRandomCards';
-
-import { CardSource } from '@/types/CardSource';
-import { z } from 'zod';
-import { clerkClient, getAuth } from '@clerk/nextjs/server';
 // POST /api/quiz/submit/
 export default async function post(req: NextApiRequest, res: NextApiResponse) {
   const { userId } = getAuth(req);

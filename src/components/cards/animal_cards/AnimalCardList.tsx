@@ -1,4 +1,4 @@
-import { useUser } from '@clerk/nextjs';
+// import { useUser } from '@clerk/nextjs';
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useMemo } from 'react';
 
@@ -90,8 +90,8 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   sortOrder = SortOrder.ID_ASC,
   size = [0],
 }) => {
-  const { user } = useUser();
-  const userId = user?.id ?? '';
+  // const { user } = useUser();
+  // const userId = user?.id ?? '';
   const shouldFetchRatings = true;
   const {
     data: cardRatings,
@@ -150,7 +150,7 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
       return initialAnimalCards;
     }
     return combineDataWithRatings(filteredAnimals, cardRatings);
-  }, [filteredAnimals, cardRatings]);
+  }, [filteredAnimals, cardRatings, initialAnimalCards]);
 
   useEffect(() => {
     onCardCountChange(filteredAnimals.length);

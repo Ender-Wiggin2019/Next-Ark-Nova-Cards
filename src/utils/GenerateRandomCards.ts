@@ -1,8 +1,11 @@
+import _ from 'lodash';
+
 import { MapBoards } from '@/data/MapBoards';
+
+import { getCardIds } from '@/utils/GetAllCardIds';
+
 import { CardType } from '@/types/Card';
 import { CardSource } from '@/types/CardSource';
-import { getCardIds } from '@/utils/GetAllCardIds';
-import _ from 'lodash';
 
 export const NUMBER_HAND = 8;
 export const NUMBER_MAP = 2;

@@ -1,4 +1,3 @@
-// AnimalCard.tsx
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 import ReactCardFlip from 'react-card-flip';
@@ -22,12 +21,6 @@ export const ActionCard: React.FC<AnimalCardProps> = ({ animal }) => {
     setIsFlipped(!isFlipped);
   };
   return (
-    // <div>
-    //     <h2>{animal.name}</h2>
-    //     <img src={animal.image.toString()} alt={animal.name} />
-    //     <p>Price: {animal.price}</p>
-    //     {/* add other fields as needed */}
-    // </div>
     <ReactCardFlip isFlipped={isFlipped} flipDirection='horizontal'>
       <div onClick={handleClick}>
         <ActionCardWrapper id={animal.id}>1</ActionCardWrapper>

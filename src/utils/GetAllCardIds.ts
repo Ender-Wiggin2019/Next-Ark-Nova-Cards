@@ -1,7 +1,8 @@
 import { AnimalsData } from '@/data/Animals';
-import { SponsorsData } from '@/data/Sponsors';
-import { ProjectsData } from '@/data/Projects';
 import { EndGameData } from '@/data/EndGames';
+import { ProjectsData } from '@/data/Projects';
+import { SponsorsData } from '@/data/Sponsors';
+
 import { Card, CardType } from '@/types/Card';
 import { CardSource } from '@/types/CardSource';
 import { ProjectCard, ProjectCategory } from '@/types/ProjectCard';

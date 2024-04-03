@@ -83,7 +83,7 @@ export const EndGameCardList: React.FC<EndGameCardListProps> = ({
       return initialEndGameCards;
     }
     return combineDataWithRatings(filteredEndGames, cardRatings);
-  }, [filteredEndGames, cardRatings]);
+  }, [filteredEndGames, cardRatings, initialEndGameCards]);
 
   useEffect(() => {
     onCardCountChange(filteredEndGames.length);

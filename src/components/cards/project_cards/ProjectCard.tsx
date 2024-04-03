@@ -5,6 +5,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 import ParseDescription from '@/components/abilities/ParseDescription';
+import PartenerZoo from '@/components/icons/conservations/PartenerZoo';
 import ReleaseAnimal from '@/components/icons/conservations/ReleaseAnimal';
 import ConservationIcon from '@/components/icons/tokens/ConservationIcon';
 import ReputationIcon from '@/components/icons/tokens/ReputationIcon';
@@ -16,7 +17,6 @@ import {
   ProjectCard as ProjectCardType,
   ProjectCategory,
 } from '@/types/ProjectCard';
-import PartenerZoo from '@/components/icons/conservations/PartenerZoo';
 
 interface ProjectCardProps {
   project: ProjectCardType;

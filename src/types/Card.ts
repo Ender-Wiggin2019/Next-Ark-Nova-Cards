@@ -1,4 +1,3 @@
-import { ActionCard } from '@/types/ActionCard';
 import { AnimalCard } from '@/types/AnimalCard';
 import { EndGameCard } from '@/types/EndGameCard';
 import { ProjectCard } from '@/types/ProjectCard';

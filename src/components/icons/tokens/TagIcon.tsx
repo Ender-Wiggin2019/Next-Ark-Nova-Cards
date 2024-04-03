@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { AnimalTag, ContinentTag, OtherTag, Tag } from '@/types/Tags';
 import { cn } from '@/lib/utils';
+
+import { AnimalTag, ContinentTag, OtherTag, Tag } from '@/types/Tags';
 
 interface TagProps {
   type: Tag;

@@ -1,16 +1,20 @@
+import React, { useState } from 'react';
+
+import { cn } from '@/lib/utils';
+
 import { BaseAnimalCard } from '@/components/cards/animal_cards/BaseAnimalCard';
 import { BaseEndGameCard } from '@/components/cards/endgame_cards/BaseEndGameCard';
 import { ProjectCard } from '@/components/cards/project_cards/ProjectCard';
 import { BaseSponsorCard } from '@/components/cards/sponsor_cards/BaseSponsorCard';
-import { cn } from '@/lib/utils';
+
+import { getCardById } from '@/utils/GetCardById';
+
 import {
   isAnimalCard,
   isEndGameCard,
   isProjectCard,
   isSponsorCard,
 } from '@/types/Card';
-import { getCardById } from '@/utils/GetCardById';
-import React, { useState } from 'react';
 
 interface CardWrapperProps {
   id: string;

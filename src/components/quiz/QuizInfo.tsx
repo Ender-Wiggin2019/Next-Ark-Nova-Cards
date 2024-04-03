@@ -1,5 +1,6 @@
 import { Prisma } from '@prisma/client';
 import dayjs from 'dayjs';
+import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
@@ -7,8 +8,6 @@ import { cn } from '@/lib/utils';
 
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 
 export const QuizInfo: React.FC<Prisma.SetUpGroupByOutputType> = (props) => {
   const { t } = useTranslation('common');

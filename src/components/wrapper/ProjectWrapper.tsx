@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { cardNames } from '@/data/CardNames';
-import { ProjectCard, ProjectCategory } from '@/types/ProjectCard';
 import { toCamelCase } from '@/lib/utils'; // Assuming the json file is named ProjectData.json
+
+import { ProjectCard, ProjectCategory } from '@/types/ProjectCard';
 
 interface ProjectCardWrapperProps {
   project: ProjectCard;

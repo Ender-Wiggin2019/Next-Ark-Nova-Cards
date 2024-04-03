@@ -1,48 +1,44 @@
+import { Prisma } from '@prisma/client';
 import { useQuery } from '@tanstack/react-query';
-import React, { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'next-i18next';
+import React from 'react';
 
-import CardList from '@/components/cards/shared/CardList';
-
-import { fetchAllQuizs, fetchCardRatings } from '@/utils/fetch';
-
-import { CardSource } from '@/types/CardSource';
-import { IRating } from '@/types/IRating';
-import { ISponsorCard } from '@/types/ISponsorCard';
-import { SortOrder } from '@/types/Order';
-import { SponsorCard as SponsorCardType } from '@/types/SponsorCard';
-import { SponsorCard } from '@/types/SponsorCard';
-import {
-  isAnimalTag,
-  isContinentTag,
-  isOtherTag,
-  OtherTag,
-  Tag,
-} from '@/types/Tags';
-
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from '@/components/ui/pagination';
-
-import {
-  NUMBER_CONSERVATION,
-  NUMBER_FINAL_SCORING,
-  NUMBER_HAND,
-  NUMBER_MAP,
-} from '@/utils/GenerateRandomCards';
-import CardWrapper from '@/components/wrapper/CardWrapper';
-import { MapBoard } from '@/components/map_boards/MapBoard';
+import { Quiz } from '@/components/quiz/Quiz';
+import { QuizInfo } from '@/components/quiz/QuizInfo';
+// import { CardSource } from '@/types/CardSource';
+// import { IRating } from '@/types/IRating';
+// import { ISponsorCard } from '@/types/ISponsorCard';
+// import { SortOrder } from '@/types/Order';
+// import { SponsorCard as SponsorCardType } from '@/types/SponsorCard';
+// import { SponsorCard } from '@/types/SponsorCard';
+// import {
+//   isAnimalTag,
+//   isContinentTag,
+//   isOtherTag,
+//   OtherTag,
+//   Tag,
+// } from '@/types/Tags';
+// import {
+//   Pagination,
+//   PaginationContent,
+//   PaginationEllipsis,
+//   PaginationItem,
+//   PaginationLink,
+//   PaginationNext,
+//   PaginationPrevious,
+// } from '@/components/ui/pagination';
+// import {
+//   NUMBER_CONSERVATION,
+//   NUMBER_FINAL_SCORING,
+//   NUMBER_HAND,
+//   NUMBER_MAP,
+// } from '@/utils/GenerateRandomCards';
+// import CardWrapper from '@/components/wrapper/CardWrapper';
+// import { MapBoard } from '@/components/map_boards/MapBoard';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { useTranslation } from 'next-i18next';
-import { Prisma } from '@prisma/client';
-import { QuizInfo } from '@/components/quiz/QuizInfo';
-import { Quiz } from '@/components/quiz/Quiz';
+
+import { fetchAllQuizs } from '@/utils/fetch';
 
 export const QuizList: React.FC = () => {
   const { t } = useTranslation('common');

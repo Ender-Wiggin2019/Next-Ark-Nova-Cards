@@ -1,12 +1,6 @@
-import { AnimalsData } from '@/data/Animals';
-import { EndGameData } from '@/data/EndGames';
-import { SponsorsData } from '@/data/Sponsors';
+import { cardTypeDataMapping } from '@/utils/GetAllCardIds';
 
-import { AnimalCard } from '@/types/AnimalCard';
-import { Card, CardType } from '@/types/Card';
-import { EndGameCard } from '@/types/EndGameCard';
-import { SponsorCard } from '@/types/SponsorCard';
-import { cardTypeDataMapping, getCardIds } from '@/utils/GetAllCardIds';
+import { Card } from '@/types/Card';
 export function getCardById(id: string): Card | undefined {
   for (const [_, value] of cardTypeDataMapping) {
     for (const card of value) {
