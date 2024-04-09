@@ -16,7 +16,7 @@ model Comment {
   id        Int      @id @default(autoincrement())
   cardid   String   @db.VarChar(10)
   createdat DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedat DateTime @updatedAt
   rating    Int
   title     String   @db.VarChar(255)
   content   String?
