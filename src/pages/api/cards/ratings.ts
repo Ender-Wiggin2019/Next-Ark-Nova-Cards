@@ -5,7 +5,7 @@ import { prisma } from '@/lib/prisma-client';
 // GET /api/ratings
 export default async function get(req: NextApiRequest, res: NextApiResponse) {
   const comments = await prisma.comment.groupBy({
-    by: ['cardId'],
+    by: ['cardid'],
     where: {
       rating: {
         gte: 1,

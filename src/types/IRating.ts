@@ -3,5 +3,5 @@ export interface IRating {
     rating: number;
   };
   _count: number;
-  cardId: string;
+  cardid: string;
 }

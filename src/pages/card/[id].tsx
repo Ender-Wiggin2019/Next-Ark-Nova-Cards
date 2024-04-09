@@ -111,6 +111,6 @@ export async function getStaticPaths({ locales }) {
     .flat(); // to avoid nested array
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 }

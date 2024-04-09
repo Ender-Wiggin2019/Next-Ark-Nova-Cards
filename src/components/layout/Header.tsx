@@ -107,10 +107,10 @@ export function Header() {
     <>
       <motion.header
         className={cn(
-          'pointer-events-none relative z-50 mb-[var(--header-mb,0px)] flex flex-col',
+          'mb-var(--header-mb mb-[0px])flex pointer-events-none relative z-50 flex-col',
           isHomePage
-            ? 'h-[var(--header-height,180px)]'
-            : 'h-[var(--header-height,64px)]'
+            ? 'h-var(--header-height h-[180px])'
+            : 'h-var(--header-height h-[64px])'
         )}
         layout
         layoutRoot

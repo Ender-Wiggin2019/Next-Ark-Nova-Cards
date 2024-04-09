@@ -6,24 +6,25 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgres"
   url      = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED")
   relationMode = "prisma"
 }
 
 model Comment {
   id        Int      @id @default(autoincrement())
-  cardId   String   @db.VarChar(10)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  cardid   String   @db.VarChar(10)
+  createdat DateTime @default(now())
+  updatedat DateTime @updatedAt
   rating    Int
   title     String   @db.VarChar(255)
   content   String?
-  userId  String   @db.VarChar(255)
-  userInfo Json
+  userid  String   @db.VarChar(255)
+  userinfo Json
   likes    Int      @default(0)
 
-  @@index(userId)
+  @@index(userid)
 }
 
 model Profile {
@@ -45,7 +46,7 @@ model User {
 model AnimalCard {
   id      Int      @id @default(autoincrement())
   cardId        String   @db.VarChar(255)
-  createdAt DateTime @default(now())
+  createdat DateTime @default(now())
   updatedAt DateTime @updatedAt
   name      String   @db.VarChar(30)
   latinName String?  @db.VarChar(30)
@@ -84,7 +85,7 @@ model AnimalCard {
 
 model SetUp {
   id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
+  createdat DateTime @default(now())
   updatedAt DateTime @updatedAt
   total    Int
   card_1  String   @db.VarChar(10)
@@ -113,26 +114,26 @@ model SetUp {
 model UserSetUp {
   id        Int      @id @default(autoincrement())
   set_up_id   String   @db.VarChar(10)
-  createdAt DateTime @default(now())
+  createdat DateTime @default(now())
   updatedAt DateTime @updatedAt
   rating    Int
   title     String   @db.VarChar(255)
   content   String?
-  userId  String   @db.VarChar(255)
-  userInfo Json
+  userid  String   @db.VarChar(255)
+  userinfo Json
   likes    Int      @default(0)
-  card_1  Boolean   @db.Bit(1)
-  card_2  Boolean   @db.Bit(1)
-  card_3  Boolean   @db.Bit(1)
-  card_4  Boolean   @db.Bit(1)
-  card_5  Boolean   @db.Bit(1)
-  card_6  Boolean   @db.Bit(1)
-  card_7  Boolean   @db.Bit(1)
-  card_8  Boolean   @db.Bit(1)
-  map_1  Boolean   @db.Bit(1)
-  map_2  Boolean   @db.Bit(1)
-  endgame_1   Boolean   @db.Bit(1)
-  endgame_2   Boolean   @db.Bit(1)
+  card_1  Boolean   @db.Boolean()
+  card_2  Boolean   @db.Boolean()
+  card_3  Boolean   @db.Boolean()
+  card_4  Boolean   @db.Boolean()
+  card_5  Boolean   @db.Boolean()
+  card_6  Boolean   @db.Boolean()
+  card_7  Boolean   @db.Boolean()
+  card_8  Boolean   @db.Boolean()
+  map_1  Boolean   @db.Boolean()
+  map_2  Boolean   @db.Boolean()
+  endgame_1   Boolean   @db.Boolean()
+  endgame_2   Boolean   @db.Boolean()
 
   @@index(set_up_id)
 }

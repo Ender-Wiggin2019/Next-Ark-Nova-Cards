@@ -59,7 +59,7 @@ export const EndGameCardList: React.FC<EndGameCardListProps> = ({
     ratings: IRating[]
   ): IEndGameCard[] => {
     return cards.map((card) => {
-      const rating = ratings.find((r) => r.cardId === card.id);
+      const rating = ratings.find((r) => r.cardid === card.id);
       return {
         id: card.id,
         endGameCard: card,
