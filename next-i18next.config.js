@@ -14,7 +14,10 @@ module.exports = {
     localeDetection: true,
   },
   /** To avoid issues when deploying to some paas (vercel...) */
-  localePath: path.resolve('./public/locales'),
+  localePath:
+    typeof window === 'undefined'
+      ? path.resolve('./public/locales')
+      : '/locales',
   localeStructure: '{{lng}}/{{ns}}',
   reloadOnPrerender: process.env.NODE_ENV === 'development',
 
