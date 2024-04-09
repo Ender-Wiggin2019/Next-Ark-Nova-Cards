@@ -54,9 +54,9 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
       title: '',
       content: '',
       likes: 0,
-      userId: user.id,
+      userid: user.id,
       // user: { connect: { id: user.id, name: authorName } },
-      userInfo: {
+      userinfo: {
         username: user.username,
         imageUrl: user.imageUrl,
       },

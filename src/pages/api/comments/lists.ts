@@ -7,7 +7,7 @@ export default async function get(req: NextApiRequest, res: NextApiResponse) {
   const { cardId } = req.query;
   const comments = await prisma.comment.findMany({
     where: {
-      cardId: cardId as string,
+      cardid: cardId as string,
     },
   });
   return res.json(comments);

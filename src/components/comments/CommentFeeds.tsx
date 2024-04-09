@@ -34,7 +34,7 @@ function Comment({
       <div className='relative flex items-start space-x-3'>
         <Image
           src={
-            comment.userInfo.imageUrl ?? `/avatars/avatar_${(idx % 8) + 1}.png`
+            comment.userinfo.imageUrl ?? `/avatars/avatar_${(idx % 8) + 1}.png`
           }
           alt=''
           width={40}
@@ -44,7 +44,7 @@ function Comment({
         />
         <div className='-mt-1 flex min-w-0 flex-1 items-center gap-3'>
           <b className='text-sm font-bold dark:text-zinc-100'>
-            {comment.userInfo.username ?? 'Anonymous'}
+            {comment.userinfo.username ?? 'Anonymous'}
           </b>
           <Rating
             emptyStyle={{ display: 'flex' }}
@@ -55,10 +55,10 @@ function Comment({
             size={16}
           />
           <time
-            dateTime={comment.createdAt.toString()}
+            dateTime={comment.createdat.toString()}
             className='inline-flex select-none text-[12px] font-medium opacity-40'
           >
-            {dayjs(comment.createdAt).locale('zh-cn').fromNow()}
+            {dayjs(comment.createdat).locale('zh-cn').fromNow()}
           </time>
         </div>
       </div>

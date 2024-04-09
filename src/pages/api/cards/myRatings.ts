@@ -15,14 +15,14 @@ export default async function get(req: NextApiRequest, res: NextApiResponse) {
     if (cardId) {
       ratings = await prisma.comment.findMany({
         where: {
-          userId: userId,
-          cardId: cardId,
+          userid: userId,
+          cardid: cardId,
         },
       });
     } else {
       ratings = await prisma.comment.findMany({
         where: {
-          userId: userId,
+          userid: userId,
         },
       });
     }

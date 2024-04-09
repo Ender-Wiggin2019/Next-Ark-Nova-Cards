@@ -14,13 +14,13 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
   }
   const result = await prisma.comment.create({
     data: {
-      cardId: cardId,
+      cardid: cardId,
       rating: parseInt(rating),
       title: title,
       content: content,
-      userId: user.id,
+      userid: user.id,
       // user: { connect: { id: user.id, name: authorName } },
-      userInfo: {
+      userinfo: {
         username: user.username,
         imageUrl: user.imageUrl,
       },

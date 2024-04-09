@@ -118,7 +118,7 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
     ratings: IRating[]
   ): ISponsorCard[] => {
     return sponsors.map((sponsor) => {
-      const rating = ratings.find((r) => r.cardId === sponsor.id);
+      const rating = ratings.find((r) => r.cardid === sponsor.id);
       return {
         id: sponsor.id,
         sponsorCard: sponsor,

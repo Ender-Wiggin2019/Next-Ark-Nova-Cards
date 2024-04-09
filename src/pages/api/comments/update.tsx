@@ -20,7 +20,7 @@ export default async function update(
     where: { id: Number(commentId) },
   });
 
-  if (!existingComment || existingComment.userId !== user.id) {
+  if (!existingComment || existingComment.userid !== user.id) {
     return res
       .status(403)
       .json({ error: 'You do not have permission to edit this comment' });
@@ -32,7 +32,7 @@ export default async function update(
       rating: parseInt(rating),
       title: title,
       content: content,
-      userInfo: {
+      userinfo: {
         username: user.username,
         imageUrl: user.imageUrl,
       },

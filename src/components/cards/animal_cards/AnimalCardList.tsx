@@ -124,7 +124,7 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
     ratings: IRating[]
   ): IAnimalCard[] => {
     return animals.map((animal) => {
-      const rating = ratings.find((r) => r.cardId === animal.id);
+      const rating = ratings.find((r) => r.cardid === animal.id);
       return {
         id: animal.id,
         animalCard: animal,

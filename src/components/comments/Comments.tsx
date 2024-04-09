@@ -50,7 +50,7 @@ export function Comments({ cardId, initialComments }: CommentProps) {
     if (user && commentsFromAPI) {
       return commentsFromAPI.find(
         (comment) =>
-          comment.userId === user.id && comment.cardId.toString() === cardId
+          comment.userId === user.id && comment.cardid.toString() === cardId
       );
     }
     return null;
