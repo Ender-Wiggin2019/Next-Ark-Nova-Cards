@@ -47,7 +47,7 @@ model AnimalCard {
   id      Int      @id @default(autoincrement())
   cardId        String   @db.VarChar(255)
   createdat DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedat DateTime @updatedAt
   name      String   @db.VarChar(30)
   latinName String?  @db.VarChar(30)
   endangeredCategory String?  @db.VarChar(30)
@@ -86,7 +86,7 @@ model AnimalCard {
 model SetUp {
   id        Int      @id @default(autoincrement())
   createdat DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedat DateTime @updatedAt
   total    Int
   card_1  String   @db.VarChar(10)
   card_2  String   @db.VarChar(10)
@@ -115,7 +115,7 @@ model UserSetUp {
   id        Int      @id @default(autoincrement())
   set_up_id   String   @db.VarChar(10)
   createdat DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedat DateTime @updatedAt
   rating    Int
   title     String   @db.VarChar(255)
   content   String?
