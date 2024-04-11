@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 import { Rating } from 'react-simple-star-rating';
@@ -31,7 +30,7 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
   ratingCount,
   readonly,
 }) => {
-  const router = useRouter();
+  // const router = useRouter();
   const { t } = useTranslation('common');
 
   const handleRating = (rating: number) => {
@@ -39,7 +38,7 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
   };
 
   return (
-    <div className='flex-col text-xs'>
+    <div className='flex flex-col text-xs'>
       <div className='text-bold'>
         {t('Animal Value')}:&nbsp;
         <span

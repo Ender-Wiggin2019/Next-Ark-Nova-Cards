@@ -1,6 +1,6 @@
 'use client';
 
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import React, { useEffect, useState } from 'react';
@@ -24,6 +24,7 @@ const CommentInput = ({
   comment?: CommentDto | null;
 }) => {
   const { t } = useTranslation('common');
+  const queryClient = useQueryClient();
   const router = useRouter();
   const shouldUpdate = !!comment;
   const [formState, setFormState] = useState<FormState>({
@@ -33,34 +34,50 @@ const CommentInput = ({
   });
   const [submitting, setSubmitting] = useState(false);
 
-  const createMutation = useMutation(async (formData: FormState) => {
-    const response = await fetch('/api/comments/create', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        ...formData,
-        title: '',
-        cardId,
-      }),
-    });
-    if (!response.ok) throw new Error('Failed to create comment.');
-    return response.json();
-  });
+  const createMutation = useMutation(
+    async (formData: FormState) => {
+      const response = await fetch('/api/comments/create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          title: '',
+          cardId,
+        }),
+      });
+      if (!response.ok) throw new Error('Failed to create comment.');
+      return response.json();
+    },
+    {
+      onSuccess: () => {
+        // 使评论列表查询失效
+        queryClient.invalidateQueries(['comments', cardId]);
+      },
+    }
+  );
 
-  const updateMutation = useMutation(async (formData: FormState) => {
-    if (!comment?.id) throw new Error('No comment ID provided for update.');
-    const response = await fetch(`/api/comments/update`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        ...formData,
-        cardId,
-        commentId: comment.id,
-      }),
-    });
-    if (!response.ok) throw new Error('Failed to update comment.');
-    return response.json();
-  });
+  const updateMutation = useMutation(
+    async (formData: FormState) => {
+      if (!comment?.id) throw new Error('No comment ID provided for update.');
+      const response = await fetch(`/api/comments/update`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          cardId,
+          commentId: comment.id,
+        }),
+      });
+      if (!response.ok) throw new Error('Failed to update comment.');
+      return response.json();
+    },
+    {
+      onSuccess: () => {
+        // 使评论列表查询失效
+        queryClient.invalidateQueries(['comments', cardId]);
+      },
+    }
+  );
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

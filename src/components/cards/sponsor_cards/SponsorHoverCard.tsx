@@ -7,7 +7,6 @@ interface HoverCardProps {
   ratingCount?: number | null;
 }
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 import { Rating } from 'react-simple-star-rating';
@@ -18,10 +17,10 @@ export const SponsorHoverCard: React.FC<HoverCardProps> = ({
   rating,
   ratingCount,
 }) => {
-  const router = useRouter();
+  // const router = useRouter();
   const { t } = useTranslation('common');
   return (
-    <div className='flex-col text-xs'>
+    <div className='flex flex-col text-xs'>
       {rating && (
         <div className='flex flex-row gap-1'>
           <Rating

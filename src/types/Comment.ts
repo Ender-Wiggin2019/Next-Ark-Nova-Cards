@@ -9,7 +9,7 @@ export const CommentDtoSchema = z.object({
   rating: z.number(),
   title: z.string().min(1).max(30),
   content: z.string().min(1).max(600),
-  userId: z.string(),
+  userid: z.string(),
   userinfo: z.object({
     username: z.string().nullable().optional(),
     imageUrl: z.string().nullable().optional(),
