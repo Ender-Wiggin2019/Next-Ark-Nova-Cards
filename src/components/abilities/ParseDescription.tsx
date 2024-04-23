@@ -37,14 +37,27 @@ interface ParseDescriptionProps {
 const ParseDescription: React.FC<ParseDescriptionProps> = ({ desc }) => {
   const { t } = useTranslation('common');
 
-  const translatedTemplate: string =
-    desc instanceof Ability
-      ? t(desc.keyword.descriptionTemplate)
-      : t(desc.effectDesc);
-  const valueFilledTemplate: string =
-    desc instanceof Ability
-      ? translatedTemplate.replace(/{}/g, t(String(desc.value)))
-      : translatedTemplate;
+  let translatedTemplate = '';
+  let valueFilledTemplate = '';
+  try {
+    translatedTemplate =
+      desc instanceof Ability
+        ? t(desc.keyword.descriptionTemplate)
+        : t(desc.effectDesc);
+    valueFilledTemplate =
+      desc instanceof Ability
+        ? translatedTemplate.replace(/{}/g, t(String(desc.value)))
+        : translatedTemplate;
+  } catch {
+    translatedTemplate =
+      desc instanceof Ability
+        ? desc.keyword.descriptionTemplate
+        : desc.effectDesc;
+    valueFilledTemplate =
+      desc instanceof Ability
+        ? translatedTemplate.replace(/{}/g, String(desc.value))
+        : translatedTemplate;
+  }
 
   // 根据关键字替换成对应的组件
   const pattern = /{(.*?)}/g;

@@ -423,7 +423,7 @@ export const AnimalCardForm = ({
                 <FormControl>
                   <button
                     type='button'
-                    className='border-1 w-10 rounded-lg border border-zinc-200 p-2'
+                    className='border--1 w-10 rounded-lg border border-zinc-200 p-2'
                     onClick={() => specialEnclosuresRemove(index)}
                   >
                     X
@@ -482,7 +482,7 @@ export const AnimalCardForm = ({
                       </SelectTrigger>
                       <button
                         type='button'
-                        className='border-1 w-10 rounded-lg border border-zinc-200 p-2'
+                        className='border--1 w-10 rounded-lg border border-zinc-200 p-2'
                         onClick={clearTags}
                       >
                         X
@@ -543,7 +543,7 @@ export const AnimalCardForm = ({
                       </SelectTrigger>
                       <button
                         type='button'
-                        className='border-1 w-10 rounded-lg border border-zinc-200 p-2'
+                        className='border--1 w-10 rounded-lg border border-zinc-200 p-2'
                         onClick={clearRequirements}
                       >
                         X
@@ -670,13 +670,12 @@ export const AnimalCardForm = ({
               )}
               <FormItem>
                 <FormLabel className={cn(index !== 0 && 'sr-only')}>
-                  {' '}
                   Delete
                 </FormLabel>
                 <FormControl>
                   <button
                     type='button'
-                    className='border-1 w-10 rounded-lg border border-zinc-200 p-2'
+                    className='border--1 w-10 rounded-lg border border-zinc-200 p-2'
                     onClick={() => {
                       if (hasExistBeforeNew(displayModes, index)) {
                         alert(t('diy.bug'));

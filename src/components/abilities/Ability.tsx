@@ -36,12 +36,24 @@ const AbilityComponent: React.FC<AbilityProps> = ({
   }
 
   // FIXME: it's a temporary solution, need to be refactored
-  const keyWord =
-    ability.value.toString().length > 1
-      ? t(ability.keyword.name) + ':' + t(ability.value.toString())
-      : ability.value.toString().length === 1
-      ? t(ability.keyword.name) + ' ' + t(ability.value.toString())
-      : t(ability.keyword.name);
+
+  let keyWord = '';
+
+  try {
+    keyWord =
+      ability.value.toString().length > 1
+        ? t(ability.keyword.name) + ':' + t(ability.value.toString())
+        : ability.value.toString().length === 1
+        ? t(ability.keyword.name) + ' ' + t(ability.value.toString())
+        : t(ability.keyword.name);
+  } catch {
+    keyWord =
+      ability.value.toString().length > 1
+        ? ability.keyword.name + ':' + ability.value.toString()
+        : ability.value.toString().length === 1
+        ? ability.keyword.name + ' ' + ability.value.toString()
+        : ability.keyword.name;
+  }
   return (
     <div
       className={cn({
