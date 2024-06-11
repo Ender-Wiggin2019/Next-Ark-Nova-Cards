@@ -1743,7 +1743,18 @@
   align-items: center;
   display: flex;
   justify-content: space-evenly;
-  margin-top: 10px;
+  margin-top: 0px;
+}
+
+.ark-card.zoo-card.project-card
+  .ark-card-wrapper
+  .ark-card-bottom
+  .project-card-slots-container
+  .breed {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 40px;
 }
 
 .ark-card.zoo-card.project-card
