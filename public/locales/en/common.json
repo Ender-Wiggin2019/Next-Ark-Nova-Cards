@@ -569,6 +569,9 @@
     "bug": "This function has a unsolved bug. Please do not delete original abilities before your customized abilities."
   },
   "maps": {
+    "alternative_title": "Now BGA has alternative maps!",
+    "alternative_desc": "Check the <1>post</1> for more information. You can now switch between the original and alternative maps.",
+
     "name1": "Observation Tower",
     "name2": "Outdoor Areas",
     "name3": "Silver Lake",
