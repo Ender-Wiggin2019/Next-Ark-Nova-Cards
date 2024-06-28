@@ -58,7 +58,7 @@ export default function HomePage(
   }
   return (
     <Layout>
-      <Seo templateTitle='Ark Nova Maps' />
+      <Seo templateTitle='Ark Nova Maps & Alternatives' />
 
       <div className='flex flex-col gap-4 px-2 py-2 md:px-4'>
         <Alert className='bg-lime-500/40'>
