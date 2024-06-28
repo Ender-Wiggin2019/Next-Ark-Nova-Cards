@@ -136,3 +136,34 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     </ProjectCardWrapper>
   );
 };
+
+export const TokenProjectCard: React.FC<
+  ProjectCardProps & { pos: 1 | 2 | 3 }
+> = ({ project, pos }) => {
+  const styles = {
+    1: { top: 122, left: 17 },
+    2: { top: 122, left: 48 },
+    3: { top: 122, left: 78 },
+  };
+
+  const toStyle = (pos: 1 | 2 | 3) => {
+    const config = styles[pos];
+    if (!config) return {};
+    return {
+      top: config.top + 'px',
+      left: config.left + 'px',
+      zIndex: 9999,
+    };
+  };
+
+  console.log('pos', pos, toStyle(pos));
+  return (
+    <div className='relative'>
+      <div
+        className='absolute h-4 w-4 rounded bg-zinc-900 shadow-sm'
+        style={toStyle(pos)}
+      ></div>
+      <ProjectCard project={project} />
+    </div>
+  );
+};

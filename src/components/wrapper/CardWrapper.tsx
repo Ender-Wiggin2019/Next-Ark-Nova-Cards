@@ -4,7 +4,10 @@ import { cn } from '@/lib/utils';
 
 import { BaseAnimalCard } from '@/components/cards/animal_cards/BaseAnimalCard';
 import { BaseEndGameCard } from '@/components/cards/endgame_cards/BaseEndGameCard';
-import { ProjectCard } from '@/components/cards/project_cards/ProjectCard';
+import {
+  ProjectCard,
+  TokenProjectCard,
+} from '@/components/cards/project_cards/ProjectCard';
 import { BaseSponsorCard } from '@/components/cards/sponsor_cards/BaseSponsorCard';
 
 import { getCardById } from '@/utils/GetCardById';
@@ -20,6 +23,7 @@ interface CardWrapperProps {
   id: string;
   canSelect: boolean;
   disable: boolean;
+  index?: number;
   onSelect?: (id: string, add: boolean) => void;
   // children: React.ReactNode;
 }
@@ -28,6 +32,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
   id,
   canSelect,
   disable,
+  index,
   // children,
   onSelect,
 }) => {
@@ -51,7 +56,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
   ) : isSponsorCard(cardData) ? (
     <BaseSponsorCard sponsor={cardData} />
   ) : isProjectCard(cardData) ? (
-    <ProjectCard project={cardData} />
+    <TokenProjectCard project={cardData} pos={index as any} />
   ) : isEndGameCard(cardData) ? (
     <BaseEndGameCard card={cardData} />
   ) : null;

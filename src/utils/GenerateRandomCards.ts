@@ -1,81 +1,147 @@
 import _ from 'lodash';
+import seedrandom from 'seedrandom';
 
 import { MapBoards } from '@/data/MapBoards';
-
 import { getCardIds } from '@/utils/GetAllCardIds';
-
 import { CardType } from '@/types/Card';
 import { CardSource } from '@/types/CardSource';
-
+import { getMaps } from '@/utils/getMaps';
+import { DEFAULT_CONFIG, GameConfig, IPlayerData } from '@/types/IQuiz';
 export const NUMBER_HAND = 8;
 export const NUMBER_MAP = 2;
 export const NUMBER_FINAL_SCORING = 2;
 export const NUMBER_CONSERVATION = 3;
 
-export function generateSetUpCards(
-  cardSources: CardSource[] = [
-    CardSource.BASE,
-    CardSource.MARINE_WORLD,
-    CardSource.PROMO,
-  ]
-) {
-  const ids = getCardIds(
-    [CardType.ANIMAL_CARD, CardType.SPONSOR_CARD, CardType.CONSERVATION_CARD],
-    cardSources,
-    'hand'
-  );
-  return _.sampleSize(ids, NUMBER_HAND);
+interface SetUp {
+  playersData: IPlayerData[];
+  conservations: string[];
 }
 
-export function generateSetUpConservations(
-  cardSources: CardSource[] = [
-    CardSource.BASE,
-    CardSource.MARINE_WORLD,
-    CardSource.PROMO,
-  ]
-) {
-  const ids = getCardIds([CardType.CONSERVATION_CARD], cardSources, 'game');
-  return _.sampleSize(ids, NUMBER_CONSERVATION);
-}
+export class GameSetupGenerator {
+  private seed: string;
+  private gameConfig: GameConfig;
 
-export function generateSetUpMaps() {
-  const ids = MapBoards.map((mapBoard) => mapBoard.id).filter(
-    (id) => id !== 'm0' && id !== 'ma'
-  );
-  return _.sampleSize(ids, NUMBER_MAP);
-}
+  constructor(seed: string, gameConfig: GameConfig) {
+    this.seed = seed;
+    this.gameConfig = { ...DEFAULT_CONFIG, ...gameConfig };
+  }
 
-export function generateSetUpFinalScoring(
-  cardSources: CardSource[] = [
-    CardSource.BASE,
-    CardSource.MARINE_WORLD,
-    CardSource.PROMO,
-  ]
-) {
-  const ids = getCardIds([CardType.END_GAME_CARD], cardSources);
-  return _.sampleSize(ids, NUMBER_FINAL_SCORING);
-}
+  private shuffleArrayWithSeed(array: any[], seed: string = this.seed): any[] {
+    let currentIndex = array.length,
+      temporaryValue,
+      randomIndex;
+    const rng = seedrandom(seed);
 
-export function generateActionCards() {
-  const cards = ['CARDS', 'SPONSORS', 'ASSOCIATION', 'BUILD'];
-  const res = _.sampleSize(cards, 4);
-  return ['ANIMAL', ...res];
-}
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(rng() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
 
-export function generateSetUp(
-  cardSources: CardSource[] = [
-    CardSource.BASE,
-    CardSource.MARINE_WORLD,
-    CardSource.PROMO,
-  ]
-) {
-  return {
-    cards: generateSetUpCards(cardSources),
-    maps: generateSetUpMaps(),
-    finalScoring: generateSetUpFinalScoring(cardSources),
-    conservations: generateSetUpConservations(cardSources),
-    action_cards: generateActionCards(),
-    oppo_action_cards: generateActionCards(),
-    position: _.sample([0, 1]),
-  };
+    return array;
+  }
+
+  private sampleSizeWithSeed(
+    array: any[],
+    size: number,
+    seed: string = this.seed
+  ): any[] {
+    return this.shuffleArrayWithSeed(array, seed).slice(0, size);
+  }
+
+  private distributeItemsToPlayers(
+    items: string[],
+    itemsPerPlayer: number
+  ): string[][] {
+    const distributedItems: string[][] = [];
+    for (let i = 0; i < this.gameConfig.players; i++) {
+      distributedItems.push(
+        items.slice(i * itemsPerPlayer, (i + 1) * itemsPerPlayer)
+      );
+    }
+    return distributedItems;
+  }
+
+  private generateAndDistribute(array: any[], singleSize: number): string[][] {
+    const num = this.gameConfig.players;
+    const ids = this.shuffleArrayWithSeed(array).slice(0, singleSize * num);
+
+    return this.distributeItemsToPlayers(ids, singleSize);
+  }
+
+  private generateSetUp(): SetUp {
+    const maps = this.generateSetUpMaps();
+    const actionCards = this.generateActionCards();
+    const finalScoring = this.generateSetUpFinalScoring();
+    const cards = this.generateSetUpCards();
+
+    const conservations = this.generateSetUpConservations();
+
+    const mainPlayer = this.sampleSizeWithSeed(
+      Array.from({ length: this.gameConfig.players }, (_, index) => index),
+      this.gameConfig.players
+    )[0];
+    const playersData: IPlayerData[] = new Array(this.gameConfig.players)
+      .fill(null)
+      .map((_, index) => ({
+        cards: cards[index],
+        maps: maps[index],
+        actionCards: actionCards[index],
+        finalScoring: finalScoring[index],
+        isMainPlayer: index === mainPlayer,
+      }));
+
+    return {
+      playersData,
+      conservations,
+    };
+  }
+
+  public generateSetUpCards(): string[][] {
+    const ids = getCardIds(
+      [CardType.ANIMAL_CARD, CardType.SPONSOR_CARD, CardType.CONSERVATION_CARD],
+      this.gameConfig.cardSources,
+      'hand'
+    );
+    return this.generateAndDistribute(ids, NUMBER_HAND);
+  }
+
+  public generateSetUpConservations(): string[] {
+    const ids = getCardIds(
+      [CardType.CONSERVATION_CARD],
+      this.gameConfig.cardSources,
+      'game'
+    );
+    return this.sampleSizeWithSeed(ids, NUMBER_CONSERVATION);
+  }
+
+  public generateSetUpMaps(): string[][] {
+    const ids = getMaps(this.gameConfig.mapSources).map((map) => map.id);
+    return this.generateAndDistribute(ids, NUMBER_MAP);
+  }
+
+  public generateSetUpFinalScoring(): string[][] {
+    const ids = getCardIds(
+      [CardType.END_GAME_CARD],
+      this.gameConfig.cardSources
+    );
+    return this.generateAndDistribute(ids, NUMBER_FINAL_SCORING);
+  }
+
+  public generateActionCards(): string[][] {
+    const cards = ['CARDS', 'SPONSORS', 'ASSOCIATION', 'BUILD'];
+    return new Array(this.gameConfig.players)
+      .fill(0)
+      .map((_, index) => [
+        'ANIMAL',
+        ...this.sampleSizeWithSeed(cards, 4, this.seed + index.toString()),
+      ]);
+  }
+
+  // 公开方法，用于生成游戏设置
+  public generateGameSetup(): SetUp {
+    return this.generateSetUp();
+  }
 }

@@ -1,13 +1,14 @@
 import Image from 'next/image';
 
 import { MapBoards } from '@/data/MapBoards';
+import { getMaps } from '@/utils/getMaps';
 
 type MapBoardProps = {
   id: string;
 };
 
 export function MapBoard({ id }: MapBoardProps) {
-  const mapBoard = MapBoards.find((mapBoard) => mapBoard.id === id);
+  const mapBoard = getMaps([]).find((mapBoard) => mapBoard.id === id);
   if (!mapBoard) return null;
   return (
     <div>

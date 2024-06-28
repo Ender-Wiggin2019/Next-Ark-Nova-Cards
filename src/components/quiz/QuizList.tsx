@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
-import { Quiz } from '@/components/quiz/Quiz';
+import { Quiz } from '@/components/quiz/DailyQuiz';
 import { QuizInfo } from '@/components/quiz/QuizInfo';
 // import { CardSource } from '@/types/CardSource';
 // import { IRating } from '@/types/IRating';

@@ -1,4 +1,13 @@
 {
+  "SPONSORS": "赞助",
+  "CARDS": "卡牌",
+  "ASSOCIATION": "协会",
+  "ANIMAL": "动物",
+  "BUILD": "建造",
+  "quiz": {
+    "today": "每日题目"
+  },
+
   "abilities": {
     "clever_description": "在当前行动完成后，你可以将任意一张行动卡牌放置到 {Slot-1} 。",
     "sun_bathing_description": "你可以从你的手牌中卖出最多{}张卡牌，每张卡牌 {Money-4} 。",

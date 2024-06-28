@@ -6,10 +6,29 @@ import * as React from 'react';
 
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
+import { Quiz } from '@/components/quiz/Quiz';
+import { GameConfig } from '@/types/IQuiz';
+import { CardSource } from '@/types/CardSource';
+import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
+import { useSearchParams } from 'next/navigation';
 
 export default function Page(
   _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
+  const searchParams = useSearchParams();
+  const seed = searchParams.get('seed') || '';
+
+  const gameConfig: GameConfig = {
+    players: 2,
+    cardSources: [CardSource.BASE, CardSource.MARINE_WORLD, CardSource.PROMO],
+    mapSources: [CardSource.BASE, CardSource.ALTERNATIVE, CardSource.PROMO],
+    mode: 'default',
+  };
+
+  const gameSetupGenerator = new GameSetupGenerator(seed, gameConfig);
+  const setup = gameSetupGenerator.generateGameSetup();
+  console.log(setup);
+
   // 处理表单提交
   const handleSubmit = async () => {
     // return;
@@ -38,16 +57,11 @@ export default function Page(
 
   return (
     <Layout>
-      <Seo templateTitle='Daily Quiz' />
+      <Seo templateTitle='Random Quiz' />
 
       <main>
         <section className='bg-white/0'>
-          <button
-            onClick={handleSubmit}
-            className='rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600'
-          >
-            Submit Data
-          </button>
+          <Quiz seed={seed} gameConfig={gameConfig} />
         </section>
       </main>
     </Layout>

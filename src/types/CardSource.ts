@@ -5,6 +5,8 @@ export enum CardSource {
   MARINE_WORLD = 'Marine World',
   PROMO = 'Promo',
   FAN_MADE = 'Fan Made',
+  ALTERNATIVE = 'Alternative',
+  BEGINNER = 'Beginner',
 }
 
 export const CardSourceSchema = z.enum([
