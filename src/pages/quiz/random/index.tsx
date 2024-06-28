@@ -11,12 +11,15 @@ import { GameConfig } from '@/types/IQuiz';
 import { CardSource } from '@/types/CardSource';
 import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
 import { useSearchParams } from 'next/navigation';
-
+import { v4 as uuidv4 } from 'uuid';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { RerollButton } from '@/components/quiz/Reroll';
 export default function Page(
   _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   const searchParams = useSearchParams();
-  const seed = searchParams.get('seed') || '';
+  const seed = searchParams.get('seed');
 
   const gameConfig: GameConfig = {
     players: 2,
@@ -25,7 +28,7 @@ export default function Page(
     mode: 'default',
   };
 
-  const gameSetupGenerator = new GameSetupGenerator(seed, gameConfig);
+  const gameSetupGenerator = new GameSetupGenerator(seed || '', gameConfig);
   const setup = gameSetupGenerator.generateGameSetup();
   console.log(setup);
 
@@ -60,8 +63,9 @@ export default function Page(
       <Seo templateTitle='Random Quiz' />
 
       <main>
-        <section className='bg-white/0'>
-          <Quiz seed={seed} gameConfig={gameConfig} />
+        <section className='bg-white/0 px-2 py-4'>
+          {!seed && <RerollButton />}
+          {seed && <Quiz seed={seed} gameConfig={gameConfig} />}
         </section>
       </main>
     </Layout>

@@ -20,13 +20,15 @@ import { CardSource } from '@/types/CardSource';
 import { GameConfig } from '@/types/IQuiz';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
-
+import { RerollButton } from './Reroll';
+import { Check, Share2 } from 'lucide-react';
 export type Props = {
   seed: string;
   gameConfig: GameConfig;
 };
 export const Quiz: React.FC<Props> = ({ seed, gameConfig }) => {
   const { t } = useTranslation('common');
+  const [isCopied, setIsCopied] = useState(false);
   const [handList, setHandList] = useState<string[]>([]);
   const [disableHand, setDisableHand] = useState(false);
   const pathname = usePathname();
@@ -34,7 +36,8 @@ export const Quiz: React.FC<Props> = ({ seed, gameConfig }) => {
   const setup = gameSetupGenerator.generateGameSetup();
   console.log(setup);
 
-  const mainPlayerData = setup.playersData.filter((p) => p.isMainPlayer)[0];
+  const mainPlayerIndex = setup.playersData.findIndex((p) => p.isMainPlayer);
+  const mainPlayerData = setup.playersData[mainPlayerIndex];
   const otherPlayerData = setup.playersData.filter((p) => !p.isMainPlayer);
 
   // const [endGameList, setEndGameList] = useState<string[]>([]);
@@ -100,16 +103,32 @@ export const Quiz: React.FC<Props> = ({ seed, gameConfig }) => {
     // console.log('res', res);
   };
 
+  const handleShare = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 500);
+  };
+
   return (
     <Card className='flex flex-col bg-white/50 p-2'>
       <CardHeader>
-        <CardTitle>{t('quiz.today')}</CardTitle>
+        <CardTitle>
+          <div className='flex w-full items-center justify-between gap-4'>
+            <div>{t('quiz.today')}</div>
+            <div className='flex-1'>
+              <RerollButton />
+            </div>
+            <Button onClick={handleShare}>
+              {isCopied ? <Check /> : <Share2 />}
+            </Button>
+          </div>
+        </CardTitle>
       </CardHeader>
-      <div className='flex flex-col gap-4 xl:flex-row'>
-        <Link href={`/quiz/random?seed=${uuidv4()}`}>
-          <Button className='w-full bg-lime-500'>Reroll</Button>
-        </Link>
+      <div className='flex flex-col gap-2 xl:flex-row'>
         <Card className='flex w-full flex-col items-center justify-center gap-4 bg-white/50 p-2 xl:w-3/5'>
+          <div className=''>{`You're ${mainPlayerIndex + 1} order.`}</div>
           <div className='flex max-w-2xl justify-between gap-2'>
             {mainPlayerData.actionCards.map((actionCard) => (
               <Badge key={actionCard}>{t(actionCard)}</Badge>
@@ -134,7 +153,9 @@ export const Quiz: React.FC<Props> = ({ seed, gameConfig }) => {
               />
             ))}
           </div>
-          <MapBoard id={mainPlayerData.maps[0]} />
+          <div className='max-w-2xl'>
+            <MapBoard id={mainPlayerData.maps[0]} />
+          </div>
           {handList.length === 4 && (
             <>
               {/* <SignedOut>
@@ -161,7 +182,7 @@ export const Quiz: React.FC<Props> = ({ seed, gameConfig }) => {
           {/* <CardHeader>
               <CardTitle>{t('Game Set Up')}</CardTitle>
             </CardHeader> */}
-          <Separator orientation='horizontal' className='my-2 self-center' />
+          {/* <Separator orientation='horizontal' className='my-2 self-center' /> */}
 
           <div className='flex w-full flex-row justify-between xl:w-full'>
             {setup.conservations.map((id, idx) => (
@@ -175,6 +196,8 @@ export const Quiz: React.FC<Props> = ({ seed, gameConfig }) => {
             ))}
           </div>
 
+          <Separator orientation='horizontal' className='my-2 self-center' />
+          <div className='text-lg'>Another player</div>
           <div className='flex max-w-2xl justify-between gap-2'>
             {otherPlayerData[0].actionCards.map((actionCard) => (
               <Badge key={actionCard}>{t(actionCard)}</Badge>

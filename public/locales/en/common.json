@@ -513,6 +513,7 @@
     "DIFF_DESC": "Value",
     "RATING_DESC": "Rating"
   },
+  "Reroll": "Reroll",
   "nav": {
     "go": "Go to",
     "home": "Home",
@@ -520,7 +521,8 @@
     "about": "About",
     "diy": "Card Maker",
     "maps": "Maps",
-    "endgames": "Final Scoring"
+    "endgames": "Final Scoring",
+    "random_quiz": "Random Quiz"
   },
   "comment": {
     "login_to_comment": "login to comment"
