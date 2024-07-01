@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
-import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
+import { SignedIn, SignedOut, SignInButton, useUser } from '@clerk/nextjs';
 import { MapBoard } from '@/components/map_boards/MapBoard';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
@@ -21,13 +21,20 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import { useQuery } from '@tanstack/react-query';
 
 export type Props = {
   seed: string;
   gameConfig: GameConfig;
   isDailyQuiz: boolean;
 };
-export const Quiz: React.FC<Props> = ({ seed, gameConfig, isDailyQuiz }) => {
+export const QuizResult: React.FC<Props> = ({
+  seed,
+  gameConfig,
+  isDailyQuiz,
+}) => {
+  const { user } = useUser();
+
   const { t } = useTranslation('common');
   const [isCopied, setIsCopied] = useState(false);
   const [handList, setHandList] = useState<string[]>([]);
@@ -41,6 +48,51 @@ export const Quiz: React.FC<Props> = ({ seed, gameConfig, isDailyQuiz }) => {
   const mainPlayerData = setup.playersData[mainPlayerIndex];
   const otherPlayerData = setup.playersData.filter((p) => !p.isMainPlayer);
 
+  const { data: resultFromAPI } = useQuery(
+    ['quiz-result', seed],
+    async () => {
+      const res = await fetch('/api/quiz/result?seed=' + seed);
+      const data = await res.json();
+      return data as any[];
+    },
+    {
+      refetchInterval: 30000,
+      initialData: [],
+      // onSuccess: (newsingleSubmits) => {
+      //     // 更新 Valtio 的状态
+      //     setsingleSubmits(newsingleSubmits);
+      // }
+    }
+  );
+
+  const cardPickRate = React.useMemo(() => {
+    // if (user && resultFromAPI) {
+    //   console.log(
+    //     resultFromAPI,
+    //     user,
+    //     resultFromAPI.find(
+    //       (singleSubmit) =>
+    //         singleSubmit.userid === user.id && singleSubmit.cardid.toString() === cardId
+    //     )
+    //   );
+    //   return resultFromAPI.find(
+    //     (singleSubmit) =>
+    //       singleSubmit.userid === user.id && singleSubmit.cardid.toString() === cardId
+    //   );
+    // }
+    const cardPick: Map<string, number> = new Map();
+    let total = 0;
+    resultFromAPI.forEach((res) => {
+      total++;
+      res.data.cards.forEach((card: string) => {
+        if (cardPick.has(card)) cardPick.set(card, cardPick.get(card)! + 1);
+        else cardPick.set(card, 1);
+      });
+    });
+
+    return { cardPick, total };
+    return null;
+  }, [user, resultFromAPI]);
   // const [endGameList, setEndGameList] = useState<string[]>([]);
   // const [disableEndGame, setDisableEndGame] = useState(false);
 

@@ -6,6 +6,7 @@ import * as React from 'react';
 
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
+import { CardSource } from '@/types/CardSource';
 
 export default function Page(
   _props: InferGetStaticPropsType<typeof getStaticProps>
@@ -20,7 +21,22 @@ export default function Page(
           'Content-Type': 'application/json',
           // 'X-API-Key': 'c&wUxR5V8jV$hZnSMcsD%',
         },
-        body: JSON.stringify({ setUpType: 'ALL EXP' }),
+        body: JSON.stringify({
+          gameConfig: {
+            cardSources: [
+              CardSource.BASE,
+              CardSource.MARINE_WORLD,
+              CardSource.PROMO,
+            ],
+            mapSources: [
+              CardSource.BASE,
+              CardSource.ALTERNATIVE,
+              CardSource.PROMO,
+            ],
+            mode: 'default',
+            players: 4,
+          },
+        }),
       });
 
       if (!response.ok) {

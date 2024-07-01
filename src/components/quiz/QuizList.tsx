@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
-import { Quiz } from '@/components/quiz/DailyQuiz';
+import { Quiz } from '@/components/quiz/Quiz';
 import { QuizInfo } from '@/components/quiz/QuizInfo';
 // import { CardSource } from '@/types/CardSource';
 // import { IRating } from '@/types/IRating';
@@ -49,10 +49,17 @@ export const QuizList: React.FC = () => {
   });
   const todayQuiz = allQuizs ? allQuizs[0] : null;
 
+  console.log(todayQuiz);
   return (
     <div className=''>
       {!allQuizs && 'loading'}
-      {todayQuiz && <Quiz {...todayQuiz} />}
+      {todayQuiz && (
+        <Quiz
+          seed={todayQuiz.seed}
+          gameConfig={todayQuiz.gameConfig}
+          isDailyQuiz={true}
+        />
+      )}
       <Separator orientation='horizontal' className='my-2' />
       <Card className='grid grid-cols-1 gap-2 bg-white/50 p-2'>
         <CardHeader>

@@ -24,12 +24,15 @@ import { RerollButton } from './Reroll';
 import { Check, Share2 } from 'lucide-react';
 import { ActionIconCard } from '@/components/actions/icons/ActionIconCard';
 import { cn } from '@/lib/utils';
+import { useRouter } from 'next/router';
 export type Props = {
+  seed: string;
   playerData: IPlayerData;
   playerIndex: number;
   canSubmit: boolean;
 };
 export const PlayerArea: React.FC<Props> = ({
+  seed,
   playerData,
   playerIndex,
   canSubmit,
@@ -38,7 +41,7 @@ export const PlayerArea: React.FC<Props> = ({
   const [handList, setHandList] = useState<string[]>([]);
   const [disableHand, setDisableHand] = useState(false);
   const pathname = usePathname();
-
+  const router = useRouter();
   const handleHandSelect = (id: string, add: boolean) => {
     if (handList.length < 4 && add) setHandList([...handList, id]);
     if (!add) setHandList(handList.filter((i) => i !== id));
@@ -49,46 +52,29 @@ export const PlayerArea: React.FC<Props> = ({
 
   const handleSubmit = async () => {
     console.log('handList', handList);
-    // const cardList = [
-    //   todayQuiz.card_1,
-    //   todayQuiz.card_2,
-    //   todayQuiz.card_3,
-    //   todayQuiz.card_4,
-    //   todayQuiz.card_5,
-    //   todayQuiz.card_6,
-    //   todayQuiz.card_7,
-    //   todayQuiz.card_8,
-    // ];
-    // const res: boolean[] = [];
-    // for (let i = 0; i < cardList.length; i++) {
-    //   if (handList.includes(cardList[i])) {
-    //     res.push(true);
-    //   } else {
-    //     res.push(false);
-    //   }
-    // }
 
-    // try {
-    //   const response = await fetch('/api/quiz/submit', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       // 'X-API-Key': 'c&wUxR5V8jV$hZnSMcsD%',
-    //     },
-    //     body: JSON.stringify({ setUpType: 'ALL EXP', cards: res }),
-    //   });
+    try {
+      const response = await fetch('/api/quiz/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // 'X-API-Key': 'c&wUxR5V8jV$hZnSMcsD%',
+        },
+        body: JSON.stringify({ seed: seed, cards: handList }),
+      });
 
-    //   if (!response.ok) {
-    //     throw new Error(`Error: ${response.status}`);
-    //   }
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
 
-    //   const result = await response.json();
-    //   console.log('Success:', result);
+      const result = await response.json();
+      console.log('Success:', result);
+      return router.push('/daily-quiz/' + seed);
 
-    //   // 处理结果...
-    // } catch (error) {
-    //   console.error('An error occurred:', error);
-    // }
+      // 处理结果...
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
 
     // console.log('res', res);
   };

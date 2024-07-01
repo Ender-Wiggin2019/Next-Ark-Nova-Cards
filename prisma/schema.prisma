@@ -87,23 +87,10 @@ model SetUp {
   id        Int      @id @default(autoincrement())
   createdat DateTime @default(now())
   updatedat DateTime @updatedAt
-  total    Int
-  card_1  String   @db.VarChar(10)
-  card_2  String   @db.VarChar(10)
-  card_3  String   @db.VarChar(10)
-  card_4  String   @db.VarChar(10)
-  card_5  String   @db.VarChar(10)
-  card_6  String   @db.VarChar(10)
-  card_7  String   @db.VarChar(10)
-  card_8  String   @db.VarChar(10)
-  map_1  String   @db.VarChar(10)
-  map_2  String   @db.VarChar(10)
-  endgame_1   String   @db.VarChar(10)
-  endgame_2   String   @db.VarChar(10)
-  conservation_1  String   @db.VarChar(10)
-  conservation_2  String   @db.VarChar(10)
-  conservation_3  String   @db.VarChar(10)
-  game_setting String   @db.VarChar(255)
+  total    Int // total rating
+  seed String   @db.VarChar(255)
+  gameconfig Json
+  setup Json
   title     String   @db.VarChar(255)
   content   String?
   likes    Int      @default(0)
@@ -113,7 +100,7 @@ model SetUp {
 
 model UserSetUp {
   id        Int      @id @default(autoincrement())
-  set_up_id   String   @db.VarChar(10)
+  seed   String   @db.VarChar(255)
   createdat DateTime @default(now())
   updatedat DateTime @updatedAt
   rating    Int
@@ -122,18 +109,7 @@ model UserSetUp {
   userid  String   @db.VarChar(255)
   userinfo Json
   likes    Int      @default(0)
-  card_1  Boolean   @db.Boolean()
-  card_2  Boolean   @db.Boolean()
-  card_3  Boolean   @db.Boolean()
-  card_4  Boolean   @db.Boolean()
-  card_5  Boolean   @db.Boolean()
-  card_6  Boolean   @db.Boolean()
-  card_7  Boolean   @db.Boolean()
-  card_8  Boolean   @db.Boolean()
-  map_1  Boolean   @db.Boolean()
-  map_2  Boolean   @db.Boolean()
-  endgame_1   Boolean   @db.Boolean()
-  endgame_2   Boolean   @db.Boolean()
+  data Json
 
-  @@index(set_up_id)
+  @@index(seed)
 }

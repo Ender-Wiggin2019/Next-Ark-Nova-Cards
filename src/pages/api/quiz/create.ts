@@ -1,10 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { prisma } from '@/lib/prisma-client';
+import { v4 as uuidv4 } from 'uuid';
 
 // import { generateSetUp } from '@/utils/GenerateRandomCards';
 
 import { CardSource } from '@/types/CardSource';
+import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
+import { endOfDay, startOfDay } from 'date-fns';
 // POST /api/comments/create/
 export default async function post(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -13,50 +16,52 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
 
   const apiKey = req.headers['x-api-key'];
 
-  console.log(apiKey, apiKey !== process.env.API_SECRET_KEY);
+  console.log(apiKey, apiKey !== process.env.API_SECRET_KEY, req);
 
-  let setUpType = req.body.setUpType;
-  let cardSources;
-  if (!setUpType) {
-    return res.status(400).json({ error: 'Bad Request' });
-  } else if (setUpType === 'BASE') {
-    cardSources = [CardSource.BASE];
-  } else {
-    setUpType = 'ALL EXP';
-    cardSources = [CardSource.BASE, CardSource.MARINE_WORLD, CardSource.PROMO];
+  const gameConfig = req.body.gameConfig;
+
+  if (!gameConfig) {
+    return res.status(400).json({ error: 'Need to provide game config' });
   }
   //   if (!apiKey || apiKey !== process.env.API_SECRET_KEY) {
   //     return res.status(401).json({ error: 'Unauthorized' });
   //   }
 
-  const seed = new Date().toISOString().slice(0, 10).replace(/-/g, '');
-  // const { cards, maps, finalScoring, conservations } =
-  //   generateSetUp(seed, cardSources);
-  // const result = await prisma.setUp.create({
-  //   data: {
-  //     total: 0,
-  //     card_1: cards[0],
-  //     card_2: cards[1],
-  //     card_3: cards[2],
-  //     card_4: cards[3],
-  //     card_5: cards[4],
-  //     card_6: cards[5],
-  //     card_7: cards[6],
-  //     card_8: cards[7],
-  //     map_1: maps[0],
-  //     map_2: maps[1],
-  //     endgame_1: finalScoring[0],
-  //     endgame_2: finalScoring[1],
-  //     conservation_1: conservations[0],
-  //     conservation_2: conservations[1],
-  //     conservation_3: conservations[2],
-  //     title: setUpType,
-  //     content: '',
-  //     game_setting: '',
+  const todayStart = startOfDay(new Date());
+  const todayEnd = endOfDay(new Date());
+  // 检查是否存在今天创建的记录
+  const existingRecord = await prisma.setUp.findFirst({
+    where: {
+      createdat: {
+        gte: todayStart,
+        lte: todayEnd,
+      },
+    },
+  });
 
-  //     likes: 0,
-  //   },
-  // });
-  // return res.status(201).json(result);
-  return res.status(201).json('');
+  // 如果存在，则不创建新记录，直接返回存在的记录
+  if (existingRecord) {
+    return res.status(200).json(existingRecord);
+  }
+
+  const seed =
+    new Date().toISOString().slice(0, 10) + '-' + uuidv4().slice(0, 4);
+
+  const gameSetupGenerator = new GameSetupGenerator(seed, gameConfig);
+  const setup = gameSetupGenerator.generateGameSetup();
+
+  const setupJson = JSON.parse(JSON.stringify(setup));
+  const result = await prisma.setUp.create({
+    data: {
+      total: 0,
+      seed: seed,
+      gameconfig: gameConfig,
+      setup: setupJson,
+      title: '',
+      content: '',
+      likes: 0,
+    },
+  });
+  return res.status(201).json(result);
+  // return res.status(201).json('');
 }

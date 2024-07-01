@@ -15,7 +15,7 @@ export const ActionIconCard = ({ action }: ActionIconCardProps) => {
       <div className='mt-2 scale-125'>
         <TagIcon type={actionToTag(action)} />
       </div>
-      <div className='flex h-6 w-full items-center justify-center bg-white text-xs'>
+      <div className='flex h-6 w-full items-center justify-center rounded-b bg-white text-xs'>
         <p className='invisible md:visible'>{t(action)}</p>
       </div>
     </div>

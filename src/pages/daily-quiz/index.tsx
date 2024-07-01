@@ -1,6 +1,6 @@
 'use client';
 
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
@@ -10,16 +10,22 @@ import { Quiz } from '@/components/quiz/Quiz';
 import { GameConfig } from '@/types/IQuiz';
 import { CardSource } from '@/types/CardSource';
 import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
-import { useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { RerollButton } from '@/components/quiz/Reroll';
-export default function Page(
-  _props: InferGetStaticPropsType<typeof getStaticProps>
-) {
+import { QuizResult } from '@/components/quiz/QuizResult';
+export default function Page() {
+  const router = useRouter();
+
   const searchParams = useSearchParams();
   const seed = searchParams.get('seed');
+  const result = searchParams.get('result');
+
+  if (Array.isArray(seed)) {
+    return null;
+  }
 
   const gameConfig: GameConfig = {
     players: 2,
@@ -79,9 +85,16 @@ export default function Page(
 
       <main>
         <section className='bg-white/0 px-2 py-4'>
-          {!seed && <RerollButton />}
-          {seed && (
-            <Quiz seed={seed} gameConfig={gameConfig} isDailyQuiz={false} />
+          {/* {!seed && <RerollButton />} */}
+          {seed && !result && (
+            <Quiz seed={seed} gameConfig={gameConfig} isDailyQuiz={true} />
+          )}
+          {seed && result && (
+            <QuizResult
+              seed={seed}
+              gameConfig={gameConfig}
+              isDailyQuiz={true}
+            />
           )}
         </section>
       </main>
@@ -95,6 +108,6 @@ type Props = {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+    ...(await serverSideTranslations(locale ?? 'zh-CN', ['common'])),
   },
 });
