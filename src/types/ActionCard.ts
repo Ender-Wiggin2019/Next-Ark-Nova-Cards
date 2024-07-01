@@ -2,7 +2,7 @@ import { CardSource } from '@/types/CardSource';
 import { EndangeredCategory } from '@/types/EndangeredCategory';
 import { Ability } from '@/types/KeyWords';
 import { SpecialEnclosure } from '@/types/SpecialEnclosure';
-import { Tag } from '@/types/Tags';
+import { OtherTag, Tag } from '@/types/Tags';
 
 export enum ActionCardType {
   ANIMAL = 'Animal',
@@ -43,3 +43,23 @@ export interface ActionCard {
   // meta data
   source: CardSource;
 }
+
+export const actionToTag = (action: ActionCardType) => {
+  switch (action) {
+    case ActionCardType.ANIMAL: {
+      return OtherTag.AnimalsI;
+    }
+    case ActionCardType.ASSOCIATION: {
+      return OtherTag.WorkerI;
+    }
+    case ActionCardType.BUILD: {
+      return OtherTag.BuildI;
+    }
+    case ActionCardType.CARDS: {
+      return OtherTag.CardsI;
+    }
+    case ActionCardType.SPONSORS: {
+      return OtherTag.SponsorsI;
+    }
+  }
+};

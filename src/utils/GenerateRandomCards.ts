@@ -7,6 +7,7 @@ import { CardType } from '@/types/Card';
 import { CardSource } from '@/types/CardSource';
 import { getMaps } from '@/utils/getMaps';
 import { DEFAULT_CONFIG, GameConfig, IPlayerData } from '@/types/IQuiz';
+import { ActionCardType } from '@/types/ActionCard';
 export const NUMBER_HAND = 8;
 export const NUMBER_MAP = 2;
 export const NUMBER_FINAL_SCORING = 2;
@@ -130,12 +131,18 @@ export class GameSetupGenerator {
     return this.generateAndDistribute(ids, NUMBER_FINAL_SCORING);
   }
 
-  public generateActionCards(): string[][] {
-    const cards = ['CARDS', 'SPONSORS', 'ASSOCIATION', 'BUILD'];
+  public generateActionCards(): ActionCardType[][] {
+    const cards = [
+      ActionCardType.CARDS,
+      ActionCardType.SPONSORS,
+      ActionCardType.ASSOCIATION,
+      ActionCardType.BUILD,
+    ];
+
     return new Array(this.gameConfig.players)
       .fill(0)
       .map((_, index) => [
-        'ANIMAL',
+        ActionCardType.ANIMAL,
         ...this.sampleSizeWithSeed(cards, 4, this.seed + index.toString()),
       ]);
   }

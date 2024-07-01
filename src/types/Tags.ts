@@ -31,6 +31,8 @@ export enum OtherTag {
   CardsII = 'cardsII',
   SponsorsI = 'sponsorsI',
   SponsorsII = 'sponsorsII',
+  AssociationI = 'associationI',
+  AssociationII = 'associationII',
   WorkerI = 'workerI',
   WorkerII = 'workerII',
   Appeal = 'appeal',

@@ -22,6 +22,16 @@ import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import { RerollButton } from './Reroll';
 import { Check, Share2 } from 'lucide-react';
+import { ActionIconCard } from '@/components/actions/icons/ActionIconCard';
+import { PlayerArea } from '@/components/quiz/PlayerArea';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+
 export type Props = {
   seed: string;
   gameConfig: GameConfig;
@@ -127,56 +137,32 @@ export const Quiz: React.FC<Props> = ({ seed, gameConfig }) => {
         </CardTitle>
       </CardHeader>
       <div className='flex flex-col gap-2 xl:flex-row'>
-        <Card className='flex w-full flex-col items-center justify-center gap-4 bg-white/50 p-2 xl:w-3/5'>
-          <div className=''>{`You're ${mainPlayerIndex + 1} order.`}</div>
-          <div className='flex max-w-2xl justify-between gap-2'>
-            {mainPlayerData.actionCards.map((actionCard) => (
-              <Badge key={actionCard}>{t(actionCard)}</Badge>
-            ))}
-          </div>
-          <div className='grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-4'>
-            {mainPlayerData.cards.map((id) => (
-              <CardWrapper
-                key={'main_card_' + id}
-                id={id}
-                canSelect={true}
-                disable={disableHand}
-                onSelect={handleHandSelect}
-              />
-            ))}
-            {mainPlayerData.finalScoring.map((id) => (
-              <CardWrapper
-                key={'main_final_' + id}
-                id={id}
-                canSelect={false}
-                disable={false}
-              />
-            ))}
-          </div>
-          <div className='max-w-2xl'>
-            <MapBoard id={mainPlayerData.maps[0]} />
-          </div>
-          {handList.length === 4 && (
-            <>
-              {/* <SignedOut>
-                <SignInButton mode='modal' redirectUrl={pathname}>
-                  <Button type='button'>
-                    <UserArrowLeftIcon className='mr-1 h-5 w-5' />
-                    {t('comment.login_to_comment')}
-                  </Button>
-                </SignInButton>
-              </SignedOut>
+        <Carousel
+          className='flex w-full flex-col'
+          opts={{ loop: true, dragFree: true, startIndex: mainPlayerIndex }}
+        >
+          <div className='flex items-center justify-between px-6'>
+            <CarouselPrevious />
+            {/* <div className="flex justify-center items-center">
 
-              <SignedIn>
-                <Button className='text-bold mt-2 w-24 bg-lime-500 text-lg text-white hover:bg-lime-600'
-                  onClick={handleSubmit}
-                >
-                  {t('Submit')}
-                </Button>
-              </SignedIn> */}
-            </>
-          )}
-        </Card>
+<Badge className=""></Badge>
+        </div> */}
+            <CarouselNext />
+          </div>
+          <CarouselContent className='mt-2 w-full'>
+            {setup.playersData.map((playerData, index) => (
+              <CarouselItem key={index}>
+                <div className=''>
+                  <PlayerArea
+                    playerData={playerData}
+                    playerIndex={index}
+                    canSubmit={false}
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
         <Separator orientation='vertical' className='mx-2' />
         <Card className='flex w-full flex-col items-center justify-start gap-4 bg-white/50 p-2 xl:w-2/5'>
           {/* <CardHeader>
@@ -196,7 +182,7 @@ export const Quiz: React.FC<Props> = ({ seed, gameConfig }) => {
             ))}
           </div>
 
-          <Separator orientation='horizontal' className='my-2 self-center' />
+          {/* <Separator orientation='horizontal' className='my-2 self-center' />
           <div className='text-lg'>Another player</div>
           <div className='flex max-w-2xl justify-between gap-2'>
             {otherPlayerData[0].actionCards.map((actionCard) => (
@@ -204,7 +190,7 @@ export const Quiz: React.FC<Props> = ({ seed, gameConfig }) => {
             ))}
           </div>
 
-          <MapBoard id={otherPlayerData[0].maps[0]} />
+          <MapBoard id={otherPlayerData[0].maps[0]} /> */}
         </Card>
       </div>
     </Card>

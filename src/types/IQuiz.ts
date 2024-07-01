@@ -1,3 +1,4 @@
+import { ActionCardType } from '@/types/ActionCard';
 import { CardSource } from '@/types/CardSource';
 
 export type GameMode = 'default' | 'arena';
@@ -30,7 +31,7 @@ export const DEFAULT_CONFIG: GameConfig = {
 export interface IPlayerData {
   cards: string[];
   maps: string[];
-  actionCards: string[];
+  actionCards: ActionCardType[];
   finalScoring: string[];
   isMainPlayer: boolean;
 }
