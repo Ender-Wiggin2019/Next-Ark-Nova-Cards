@@ -1,20 +1,19 @@
 'use client';
 
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useSearchParams } from 'next/navigation';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 
 import Layout from '@/components/layout/Layout';
-import Seo from '@/components/Seo';
 import { Quiz } from '@/components/quiz/Quiz';
-import { GameConfig } from '@/types/IQuiz';
-import { CardSource } from '@/types/CardSource';
-import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
-import { useSearchParams } from 'next/navigation';
-import { v4 as uuidv4 } from 'uuid';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import { RerollButton } from '@/components/quiz/Reroll';
+import Seo from '@/components/Seo';
+
+import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
+
+import { CardSource } from '@/types/CardSource';
+import { GameConfig } from '@/types/IQuiz';
 export default function Page(
   _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {

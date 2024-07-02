@@ -1,32 +1,22 @@
+import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
+import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
-import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
-import { MapBoard } from '@/components/map_boards/MapBoard';
-import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import CardWrapper from '@/components/wrapper/CardWrapper';
-import { v4 as uuidv4 } from 'uuid';
 
-import {
-  GameSetupGenerator,
-  NUMBER_CONSERVATION,
-  NUMBER_FINAL_SCORING,
-  NUMBER_HAND,
-} from '@/utils/GenerateRandomCards';
-import { UserArrowLeftIcon } from '~/index';
-import { usePathname } from 'next/navigation';
-import { CardSource } from '@/types/CardSource';
-import { GameConfig, IPlayerData } from '@/types/IQuiz';
-import { Badge } from '@/components/ui/badge';
-import Link from 'next/link';
-import { RerollButton } from './Reroll';
-import { Check, Share2 } from 'lucide-react';
-import { ActionIconCard } from '@/components/actions/icons/ActionIconCard';
 import { cn } from '@/lib/utils';
-import { useRouter } from 'next/router';
+
+import { ActionIconCard } from '@/components/actions/icons/ActionIconCard';
+import { MapBoard } from '@/components/map_boards/MapBoard';
 import ProgressBar from '@/components/quiz/ProgressBar';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import CardWrapper from '@/components/wrapper/CardWrapper';
+
+import { IPlayerData } from '@/types/IQuiz';
+
+import { UserArrowLeftIcon } from '~/index';
 export type Props = {
   seed: string;
   playerData: IPlayerData;
@@ -116,7 +106,7 @@ export const PlayerArea: React.FC<Props> = ({
               playerData.cards.map((id) => (
                 <div
                   key={'main_card_' + id}
-                  className='duration-300 hover:z-10 hover:scale-[150%]'
+                  className='duration-300 hover:z-10 hover:scale-125'
                 >
                   <CardWrapper
                     id={id}
@@ -156,7 +146,7 @@ export const PlayerArea: React.FC<Props> = ({
               />
             ))}
           </div>
-          {handList.length === 4 && (
+          {handList.length === 4 && canSubmit && (
             <>
               <SignedOut>
                 <SignInButton mode='modal' redirectUrl={pathname}>

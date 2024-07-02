@@ -1,7 +1,8 @@
-import TagIcon from '@/components/icons/tokens/TagIcon';
-import { Badge } from '@/components/ui/badge';
-import { ActionCardType, actionToTag } from '@/types/ActionCard';
 import { useTranslation } from 'next-i18next';
+
+import TagIcon from '@/components/icons/tokens/TagIcon';
+
+import { ActionCardType, actionToTag } from '@/types/ActionCard';
 
 type ActionIconCardProps = {
   action: ActionCardType;

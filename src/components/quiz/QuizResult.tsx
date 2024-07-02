@@ -1,19 +1,13 @@
+import { useUser } from '@clerk/nextjs';
+import { useQuery } from '@tanstack/react-query';
+import { Check, Share2 } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
-import { SignedIn, SignedOut, SignInButton, useUser } from '@clerk/nextjs';
-import { MapBoard } from '@/components/map_boards/MapBoard';
+
+import { PlayerArea } from '@/components/quiz/PlayerArea';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import CardWrapper from '@/components/wrapper/CardWrapper';
-import { v4 as uuidv4 } from 'uuid';
-
-import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
-import { usePathname } from 'next/navigation';
-import { GameConfig } from '@/types/IQuiz';
-import { RerollButton } from './Reroll';
-import { Check, Share2 } from 'lucide-react';
-import { PlayerArea } from '@/components/quiz/PlayerArea';
 import {
   Carousel,
   CarouselContent,
@@ -21,7 +15,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { useQuery } from '@tanstack/react-query';
+import { Separator } from '@/components/ui/separator';
+import CardWrapper from '@/components/wrapper/CardWrapper';
+
+import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
+
+import { RerollButton } from './Reroll';
+
+import { GameConfig } from '@/types/IQuiz';
 
 export type Props = {
   seed: string;
@@ -37,16 +38,12 @@ export const QuizResult: React.FC<Props> = ({
 
   const { t } = useTranslation('common');
   const [isCopied, setIsCopied] = useState(false);
-  const [handList, setHandList] = useState<string[]>([]);
-  const [disableHand, setDisableHand] = useState(false);
   const pathname = usePathname();
   const gameSetupGenerator = new GameSetupGenerator(seed, gameConfig);
   const setup = gameSetupGenerator.generateGameSetup();
   console.log(setup);
 
   const mainPlayerIndex = setup.playersData.findIndex((p) => p.isMainPlayer);
-  const mainPlayerData = setup.playersData[mainPlayerIndex];
-  const otherPlayerData = setup.playersData.filter((p) => !p.isMainPlayer);
 
   const { data: resultFromAPI } = useQuery(
     ['quiz-result', seed],
@@ -91,70 +88,7 @@ export const QuizResult: React.FC<Props> = ({
     });
 
     return { cardPick, total };
-    return null;
   }, [user, resultFromAPI]);
-  // const [endGameList, setEndGameList] = useState<string[]>([]);
-  // const [disableEndGame, setDisableEndGame] = useState(false);
-
-  function numArray(n: number) {
-    return Array.from({ length: n }, (_, index) => index + 1);
-  }
-  // const handList = Array.from({ length: NUMBER_HAND }, (_, index) => index + 1);
-  // const mapList = Array.from({ length: NUMBER_MAP }, (_, index) => index + 1);
-
-  const handleHandSelect = (id: string, add: boolean) => {
-    if (handList.length < 4 && add) setHandList([...handList, id]);
-    if (!add) setHandList(handList.filter((i) => i !== id));
-    if (add && handList.length >= 3) setDisableHand(true);
-    else if (!add && handList.length >= 4) setDisableHand(false);
-    // console.log('5555', handList, disableHand);
-  };
-
-  const handleSubmit = async () => {
-    console.log('handList', handList);
-    // const cardList = [
-    //   todayQuiz.card_1,
-    //   todayQuiz.card_2,
-    //   todayQuiz.card_3,
-    //   todayQuiz.card_4,
-    //   todayQuiz.card_5,
-    //   todayQuiz.card_6,
-    //   todayQuiz.card_7,
-    //   todayQuiz.card_8,
-    // ];
-    // const res: boolean[] = [];
-    // for (let i = 0; i < cardList.length; i++) {
-    //   if (handList.includes(cardList[i])) {
-    //     res.push(true);
-    //   } else {
-    //     res.push(false);
-    //   }
-    // }
-
-    // try {
-    //   const response = await fetch('/api/quiz/submit', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       // 'X-API-Key': 'c&wUxR5V8jV$hZnSMcsD%',
-    //     },
-    //     body: JSON.stringify({ setUpType: 'ALL EXP', cards: res }),
-    //   });
-
-    //   if (!response.ok) {
-    //     throw new Error(`Error: ${response.status}`);
-    //   }
-
-    //   const result = await response.json();
-    //   console.log('Success:', result);
-
-    //   // 处理结果...
-    // } catch (error) {
-    //   console.error('An error occurred:', error);
-    // }
-
-    // console.log('res', res);
-  };
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href);

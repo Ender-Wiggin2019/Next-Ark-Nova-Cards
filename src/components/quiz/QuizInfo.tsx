@@ -4,9 +4,6 @@ import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
-import { cn } from '@/lib/utils';
-
-import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 
 export const QuizInfo: React.FC<Prisma.SetUpGroupByOutputType> = (props) => {

@@ -1,12 +1,14 @@
+import { Sparkles } from 'lucide-react';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Trans, useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React, { useEffect, useState } from 'react';
 
-import { MapBoards } from '@/data/MapBoards';
 import { AlternativeMapBoards } from '@/data/AlternativeMapBoards';
+import { MapBoards } from '@/data/MapBoards';
 
 import TextButton from '@/components/buttons/TextButton';
 import { Comments } from '@/components/comments/Comments';
@@ -18,12 +20,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Switch } from '@/components/ui/switch';
 
 import { MapBoard } from '@/types/MapBoard';
-import { Switch } from '@/components/ui/switch';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Sparkles } from 'lucide-react';
-import Link from 'next/link';
 type Props = {
   // Add custom props here
 };

@@ -1,6 +1,5 @@
 import Image from 'next/image';
 
-import { MapBoards } from '@/data/MapBoards';
 import { getMaps } from '@/utils/getMaps';
 
 type MapBoardProps = {

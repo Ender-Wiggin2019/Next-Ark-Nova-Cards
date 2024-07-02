@@ -1,7 +1,7 @@
 import { clerkClient, getAuth } from '@clerk/nextjs/server';
+import { endOfDay, startOfDay } from 'date-fns';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { z } from 'zod';
-import { startOfDay, endOfDay } from 'date-fns';
 
 import { prisma } from '@/lib/prisma-client';
 

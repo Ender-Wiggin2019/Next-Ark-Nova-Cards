@@ -1,5 +1,6 @@
 import { AlternativeMapBoards } from '@/data/AlternativeMapBoards';
 import { MapBoards } from '@/data/MapBoards';
+
 import { CardSource } from '@/types/CardSource';
 import { MapBoard } from '@/types/MapBoard';
 
