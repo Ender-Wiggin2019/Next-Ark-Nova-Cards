@@ -14,6 +14,6 @@ jobs:
       - name: Call API
         run: |
           curl -X POST -H "Content-Type: application/json" \
-          -H "X-API-Key: \${{ secrets.DAILY_QUIZ_API }}" \
+          -H "X-API-Key: ${{ secrets.DAILY_QUIZ_API }}" \
           -d '{"gameConfig": {"cardSources": ["Base", "Marine World", "Promo"], "mapSources": ["Base", "Alternative", "Promo"], "mode": "default", "players": 2}}' \
           https://ark-nova.ender-wiggin.com/api/quiz/create
