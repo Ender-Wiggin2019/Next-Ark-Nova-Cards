@@ -8,7 +8,8 @@
     "today": "Daily Quiz",
     "result": "Statistics",
     "random": "Random Quiz",
-    "prev": "Previous Quizzes"
+    "prev": "Previous Quizzes",
+    "total": "Total"
   },
   "abilities": {
     "clever_description": "After finishing you may place any Action card on {Slot-1} .",
