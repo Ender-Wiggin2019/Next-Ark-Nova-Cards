@@ -80,7 +80,7 @@ export default function Page() {
 
   return (
     <Layout>
-      <Seo templateTitle='Random Quiz' />
+      <Seo templateTitle='Daily Quiz' />
 
       <main>
         <section className='bg-white/0 px-2 py-4'>
