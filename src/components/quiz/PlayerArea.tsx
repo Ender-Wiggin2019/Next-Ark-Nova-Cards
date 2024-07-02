@@ -2,7 +2,7 @@ import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -47,6 +47,12 @@ export const PlayerArea: React.FC<Props> = ({
     else if (!add && handList.length >= 4) setDisableHand(false);
     // console.log('5555', handList, disableHand);
   };
+
+  console.log(handList);
+  useEffect(() => {
+    setHandList([]);
+    setDisableHand(false);
+  }, [seed]);
 
   const handleSubmit = async () => {
     const sortedHandList = [...handList].sort();
