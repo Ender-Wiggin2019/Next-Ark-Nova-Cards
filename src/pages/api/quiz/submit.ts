@@ -19,7 +19,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
 
   const apiKey = req.headers['x-api-key'];
 
-  console.log(apiKey, apiKey !== process.env.API_SECRET_KEY, req);
+  // console.log(apiKey, apiKey !== process.env.API_SECRET_KEY, req);
 
   const seed = req.body.seed;
   const name = req.body.name;
@@ -33,9 +33,9 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
   if (!seed) {
     return res.status(400).json({ error: 'Bad Request' });
   }
-  if (!apiKey || apiKey !== process.env.API_SECRET_KEY) {
-    return res.status(401).json({ error: 'Unauthorized' });
-  }
+  // if (!apiKey || apiKey !== process.env.API_SECRET_KEY) {
+  //   return res.status(401).json({ error: 'Unauthorized' });
+  // }
 
   const todayStart = startOfDay(new Date());
   const todayEnd = endOfDay(new Date());

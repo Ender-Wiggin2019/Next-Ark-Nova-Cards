@@ -22,9 +22,11 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
   if (!gameConfig) {
     return res.status(400).json({ error: 'Need to provide game config' });
   }
-  //   if (!apiKey || apiKey !== process.env.API_SECRET_KEY) {
-  //     return res.status(401).json({ error: 'Unauthorized' });
-  //   }
+  if (!apiKey || apiKey !== process.env.API_SECRET_KEY) {
+    return res
+      .status(401)
+      .json({ error: 'Unauthorized due to invalid API key' });
+  }
 
   const todayStart = startOfDay(new Date());
   const todayEnd = endOfDay(new Date());

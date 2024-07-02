@@ -39,7 +39,6 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
     if ((!canSelect || disable) && !selected) return;
     setSelected(!selected);
     if (onSelect) {
-      console.log('666', id, selected);
       onSelect(id, !selected);
     }
   };

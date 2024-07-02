@@ -49,11 +49,7 @@ export const PlayerArea: React.FC<Props> = ({
   };
 
   const handleSubmit = async () => {
-    console.log('handList', handList);
     const sortedHandList = [...handList].sort();
-    console.log(
-      JSON.stringify({ seed: seed, name: userName, cards: sortedHandList })
-    );
     try {
       const response = await fetch('/api/quiz/submit', {
         method: 'POST',
