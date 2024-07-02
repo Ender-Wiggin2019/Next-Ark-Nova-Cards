@@ -12,7 +12,7 @@ import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
 import { usePathname } from 'next/navigation';
 import { GameConfig } from '@/types/IQuiz';
 import { RerollButton } from './Reroll';
-import { Check, Share2 } from 'lucide-react';
+import { Check, Share2, Terminal } from 'lucide-react';
 import { PlayerArea } from '@/components/quiz/PlayerArea';
 import {
   Carousel,
@@ -21,6 +21,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 export type Props = {
   seed: string;
@@ -123,7 +124,16 @@ export const Quiz: React.FC<Props> = ({
       <CardHeader>
         <CardTitle>
           <div className='flex w-full items-center justify-between gap-4'>
-            <div>{t(header || 'quiz.today')}</div>
+            <div className='flex items-start justify-start'>
+              <div>{t(header || 'quiz.today')}</div>
+              {isDailyQuiz && (
+                <Alert className='w-30 -mt-4 bg-yellow-200/50 py-1 text-xs'>
+                  {/* <Terminal className='h-4 w-4' /> */}
+                  {/* <AlertTitle>Notice</AlertTitle> */}
+                  <AlertDescription>BETA</AlertDescription>
+                </Alert>
+              )}
+            </div>
             {!isDailyQuiz && (
               <div className='flex-1'>
                 <RerollButton />
@@ -170,7 +180,7 @@ export const Quiz: React.FC<Props> = ({
             </CardHeader> */}
           {/* <Separator orientation='horizontal' className='my-2 self-center' /> */}
 
-          <div className='flex w-full flex-row justify-between xl:w-full'>
+          <div className='flex w-full max-w-2xl flex-row justify-between xl:w-full'>
             {setup.conservations.map((id, idx) => (
               <CardWrapper
                 key={'q_conservation_' + id}

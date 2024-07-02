@@ -7,9 +7,9 @@
   "quiz": {
     "today": "每日题目",
     "result": "统计数据",
-    "random": "随机题目"
+    "random": "随机题目",
+    "prev": "历年真题"
   },
-
   "abilities": {
     "clever_description": "在当前行动完成后，你可以将任意一张行动卡牌放置到 {Slot-1} 。",
     "sun_bathing_description": "你可以从你的手牌中卖出最多{}张卡牌，每张卡牌 {Money-4} 。",
@@ -74,7 +74,7 @@
     "monkey_gang_description": "展示牌堆顶的牌，直到出现第一张带有 {PrimateTag} 的牌，将其加入你的手牌 . 将剩余的牌置于牌堆底.",
     "water_affinity_description": "如果萌宠馆临水，获得 {Appeal-2} 。"
   },
-  "Sponsors": {
+  "sponsors": {
     "s201_desc1": "从牌库抽一张牌或者从声望范围内获得一张牌。",
     "s201_desc2": "从牌库抽一张牌或者从声望范围内获得一张牌。",
     "s201_desc3": "若你有3/6个研究标记， <br> 则获得 {ConservationPoint-1} / {ConservationPoint-2}。",
@@ -532,7 +532,8 @@
     "diy": "卡牌制作",
     "maps": "地图",
     "endgames": "终局计分",
-    "random_quiz": "随机题目"
+    "random_quiz": "随机题目",
+    "daily_quiz": "每日挑战"
   },
   "comment": {
     "login_to_comment": "登录后评论",
@@ -693,5 +694,7 @@
     "desc15": "Gain {ConservationPoint} for **sets** **of** **kiosk** **and** **pavilion** (do not have to be adjacent).",
     "desc16": "Gain {ConservationPoint} for **conditions** **on** **cards** in your zoo.",
     "desc17-1": "Gain {ConservationPoint-1} for each **continent** **icon** of which you have more than the person to your right. Icons on **your** **partner** **zoos** count **twice** . Max. {ConservationPoint-4} ."
-  }
+  },
+  "Enter your name to submit": "请输入你的名字来提交",
+  "Submit": "提交"
 }

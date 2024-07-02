@@ -33,9 +33,9 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
   if (!seed) {
     return res.status(400).json({ error: 'Bad Request' });
   }
-  //   if (!apiKey || apiKey !== process.env.API_SECRET_KEY) {
-  //     return res.status(401).json({ error: 'Unauthorized' });
-  //   }
+  if (!apiKey || apiKey !== process.env.API_SECRET_KEY) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
 
   const todayStart = startOfDay(new Date());
   const todayEnd = endOfDay(new Date());
@@ -66,7 +66,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
       title: '',
       content: '',
       likes: 0,
-      userid: user?.id || 'Anonymous',
+      userid: user?.id || name,
       // user: { connect: { id: user.id, name: authorName } },
       userinfo: {
         username: user?.username || name || 'Anonymous',

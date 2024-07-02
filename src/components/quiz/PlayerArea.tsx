@@ -114,13 +114,17 @@ export const PlayerArea: React.FC<Props> = ({
           <div className='-mt-8 grid scale-90 grid-cols-3 justify-items-center gap-x-10 gap-y-4 sm:mt-0 sm:grid-cols-4 md:grid-cols-5 lg:scale-100 lg:grid-cols-5 lg:gap-4 xl:grid-cols-4'>
             {!pickRes &&
               playerData.cards.map((id) => (
-                <CardWrapper
+                <div
                   key={'main_card_' + id}
-                  id={id}
-                  canSelect={true}
-                  disable={disableHand}
-                  onSelect={handleHandSelect}
-                />
+                  className='duration-300 hover:z-10 hover:scale-[150%]'
+                >
+                  <CardWrapper
+                    id={id}
+                    canSelect={true}
+                    disable={disableHand}
+                    onSelect={handleHandSelect}
+                  />
+                </div>
               ))}
             {pickRes &&
               playerData.cards.map((id) => (
@@ -162,20 +166,19 @@ export const PlayerArea: React.FC<Props> = ({
                   </Button>
                 </SignInButton>
                 <Input
-                  className='max-w-2xl'
-                  placeholder='Name'
+                  className='mt-2 max-w-2xl'
+                  placeholder={t('Enter your name to submit')}
                   onChange={(e) => {
                     setUserName(e.target.value);
                   }}
                 />
-                {userName && (
-                  <Button
-                    className='text-bold mt-2 w-24 bg-lime-500 text-lg text-white hover:bg-lime-600'
-                    onClick={handleSubmit}
-                  >
-                    {t('Submit')}
-                  </Button>
-                )}
+                <Button
+                  disabled={!userName}
+                  className='text-bold mt-2 w-24 bg-lime-500 text-lg text-white hover:bg-lime-600'
+                  onClick={handleSubmit}
+                >
+                  {t('Submit')}
+                </Button>
               </SignedOut>
 
               <SignedIn>

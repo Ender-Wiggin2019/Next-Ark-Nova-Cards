@@ -59,6 +59,7 @@ const ParseDescription: React.FC<ParseDescriptionProps> = ({ desc }) => {
         : translatedTemplate;
   }
 
+  console.log(valueFilledTemplate);
   // 根据关键字替换成对应的组件
   const pattern = /{(.*?)}/g;
   const parsedComponents = valueFilledTemplate.split(' ').map((word, index) => {

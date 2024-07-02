@@ -7,7 +7,8 @@
   "quiz": {
     "today": "Daily Quiz",
     "result": "Statistics",
-    "random": "Random Quiz"
+    "random": "Random Quiz",
+    "prev": "Previous Quizzes"
   },
   "abilities": {
     "clever_description": "After finishing you may place any Action card on {Slot-1} .",
@@ -530,7 +531,8 @@
     "diy": "Card Maker",
     "maps": "Maps",
     "endgames": "Final Scoring",
-    "random_quiz": "Random Quiz"
+    "random_quiz": "Random Quiz",
+    "daily_quiz": "Daily Quiz"
   },
   "comment": {
     "login_to_comment": "login to comment",
