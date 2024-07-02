@@ -65,7 +65,7 @@ export const QuizResult: React.FC<Props> = ({
     }
   );
 
-  const cardPickRate = React.useMemo(() => {
+  const cardPickRes = React.useMemo(() => {
     // if (user && resultFromAPI) {
     //   console.log(
     //     resultFromAPI,
@@ -169,7 +169,7 @@ export const QuizResult: React.FC<Props> = ({
       <CardHeader>
         <CardTitle>
           <div className='flex w-full items-center justify-between gap-4'>
-            <div>{t('quiz.today')}</div>
+            <div>{t('quiz.result')}</div>
             {!isDailyQuiz && (
               <div className='flex-1'>
                 <RerollButton />
@@ -183,15 +183,11 @@ export const QuizResult: React.FC<Props> = ({
       </CardHeader>
       <div className='flex flex-col gap-2 xl:flex-row'>
         <Carousel
-          className='flex w-full flex-col'
+          className='flex w-full flex-col xl:w-3/5'
           opts={{ loop: true, dragFree: true, startIndex: mainPlayerIndex }}
         >
           <div className='flex items-center justify-between px-6'>
             <CarouselPrevious />
-            {/* <div className="flex justify-center items-center">
-
-<Badge className=""></Badge>
-        </div> */}
             <CarouselNext />
           </div>
           <CarouselContent className='mt-2 w-full'>
@@ -203,6 +199,7 @@ export const QuizResult: React.FC<Props> = ({
                     playerData={playerData}
                     playerIndex={index}
                     canSubmit={playerData.isMainPlayer && isDailyQuiz}
+                    pickRes={cardPickRes || undefined}
                   />
                 </div>
               </CarouselItem>
@@ -210,7 +207,7 @@ export const QuizResult: React.FC<Props> = ({
           </CarouselContent>
         </Carousel>
         <Separator orientation='vertical' className='mx-2' />
-        <Card className='flex w-full flex-col items-center justify-start gap-4 bg-white/50 p-2 xl:w-2/5'>
+        <Card className='flex w-full flex-col items-center justify-start gap-4 bg-white/50 p-2'>
           {/* <CardHeader>
               <CardTitle>{t('Game Set Up')}</CardTitle>
             </CardHeader> */}
@@ -228,6 +225,18 @@ export const QuizResult: React.FC<Props> = ({
             ))}
           </div>
 
+          <Separator
+            orientation='horizontal'
+            className='text-md my-2 self-center'
+          />
+          <div className='flex flex-col items-start justify-center gap-1'>
+            <div className='text-lg font-bold'>Want to play more?</div>
+            <div className=''>You can wait for next day challenge, or</div>
+            <div className='flex items-center justify-start gap-2'>
+              try random seed for practice
+              <RerollButton />
+            </div>
+          </div>
           {/* <Separator orientation='horizontal' className='my-2 self-center' />
           <div className='text-lg'>Another player</div>
           <div className='flex max-w-2xl justify-between gap-2'>

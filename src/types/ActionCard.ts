@@ -9,7 +9,7 @@ export enum ActionCardType {
   ASSOCIATION = 'Association',
   BUILD = 'Build',
   CARDS = 'Cards',
-  SPONSORS = 'Sponsors',
+  SPONSORS = 'Sponsor',
 }
 
 export interface ActionCard {

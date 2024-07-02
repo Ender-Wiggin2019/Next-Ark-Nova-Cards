@@ -26,8 +26,14 @@ export type Props = {
   seed: string;
   gameConfig: GameConfig;
   isDailyQuiz: boolean;
+  header?: string;
 };
-export const Quiz: React.FC<Props> = ({ seed, gameConfig, isDailyQuiz }) => {
+export const Quiz: React.FC<Props> = ({
+  seed,
+  gameConfig,
+  isDailyQuiz,
+  header,
+}) => {
   const { t } = useTranslation('common');
   const [isCopied, setIsCopied] = useState(false);
   const [handList, setHandList] = useState<string[]>([]);
@@ -117,7 +123,7 @@ export const Quiz: React.FC<Props> = ({ seed, gameConfig, isDailyQuiz }) => {
       <CardHeader>
         <CardTitle>
           <div className='flex w-full items-center justify-between gap-4'>
-            <div>{t('quiz.today')}</div>
+            <div>{t(header || 'quiz.today')}</div>
             {!isDailyQuiz && (
               <div className='flex-1'>
                 <RerollButton />
@@ -131,7 +137,7 @@ export const Quiz: React.FC<Props> = ({ seed, gameConfig, isDailyQuiz }) => {
       </CardHeader>
       <div className='flex flex-col gap-2 xl:flex-row'>
         <Carousel
-          className='flex w-full flex-col'
+          className='flex w-full flex-col xl:w-3/5'
           opts={{ loop: true, dragFree: true, startIndex: mainPlayerIndex }}
         >
           <div className='flex items-center justify-between px-6'>
@@ -158,7 +164,7 @@ export const Quiz: React.FC<Props> = ({ seed, gameConfig, isDailyQuiz }) => {
           </CarouselContent>
         </Carousel>
         <Separator orientation='vertical' className='mx-2' />
-        <Card className='flex w-full flex-col items-center justify-start gap-4 bg-white/50 p-2 xl:w-2/5'>
+        <Card className='flex w-full flex-col items-center justify-start gap-4 bg-white/50 p-2'>
           {/* <CardHeader>
               <CardTitle>{t('Game Set Up')}</CardTitle>
             </CardHeader> */}

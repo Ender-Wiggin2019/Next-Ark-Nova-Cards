@@ -13,9 +13,9 @@ export const QuizInfo: React.FC<Prisma.SetUpGroupByOutputType> = (props) => {
   const { t } = useTranslation('common');
 
   return (
-    <Link href='/'>
-      <Card className=' grid h-12 grid-cols-3 place-items-center content-center p-2'>
-        <Badge
+    <Link href={`/daily-quiz?seed=${props.seed}`}>
+      <Card className=' flex h-12 items-center justify-between px-4 py-2'>
+        {/* <Badge
           className={cn(
             'flex w-20 justify-center place-self-start text-center',
             {
@@ -24,11 +24,11 @@ export const QuizInfo: React.FC<Prisma.SetUpGroupByOutputType> = (props) => {
           )}
         >
           {t(props.title)}
-        </Badge>
+        </Badge> */}
         <div className='text-bold'>
           {dayjs(props.updatedat).format('DD/MM/YYYY')}
         </div>
-        <div className='text-bold'>{t('quiz.total') + ': ' + props.total}</div>
+        <div className='font-bold'>{t('quiz.total') + ': ' + props.total}</div>
       </Card>
     </Link>
   );

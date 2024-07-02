@@ -1,11 +1,13 @@
 {
-  "SPONSORS": "赞助",
-  "CARDS": "卡牌",
-  "ASSOCIATION": "协会",
-  "ANIMAL": "动物",
-  "BUILD": "建造",
+  "Sponsor": "赞助",
+  "Cards": "卡牌",
+  "Association": "协会",
+  "Animal": "动物",
+  "Build": "建造",
   "quiz": {
-    "today": "每日题目"
+    "today": "每日题目",
+    "result": "统计数据",
+    "random": "随机题目"
   },
 
   "abilities": {
@@ -22,17 +24,17 @@
     "boost_association_description": "在当前行动完成后，你可以将你的协会行动牌 {AssociationActionCard} 放置在 {Slot-1} 或者 {Slot-5} 。",
     "boost_building_description": "在当前行动完成后，你可以将你的建造行动牌 {BuildActionCard} 放置在 {Slot-1} 或者 {Slot-5} 。",
     "boost_card_description": "在当前行动完成后，你可以将你的卡牌行动牌 {CardsActionCard} 放置在 {Slot-1} 或者 {Slot-5} 。",
-    "boost_sponsors_description": "在当前行动完成后，你可以将你的赞助商行动牌 {SponsorsActionCard} 放置在 {Slot-1} 或者 {Slot-5} 。",
+    "Soost_sponsors_description": "在当前行动完成后，你可以将你的赞助商行动牌 {SponsorsActionCard} 放置在 {Slot-1} 或者 {Slot-5} 。",
     "boost_animal_description": "在当前行动完成后，你可以将你的动物行动牌 {AnimalActionCard} 放置在 {Slot-1} 或者 {Slot-5} 。",
     "action_association_description": "此行动结束后，你可以立即执行 <br> 协会行动 {AssociationActionCard} 。",
     "action_building_description": "此行动结束后，你可以立即执行 <br> 建造行动{BuildActionCard} 。",
     "action_cards_description": "此行动结束后，你可以立即执行 <br> 卡牌行动 {CardsActionCard} 。",
-    "action_sponsors_description": "此行动结束后，你可以立即执行 <br> 赞助商行动 {SponsorsActionCard} 。",
+    "Sction_sponsors_description": "此行动结束后，你可以立即执行 <br> 赞助商行动 {SponsorsActionCard} 。",
     "action_animal_description": "此行动结束后，你可以立即执行 <br> 动物行动 {AnimalActionCard} 。",
     "multiplier_association_description": "将一个 {MultiplierToken} 放置在你的协会行动牌上 {AssociationActionCard} 。",
     "multiplier_building_description": "将一个 {MultiplierToken} 放置在你的建造行动牌上 {BuildActionCard} 。",
     "multiplier_card_description": "将一个 {MultiplierToken} 放置在你的卡牌行动牌上 {CardsActionCard} 。",
-    "multiplier_sponsors_description": "将一个 {MultiplierToken} 放置在你的赞助商行动牌上 {SponsorsActionCard} 。",
+    "Sultiplier_sponsors_description": "将一个 {MultiplierToken} 放置在你的赞助商行动牌上 {SponsorsActionCard} 。",
     "multiplier_animal_description": "Place 1 {MultiplierToken} on your Animal Action card {AnimalActionCard} 。",
     "full_throated_description": "雇佣一个协会工作人员。",
     "iconic_animal_description": "所有动物园内的每个{}标记获得 {Appeal-1}  (最多8)。",
@@ -72,7 +74,7 @@
     "monkey_gang_description": "展示牌堆顶的牌，直到出现第一张带有 {PrimateTag} 的牌，将其加入你的手牌 . 将剩余的牌置于牌堆底.",
     "water_affinity_description": "如果萌宠馆临水，获得 {Appeal-2} 。"
   },
-  "sponsors": {
+  "Sponsors": {
     "s201_desc1": "从牌库抽一张牌或者从声望范围内获得一张牌。",
     "s201_desc2": "从牌库抽一张牌或者从声望范围内获得一张牌。",
     "s201_desc3": "若你有3/6个研究标记， <br> 则获得 {ConservationPoint-1} / {ConservationPoint-2}。",
@@ -205,8 +207,6 @@
   "4": "4",
   "5": "5",
   "Placeholder": "Placeholder",
-  "Animal": "动物",
-  "Sponsor": "赞助商",
   "Animal Card": "动物",
   "Sponsor Card": "赞助商",
   "Base": "基础",
@@ -463,11 +463,11 @@
   "WAZA SMALL ANIMAL PROGRAM": "WAZA 小型动物计划",
   "EXPERT IN SMALL ANIMALS": "小动物学家",
   "EXPERT IN LARGE ANIMALS": "大动物学家",
-  "SPONSORSHIP: PRIMATES": "赞助款: 灵长类",
-  "SPONSORSHIP: REPTILES": "赞助款: 爬行类",
-  "SPONSORSHIP: VULTURES": "赞助款: 秃鹫",
-  "SPONSORSHIP: LIONS": "赞助款: 狮子",
-  "SPONSORSHIP: ELEPHANTS": "赞助款: 大象",
+  "SponsorsHIP: PRIMATES": "赞助款: 灵长类",
+  "SponsorsHIP: REPTILES": "赞助款: 爬行类",
+  "SponsorsHIP: VULTURES": "赞助款: 秃鹫",
+  "SponsorsHIP: LIONS": "赞助款: 狮子",
+  "SponsorsHIP: ELEPHANTS": "赞助款: 大象",
   "PRIMATOLOGIST": "灵长类动物学家",
   "HERPETOLOGIST": "爬行类动物学家",
   "ORNITHOLOGIST": "鸟类动物学家",
@@ -535,7 +535,8 @@
     "random_quiz": "随机题目"
   },
   "comment": {
-    "login_to_comment": "登录后评论"
+    "login_to_comment": "登录后评论",
+    "login_to_pick": "建议登录，方便数据统计"
   },
   "about": {
     "title": "关于本网站",
@@ -682,7 +683,7 @@
     "desc5": "Gain {ConservationPoint} for **supporting** **conservation** **projects**",
     "desc6": "Gain {ConservationPoint} for **empty** **building** **spaces** in your zo0.",
     "desc7": "Gain {ConservationPoint} for the **reputation** of your zoo.",
-    "desc8": "Gain {ConservationPoint} for **sponsors** **cards** in your zoo.",
+    "desc8": "Gain {ConservationPoint} for **Sponsors** **cards** in your zoo.",
     "desc9-1": "Gain {ConservationPoint-1} for each **animal** **category** **icon** of which you have more than the person to your right. Max. {ConservationPoint-4} .",
     "desc10": "Gain {ConservationPoint} for **rock** **icons** in your zoo.",
     "desc11": "Gain {ConservationPoint} for **water** **icons** in your zoo.",

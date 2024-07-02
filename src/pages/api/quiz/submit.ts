@@ -69,8 +69,8 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
       userid: user?.id || 'Anonymous',
       // user: { connect: { id: user.id, name: authorName } },
       userinfo: {
-        username: user?.username || 'Anonymous',
-        imageUrl: user?.imageUrl || name,
+        username: user?.username || name || 'Anonymous',
+        imageUrl: user?.imageUrl || '',
       },
     },
   });

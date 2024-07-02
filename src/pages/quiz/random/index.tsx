@@ -81,7 +81,12 @@ export default function Page(
         <section className='bg-white/0 px-2 py-4'>
           {!seed && <RerollButton />}
           {seed && (
-            <Quiz seed={seed} gameConfig={gameConfig} isDailyQuiz={false} />
+            <Quiz
+              seed={seed}
+              gameConfig={gameConfig}
+              isDailyQuiz={false}
+              header='quiz.random'
+            />
           )}
         </section>
       </main>

@@ -1,4 +1,14 @@
 {
+  "Sponsor": "Sponsors",
+  "Cards": "Cards",
+  "Association": "Association",
+  "Animal": "Animal",
+  "Build": "Build",
+  "quiz": {
+    "today": "Daily Quiz",
+    "result": "Statistics",
+    "random": "Random Quiz"
+  },
   "abilities": {
     "clever_description": "After finishing you may place any Action card on {Slot-1} .",
     "sun_bathing_description": "You may sell up to {} card(s) from your hand for {Money-4} each.",
@@ -194,8 +204,6 @@
   "4": "4",
   "5": "5",
   "Placeholder": "Placeholder",
-  "Animal": "Animal",
-  "Sponsor": "Sponsor",
   "Animal Card": "Animal Card",
   "Sponsor Card": "Sponsor Card",
   "Base": "Base",
@@ -525,7 +533,8 @@
     "random_quiz": "Random Quiz"
   },
   "comment": {
-    "login_to_comment": "login to comment"
+    "login_to_comment": "login to comment",
+    "login_to_pick": "login for better statistics"
   },
   "about": {
     "title": "About This Site",

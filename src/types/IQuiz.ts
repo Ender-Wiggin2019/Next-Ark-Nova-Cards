@@ -28,6 +28,13 @@ export const DEFAULT_CONFIG: GameConfig = {
   players: DEFAULT_PLAYER,
 };
 
+export const BASE_CONFIG: GameConfig = {
+  cardSources: [CardSource.BASE],
+  mapSources: [CardSource.BASE],
+  mode: DEFAULT_MODE,
+  players: DEFAULT_PLAYER,
+};
+
 export interface IPlayerData {
   cards: string[];
   maps: string[];
