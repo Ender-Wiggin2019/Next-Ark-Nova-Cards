@@ -70,7 +70,10 @@ function Comment({
 }
 const CommentBlock = React.memo(Comment);
 
-export function CommentFeeds(props: { seed: string; comments: CommentDto[] }) {
+export function CommentFeeds(props: {
+  cardId: string;
+  comments: CommentDto[];
+}) {
   const { averageRating, numberOfRatings } = getAvgRatings(props.comments);
   const withContentComments = props.comments.filter(
     (comment) => comment.content.length > 0

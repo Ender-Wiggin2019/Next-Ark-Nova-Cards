@@ -23,6 +23,8 @@ import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
 import { RerollButton } from './Reroll';
 
 import { GameConfig } from '@/types/IQuiz';
+import { useRouter } from 'next/router';
+import { Comments } from '@/components/quiz/comments/Comments';
 
 export type Props = {
   seed: string;
@@ -35,7 +37,7 @@ export const QuizResult: React.FC<Props> = ({
   isDailyQuiz,
 }) => {
   const { user } = useUser();
-
+  const router = useRouter();
   const { t } = useTranslation('common');
   const [isCopied, setIsCopied] = useState(false);
   const pathname = usePathname();
@@ -159,6 +161,11 @@ export const QuizResult: React.FC<Props> = ({
             ))}
           </div>
 
+          <Separator
+            orientation='horizontal'
+            className='text-md my-2 self-center'
+          />
+          {/* <Comments seed={router.query.seed as string} /> */}
           <Separator
             orientation='horizontal'
             className='text-md my-2 self-center'
