@@ -23,7 +23,7 @@ export const QuizInfo: React.FC<Prisma.SetUpGroupByOutputType> = (props) => {
           {t(props.title)}
         </Badge> */}
         <div className='text-bold'>
-          {dayjs(props.updatedat).format('DD/MM/YYYY')}
+          {dayjs(props.createdat).format('DD/MM/YYYY')}
         </div>
         <div className='font-bold'>{t('quiz.total') + ': ' + props.total}</div>
       </Card>
