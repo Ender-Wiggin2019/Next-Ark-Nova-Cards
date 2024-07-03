@@ -17,15 +17,14 @@ import CardWrapper from '@/components/wrapper/CardWrapper';
 import { IPlayerData } from '@/types/IQuiz';
 
 import { UserArrowLeftIcon } from '~/index';
+import { Textarea } from '@/components/ui/textarea';
+import { ICardPickMemo } from '@/components/quiz/types';
 export type Props = {
   seed: string;
   playerData: IPlayerData;
   playerIndex: number;
   canSubmit: boolean;
-  pickRes?: {
-    cardPick: Map<string, number>;
-    total: number;
-  };
+  pickRes?: ICardPickMemo;
 };
 export const PlayerArea: React.FC<Props> = ({
   seed,
@@ -38,6 +37,7 @@ export const PlayerArea: React.FC<Props> = ({
   const [handList, setHandList] = useState<string[]>([]);
   const [disableHand, setDisableHand] = useState(false);
   const [userName, setUserName] = useState('');
+  const [comment, setComment] = useState('');
   const pathname = usePathname();
   const router = useRouter();
   const handleHandSelect = (id: string, add: boolean) => {
@@ -48,7 +48,7 @@ export const PlayerArea: React.FC<Props> = ({
     // console.log('5555', handList, disableHand);
   };
 
-  console.log(handList);
+  console.log('Success', pickRes);
   useEffect(() => {
     setHandList([]);
     setDisableHand(false);
@@ -66,6 +66,7 @@ export const PlayerArea: React.FC<Props> = ({
         body: JSON.stringify({
           seed: seed,
           name: userName,
+          content: comment,
           cards: sortedHandList,
         }),
       });
@@ -135,6 +136,7 @@ export const PlayerArea: React.FC<Props> = ({
                       canSelect={false}
                       disable={disableHand}
                       onSelect={handleHandSelect}
+                      initSelect={pickRes.userPick.includes(id)}
                     />
                   </div>
                 </div>
@@ -174,6 +176,15 @@ export const PlayerArea: React.FC<Props> = ({
               </SignedOut>
 
               <SignedIn>
+                <Textarea
+                  className='w-full rounded-lg bg-white/80 px-4 py-2'
+                  placeholder='Comment'
+                  rows={4}
+                  name='content'
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                ></Textarea>
+
                 <Button
                   className='text-bold mt-2 w-24 bg-lime-500 text-lg text-white hover:bg-lime-600'
                   onClick={handleSubmit}

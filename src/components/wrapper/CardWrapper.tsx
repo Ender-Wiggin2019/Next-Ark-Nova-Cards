@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -22,6 +22,7 @@ interface CardWrapperProps {
   disable: boolean;
   index?: number;
   onSelect?: (id: string, add: boolean) => void;
+  initSelect?: boolean;
   // children: React.ReactNode;
 }
 
@@ -30,11 +31,17 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
   canSelect,
   disable,
   index,
+  initSelect,
   // children,
   onSelect,
 }) => {
-  const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState(initSelect || false);
 
+  useEffect(() => {
+    setSelected(initSelect || false);
+  }, [initSelect]);
+
+  console.log('initSelect', id, initSelect, selected);
   const handleSelect = () => {
     if ((!canSelect || disable) && !selected) return;
     setSelected(!selected);
@@ -60,6 +67,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
     <div
       className={cn('player-board-hand w-min cursor-pointer', {
         'rounded-sm ring-4 ring-lime-500 ring-offset-2': selected,
+
         'cursor-auto': !canSelect,
         'cursor-not-allowed grayscale': disable && !selected,
       })}

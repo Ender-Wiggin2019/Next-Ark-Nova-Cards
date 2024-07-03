@@ -22,9 +22,10 @@ import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
 
 import { RerollButton } from './Reroll';
 
-import { GameConfig } from '@/types/IQuiz';
+import { GameConfig, IQuizComment } from '@/types/IQuiz';
 import { useRouter } from 'next/router';
 import { Comments } from '@/components/quiz/comments/Comments';
+import { ICardPickMemo, ICommentMemo } from '@/components/quiz/types';
 
 export type Props = {
   seed: string;
@@ -55,7 +56,7 @@ export const QuizResult: React.FC<Props> = ({
       return data as any[];
     },
     {
-      refetchInterval: 30000,
+      refetchInterval: 30000 * 60,
       initialData: [],
       // onSuccess: (newsingleSubmits) => {
       //     // 更新 Valtio 的状态
@@ -64,7 +65,7 @@ export const QuizResult: React.FC<Props> = ({
     }
   );
 
-  const cardPickRes = React.useMemo(() => {
+  const cardPickRes: ICardPickMemo = React.useMemo(() => {
     // if (user && resultFromAPI) {
     //   console.log(
     //     resultFromAPI,
@@ -80,6 +81,7 @@ export const QuizResult: React.FC<Props> = ({
     //   );
     // }
     const cardPick: Map<string, number> = new Map();
+    const userPick: string[] = [];
     let total = 0;
     resultFromAPI.forEach((res) => {
       total++;
@@ -87,9 +89,39 @@ export const QuizResult: React.FC<Props> = ({
         if (cardPick.has(card)) cardPick.set(card, cardPick.get(card)! + 1);
         else cardPick.set(card, 1);
       });
+
+      if (user && user.id === res.userid) {
+        // console.log('user', user?.id, res.userid, user?.id === res.userid, userPick)
+        userPick.push(...res.data.cards);
+      }
     });
 
-    return { cardPick, total };
+    // console.log('initSelect jump into memo', cardPick, total, userPick);
+
+    return { cardPick, total, userPick };
+  }, [user, resultFromAPI]);
+
+  const comments: ICommentMemo = React.useMemo(() => {
+    const cardPickComments: Map<string, IQuizComment[]> = new Map();
+    let userComment: IQuizComment | undefined = undefined;
+    let total = 0;
+
+    resultFromAPI.forEach((res) => {
+      // must have content
+      // if (res.content?.length === 0) return;
+      total++;
+      const cardKey = JSON.stringify(res.data.cards.sort());
+      const commentsArray = cardPickComments.get(cardKey) || [];
+
+      console.log('test3', res);
+      cardPickComments.set(cardKey, [...commentsArray, res]);
+
+      if (user && user.id === res.userid) {
+        userComment = res.data;
+      }
+    });
+
+    return { cardPickComments, total, userComment };
   }, [user, resultFromAPI]);
 
   const handleShare = () => {
@@ -165,7 +197,10 @@ export const QuizResult: React.FC<Props> = ({
             orientation='horizontal'
             className='text-md my-2 self-center'
           />
-          {/* <Comments seed={router.query.seed as string} /> */}
+          <Comments
+            seed={router.query.seed as string}
+            initialComments={comments}
+          />
           <Separator
             orientation='horizontal'
             className='text-md my-2 self-center'

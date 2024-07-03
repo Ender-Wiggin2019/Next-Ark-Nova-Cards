@@ -11,21 +11,26 @@ import { getAvgRatings } from '@/utils/GetAvgRatings';
 
 // import { commentState, setComments } from './comments.state';
 import { type CommentDto } from '@/types/Comment';
+import { ICommentMemo } from '@/components/quiz/types';
+import { IQuizComment } from '@/types/IQuiz';
+import TitleWrapper from '@/components/wrapper/TitleWrapper';
+import { Badge } from '@/components/ui/badge';
 
 dayjs.extend(relativeTime);
 
 function Comment({
   comment,
-  idx,
-  length,
-}: {
-  comment: CommentDto;
-  idx: number;
-  length: number;
+}: // idx,
+// length,
+{
+  comment: IQuizComment;
+  // idx: number;
+  // length: number;
 }) {
+  console.log('test', comment);
   return (
     <li className='relative pb-8'>
-      {idx !== length - 1 && (
+      {true && (
         <span
           className='absolute left-5 top-14 -ml-px h-[calc(100%-4.5rem)] w-0.5 rounded bg-zinc-200 dark:bg-zinc-800'
           aria-hidden='true'
@@ -33,9 +38,7 @@ function Comment({
       )}
       <div className='relative flex items-start space-x-3'>
         <Image
-          src={
-            comment.userinfo.imageUrl ?? `/avatars/avatar_${(idx % 8) + 1}.png`
-          }
+          src={comment.userinfo?.imageUrl ?? `/avatars/avatar_0.png`}
           alt=''
           width={40}
           height={40}
@@ -46,19 +49,18 @@ function Comment({
           <b className='text-sm font-bold dark:text-zinc-100'>
             {comment.userinfo.username ?? 'Anonymous'}
           </b>
-          <Rating
+          {/* <Rating
             emptyStyle={{ display: 'flex' }}
-            fillStyle={{ display: '-webkit-inline-box' }}
-            className='-mt-1'
+            fillStyle={{ display: '-webkit-inline-box' }} className='-mt-1'
             readonly={true}
             initialValue={comment.rating}
             size={16}
-          />
+          /> */}
           <time
-            dateTime={comment.createdat.toString()}
+            dateTime={comment.updatedat.toString()}
             className='inline-flex select-none text-[12px] font-medium opacity-40'
           >
-            {dayjs(comment.createdat).locale('zh-cn').fromNow()}
+            {dayjs(comment.updatedat).locale('zh-cn').fromNow()}
           </time>
         </div>
       </div>
@@ -71,39 +73,58 @@ function Comment({
 const CommentBlock = React.memo(Comment);
 
 export function CommentFeeds(props: {
-  cardId: string;
-  comments: CommentDto[];
+  seed: string;
+  comments: ICommentMemo;
+  replies: CommentDto[];
 }) {
-  const { averageRating, numberOfRatings } = getAvgRatings(props.comments);
-  const withContentComments = props.comments.filter(
-    (comment) => comment.content.length > 0
+  console.log('test2', props.comments.cardPickComments);
+  const sortedCommentsArray = Array.from(props.comments.cardPickComments).sort(
+    (a, b) => {
+      // 比较数组长度，进行倒序排序
+      return b[1].length - a[1].length;
+    }
   );
+  // const { averageRating, numberOfRatings } = getAvgRatings(props.comments);
+  // const withContentComments = props.comments.filter(
+  //   (comment) => comment.content.length > 0
+  // );
   return (
-    <div className='relative mt-2'>
+    <div className='relative mt-2 w-full'>
       <div
         className='absolute inset-0 flex flex-row items-center gap-2'
         aria-hidden='true'
       />
 
-      <div className='group mb-2 flex w-72 items-center justify-center gap-2 space-x-2 rounded-full bg-gradient-to-b from-zinc-50/20 to-white/80 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md focus:outline-none focus-visible:ring-2 dark:from-zinc-900/30 dark:to-zinc-800/80 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20 dark:focus-visible:ring-yellow-500/80'>
+      {/* <div className='group mb-2 flex w-72 items-center justify-center gap-2 space-x-2 rounded-full bg-gradient-to-b from-zinc-50/20 to-white/80 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md focus:outline-none focus-visible:ring-2 dark:from-zinc-900/30 dark:to-zinc-800/80 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20 dark:focus-visible:ring-yellow-500/80'>
         <Rating
           emptyStyle={{ display: 'flex' }}
-          fillStyle={{ display: '-webkit-inline-box' }}
-          className='-mt-1'
+          fillStyle={{ display: '-webkit-inline-box' }} className='-mt-1'
           readonly={true}
           initialValue={averageRating}
           size={22}
         />
         {averageRating.toFixed(2)} / 5 ({numberOfRatings} users)
-      </div>
-      <ul role='list' className='-mb-8 mt-2 px-1 md:px-4'>
-        {withContentComments.map((comment, idx) => (
-          <CommentBlock
-            key={comment.id}
-            comment={comment}
-            idx={idx}
-            length={withContentComments.length}
-          />
+      </div> */}
+      <ul role='list' className='-mb-8 mt-2 flex flex-col gap-2 px-1 md:px-4'>
+        {sortedCommentsArray.map(([key, comments]) => (
+          <div key={key} className='flex flex-col gap-2'>
+            <div className='flex justify-start gap-2'>
+              {(JSON.parse(key) as string[]).map((cardId) => (
+                <TitleWrapper id={cardId} key={cardId} />
+              ))}
+              <Badge>{comments.length}</Badge>
+            </div>
+            {comments
+              .filter((c) => c.content.length > 0)
+              .map((comment, idx) => (
+                <CommentBlock
+                  key={key}
+                  comment={comment}
+                  // idx={idx}
+                  // length={withContentComments.length}
+                />
+              ))}
+          </div>
         ))}
       </ul>
     </div>

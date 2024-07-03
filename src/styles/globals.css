@@ -119,3 +119,23 @@ html.dark {
   @apply inline-block;
   clip-path: polygon(50% 0%, 90% 20%, 90% 80%, 50% 100%, 10% 80%, 10% 20%);
 }
+
+.animal-title {
+  background: #eb8a00;
+  background: linear-gradient(90deg, #eb8a00 15%, #fcbd1a 50%, #eb8a00 85%);
+  height: 50px;
+}
+
+.project-title {
+  background: #4c7d39;
+  background: linear-gradient(90deg, #4c7d39 15%, #1e541d 50%, #4c7d39 85%);
+  color: #fff;
+  height: 50px;
+}
+
+.sponsor-title {
+  background: #006999;
+  background: linear-gradient(90deg, #6596c0, #006999 50%, #6596c0);
+  height: 50px;
+  color: #fff;
+}

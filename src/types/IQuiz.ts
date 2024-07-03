@@ -42,3 +42,16 @@ export interface IPlayerData {
   finalScoring: string[];
   isMainPlayer: boolean;
 }
+
+export type IQuizComment = {
+  id: string;
+  createdat: string;
+  updatedat: string;
+  userid: string;
+  content: string;
+  cards: string[];
+  userinfo: {
+    username: string;
+    imageUrl: string;
+  };
+};

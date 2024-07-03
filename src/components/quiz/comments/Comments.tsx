@@ -7,19 +7,19 @@ import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
-import { CommentFeeds } from '@/components/comments/CommentFeeds';
-import CommentInput from '@/components/comments/CommentInput';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
 import { UserArrowLeftIcon } from '../../../../public';
 
 import { CommentDto } from '@/types/Comment';
+import { CommentFeeds } from '@/components/quiz/comments/CommentFeeds';
+import { ICommentMemo } from '@/components/quiz/types';
 // import { commentState, setComments } from '@/components/comments/comments.state';
 
 type CommentProps = {
   seed: string;
-  initialComments?: CommentDto[];
+  initialComments: ICommentMemo;
 };
 
 export function Comments({ seed, initialComments }: CommentProps) {
@@ -28,41 +28,41 @@ export function Comments({ seed, initialComments }: CommentProps) {
   // const state = useSnapshot(commentState);
   const pathname = usePathname();
 
-  const { data: commentsFromAPI } = useQuery(
-    ['comments', seed],
-    async () => {
-      const res = await fetch('/api/quiz/comments/replies?seed=' + seed);
-      const data = await res.json();
-      return data as CommentDto[];
-    },
-    {
-      refetchInterval: 30000,
-      initialData: initialComments ?? [],
-      // onSuccess: (newComments) => {
-      //     // 更新 Valtio 的状态
-      //     setComments(newComments);
-      // }
-    }
-  );
+  // const { data: repliesFromAPI } = useQuery(
+  //   ['replies', seed],
+  //   async () => {
+  //     const res = await fetch('/api/quiz/comments/replies?seed=' + seed);
+  //     const data = await res.json();
+  //     return data as CommentDto[];
+  //   },
+  //   {
+  //     refetchInterval: 30000 * 1000,
+  //     initialData: [],
+  //     // onSuccess: (newComments) => {
+  //     //     // 更新 Valtio 的状态
+  //     //     setComments(newComments);
+  //     // }
+  //   }
+  // );
 
   // 查找当前用户的评论
   // const userComment = React.useMemo(() => {
-  //   if (user && commentsFromAPI) {
+  //   if (user && repliesFromAPI) {
   //     console.log(
-  //       commentsFromAPI,
+  //       repliesFromAPI,
   //       user,
-  //       commentsFromAPI.find(
+  //       repliesFromAPI.find(
   //         (comment) =>
   //           comment.userid === user.id && comment.cardid.toString() === cardId
   //       )
   //     );
-  //     return commentsFromAPI.find(
+  //     return repliesFromAPI.find(
   //       (comment) =>
   //         comment.userid === user.id && comment.cardid.toString() === cardId
   //     );
   //   }
   //   return null;
-  // }, [user, commentsFromAPI]);
+  // }, [user, repliesFromAPI]);
   return (
     <section className='px-0 py-2'>
       <SignedOut>
@@ -75,10 +75,10 @@ export function Comments({ seed, initialComments }: CommentProps) {
       </SignedOut>
 
       <SignedIn>
-        {/* <CommentInput cardId={cardId} comment={userComment} /> */}
+        {/* <CommentInput seed={seed} comment={userComment} /> */}
       </SignedIn>
       <Separator className='mt-2' />
-      <CommentFeeds seed={seed} comments={commentsFromAPI} />
+      <CommentFeeds seed={seed} comments={initialComments} replies={[]} />
     </section>
   );
 }

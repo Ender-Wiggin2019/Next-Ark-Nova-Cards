@@ -42,18 +42,30 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
   // 检查是否存在今天创建的记录
   const existingRecord = await prisma.userSetUp.findFirst({
     where: {
-      userid: user?.id || 'Anonymous',
+      userid: user?.id || name || 'Anonymous',
       seed: seed,
-      createdat: {
-        gte: todayStart,
-        lte: todayEnd,
-      },
+      // createdat: {
+      //   gte: todayStart,
+      //   lte: todayEnd,
+      // },
     },
   });
 
   // 如果存在，则不创建新记录，直接返回存在的记录
   if (existingRecord) {
-    return res.status(200).json(existingRecord);
+    const result3 = await prisma.userSetUp.updateMany({
+      where: {
+        userid: user?.id || name || 'Anonymous',
+        seed: seed,
+      },
+      data: {
+        data: {
+          cards: cards,
+        },
+        content: req.body.content || '',
+      },
+    });
+    return res.status(201).json(result3);
   }
 
   const result = await prisma.userSetUp.create({
@@ -64,7 +76,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
         cards: cards,
       },
       title: '',
-      content: '',
+      content: req.body.comment || '',
       likes: 0,
       userid: user?.id || name,
       // user: { connect: { id: user.id, name: authorName } },
