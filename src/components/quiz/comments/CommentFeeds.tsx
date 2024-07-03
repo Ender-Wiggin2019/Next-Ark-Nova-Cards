@@ -112,7 +112,9 @@ export function CommentFeeds(props: {
               {(JSON.parse(key) as string[]).map((cardId) => (
                 <TitleWrapper id={cardId} key={cardId} />
               ))}
-              <Badge>{comments.length}</Badge>
+              <Badge className='flex w-12 items-center justify-center'>
+                {comments.length}
+              </Badge>
             </div>
             {comments
               .filter((c) => c.content.length > 0)

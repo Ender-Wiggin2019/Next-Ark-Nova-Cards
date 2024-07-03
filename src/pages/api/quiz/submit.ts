@@ -51,8 +51,10 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
     },
   });
 
+  console.log('existingRecord', existingRecord);
+
   // 如果存在，则不创建新记录，直接返回存在的记录
-  if (existingRecord) {
+  if (existingRecord && user) {
     const result3 = await prisma.userSetUp.updateMany({
       where: {
         userid: user?.id || name || 'Anonymous',
@@ -66,6 +68,8 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
       },
     });
     return res.status(201).json(result3);
+  } else if (existingRecord) {
+    return res.status(400).json({ error: 'Has repeated name' });
   }
 
   const result = await prisma.userSetUp.create({

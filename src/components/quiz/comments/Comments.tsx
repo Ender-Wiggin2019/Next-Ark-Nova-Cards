@@ -66,18 +66,18 @@ export function Comments({ seed, initialComments }: CommentProps) {
   return (
     <section className='px-0 py-2'>
       <SignedOut>
-        <SignInButton mode='modal' redirectUrl={pathname}>
+        {/* <SignInButton mode='modal' redirectUrl={pathname}>
           <Button type='button'>
             <UserArrowLeftIcon className='mr-1 h-5 w-5' />
             {t('comment.login_to_comment')}
           </Button>
-        </SignInButton>
+        </SignInButton> */}
       </SignedOut>
 
       <SignedIn>
         {/* <CommentInput seed={seed} comment={userComment} /> */}
       </SignedIn>
-      <Separator className='mt-2' />
+      {/* <Separator className='mt-2' /> */}
       <CommentFeeds seed={seed} comments={initialComments} replies={[]} />
     </section>
   );

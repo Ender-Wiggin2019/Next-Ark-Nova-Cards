@@ -66,8 +66,8 @@ export const QuizList: React.FC = () => {
           <CardTitle>{t('quiz.prev')}</CardTitle>
         </CardHeader>
         {allQuizs &&
-          allQuizs.map((quiz: Prisma.SetUpGroupByOutputType) => {
-            return <QuizInfo key={quiz.id} {...quiz} />;
+          allQuizs.map((quiz: Prisma.SetUpGroupByOutputType, index: number) => {
+            return <QuizInfo key={quiz.id} {...quiz} idx={index} />;
           })}
         {/* <Pagination>
   <PaginationContent>

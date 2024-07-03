@@ -5,8 +5,11 @@ import { useTranslation } from 'next-i18next';
 import React from 'react';
 
 import { Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
-export const QuizInfo: React.FC<Prisma.SetUpGroupByOutputType> = (props) => {
+export const QuizInfo: React.FC<
+  Prisma.SetUpGroupByOutputType & { idx: number }
+> = (props) => {
   const { t } = useTranslation('common');
 
   return (
@@ -25,7 +28,16 @@ export const QuizInfo: React.FC<Prisma.SetUpGroupByOutputType> = (props) => {
         <div className='text-bold'>
           {dayjs(props.createdat).format('DD/MM/YYYY')}
         </div>
-        <div className='font-bold'>{t('quiz.total') + ': ' + props.total}</div>
+        <div className='flex justify-end gap-2'>
+          {props.idx !== 0 && (
+            <Link href={`/daily-quiz?seed=${props.seed}&result=true`}>
+              <Badge>{t('View Result')}</Badge>
+            </Link>
+          )}
+          <div className='font-bold'>
+            {t('quiz.total') + ': ' + props.total}
+          </div>
+        </div>
       </Card>
     </Link>
   );

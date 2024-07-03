@@ -209,7 +209,7 @@ export const QuizResult: React.FC<Props> = ({
             <div className='text-lg font-bold'>Want to play more?</div>
             <div className=''>You can wait for next day challenge, or</div>
             <div className='flex items-center justify-start gap-2'>
-              try random seed for practice
+              try random seed for practice (can not submit)
               <RerollButton />
             </div>
           </div>
