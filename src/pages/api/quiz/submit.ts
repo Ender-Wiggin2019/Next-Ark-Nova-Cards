@@ -51,7 +51,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
     },
   });
 
-  console.log('existingRecord', existingRecord);
+  console.log('existingRecord', existingRecord, user, userId);
 
   // 如果存在，则不创建新记录，直接返回存在的记录
   if (existingRecord && user) {
@@ -80,7 +80,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
         cards: cards,
       },
       title: '',
-      content: req.body.comment || '',
+      content: req.body.content || '',
       likes: 0,
       userid: user?.id || name,
       // user: { connect: { id: user.id, name: authorName } },
