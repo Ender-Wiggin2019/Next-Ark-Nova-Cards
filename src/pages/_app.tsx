@@ -13,8 +13,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Script
         async
-        src='https://umami.ender-wiggin.com/script.js'
-        data-website-id='f2a10fa7-5a6f-4329-9bdf-c239f51b6c52'
+        src='https://cloud.umami.is/script.js'
+        data-website-id='7ca59e5d-76b3-4d83-aa67-3327ba14a232'
+        // data-website-id='f2a10fa7-5a6f-4329-9bdf-c239f51b6c52'
       ></Script>
       <Script
         strategy='afterInteractive'

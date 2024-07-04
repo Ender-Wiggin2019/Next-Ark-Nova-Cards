@@ -26,7 +26,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
   const cardsSchema = z.array(z.string());
   const cards = cardsSchema.parse(req.body.cards);
 
-  if (!cards) {
+  if (!cards || cards.length < 4) {
     return res.status(400).json({ error: 'Bad Request' });
   }
 
@@ -51,7 +51,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
     },
   });
 
-  console.log('existingRecord', existingRecord, user, userId);
+  console.log('existingRecord', existingRecord?.userinfo, user, userId);
 
   // 如果存在，则不创建新记录，直接返回存在的记录
   if (existingRecord && user) {

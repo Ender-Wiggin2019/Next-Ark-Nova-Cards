@@ -39,7 +39,7 @@ function Comment({
       <div className='relative flex items-start space-x-3'>
         <Image
           src={
-            comment.userinfo?.imageUrl ??
+            comment.userinfo?.imageUrl ||
             `https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png`
           }
           alt=''

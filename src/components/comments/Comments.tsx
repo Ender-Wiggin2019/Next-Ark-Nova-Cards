@@ -66,7 +66,7 @@ export function Comments({ cardId, initialComments }: CommentProps) {
   return (
     <section className='px-0 py-2'>
       <SignedOut>
-        <SignInButton mode='modal' redirectUrl={pathname}>
+        <SignInButton mode='modal' forceRedirectUrl={pathname}>
           <Button type='button'>
             <UserArrowLeftIcon className='mr-1 h-5 w-5' />
             {t('comment.login_to_comment')}
