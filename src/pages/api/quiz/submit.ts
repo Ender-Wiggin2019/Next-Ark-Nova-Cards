@@ -17,7 +17,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
     return res.status(405).end('Method Not Allowed');
   }
 
-  const apiKey = req.headers['x-api-key'];
+  // const apiKey = req.headers['x-api-key'];
 
   // console.log(apiKey, apiKey !== process.env.API_SECRET_KEY, req);
 
@@ -33,12 +33,9 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
   if (!seed) {
     return res.status(400).json({ error: 'Bad Request' });
   }
-  // if (!apiKey || apiKey !== process.env.API_SECRET_KEY) {
-  //   return res.status(401).json({ error: 'Unauthorized' });
-  // }
 
-  const todayStart = startOfDay(new Date());
-  const todayEnd = endOfDay(new Date());
+  // const todayStart = startOfDay(new Date());
+  // const todayEnd = endOfDay(new Date());
   // 检查是否存在今天创建的记录
   const existingRecord = await prisma.userSetUp.findFirst({
     where: {
