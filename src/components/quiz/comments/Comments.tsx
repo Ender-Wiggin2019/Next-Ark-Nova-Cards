@@ -1,20 +1,14 @@
 'use client';
 
-import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
+import { SignedIn, SignedOut } from '@clerk/nextjs';
 import { useUser } from '@clerk/nextjs';
-import { useQuery } from '@tanstack/react-query';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-
-import { UserArrowLeftIcon } from '../../../../public';
-
-import { CommentDto } from '@/types/Comment';
 import { CommentFeeds } from '@/components/quiz/comments/CommentFeeds';
 import { ICommentMemo } from '@/components/quiz/types';
+
 // import { commentState, setComments } from '@/components/comments/comments.state';
 
 type CommentProps = {

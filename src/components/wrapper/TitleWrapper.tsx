@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'next-i18next';
+import React from 'react';
 
 import { cn } from '@/lib/utils';
-
-import { BaseAnimalCard } from '@/components/cards/animal_cards/BaseAnimalCard';
-import { BaseEndGameCard } from '@/components/cards/endgame_cards/BaseEndGameCard';
-import { TokenProjectCard } from '@/components/cards/project_cards/ProjectCard';
-import { BaseSponsorCard } from '@/components/cards/sponsor_cards/BaseSponsorCard';
 
 import { getCardById } from '@/utils/GetCardById';
 
@@ -15,7 +11,6 @@ import {
   isProjectCard,
   isSponsorCard,
 } from '@/types/Card';
-import { useTranslation } from 'next-i18next';
 
 interface TitleWrapperProps {
   id: string;

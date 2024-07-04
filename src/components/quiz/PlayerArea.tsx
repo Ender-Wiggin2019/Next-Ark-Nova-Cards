@@ -1,24 +1,25 @@
 import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
+import { debounce } from 'lodash';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import React, { useCallback, useEffect, useState } from 'react';
-import { debounce, throttle } from 'lodash';
+
 import { cn } from '@/lib/utils';
 
 import { ActionIconCard } from '@/components/actions/icons/ActionIconCard';
 import { MapBoard } from '@/components/map_boards/MapBoard';
 import ProgressBar from '@/components/quiz/ProgressBar';
+import { ICardPickMemo } from '@/components/quiz/types';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import CardWrapper from '@/components/wrapper/CardWrapper';
 
 import { IPlayerData } from '@/types/IQuiz';
 
 import { UserArrowLeftIcon } from '~/index';
-import { Textarea } from '@/components/ui/textarea';
-import { ICardPickMemo } from '@/components/quiz/types';
 export type Props = {
   seed: string;
   playerData: IPlayerData;
@@ -144,7 +145,12 @@ export const PlayerArea: React.FC<Props> = ({
       </Badge>
       {playerData.isMainPlayer && (
         <>
-          <div className='-mt-8 grid scale-90 grid-cols-3 justify-items-center gap-x-10 gap-y-4 sm:mt-0 sm:grid-cols-4 md:grid-cols-5 lg:scale-100 lg:grid-cols-5 lg:gap-4 xl:grid-cols-4'>
+          <div
+            className={cn(
+              '-mt-8 grid scale-90 grid-cols-3 justify-items-center gap-x-10 gap-y-4 sm:mt-0 sm:grid-cols-4 md:grid-cols-5 lg:scale-100 lg:grid-cols-5 lg:gap-4 xl:grid-cols-4',
+              { 'xl:scale-100 xl:grid-cols-5': pickRes }
+            )}
+          >
             {!pickRes &&
               playerData.cards.map((id) => (
                 <div

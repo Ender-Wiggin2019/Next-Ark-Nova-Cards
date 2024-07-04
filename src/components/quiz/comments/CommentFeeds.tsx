@@ -4,17 +4,15 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import Image from 'next/image';
 import React from 'react';
-import { Rating } from 'react-simple-star-rating';
 import 'dayjs/locale/en-gb';
 
-import { getAvgRatings } from '@/utils/GetAvgRatings';
+import { ICommentMemo } from '@/components/quiz/types';
+import { Badge } from '@/components/ui/badge';
+import TitleWrapper from '@/components/wrapper/TitleWrapper';
 
 // import { commentState, setComments } from './comments.state';
 import { type CommentDto } from '@/types/Comment';
-import { ICommentMemo } from '@/components/quiz/types';
 import { IQuizComment } from '@/types/IQuiz';
-import TitleWrapper from '@/components/wrapper/TitleWrapper';
-import { Badge } from '@/components/ui/badge';
 
 dayjs.extend(relativeTime);
 
@@ -27,7 +25,6 @@ function Comment({
   // idx: number;
   // length: number;
 }) {
-  console.log('test', comment);
   return (
     <li className='relative pb-8'>
       {true && (
@@ -80,7 +77,7 @@ export function CommentFeeds(props: {
   comments: ICommentMemo;
   replies: CommentDto[];
 }) {
-  console.log('test2', props.comments.cardPickComments);
+  console.log('test2', props.comments);
   const sortedCommentsArray = Array.from(props.comments.cardPickComments).sort(
     (a, b) => {
       // 比较数组长度，进行倒序排序
