@@ -56,43 +56,41 @@ export const PlayerArea: React.FC<Props> = ({
     setDisableHand(false);
   }, [seed]);
 
-  const handleSubmitDebounced = useCallback(
-    debounce(async () => {
-      setIsSubmitting(true); // 开始提交时禁用按钮
+  const handleSubmitDebounced = debounce(async () => {
+    setIsSubmitting(true); // 开始提交时禁用按钮
 
-      // 原来的handleSubmit逻辑...
-      try {
-        const sortedHandList = [...handList].sort();
-        const response = await fetch('/api/quiz/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            // 'X-API-Key': 'c&wUxR5V8jV$hZnSMcsD%',
-          },
-          body: JSON.stringify({
-            seed: seed,
-            name: userName,
-            content: comment,
-            cards: sortedHandList,
-          }),
-        });
+    // 原来的handleSubmit逻辑...
+    try {
+      const sortedHandList = [...handList].sort();
+      console.log(sortedHandList);
+      const response = await fetch('/api/quiz/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // 'X-API-Key': 'c&wUxR5V8jV$hZnSMcsD%',
+        },
+        body: JSON.stringify({
+          seed: seed,
+          name: userName,
+          content: comment,
+          cards: sortedHandList,
+        }),
+      });
 
-        if (!response.ok && userName) {
-          alert('Name is duplicated. Please change a name.');
-          throw new Error(`Error: ${response.status}`);
-        }
-
-        const result = await response.json();
-        console.log('Success:', result);
-        return router.push(`/daily-quiz?seed=${seed}&result=true`);
-      } catch (error) {
-        console.error('An error occurred:', error);
+      if (!response.ok && userName) {
+        alert('Name is duplicated. Please change a name.');
+        throw new Error(`Error: ${response.status}`);
       }
 
-      setIsSubmitting(false); // 完成提交后启用按钮
-    }, 2000),
-    []
-  ); // 2000毫秒内最多执行一次
+      const result = await response.json();
+      console.log('Success:', result);
+      return router.push(`/daily-quiz?seed=${seed}&result=true`);
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+
+    setIsSubmitting(false); // 完成提交后启用按钮
+  }, 2000); // 2000毫秒内最多执行一次
 
   // const handleSubmit = async () => {
   //   try {
@@ -235,7 +233,7 @@ export const PlayerArea: React.FC<Props> = ({
                   className='text-bold mt-2 w-24 bg-lime-500 text-lg text-white hover:bg-lime-600'
                   onClick={handleSubmitDebounced}
                 >
-                  {t('Submit')}
+                  {t(isSubmitting ? 'Submitting' : 'Submit')}
                 </Button>
               </SignedIn>
             </>

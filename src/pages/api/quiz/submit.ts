@@ -51,7 +51,11 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
   console.log('existingRecord', existingRecord?.userinfo, user, userId);
 
   // 如果存在，则不创建新记录，直接返回存在的记录
-  if (existingRecord && user) {
+  if (
+    existingRecord &&
+    (JSON.stringify(cards) !== existingRecord.data?.toString() ||
+      req.body.content)
+  ) {
     const result3 = await prisma.userSetUp.updateMany({
       where: {
         userid: user?.id || name || 'Anonymous',
