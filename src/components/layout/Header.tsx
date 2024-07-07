@@ -109,8 +109,8 @@ export function Header() {
         className={cn(
           'mb-var(--header-mb mb-[0px])flex pointer-events-none relative z-50 flex-col',
           isHomePage
-            ? 'h-var(--header-height h-[180px])'
-            : 'h-var(--header-height h-[64px])'
+            ? 'h-[var(--header-heighth-180px)]'
+            : 'h-[var(--header-heighth-64px)]'
         )}
         layout
         layoutRoot
@@ -167,6 +167,8 @@ export function Header() {
 function UserInfo() {
   const [tooltipOpen, setTooltipOpen] = React.useState(false);
   const { user } = useUser();
+  const pathname = usePathname();
+
   const StrategyIcon = React.useMemo(() => {
     const strategy = user?.primaryEmailAddress?.verification.strategy;
     if (!strategy) {
@@ -218,7 +220,7 @@ function UserInfo() {
         >
           <Tooltip.Provider disableHoverableContent>
             <Tooltip.Root open={tooltipOpen} onOpenChange={setTooltipOpen}>
-              <SignInButton mode='modal' redirectUrl='/'>
+              <SignInButton mode='modal' forceRedirectUrl={pathname}>
                 <Tooltip.Trigger asChild>
                   <button
                     type='button'

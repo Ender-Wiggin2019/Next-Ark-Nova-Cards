@@ -17,7 +17,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
     return res.status(405).end('Method Not Allowed');
   }
 
-  const apiKey = req.headers['x-api-key'];
+  // const apiKey = req.headers['x-api-key'];
 
   // console.log(apiKey, apiKey !== process.env.API_SECRET_KEY, req);
 
@@ -26,19 +26,16 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
   const cardsSchema = z.array(z.string());
   const cards = cardsSchema.parse(req.body.cards);
 
-  if (!cards) {
+  if (!cards || cards.length < 4) {
     return res.status(400).json({ error: 'Bad Request' });
   }
 
   if (!seed) {
     return res.status(400).json({ error: 'Bad Request' });
   }
-  // if (!apiKey || apiKey !== process.env.API_SECRET_KEY) {
-  //   return res.status(401).json({ error: 'Unauthorized' });
-  // }
 
-  const todayStart = startOfDay(new Date());
-  const todayEnd = endOfDay(new Date());
+  // const todayStart = startOfDay(new Date());
+  // const todayEnd = endOfDay(new Date());
   // 检查是否存在今天创建的记录
   const existingRecord = await prisma.userSetUp.findFirst({
     where: {
@@ -51,10 +48,14 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
     },
   });
 
-  console.log('existingRecord', existingRecord);
+  console.log('existingRecord', existingRecord?.userinfo, user, userId);
 
   // 如果存在，则不创建新记录，直接返回存在的记录
-  if (existingRecord && user) {
+  if (
+    existingRecord &&
+    (JSON.stringify(cards) !== existingRecord.data?.toString() ||
+      req.body.content)
+  ) {
     const result3 = await prisma.userSetUp.updateMany({
       where: {
         userid: user?.id || name || 'Anonymous',
@@ -80,7 +81,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
         cards: cards,
       },
       title: '',
-      content: req.body.comment || '',
+      content: req.body.content || '',
       likes: 0,
       userid: user?.id || name,
       // user: { connect: { id: user.id, name: authorName } },

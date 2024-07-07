@@ -55,7 +55,10 @@ export default function Page(
 
   return (
     <Layout>
-      <Seo templateTitle='Daily Quiz' />
+      <Seo
+        templateTitle='Daily Quiz'
+        description='Sharpen your gaming skills and deepen your understanding with Daily Quiz! Dive into fresh challenges every day, answer questions, and compare your stats with fellow quiz enthusiasts. Perfect for gamers looking to level up their strategy and knowledge in a fun, engaging way.'
+      />
 
       <main>
         <section className='bg-white/0'>

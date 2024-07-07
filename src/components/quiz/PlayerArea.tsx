@@ -1,24 +1,25 @@
 import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
+import { debounce } from 'lodash';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
 import { ActionIconCard } from '@/components/actions/icons/ActionIconCard';
 import { MapBoard } from '@/components/map_boards/MapBoard';
 import ProgressBar from '@/components/quiz/ProgressBar';
+import { ICardPickMemo } from '@/components/quiz/types';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import CardWrapper from '@/components/wrapper/CardWrapper';
 
 import { IPlayerData } from '@/types/IQuiz';
 
 import { UserArrowLeftIcon } from '~/index';
-import { Textarea } from '@/components/ui/textarea';
-import { ICardPickMemo } from '@/components/quiz/types';
 export type Props = {
   seed: string;
   playerData: IPlayerData;
@@ -36,6 +37,7 @@ export const PlayerArea: React.FC<Props> = ({
   const { t } = useTranslation('common');
   const [handList, setHandList] = useState<string[]>([]);
   const [disableHand, setDisableHand] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [userName, setUserName] = useState('');
   const [comment, setComment] = useState('');
   const pathname = usePathname();
@@ -54,9 +56,13 @@ export const PlayerArea: React.FC<Props> = ({
     setDisableHand(false);
   }, [seed]);
 
-  const handleSubmit = async () => {
-    const sortedHandList = [...handList].sort();
+  const handleSubmitDebounced = debounce(async () => {
+    setIsSubmitting(true); // 开始提交时禁用按钮
+
+    // 原来的handleSubmit逻辑...
     try {
+      const sortedHandList = [...handList].sort();
+      console.log(sortedHandList);
       const response = await fetch('/api/quiz/submit', {
         method: 'POST',
         headers: {
@@ -71,21 +77,54 @@ export const PlayerArea: React.FC<Props> = ({
         }),
       });
 
-      if (!response.ok) {
+      if (!response.ok && userName) {
+        alert('Name is duplicated. Please change a name.');
         throw new Error(`Error: ${response.status}`);
       }
 
       const result = await response.json();
       console.log('Success:', result);
       return router.push(`/daily-quiz?seed=${seed}&result=true`);
-
-      // 处理结果...
     } catch (error) {
       console.error('An error occurred:', error);
     }
 
-    // console.log('res', res);
-  };
+    setIsSubmitting(false); // 完成提交后启用按钮
+  }, 2000); // 2000毫秒内最多执行一次
+
+  // const handleSubmit = async () => {
+  //   try {
+  //     const sortedHandList = [...handList].sort();
+  //     const response = await fetch('/api/quiz/submit', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         // 'X-API-Key': 'c&wUxR5V8jV$hZnSMcsD%',
+  //       },
+  //       body: JSON.stringify({
+  //         seed: seed,
+  //         name: userName,
+  //         content: comment,
+  //         cards: sortedHandList,
+  //       }),
+  //     });
+
+  //     if (!response.ok && userName) {
+  //       alert('Name is duplicated. Please change a name.')
+  //       throw new Error(`Error: ${response.status}`);
+  //     }
+
+  //     const result = await response.json();
+  //     console.log('Success:', result);
+  //     return router.push(`/daily-quiz?seed=${seed}&result=true`);
+
+  //     // 处理结果...
+  //   } catch (error) {
+  //     console.error('An error occurred:', error);
+  //   }
+
+  //   // console.log('res', res);
+  // };
 
   return (
     <div className='flex w-full flex-col items-center justify-center gap-2 p-2'>
@@ -104,7 +143,12 @@ export const PlayerArea: React.FC<Props> = ({
       </Badge>
       {playerData.isMainPlayer && (
         <>
-          <div className='-mt-8 grid scale-90 grid-cols-3 justify-items-center gap-x-10 gap-y-4 sm:mt-0 sm:grid-cols-4 md:grid-cols-5 lg:scale-100 lg:grid-cols-5 lg:gap-4 xl:grid-cols-4'>
+          <div
+            className={cn(
+              '-mt-8 grid scale-90 grid-cols-3 justify-items-center gap-x-10 gap-y-4 sm:mt-0 sm:grid-cols-4 md:grid-cols-5 lg:scale-100 lg:grid-cols-5 lg:gap-4 xl:grid-cols-4',
+              { 'xl:scale-100 xl:grid-cols-5': pickRes }
+            )}
+          >
             {!pickRes &&
               playerData.cards.map((id) => (
                 <div
@@ -153,7 +197,7 @@ export const PlayerArea: React.FC<Props> = ({
           {handList.length === 4 && canSubmit && (
             <>
               <SignedOut>
-                <SignInButton mode='modal' redirectUrl={pathname}>
+                <SignInButton mode='modal' forceRedirectUrl={pathname}>
                   <Button type='button'>
                     <UserArrowLeftIcon className='mr-1 h-5 w-5' />
                     {t('comment.login_to_pick')}
@@ -169,7 +213,7 @@ export const PlayerArea: React.FC<Props> = ({
                 <Button
                   disabled={!userName}
                   className='text-bold mt-2 w-24 bg-lime-500 text-lg text-white hover:bg-lime-600'
-                  onClick={handleSubmit}
+                  onClick={handleSubmitDebounced}
                 >
                   {t('Submit')}
                 </Button>
@@ -187,9 +231,9 @@ export const PlayerArea: React.FC<Props> = ({
 
                 <Button
                   className='text-bold mt-2 w-24 bg-lime-500 text-lg text-white hover:bg-lime-600'
-                  onClick={handleSubmit}
+                  onClick={handleSubmitDebounced}
                 >
-                  {t('Submit')}
+                  {t(isSubmitting ? 'Submitting' : 'Submit')}
                 </Button>
               </SignedIn>
             </>

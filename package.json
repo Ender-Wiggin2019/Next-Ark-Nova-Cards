@@ -21,7 +21,7 @@
     "deploy": "vercel deploy --prod"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.29.3",
+    "@clerk/nextjs": "^5.2.1",
     "@headlessui/react": "^1.7.15",
     "@hookform/resolvers": "^3.2.0",
     "@prisma/client": "^5.1.1",

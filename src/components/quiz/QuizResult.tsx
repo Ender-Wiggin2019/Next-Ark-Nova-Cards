@@ -2,10 +2,13 @@ import { useUser } from '@clerk/nextjs';
 import { useQuery } from '@tanstack/react-query';
 import { Check, Share2 } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
 
+import { Comments } from '@/components/quiz/comments/Comments';
 import { PlayerArea } from '@/components/quiz/PlayerArea';
+import { ICardPickMemo, ICommentMemo } from '@/components/quiz/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -23,9 +26,6 @@ import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
 import { RerollButton } from './Reroll';
 
 import { GameConfig, IQuizComment } from '@/types/IQuiz';
-import { useRouter } from 'next/router';
-import { Comments } from '@/components/quiz/comments/Comments';
-import { ICardPickMemo, ICommentMemo } from '@/components/quiz/types';
 
 export type Props = {
   seed: string;
@@ -149,16 +149,16 @@ export const QuizResult: React.FC<Props> = ({
           </div>
         </CardTitle>
       </CardHeader>
-      <div className='flex flex-col gap-2 xl:flex-row'>
+      <div className='flex flex-col gap-2'>
         <Carousel
-          className='flex w-full flex-col xl:w-3/5'
+          className='flex w-full flex-col '
           opts={{ loop: true, dragFree: true, startIndex: mainPlayerIndex }}
         >
           <div className='flex items-center justify-between px-6'>
             <CarouselPrevious />
             <CarouselNext />
           </div>
-          <CarouselContent className='mt-2 w-full'>
+          <CarouselContent className='mt-2 w-full '>
             {setup.playersData.map((playerData, index) => (
               <CarouselItem key={index}>
                 <div className=''>
@@ -181,7 +181,7 @@ export const QuizResult: React.FC<Props> = ({
             </CardHeader> */}
           {/* <Separator orientation='horizontal' className='my-2 self-center' /> */}
 
-          <div className='flex w-full flex-row justify-between xl:w-full'>
+          <div className='flex w-full flex-row justify-center gap-8 xl:w-full'>
             {setup.conservations.map((id, idx) => (
               <CardWrapper
                 key={'q_conservation_' + id}

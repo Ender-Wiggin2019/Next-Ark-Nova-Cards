@@ -41,7 +41,6 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
     setSelected(initSelect || false);
   }, [initSelect]);
 
-  console.log('initSelect', id, initSelect, selected);
   const handleSelect = () => {
     if ((!canSelect || disable) && !selected) return;
     setSelected(!selected);
