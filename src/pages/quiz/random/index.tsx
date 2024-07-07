@@ -10,8 +10,6 @@ import { Quiz } from '@/components/quiz/Quiz';
 import { RerollButton } from '@/components/quiz/Reroll';
 import Seo from '@/components/Seo';
 
-import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
-
 import { CardSource } from '@/types/CardSource';
 import { GameConfig } from '@/types/IQuiz';
 export default function Page(
