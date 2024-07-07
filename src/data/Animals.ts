@@ -1109,7 +1109,7 @@ export const AnimalsData: AnimalCard[] = [
     requirements: [],
     tags: [AnimalTag.Reptile, ContinentTag.Americas],
     specialEnclosures: [
-      new SpecialEnclosure(SpecialEnclosureType.ReptileHouse, 1),
+      new SpecialEnclosure(SpecialEnclosureType.ReptileHouse, 2),
     ],
     abilities: [new Ability(KeyWord.SNAPPING_1)],
     appeal: 6,
