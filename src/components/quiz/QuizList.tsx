@@ -58,6 +58,7 @@ export const QuizList: React.FC = () => {
           seed={todayQuiz.seed}
           gameConfig={todayQuiz.gameConfig}
           isDailyQuiz={true}
+          header={t('quiz.today') + ' Day ' + allQuizs.length}
         />
       )}
       <Separator orientation='horizontal' className='my-2' />
@@ -67,7 +68,14 @@ export const QuizList: React.FC = () => {
         </CardHeader>
         {allQuizs &&
           allQuizs.map((quiz: Prisma.SetUpGroupByOutputType, index: number) => {
-            return <QuizInfo key={quiz.id} {...quiz} idx={index} />;
+            return (
+              <QuizInfo
+                key={quiz.id}
+                {...quiz}
+                idx={index}
+                day={allQuizs.length - index}
+              />
+            );
           })}
         {/* <Pagination>
   <PaginationContent>
