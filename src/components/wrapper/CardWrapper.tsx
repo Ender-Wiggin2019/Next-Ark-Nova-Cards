@@ -23,6 +23,7 @@ interface CardWrapperProps {
   index?: number;
   onSelect?: (id: string, add: boolean) => void;
   initSelect?: boolean;
+  preview?: boolean;
   // children: React.ReactNode;
 }
 
@@ -32,6 +33,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
   disable,
   index,
   initSelect,
+  preview,
   // children,
   onSelect,
 }) => {
@@ -66,6 +68,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
     <div
       className={cn('player-board-hand w-min cursor-pointer', {
         'rounded-sm ring-4 ring-lime-500 ring-offset-2': selected,
+        preview: preview,
 
         'cursor-auto': !canSelect,
         'cursor-not-allowed grayscale': disable && !selected,

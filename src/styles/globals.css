@@ -120,6 +120,10 @@ html.dark {
   clip-path: polygon(50% 0%, 90% 20%, 90% 80%, 50% 100%, 10% 80%, 10% 20%);
 }
 
+.preview {
+  @apply z-10 duration-300 hover:z-[99999] hover:scale-[200%];
+}
+
 .animal-title {
   background: #eb8a00;
   background: linear-gradient(90deg, #eb8a00 15%, #fcbd1a 50%, #eb8a00 85%);

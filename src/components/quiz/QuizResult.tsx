@@ -113,7 +113,7 @@ export const QuizResult: React.FC<Props> = ({
       const cardKey = JSON.stringify(res.data.cards.sort());
       const commentsArray = cardPickComments.get(cardKey) || [];
 
-      console.log('test3', res);
+      // console.log('test3', res);
       cardPickComments.set(cardKey, [...commentsArray, res]);
 
       if (user && user.id === res.userid) {
@@ -181,6 +181,25 @@ export const QuizResult: React.FC<Props> = ({
             </CardHeader> */}
           {/* <Separator orientation='horizontal' className='my-2 self-center' /> */}
 
+          <div className='mt-2 grid w-full grid-cols-3 content-center justify-center justify-items-center gap-1 lg:grid-cols-6 xl:w-full'>
+            {setup.display?.map((id, idx) => (
+              <div
+                key={'q_display_' + id}
+                className='preview relative w-min scale-90 rounded bg-amber-500/50 p-2 xl:scale-100'
+              >
+                <div className='absolute -top-2 left-1/2 z-10 flex h-6 w-5 -translate-x-1/2 items-center justify-center rounded bg-amber-700 font-bold text-white shadow-sm'>
+                  {idx + 1}
+                </div>
+                <CardWrapper
+                  id={id}
+                  index={idx + 1}
+                  canSelect={false}
+                  disable={false}
+                />
+              </div>
+            ))}
+          </div>
+
           <div className='flex w-full flex-row justify-center gap-8 xl:w-full'>
             {setup.conservations.map((id, idx) => (
               <CardWrapper
@@ -189,6 +208,7 @@ export const QuizResult: React.FC<Props> = ({
                 index={idx + 1}
                 canSelect={false}
                 disable={false}
+                preview={true}
               />
             ))}
           </div>

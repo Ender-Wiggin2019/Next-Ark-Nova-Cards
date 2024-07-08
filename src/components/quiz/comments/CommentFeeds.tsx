@@ -26,7 +26,7 @@ function Comment({
   // length: number;
 }) {
   return (
-    <li className='relative pb-8'>
+    <li className='relative'>
       {true && (
         <span
           className='absolute left-5 top-14 -ml-px h-[calc(100%-4.5rem)] w-0.5 rounded bg-zinc-200 dark:bg-zinc-800'
@@ -80,8 +80,22 @@ export function CommentFeeds(props: {
   console.log('test2', props.comments);
   const sortedCommentsArray = Array.from(props.comments.cardPickComments).sort(
     (a, b) => {
-      // 比较数组长度，进行倒序排序
-      return b[1].length - a[1].length;
+      const COMMENT_WEIGHT = 5;
+      const SUBMIT_WEIGHT = 1;
+      const weightA = a[1].reduce((acc, comment) => {
+        return (
+          acc + (comment.content.length > 0 ? COMMENT_WEIGHT : SUBMIT_WEIGHT)
+        );
+      }, 0);
+
+      const weightB = b[1].reduce((acc, comment) => {
+        return (
+          acc + (comment.content.length > 0 ? COMMENT_WEIGHT : SUBMIT_WEIGHT)
+        );
+      }, 0);
+
+      // 根据计算出的权重进行降序排序
+      return weightB - weightA;
     }
   );
   // const { averageRating, numberOfRatings } = getAvgRatings(props.comments);
@@ -107,7 +121,12 @@ export function CommentFeeds(props: {
       </div> */}
       <ul role='list' className='-mb-8 mt-2 flex flex-col gap-2 px-1 md:px-4'>
         {sortedCommentsArray.map(([key, comments]) => (
-          <div key={key} className='flex flex-col gap-2'>
+          <div key={key} className='relative flex flex-col gap-2'>
+            {/* {true && (
+        <span className='absolute left-0 top-14 -ml-px h-[calc(100%-4.5rem)] w-0.5 rounded bg-zinc-200 dark:bg-zinc-800'
+          aria-hidden='true'
+        />
+      )} */}
             <div className='flex justify-start gap-2'>
               {(JSON.parse(key) as string[]).map((cardId) => (
                 <TitleWrapper id={cardId} key={cardId} />
@@ -116,16 +135,18 @@ export function CommentFeeds(props: {
                 {comments.length}
               </Badge>
             </div>
-            {comments
-              .filter((c) => c.content.length > 0)
-              .map((comment, idx) => (
-                <CommentBlock
-                  key={key}
-                  comment={comment}
-                  // idx={idx}
-                  // length={withContentComments.length}
-                />
-              ))}
+            <div className='ml-4 flex flex-col gap-2'>
+              {comments
+                .filter((c) => c.content.length > 0)
+                .map((comment, idx) => (
+                  <CommentBlock
+                    key={key + idx}
+                    comment={comment}
+                    // idx={idx}
+                    // length={withContentComments.length}
+                  />
+                ))}
+            </div>
           </div>
         ))}
       </ul>

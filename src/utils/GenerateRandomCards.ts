@@ -10,10 +10,11 @@ export const NUMBER_HAND = 8;
 export const NUMBER_MAP = 2;
 export const NUMBER_FINAL_SCORING = 2;
 export const NUMBER_CONSERVATION = 3;
-
+export const NUMBER_DISPLAY = 6;
 interface SetUp {
   playersData: IPlayerData[];
   conservations: string[];
+  display?: string[];
 }
 
 export class GameSetupGenerator {
@@ -63,6 +64,22 @@ export class GameSetupGenerator {
     return distributedItems;
   }
 
+  private distributeCards(
+    items: string[],
+    itemsPerPlayer: number
+  ): { cards: string[][]; display: string[] } {
+    const distributedItems: string[][] = [];
+    for (let i = 0; i < this.gameConfig.players; i++) {
+      distributedItems.push(
+        items.slice(i * itemsPerPlayer, (i + 1) * itemsPerPlayer)
+      );
+    }
+    return {
+      cards: distributedItems,
+      display: items.slice(this.gameConfig.players * itemsPerPlayer),
+    };
+  }
+
   private generateAndDistribute(array: any[], singleSize: number): string[][] {
     const num = this.gameConfig.players;
     const ids = this.shuffleArrayWithSeed(array).slice(0, singleSize * num);
@@ -70,11 +87,24 @@ export class GameSetupGenerator {
     return this.distributeItemsToPlayers(ids, singleSize);
   }
 
+  private generateAndDistributeCards(
+    array: any[],
+    singleSize: number
+  ): { cards: string[][]; display: string[] } {
+    const num = this.gameConfig.players;
+    const ids = this.shuffleArrayWithSeed(array).slice(
+      0,
+      singleSize * num + NUMBER_DISPLAY
+    );
+
+    return this.distributeCards(ids, singleSize);
+  }
+
   private generateSetUp(): SetUp {
     const maps = this.generateSetUpMaps();
     const actionCards = this.generateActionCards();
     const finalScoring = this.generateSetUpFinalScoring();
-    const cards = this.generateSetUpCards();
+    const { cards, display } = this.generateSetUpCards();
 
     const conservations = this.generateSetUpConservations();
 
@@ -95,16 +125,17 @@ export class GameSetupGenerator {
     return {
       playersData,
       conservations,
+      display,
     };
   }
 
-  public generateSetUpCards(): string[][] {
+  public generateSetUpCards(): { cards: string[][]; display: string[] } {
     const ids = getCardIds(
       [CardType.ANIMAL_CARD, CardType.SPONSOR_CARD, CardType.CONSERVATION_CARD],
       this.gameConfig.cardSources,
       'hand'
     );
-    return this.generateAndDistribute(ids, NUMBER_HAND);
+    return this.generateAndDistributeCards(ids, NUMBER_HAND);
   }
 
   public generateSetUpConservations(): string[] {

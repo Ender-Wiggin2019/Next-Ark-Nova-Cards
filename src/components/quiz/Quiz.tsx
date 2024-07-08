@@ -120,6 +120,7 @@ export const Quiz: React.FC<Props> = ({
                 index={idx + 1}
                 canSelect={false}
                 disable={false}
+                preview={true}
               />
             ))}
           </div>

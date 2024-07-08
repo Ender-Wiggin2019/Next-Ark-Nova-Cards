@@ -62,7 +62,6 @@ export const PlayerArea: React.FC<Props> = ({
     // 原来的handleSubmit逻辑...
     try {
       const sortedHandList = [...handList].sort();
-      console.log(sortedHandList);
       const response = await fetch('/api/quiz/submit', {
         method: 'POST',
         headers: {
@@ -141,7 +140,7 @@ export const PlayerArea: React.FC<Props> = ({
         {playerData.isMainPlayer && `You're Player ${playerIndex + 1}`}
         {!playerData.isMainPlayer && `Player ${playerIndex + 1}`}
       </Badge>
-      {playerData.isMainPlayer && (
+      {(playerData.isMainPlayer || (!playerData.isMainPlayer && pickRes)) && (
         <>
           <div
             className={cn(
@@ -151,10 +150,7 @@ export const PlayerArea: React.FC<Props> = ({
           >
             {!pickRes &&
               playerData.cards.map((id) => (
-                <div
-                  key={'main_card_' + id}
-                  className='duration-300 hover:z-10 hover:scale-125'
-                >
+                <div key={'main_card_' + id} className='preview'>
                   <CardWrapper
                     id={id}
                     canSelect={true}
@@ -165,13 +161,15 @@ export const PlayerArea: React.FC<Props> = ({
               ))}
             {pickRes &&
               playerData.cards.map((id) => (
-                <div key={'main_card_div_' + id} className='relative'>
-                  <div className='absolute left-1/2 top-8 z-10 -translate-x-1/2 transform cursor-pointer duration-300 hover:opacity-0'>
-                    <ProgressBar
-                      pickNum={pickRes.cardPick.get(id) || 0}
-                      totalNum={pickRes.total}
-                    />
-                  </div>
+                <div key={'main_card_div_' + id} className='preview relative'>
+                  {playerData.isMainPlayer && (
+                    <div className='absolute left-1/2 top-8 z-10 -translate-x-1/2 transform cursor-pointer duration-300 hover:opacity-0'>
+                      <ProgressBar
+                        pickNum={pickRes.cardPick.get(id) || 0}
+                        totalNum={pickRes.total}
+                      />
+                    </div>
+                  )}
                   {/* <div>{pickRes.cardPick.get(id)}</div> */}
                   <div className='brightness-[65%]'>
                     <CardWrapper
@@ -191,6 +189,7 @@ export const PlayerArea: React.FC<Props> = ({
                 id={id}
                 canSelect={false}
                 disable={false}
+                preview={true}
               />
             ))}
           </div>
