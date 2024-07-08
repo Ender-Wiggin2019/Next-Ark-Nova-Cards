@@ -3,6 +3,7 @@ import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
 
+import { GameConfigCard } from '@/components/quiz/game/GameConfigCard';
 import { PlayerArea } from '@/components/quiz/PlayerArea';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
@@ -15,11 +16,10 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from '@/components/ui/hover-card';
 import { Separator } from '@/components/ui/separator';
 import CardWrapper from '@/components/wrapper/CardWrapper';
 
@@ -28,8 +28,6 @@ import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
 import { RerollButton } from './Reroll';
 
 import { GameConfig } from '@/types/IQuiz';
-import { GameConfigCard } from '@/components/quiz/game/GameConfigCard';
-import { capitalize } from 'lodash';
 
 export type Props = {
   seed: string;
@@ -67,9 +65,9 @@ export const Quiz: React.FC<Props> = ({
           <div className='flex w-full items-center justify-between gap-4'>
             <div className='flex items-center justify-start gap-1'>
               <div>{t(header || 'quiz.today')}</div>
-              {gameConfig.mode !== 'default' && (
+              {/* {gameConfig.mode !== 'default' && (
                 <div>{capitalize(gameConfig.mode)}</div>
-              )}
+              )} */}
               {isDailyQuiz && (
                 <Alert className='w-30 -mt-6 bg-yellow-200/50 py-1 text-xs'>
                   {/* <Terminal className='h-4 w-4' /> */}
@@ -78,17 +76,15 @@ export const Quiz: React.FC<Props> = ({
                 </Alert>
               )}
               <div className='ml-4'>
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      {/* <Button variant="outline">Hover</Button> */}
-                      <Info className='h-8 w-8 cursor-pointer' />
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <GameConfigCard gameConfig={gameConfig} />
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
+                <HoverCard>
+                  <HoverCardTrigger>
+                    {' '}
+                    <Info className='h-8 w-8' />
+                  </HoverCardTrigger>
+                  <HoverCardContent className='w-full'>
+                    <GameConfigCard gameConfig={gameConfig} />
+                  </HoverCardContent>
+                </HoverCard>
               </div>
             </div>
             {!isDailyQuiz && (

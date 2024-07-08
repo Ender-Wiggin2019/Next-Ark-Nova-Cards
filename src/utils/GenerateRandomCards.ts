@@ -82,6 +82,10 @@ export class GameSetupGenerator {
 
   private generateAndDistribute(array: any[], singleSize: number): string[][] {
     const num = this.gameConfig.players;
+    if (this.gameConfig.mode === 'arena') {
+      const ids = this.shuffleArrayWithSeed(array).slice(0, singleSize);
+      return new Array(num).fill(0).map((_) => ids);
+    }
     const ids = this.shuffleArrayWithSeed(array).slice(0, singleSize * num);
 
     return this.distributeItemsToPlayers(ids, singleSize);

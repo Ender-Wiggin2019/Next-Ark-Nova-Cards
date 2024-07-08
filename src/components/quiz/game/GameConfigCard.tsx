@@ -1,8 +1,9 @@
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
-import { GameConfig } from '@/types/IQuiz';
 import { ConfigBadge } from '@/components/quiz/game/ConfigBadge';
+
+import { GameConfig } from '@/types/IQuiz';
 
 export type Props = {
   gameConfig: GameConfig;
@@ -11,7 +12,7 @@ export const GameConfigCard: React.FC<Props> = ({ gameConfig }) => {
   const { t } = useTranslation('common');
 
   return (
-    <div className='flex flex-col gap-2 bg-white/50 p-2'>
+    <div className='flex flex-col gap-2 bg-white/50 p-2 text-sm font-normal'>
       <div className='flex gap-2'>
         <div className=''>{t('Game Mode')}:</div>
         <div className=''>{gameConfig.mode}</div>

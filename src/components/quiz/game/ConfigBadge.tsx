@@ -1,7 +1,10 @@
-import { Badge } from '@/components/ui/badge';
-import { cn } from '@/lib/utils';
-import { CardSource } from '@/types/CardSource';
 import { useTranslation } from 'next-i18next';
+
+import { cn } from '@/lib/utils';
+
+import { Badge } from '@/components/ui/badge';
+
+import { CardSource } from '@/types/CardSource';
 
 export type Props = {
   source: CardSource;

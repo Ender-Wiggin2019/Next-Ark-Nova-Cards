@@ -21,8 +21,8 @@ export default function Page() {
   const searchParams = useSearchParams();
   const seed = searchParams.get('seed');
   const result = searchParams.get('result');
-  const mode = searchParams.get('mode');
-
+  // const mode = searchParams.get('mode');
+  const mode = seed?.[0] === 'a' ? 'arena' : 'default';
   if (Array.isArray(seed)) {
     return null;
   }
@@ -31,7 +31,7 @@ export default function Page() {
 
   const gameSetupGenerator = new GameSetupGenerator(seed || '', gameConfig);
   const setup = gameSetupGenerator.generateGameSetup();
-  console.log(setup);
+  console.log('11', gameConfig, setup);
 
   // 处理表单提交
   const handleSubmit = async () => {

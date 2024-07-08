@@ -49,6 +49,10 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
   if (!seed)
     seed = new Date().toISOString().slice(0, 10) + '-' + uuidv4().slice(0, 4);
 
+  if (gameConfig.mode === 'arena') {
+    seed = 'a-' + seed;
+  }
+
   const gameSetupGenerator = new GameSetupGenerator(seed, gameConfig);
   const setup = gameSetupGenerator.generateGameSetup();
 

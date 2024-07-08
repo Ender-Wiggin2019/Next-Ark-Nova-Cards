@@ -1,5 +1,6 @@
 import { Prisma } from '@prisma/client';
 import { useQuery } from '@tanstack/react-query';
+import dayjs from 'dayjs';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
@@ -39,17 +40,23 @@ import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
 import { fetchAllQuizs } from '@/utils/fetch';
-import dayjs from 'dayjs';
 
-export const QuizList: React.FC = () => {
+import { GameMode } from '@/types/IQuiz';
+
+export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
   const { t } = useTranslation('common');
   const shouldFetchRatings = true;
-  const { data: allQuizs } = useQuery(['allQuizs'], fetchAllQuizs, {
+  let { data: allQuizs } = useQuery(['allQuizs'], fetchAllQuizs, {
     enabled: shouldFetchRatings,
     // staleTime: 60 * 1000,
   });
+
+  allQuizs = allQuizs?.filter((q: any) => q.gameconfig.mode === mode);
+
+  console.log('allQuizs', mode, allQuizs);
   const todayQuiz = allQuizs ? allQuizs[0] : null;
 
+  // console.log('22', allQuizs[0].seed[1], allQuizs.filter((q: any) => q.seed[1] !== '-'));
   console.log(todayQuiz);
   return (
     <div className=''>
@@ -74,10 +81,10 @@ export const QuizList: React.FC = () => {
         </CardHeader>
         {allQuizs &&
           allQuizs
-            .filter(
-              (quiz: Prisma.SetUpGroupByOutputType) =>
-                dayjs(quiz.createdat).diff(dayjs('2024-01-01')) > 0
-            )
+            // .filter(
+            //   (quiz: Prisma.SetUpGroupByOutputType) =>
+            //     dayjs(quiz.createdat).diff(dayjs('2024-01-01')) > 0
+            // )
             .map((quiz: Prisma.SetUpGroupByOutputType, index: number) => {
               return (
                 <QuizInfo
