@@ -1,4 +1,4 @@
-import { Check, Share2 } from 'lucide-react';
+import { Check, Info, Share2 } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
@@ -14,6 +14,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 import { Separator } from '@/components/ui/separator';
 import CardWrapper from '@/components/wrapper/CardWrapper';
 
@@ -22,6 +28,8 @@ import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
 import { RerollButton } from './Reroll';
 
 import { GameConfig } from '@/types/IQuiz';
+import { GameConfigCard } from '@/components/quiz/game/GameConfigCard';
+import { capitalize } from 'lodash';
 
 export type Props = {
   seed: string;
@@ -41,6 +49,7 @@ export const Quiz: React.FC<Props> = ({
   const gameSetupGenerator = new GameSetupGenerator(seed, gameConfig);
   const setup = gameSetupGenerator.generateGameSetup();
 
+  console.log('tt', gameConfig);
   const mainPlayerIndex = setup.playersData.findIndex((p) => p.isMainPlayer);
 
   const handleShare = () => {
@@ -56,15 +65,31 @@ export const Quiz: React.FC<Props> = ({
       <CardHeader>
         <CardTitle>
           <div className='flex w-full items-center justify-between gap-4'>
-            <div className='flex items-start justify-start'>
+            <div className='flex items-center justify-start gap-1'>
               <div>{t(header || 'quiz.today')}</div>
+              {gameConfig.mode !== 'default' && (
+                <div>{capitalize(gameConfig.mode)}</div>
+              )}
               {isDailyQuiz && (
-                <Alert className='w-30 -mt-4 bg-yellow-200/50 py-1 text-xs'>
+                <Alert className='w-30 -mt-6 bg-yellow-200/50 py-1 text-xs'>
                   {/* <Terminal className='h-4 w-4' /> */}
                   {/* <AlertTitle>Notice</AlertTitle> */}
                   <AlertDescription>BETA</AlertDescription>
                 </Alert>
               )}
+              <div className='ml-4'>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      {/* <Button variant="outline">Hover</Button> */}
+                      <Info className='h-8 w-8 cursor-pointer' />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <GameConfigCard gameConfig={gameConfig} />
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </div>
             </div>
             {!isDailyQuiz && (
               <div className='flex-1'>

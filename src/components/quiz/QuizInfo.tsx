@@ -26,7 +26,8 @@ export const QuizInfo: React.FC<
           {t(props.title)}
         </Badge> */}
         <div className='font-bold'>
-          {'Day ' + props.day}
+          {'Day ' +
+            (dayjs(props.createdat || '').diff(dayjs('2024-07-02'), 'day') + 1)}
           <div className='text-xs font-normal text-zinc-400'>
             {dayjs(props.createdat).format('DD/MM/YYYY')}
           </div>

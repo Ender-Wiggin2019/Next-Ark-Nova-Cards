@@ -18,6 +18,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
   console.log(apiKey, apiKey !== process.env.API_SECRET_KEY, req);
 
   const gameConfig = req.body.gameConfig;
+  let seed = req.body.seed;
 
   if (!gameConfig) {
     return res.status(400).json({ error: 'Need to provide game config' });
@@ -31,22 +32,22 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
   const todayStart = startOfDay(new Date());
   const todayEnd = endOfDay(new Date());
   // 检查是否存在今天创建的记录
-  const existingRecord = await prisma.setUp.findFirst({
-    where: {
-      createdat: {
-        gte: todayStart,
-        lte: todayEnd,
-      },
-    },
-  });
+  // const existingRecord = await prisma.setUp.findFirst({
+  //   where: {
+  //     createdat: {
+  //       gte: todayStart,
+  //       lte: todayEnd,
+  //     },
+  //   },
+  // });
 
-  // 如果存在，则不创建新记录，直接返回存在的记录
-  if (existingRecord) {
-    return res.status(200).json(existingRecord);
-  }
+  // // 如果存在，则不创建新记录，直接返回存在的记录
+  // if (existingRecord) {
+  //   return res.status(200).json(existingRecord);
+  // }
 
-  const seed =
-    new Date().toISOString().slice(0, 10) + '-' + uuidv4().slice(0, 4);
+  if (!seed)
+    seed = new Date().toISOString().slice(0, 10) + '-' + uuidv4().slice(0, 4);
 
   const gameSetupGenerator = new GameSetupGenerator(seed, gameConfig);
   const setup = gameSetupGenerator.generateGameSetup();

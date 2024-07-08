@@ -121,7 +121,7 @@ html.dark {
 }
 
 .preview {
-  @apply z-10 duration-300 hover:z-[99999] hover:scale-[200%];
+  @apply z-10 duration-500 lg:hover:z-[99999] lg:hover:scale-[200%];
 }
 
 .animal-title {

@@ -39,6 +39,7 @@ import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
 import { fetchAllQuizs } from '@/utils/fetch';
+import dayjs from 'dayjs';
 
 export const QuizList: React.FC = () => {
   const { t } = useTranslation('common');
@@ -56,9 +57,14 @@ export const QuizList: React.FC = () => {
       {todayQuiz && (
         <Quiz
           seed={todayQuiz.seed}
-          gameConfig={todayQuiz.gameConfig}
+          gameConfig={todayQuiz.gameconfig}
           isDailyQuiz={true}
-          header={t('quiz.today') + ' Day ' + allQuizs.length}
+          header={
+            t('quiz.today') +
+            ' Day ' +
+            (dayjs(todayQuiz.createdat || '').diff(dayjs('2024-07-02'), 'day') +
+              1)
+          }
         />
       )}
       <Separator orientation='horizontal' className='my-2' />
@@ -67,16 +73,21 @@ export const QuizList: React.FC = () => {
           <CardTitle>{t('quiz.prev')}</CardTitle>
         </CardHeader>
         {allQuizs &&
-          allQuizs.map((quiz: Prisma.SetUpGroupByOutputType, index: number) => {
-            return (
-              <QuizInfo
-                key={quiz.id}
-                {...quiz}
-                idx={index}
-                day={allQuizs.length - index}
-              />
-            );
-          })}
+          allQuizs
+            .filter(
+              (quiz: Prisma.SetUpGroupByOutputType) =>
+                dayjs(quiz.createdat).diff(dayjs('2024-01-01')) > 0
+            )
+            .map((quiz: Prisma.SetUpGroupByOutputType, index: number) => {
+              return (
+                <QuizInfo
+                  key={quiz.id}
+                  {...quiz}
+                  idx={index}
+                  day={allQuizs.length - index}
+                />
+              );
+            })}
         {/* <Pagination>
   <PaginationContent>
     <PaginationItem>

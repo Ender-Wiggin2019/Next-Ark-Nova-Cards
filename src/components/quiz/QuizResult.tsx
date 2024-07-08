@@ -1,7 +1,7 @@
 import { useUser } from '@clerk/nextjs';
 import { useQuery } from '@tanstack/react-query';
 import { Check, Share2 } from 'lucide-react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
@@ -42,6 +42,8 @@ export const QuizResult: React.FC<Props> = ({
   const { t } = useTranslation('common');
   const [isCopied, setIsCopied] = useState(false);
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const mode = gameConfig.mode;
   const gameSetupGenerator = new GameSetupGenerator(seed, gameConfig);
   const setup = gameSetupGenerator.generateGameSetup();
   console.log(setup);

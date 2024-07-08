@@ -14,24 +14,20 @@ import Seo from '@/components/Seo';
 import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
 
 import { CardSource } from '@/types/CardSource';
-import { GameConfig } from '@/types/IQuiz';
+import { BGA_CONFIG, DEFAULT_CONFIG, GameConfig } from '@/types/IQuiz';
 export default function Page() {
   const router = useRouter();
 
   const searchParams = useSearchParams();
   const seed = searchParams.get('seed');
   const result = searchParams.get('result');
+  const mode = searchParams.get('mode');
 
   if (Array.isArray(seed)) {
     return null;
   }
 
-  const gameConfig: GameConfig = {
-    players: 2,
-    cardSources: [CardSource.BASE, CardSource.MARINE_WORLD, CardSource.PROMO],
-    mapSources: [CardSource.BASE, CardSource.ALTERNATIVE, CardSource.PROMO],
-    mode: 'default',
-  };
+  const gameConfig: GameConfig = mode === 'arena' ? BGA_CONFIG : DEFAULT_CONFIG;
 
   const gameSetupGenerator = new GameSetupGenerator(seed || '', gameConfig);
   const setup = gameSetupGenerator.generateGameSetup();

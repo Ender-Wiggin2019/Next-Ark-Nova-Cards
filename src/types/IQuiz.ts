@@ -35,6 +35,13 @@ export const BASE_CONFIG: GameConfig = {
   players: DEFAULT_PLAYER,
 };
 
+export const BGA_CONFIG: GameConfig = {
+  cardSources: [CardSource.BASE, CardSource.PROMO],
+  mapSources: [CardSource.ALTERNATIVE, CardSource.PROMO],
+  mode: 'arena',
+  players: DEFAULT_PLAYER,
+};
+
 export interface IPlayerData {
   cards: string[];
   maps: string[];

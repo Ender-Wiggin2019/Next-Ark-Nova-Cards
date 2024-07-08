@@ -88,13 +88,13 @@ const Carousel = React.forwardRef<
 
     const handleKeyDown = React.useCallback(
       (event: React.KeyboardEvent<HTMLDivElement>) => {
-        if (event.key === 'ArrowLeft') {
-          event.preventDefault();
-          scrollPrev();
-        } else if (event.key === 'ArrowRight') {
-          event.preventDefault();
-          scrollNext();
-        }
+        // if (event.key === 'ArrowLeft') {
+        //   event.preventDefault();
+        //   scrollPrev();
+        // } else if (event.key === 'ArrowRight') {
+        //   event.preventDefault();
+        //   scrollNext();
+        // }
       },
       [scrollPrev, scrollNext]
     );
@@ -163,7 +163,7 @@ const CarouselContent = React.forwardRef<
         ref={ref}
         className={cn(
           'flex',
-          orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',
+          orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex flex-col',
           className
         )}
         {...props}
