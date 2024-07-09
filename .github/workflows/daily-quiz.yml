@@ -13,7 +13,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Call API
+
+      - name: BGA Game
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+          -H "X-API-Key: ${{ secrets.DAILY_QUIZ_API }}" \
+          -d '{"gameConfig": {"cardSources": ["Base", "Promo"], "mapSources": ["Alternative", "Promo"], "mode": "arena", "players": 2}}' \
+          https://ark-nova.ender-wiggin.com/api/quiz/create
+
+      - name: All Expansion Game
         run: |
           curl -X POST -H "Content-Type: application/json" \
           -H "X-API-Key: ${{ secrets.DAILY_QUIZ_API }}" \
