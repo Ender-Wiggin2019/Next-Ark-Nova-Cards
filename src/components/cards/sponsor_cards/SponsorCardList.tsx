@@ -12,7 +12,10 @@ import { CardSource } from '@/types/CardSource';
 import { IRating } from '@/types/IRating';
 import { ISponsorCard } from '@/types/ISponsorCard';
 import { SortOrder } from '@/types/Order';
-import { SponsorCard as SponsorCardType } from '@/types/SponsorCard';
+import {
+  SponsorCard as TypedSponsorCard,
+  SponsorCardType,
+} from '@/types/SponsorCard';
 import { SponsorCard } from '@/types/SponsorCard';
 import {
   isAnimalTag,
@@ -30,10 +33,11 @@ interface SponsorCardListProps {
   sortOrder?: SortOrder;
   strength?: number[];
   onCardCountChange: (count: number) => void;
+  showHumanSponsors?: boolean;
   // ... any other filters
 }
 
-const hasRockAndWaterRequirements = (sponsor: SponsorCardType, req: Tag) => {
+const hasRockAndWaterRequirements = (sponsor: TypedSponsorCard, req: Tag) => {
   if (req === OtherTag.Rock) {
     return sponsor.rock && sponsor.rock > 0;
   } else if (req === OtherTag.Water) {
@@ -43,10 +47,11 @@ const hasRockAndWaterRequirements = (sponsor: SponsorCardType, req: Tag) => {
   }
 };
 const filterSponsors = (
-  sponsors: SponsorCardType[],
+  sponsors: TypedSponsorCard[],
   selectedTags: Tag[] = [],
   selectedRequirements: Tag[] = [],
   selectedCardSources: CardSource[] = [],
+  showHumanSponsors = false,
   textFilter = '',
   strength: number[] = [2]
 ) => {
@@ -54,6 +59,10 @@ const filterSponsors = (
 
   return sponsors.filter(
     (sponsor) =>
+      (!showHumanSponsors ||
+        (showHumanSponsors &&
+          sponsor.type &&
+          sponsor.type === SponsorCardType.HUMAN)) &&
       (selectedTags.filter(isAnimalTag).length === 0 ||
         selectedTags
           .filter(isAnimalTag)
@@ -96,6 +105,7 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
   textFilter,
   onCardCountChange,
   sortOrder = SortOrder.ID_ASC,
+  showHumanSponsors = false,
   strength = [0],
 }) => {
   const shouldFetchRatings = true;
@@ -109,6 +119,7 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
     selectedTags,
     selectedRequirements,
     selectedCardSources,
+    showHumanSponsors,
     textFilter,
     strength
   );

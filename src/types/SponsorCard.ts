@@ -1,3 +1,10 @@
+/*
+ * @Author: Ender-Wiggin
+ * @Date: 2023-07-06 02:31:29
+ * @LastEditors: Ender-Wiggin
+ * @LastEditTime: 2024-10-06 23:54:26
+ * @Description:
+ */
 import { CardSource } from '@/types/CardSource';
 import { Effect } from '@/types/Effect';
 import { Tag } from '@/types/Tags';
@@ -29,4 +36,10 @@ export interface SponsorCard {
 
   // meta data
   source: CardSource;
+  type?: SponsorCardType; // add this for human sponsors
+}
+
+export enum SponsorCardType {
+  HUMAN = 'HUMAN',
+  NORMAL = 'NORMAL',
 }

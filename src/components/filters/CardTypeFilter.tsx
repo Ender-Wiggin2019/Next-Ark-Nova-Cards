@@ -1,8 +1,17 @@
+/*
+ * @Author: Ender-Wiggin
+ * @Date: 2023-07-08 11:36:49
+ * @LastEditors: Ender-Wiggin
+ * @LastEditTime: 2024-10-07 00:52:10
+ * @Description:
+ */
 // CategoryFilter.tsx
+import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import React, { useEffect, useState } from 'react';
 
 import TextButton from '@/components/buttons/TextButton';
+import HumanSponsor from '@/components/icons/HumanSponsor';
 
 import { CardType } from '@/types/Card';
 
@@ -17,6 +26,7 @@ export const CardTypeFilter: React.FC<CardTypeFilterProps> = ({
   onFilterChange,
   reset,
 }) => {
+  const router = useRouter();
   const { t } = useTranslation('common');
   const [selectedCategories, setSelectedCategories] = useState<CardType[]>([]);
 
@@ -51,14 +61,22 @@ export const CardTypeFilter: React.FC<CardTypeFilterProps> = ({
         </TextButton>
       )}
       {cardTypes.includes(CardType.SPONSOR_CARD) && (
-        <TextButton
-          selected={selectedCategories.includes(CardType.SPONSOR_CARD)}
-          className='hover:text-sky-600'
-          selectClassName='text-sky-600 ring-sky-600/90 ring-2'
-          onClick={() => handleCategoryChange(CardType.SPONSOR_CARD)}
-        >
-          {t('Sponsor Card')}
-        </TextButton>
+        <div className='relative'>
+          <TextButton
+            selected={selectedCategories.includes(CardType.SPONSOR_CARD)}
+            className='hover:text-sky-600'
+            selectClassName='text-sky-600 ring-sky-600/90 ring-2'
+            onClick={() => handleCategoryChange(CardType.SPONSOR_CARD)}
+          >
+            {t('Sponsor Card')}
+          </TextButton>
+          <div
+            className='absolute -top-2 right-0 cursor-pointer hover:opacity-80'
+            onClick={() => router.push('/people-sponsors')}
+          >
+            <HumanSponsor />
+          </div>
+        </div>
       )}
       {cardTypes.includes(CardType.CONSERVATION_CARD) && (
         <TextButton

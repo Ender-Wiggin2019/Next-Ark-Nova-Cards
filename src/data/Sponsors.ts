@@ -1,6 +1,6 @@
 import { CardSource } from '@/types/CardSource';
 import { EffectType } from '@/types/Effect';
-import { SponsorCard } from '@/types/SponsorCard';
+import { SponsorCard, SponsorCardType } from '@/types/SponsorCard';
 import { AnimalTag, ContinentTag, OtherTag } from '@/types/Tags';
 // import {Size} from "@/types/Size";
 
@@ -58,6 +58,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -79,6 +80,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -237,6 +239,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -258,6 +261,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -279,6 +283,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -300,6 +305,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -321,6 +327,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
   {
     id: '215',
@@ -366,6 +373,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -387,6 +395,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -439,6 +448,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -481,6 +491,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -655,6 +666,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -676,6 +688,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
   {
     id: '231',
@@ -796,6 +809,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -817,6 +831,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -838,6 +853,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -859,6 +875,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -880,6 +897,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -903,6 +921,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -926,6 +945,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -1382,6 +1402,7 @@ export const SponsorsData: SponsorCard[] = [
     appeal: 0,
     conservationPoint: 0,
     source: CardSource.BASE,
+    type: SponsorCardType.HUMAN,
   },
 
   {
@@ -1465,6 +1486,7 @@ export const SponsorsData: SponsorCard[] = [
       },
     ],
     source: CardSource.MARINE_WORLD,
+    type: SponsorCardType.HUMAN,
   },
   {
     id: '267',
@@ -1666,6 +1688,7 @@ export const SponsorsData: SponsorCard[] = [
       },
     ],
     source: CardSource.MARINE_WORLD,
+    type: SponsorCardType.HUMAN,
   },
   {
     id: '276',
@@ -1689,6 +1712,7 @@ export const SponsorsData: SponsorCard[] = [
       },
     ],
     source: CardSource.MARINE_WORLD,
+    type: SponsorCardType.HUMAN,
   },
   {
     id: '277',
@@ -1834,5 +1858,6 @@ export const SponsorsData: SponsorCard[] = [
       },
     ],
     source: CardSource.PROMO,
+    type: SponsorCardType.HUMAN,
   },
 ];
