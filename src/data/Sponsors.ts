@@ -1851,7 +1851,7 @@ export const SponsorsData: SponsorCard[] = [
         fontSize: 'md',
       },
       {
-        effectType: EffectType.ENDGAME,
+        effectType: EffectType.PASSIVE,
         effectDesc: 'sponsors.s282_desc2',
         display: true,
         fontSize: 'md',
