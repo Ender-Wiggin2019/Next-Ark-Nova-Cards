@@ -96,6 +96,34 @@ export const MapBoards: MapBoard[] = [
     ],
   },
   {
+    id: 'm11',
+    name: 'maps.name11',
+    image: 'plan11',
+    cardSource: CardSource.PROMO,
+    description: ['maps.desc11-1'],
+  },
+  {
+    id: 'm12',
+    name: 'maps.name12',
+    image: 'plan12',
+    cardSource: CardSource.PROMO,
+    description: ['maps.desc12-1'],
+  },
+  {
+    id: 'm13',
+    name: 'maps.name13',
+    image: 'plan13',
+    cardSource: CardSource.PROMO,
+    description: ['maps.desc13-1'],
+  },
+  {
+    id: 'm14',
+    name: 'maps.name14',
+    image: 'plan14',
+    cardSource: CardSource.PROMO,
+    description: ['maps.desc14-1'],
+  },
+  {
     id: 'm0',
     name: 'maps.name0',
     image: 'plan0',
@@ -108,5 +136,12 @@ export const MapBoards: MapBoard[] = [
     image: 'plana',
     cardSource: CardSource.BEGINNER,
     description: ['maps.descA-1'],
+  },
+  {
+    id: 'mt1',
+    name: 'maps.nameT1',
+    image: 'planT1',
+    cardSource: CardSource.PROMO,
+    description: ['maps.descT1-1'],
   },
 ];
