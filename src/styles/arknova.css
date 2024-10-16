@@ -4511,7 +4511,7 @@
   background-size: 2395.3216374269005%;
 }
 
-.arknova-icon.icon-action-card-animals {
+.arknova-icon.icon-action-card-animal {
   background-position: 63.36305732484077% 40.71625344352617%;
   background-size: 2395.3216374269005%;
 }
@@ -4531,7 +4531,7 @@
   background-size: 2395.3216374269005%;
 }
 
-.arknova-icon.icon-action-card-sponsors {
+.arknova-icon.icon-action-card-sponsor {
   background-position: 19.97452229299363% 40.73869900771775%;
   background-size: 2395.3216374269005%;
 }
@@ -5261,11 +5261,11 @@
 }
 
 .icon-container .icon-action-card,
-.icon-container .icon-action-card-animals,
+.icon-container .icon-action-card-animal,
 .icon-container .icon-action-card-association,
 .icon-container .icon-action-card-build,
 .icon-container .icon-action-card-cards,
-.icon-container .icon-action-card-sponsors,
+.icon-container .icon-action-card-sponsor,
 .icon-container .icon-animal-size-2,
 .icon-container .icon-animal-size-3,
 .icon-container .icon-animal-size-4,
