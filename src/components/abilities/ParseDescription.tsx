@@ -90,6 +90,8 @@ const ParseDescription: React.FC<ParseDescriptionProps> = ({ desc }) => {
         return <Kiosk key={index} />;
       } else if (keyword === 'LargeBirdAviary') {
         return <LargeBirdAviary key={index} />;
+      } else if (keyword === 'SizeAnimal') {
+        return <AnimalSizeIcon key={index} value={param || ''} />;
       } else if (keyword === 'Size' && param === 'Animal') {
         return <AnimalSizeIcon key={index} value={value} />;
       } else if (keyword === 'Size' && param === 'Enclosure') {
