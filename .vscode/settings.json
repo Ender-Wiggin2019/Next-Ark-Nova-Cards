@@ -6,5 +6,6 @@
     "source.fixAll": "explicit"
   },
   "headwind.runOnSave": false,
-  "typescript.preferences.importModuleSpecifier": "non-relative"
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "i18n-ally.localesPaths": ["public/locales"]
 }

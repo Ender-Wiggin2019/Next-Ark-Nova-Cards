@@ -9,7 +9,8 @@
     "result": "Statistics",
     "random": "Random Quiz",
     "prev": "Previous Quizzes",
-    "total": "Total"
+    "total": "Total",
+    "banner_desc": "Join the <1>Discord Group</1> to discuss quizzes and any topics about Ark Nova!"
   },
   "abilities": {
     "clever_description": "After finishing you may place any Action card on {Slot-1} .",

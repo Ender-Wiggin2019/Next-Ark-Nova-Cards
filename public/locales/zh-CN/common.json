@@ -9,7 +9,8 @@
     "result": "统计数据",
     "random": "随机题目",
     "prev": "历年真题",
-    "total": "参与人数"
+    "total": "参与人数",
+    "banner_desc": "可以加入<1>Discord群组</1>来讨论每日选卡及各种游戏相关话题"
   },
   "abilities": {
     "clever_description": "在当前行动完成后，你可以将任意一张行动卡牌放置到 {Slot-1} 。",
