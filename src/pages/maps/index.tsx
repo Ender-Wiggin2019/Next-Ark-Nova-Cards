@@ -1,4 +1,4 @@
-import { Sparkles } from 'lucide-react';
+import { HelpCircle, Sparkles } from 'lucide-react';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -41,6 +41,10 @@ export default function HomePage(
     setSelectedMap(map);
     router.push('/maps/?map=' + map.id, undefined, { shallow: true });
   }
+
+  const handlePeopleSponsorLink = () => {
+    router.push('/people-sponsors', undefined, { shallow: true });
+  };
 
   useEffect(() => {
     const map = getMapFromQuery();
@@ -134,6 +138,15 @@ export default function HomePage(
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
+          )}
+          {selectedMap.id === 'm14' && (
+            <div
+              className='flex items-center text-lime-800 no-underline hover:underline'
+              onClick={handlePeopleSponsorLink}
+            >
+              <HelpCircle className='mr-1 h-6 w-6' />
+              <div>{t('which-people-sponsors')}</div>
+            </div>
           )}
         </div>
         <Comments cardId={selectedMap.id} />
