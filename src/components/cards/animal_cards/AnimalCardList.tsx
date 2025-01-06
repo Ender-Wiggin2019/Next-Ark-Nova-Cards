@@ -31,6 +31,7 @@ interface AnimalCardListProps {
   sortOrder?: SortOrder;
   size?: number[];
   onCardCountChange: (count: number) => void;
+  maxNum?: number;
   // ... any other filters
 }
 
@@ -40,11 +41,12 @@ const filterAnimals = (
   selectedRequirements: Tag[] = [],
   selectedCardSources: CardSource[] = [],
   textFilter = '',
-  size: number[] = [0]
+  size: number[] = [0],
+  maxNum?: number
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
 
-  return animals.filter(
+  const res = animals.filter(
     (animal) =>
       (selectedTags.filter(isAnimalTag).length === 0 ||
         selectedTags
@@ -79,6 +81,13 @@ const filterAnimals = (
           ))) &&
       (size.length === 0 || size.includes(0) || size.includes(animal.size))
   );
+
+  return {
+    originalCount: res.length,
+    limitedCount:
+      maxNum !== undefined ? Math.min(res.length, maxNum) : res.length,
+    cards: maxNum !== undefined ? res.slice(0, maxNum) : res,
+  };
 };
 
 export const AnimalCardList: React.FC<AnimalCardListProps> = ({
@@ -89,6 +98,7 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   onCardCountChange,
   sortOrder = SortOrder.ID_ASC,
   size = [0],
+  maxNum,
 }) => {
   // const { user } = useUser();
   // const userId = user?.id ?? '';
@@ -110,13 +120,14 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   // });
 
   const animalsData = useAnimalData();
-  const filteredAnimals = filterAnimals(
+  const { originalCount, cards: filteredAnimals } = filterAnimals(
     animalsData,
     selectedTags,
     selectedRequirements,
     selectedCardSources,
     textFilter,
-    size
+    size,
+    maxNum
   );
 
   const combineDataWithRatings = (
@@ -153,8 +164,8 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   }, [filteredAnimals, cardRatings, initialAnimalCards]);
 
   useEffect(() => {
-    onCardCountChange(filteredAnimals.length);
-  }, [filteredAnimals, onCardCountChange]);
+    onCardCountChange(originalCount);
+  }, [originalCount, onCardCountChange]);
 
   switch (sortOrder) {
     case SortOrder.ID_ASC:

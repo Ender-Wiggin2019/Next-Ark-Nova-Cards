@@ -34,6 +34,7 @@ interface SponsorCardListProps {
   strength?: number[];
   onCardCountChange: (count: number) => void;
   showHumanSponsors?: boolean;
+  maxNum?: number;
   // ... any other filters
 }
 
@@ -53,11 +54,12 @@ const filterSponsors = (
   selectedCardSources: CardSource[] = [],
   showHumanSponsors = false,
   textFilter = '',
-  strength: number[] = [2]
+  strength: number[] = [2],
+  maxNum?: number
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
 
-  return sponsors.filter(
+  const res = sponsors.filter(
     (sponsor) =>
       (!showHumanSponsors ||
         (showHumanSponsors &&
@@ -96,6 +98,13 @@ const filterSponsors = (
         strength.includes(2) ||
         strength.includes(sponsor.strength))
   );
+
+  return {
+    originalCount: res.length,
+    limitedCount:
+      maxNum !== undefined ? Math.min(res.length, maxNum) : res.length,
+    cards: maxNum !== undefined ? res.slice(0, maxNum) : res,
+  };
 };
 
 export const SponsorCardList: React.FC<SponsorCardListProps> = ({
@@ -107,6 +116,7 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
   sortOrder = SortOrder.ID_ASC,
   showHumanSponsors = false,
   strength = [0],
+  maxNum,
 }) => {
   const shouldFetchRatings = true;
   const { data: cardRatings } = useQuery(['cardRatings'], fetchCardRatings, {
@@ -114,14 +124,15 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
     // staleTime: 60 * 1000,
   });
   const sponsorsData = useSponsorData();
-  const filteredSponsors = filterSponsors(
+  const { originalCount, cards: filteredSponsors } = filterSponsors(
     sponsorsData,
     selectedTags,
     selectedRequirements,
     selectedCardSources,
     showHumanSponsors,
     textFilter,
-    strength
+    strength,
+    maxNum
   );
 
   const combineDataWithRatings = (
@@ -156,8 +167,8 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
   }, [filteredSponsors, cardRatings]);
 
   useEffect(() => {
-    onCardCountChange(filteredSponsors.length);
-  }, [filteredSponsors, onCardCountChange]);
+    onCardCountChange(originalCount);
+  }, [originalCount, onCardCountChange]);
 
   switch (sortOrder) {
     case SortOrder.ID_ASC:

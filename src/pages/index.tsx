@@ -1,7 +1,7 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { FiRotateCcw } from 'react-icons/fi';
 
 import { SortButton } from '@/components/buttons/SortButton';
@@ -16,6 +16,7 @@ import { TagFilter } from '@/components/filters/TagFilter';
 import { TextFilter } from '@/components/filters/TextFilter'; // make sure to import your TextFilter
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
+import { Button } from '@/components/ui/button';
 import { CardOdometer } from '@/components/ui/CardOdometer';
 import { Separator } from '@/components/ui/separator';
 
@@ -28,11 +29,16 @@ type Props = {
   // Add custom props here
 };
 
+const INIT_MAX_NUM = 20;
+
 export default function HomePage(
   _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   const { t } = useTranslation('common');
   const [reset, setReset] = useState<boolean>(false);
+
+  // limit the number of cards to be displayed for optimization
+  const [totalMaxNum, setTotalMaxNum] = useState<number>(INIT_MAX_NUM);
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
   const [selectedRequirements, setSelectedRequirements] = useState<Tag[]>([]);
   const [textFilter, setTextFilter] = useState<string>(''); // add this line
@@ -46,6 +52,27 @@ export default function HomePage(
 
   const [animalCardsCount, setAnimalCardsCount] = useState<number>(0);
   const [sponsorCardsCount, setSponsorCardsCount] = useState<number>(0);
+
+  const animalMaxNum = useMemo(() => {
+    if (reset) return INIT_MAX_NUM;
+    return animalCardsCount > 0 ? Math.min(totalMaxNum, animalCardsCount) : 0;
+  }, [animalCardsCount, totalMaxNum]);
+
+  const sponsorMaxNum = useMemo(() => {
+    if (reset) return 0;
+    const remainingMaxNum = totalMaxNum - animalMaxNum;
+    return remainingMaxNum > 0
+      ? Math.min(remainingMaxNum, sponsorCardsCount)
+      : 0;
+  }, [animalMaxNum, sponsorCardsCount, totalMaxNum]);
+
+  const shouldDisplayViewMore = useMemo(() => {
+    return totalMaxNum < animalCardsCount + sponsorCardsCount;
+  }, [animalCardsCount, sponsorCardsCount, totalMaxNum]);
+
+  const handleViewMore = () => {
+    setTotalMaxNum(totalMaxNum + INIT_MAX_NUM);
+  };
 
   useEffect(() => {
     if (
@@ -74,12 +101,12 @@ export default function HomePage(
     setTextFilter('');
     setSelectedCardTypes([]);
     setSelectedCardSources([]);
-    setAnimalCardsCount(0);
-    setSponsorCardsCount(0);
+    // setAnimalCardsCount(0);
+    // setSponsorCardsCount(0);
     setSortOrder(SortOrder.ID_ASC);
     setSize([0]);
     setStrength([0]);
-
+    setTotalMaxNum(INIT_MAX_NUM); // reset the total number of cards to be displayed
     setReset(true);
   };
 
@@ -135,30 +162,46 @@ export default function HomePage(
           </div>
         </div>
         <div className='mb-2 md:mb-8'></div>
-        {(selectedCardTypes.length === 0 ||
-          selectedCardTypes.includes(CardType.ANIMAL_CARD)) && (
-          <AnimalCardList
-            selectedTags={selectedTags}
-            selectedRequirements={selectedRequirements}
-            selectedCardSources={selectedCardSources}
-            textFilter={textFilter}
-            sortOrder={sortOrder}
-            onCardCountChange={setAnimalCardsCount}
-            size={size}
-          />
-        )}
-        {(selectedCardTypes.length === 0 ||
-          selectedCardTypes.includes(CardType.SPONSOR_CARD)) && (
-          <SponsorCardList
-            selectedTags={selectedTags}
-            selectedRequirements={selectedRequirements}
-            selectedCardSources={selectedCardSources}
-            textFilter={textFilter}
-            sortOrder={sortOrder}
-            onCardCountChange={setSponsorCardsCount}
-            strength={strength}
-          />
-        )}
+        <div className='relative'>
+          {(selectedCardTypes.length === 0 ||
+            selectedCardTypes.includes(CardType.ANIMAL_CARD)) && (
+            <AnimalCardList
+              selectedTags={selectedTags}
+              selectedRequirements={selectedRequirements}
+              selectedCardSources={selectedCardSources}
+              textFilter={textFilter}
+              sortOrder={sortOrder}
+              onCardCountChange={setAnimalCardsCount}
+              size={size}
+              maxNum={animalMaxNum}
+            />
+          )}
+          {(selectedCardTypes.length === 0 ||
+            selectedCardTypes.includes(CardType.SPONSOR_CARD)) && (
+            <SponsorCardList
+              selectedTags={selectedTags}
+              selectedRequirements={selectedRequirements}
+              selectedCardSources={selectedCardSources}
+              textFilter={textFilter}
+              sortOrder={sortOrder}
+              onCardCountChange={setSponsorCardsCount}
+              strength={strength}
+              maxNum={sponsorMaxNum}
+            />
+          )}
+          {shouldDisplayViewMore && (
+            <>
+              <div className='h-10 w-full'></div>
+              <div className='absolute bottom-0 h-40 w-full bg-gradient-to-b from-transparent via-[#ecf5e8] to-[#ecf5e8] lg:h-60 xl:h-80'></div>
+              <Button
+                className='absolute bottom-5 h-12 w-full bg-lime-600 hover:bg-lime-700'
+                onClick={handleViewMore}
+              >
+                {t('View More')}
+              </Button>
+            </>
+          )}
+        </div>
       </main>
     </Layout>
   );
