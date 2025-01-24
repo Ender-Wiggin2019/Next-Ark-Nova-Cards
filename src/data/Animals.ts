@@ -2444,7 +2444,7 @@ export const AnimalsData: AnimalCard[] = [
     description: '',
     reefDwellerEffect: [],
     soloEffect: [],
-    reputation: 0,
+    reputation: 1,
     appeal: 6,
     conservationPoint: 0,
     wave: true,
