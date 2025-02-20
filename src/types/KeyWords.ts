@@ -136,7 +136,7 @@ export class KeyWord {
   static MULTIPLIER_BUILDING = new KeyWord(
     IconName.MULTIPLIER_BUILDING,
     'abilities.multiplier_building_description',
-    6,
+    3,
     false
   );
 

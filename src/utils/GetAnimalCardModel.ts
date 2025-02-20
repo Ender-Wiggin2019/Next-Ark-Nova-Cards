@@ -9,7 +9,7 @@ const getValueByKeyWord = (count: number, keyword: KeyWord): number => {
   }
   if (keyword.model === undefined) return 0;
   else if (keyword.multiply === undefined || keyword.multiply) {
-    return keyword.model * count;
+    return keyword.model * (count || 1);
   } else {
     return keyword.model;
   }
