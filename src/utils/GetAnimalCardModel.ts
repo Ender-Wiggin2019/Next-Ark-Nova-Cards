@@ -3,6 +3,10 @@ import { AbilityModel, AnimalCardModel } from '@/types/AnimalCardModel';
 import { KeyWord } from '@/types/KeyWords';
 
 const getValueByKeyWord = (count: number, keyword: KeyWord): number => {
+  // if have specific model calculation rule, based on it
+  if (keyword.options?.modelFn) {
+    return keyword.options?.modelFn(count);
+  }
   if (keyword.model === undefined) return 0;
   else if (keyword.multiply === undefined || keyword.multiply) {
     return keyword.model * count;

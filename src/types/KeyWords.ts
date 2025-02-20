@@ -548,4 +548,5 @@ export class Ability {
     const keyword = KeyWord.fromObject(obj.keyword);
     return new Ability(keyword, obj.value);
   }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }

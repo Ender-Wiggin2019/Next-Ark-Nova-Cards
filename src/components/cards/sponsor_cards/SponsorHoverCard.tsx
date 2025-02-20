@@ -1,3 +1,10 @@
+/*
+ * @Author: Ender-Wiggin
+ * @Date: 2024-06-27 23:56:37
+ * @LastEditors: Ender-Wiggin
+ * @LastEditTime: 2025-02-21 01:35:23
+ * @Description:
+ */
 import { Separator } from '@/components/ui/separator';
 
 interface HoverCardProps {
@@ -5,6 +12,7 @@ interface HoverCardProps {
   showLink: boolean;
   rating?: number | null;
   ratingCount?: number | null;
+  isPeopleSponsor?: boolean;
 }
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
@@ -16,11 +24,17 @@ export const SponsorHoverCard: React.FC<HoverCardProps> = ({
   showLink,
   rating,
   ratingCount,
+  isPeopleSponsor,
 }) => {
   // const router = useRouter();
   const { t } = useTranslation('common');
   return (
-    <div className='flex flex-col text-xs'>
+    <div className='flex flex-col gap-2 text-xs'>
+      {isPeopleSponsor && (
+        <div className='text-md font-bold text-lime-800'>
+          {t("Hi, I'm a People Sponsor!")}
+        </div>
+      )}
       {rating && (
         <div className='flex flex-row gap-1'>
           <Rating

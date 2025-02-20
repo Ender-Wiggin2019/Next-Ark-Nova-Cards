@@ -54,8 +54,7 @@ const filterSponsors = (
   selectedCardSources: CardSource[] = [],
   showHumanSponsors = false,
   textFilter = '',
-  strength: number[] = [2],
-  maxNum?: number
+  strength: number[] = [2]
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
 
@@ -99,12 +98,7 @@ const filterSponsors = (
         strength.includes(sponsor.strength))
   );
 
-  return {
-    originalCount: res.length,
-    limitedCount:
-      maxNum !== undefined ? Math.min(res.length, maxNum) : res.length,
-    cards: maxNum !== undefined ? res.slice(0, maxNum) : res,
-  };
+  return res;
 };
 
 export const SponsorCardList: React.FC<SponsorCardListProps> = ({
@@ -124,15 +118,14 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
     // staleTime: 60 * 1000,
   });
   const sponsorsData = useSponsorData();
-  const { originalCount, cards: filteredSponsors } = filterSponsors(
+  const filteredSponsors = filterSponsors(
     sponsorsData,
     selectedTags,
     selectedRequirements,
     selectedCardSources,
     showHumanSponsors,
     textFilter,
-    strength,
-    maxNum
+    strength
   );
 
   const combineDataWithRatings = (
@@ -159,16 +152,37 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
     }));
   }, [filteredSponsors]);
 
-  const ratedSponsorCards: ISponsorCard[] = useMemo(() => {
-    if (!cardRatings) {
-      return initialSponsorCards;
-    }
-    return combineDataWithRatings(filteredSponsors, cardRatings);
-  }, [filteredSponsors, cardRatings]);
+  const { ratedSponsorCards, originalCount } = useMemo(() => {
+    const _ratedSponsorCards = !cardRatings
+      ? initialSponsorCards
+      : combineDataWithRatings(filteredSponsors, cardRatings);
 
-  useEffect(() => {
-    onCardCountChange(originalCount);
-  }, [originalCount, onCardCountChange]);
+    switch (sortOrder) {
+      case SortOrder.ID_ASC:
+        _ratedSponsorCards.sort((a, b) => a.id.localeCompare(b.id));
+        break;
+      case SortOrder.ID_DESC:
+        _ratedSponsorCards.sort((a, b) => b.id.localeCompare(a.id));
+        break;
+      case SortOrder.RATING_DESC:
+        _ratedSponsorCards.sort((a, b) => {
+          if ((b.rating ?? -1) !== (a.rating ?? -1)) {
+            return (b.rating ?? -1) - (a.rating ?? -1);
+          } else {
+            return (b.ratingCount ?? -1) - (a.ratingCount ?? -1);
+          }
+        });
+        break;
+    }
+
+    return {
+      ratedSponsorCards:
+        maxNum !== undefined
+          ? _ratedSponsorCards.slice(0, maxNum)
+          : _ratedSponsorCards,
+      originalCount: _ratedSponsorCards.length,
+    };
+  }, [filteredSponsors, cardRatings]);
 
   switch (sortOrder) {
     case SortOrder.ID_ASC:
@@ -187,6 +201,10 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
       });
       break;
   }
+
+  useEffect(() => {
+    onCardCountChange(originalCount);
+  }, [originalCount, onCardCountChange]);
 
   return (
     <CardList>

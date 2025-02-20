@@ -41,8 +41,7 @@ const filterAnimals = (
   selectedRequirements: Tag[] = [],
   selectedCardSources: CardSource[] = [],
   textFilter = '',
-  size: number[] = [0],
-  maxNum?: number
+  size: number[] = [0]
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
 
@@ -82,12 +81,7 @@ const filterAnimals = (
       (size.length === 0 || size.includes(0) || size.includes(animal.size))
   );
 
-  return {
-    originalCount: res.length,
-    limitedCount:
-      maxNum !== undefined ? Math.min(res.length, maxNum) : res.length,
-    cards: maxNum !== undefined ? res.slice(0, maxNum) : res,
-  };
+  return res;
 };
 
 export const AnimalCardList: React.FC<AnimalCardListProps> = ({
@@ -120,14 +114,13 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   // });
 
   const animalsData = useAnimalData();
-  const { originalCount, cards: filteredAnimals } = filterAnimals(
+  const filteredAnimals = filterAnimals(
     animalsData,
     selectedTags,
     selectedRequirements,
     selectedCardSources,
     textFilter,
-    size,
-    maxNum
+    size
   );
 
   const combineDataWithRatings = (
@@ -156,46 +149,53 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
     }));
   }, [filteredAnimals]);
 
-  const ratedAnimalCards: IAnimalCard[] = useMemo(() => {
-    if (!cardRatings) {
-      return initialAnimalCards;
+  const { ratedAnimalCards, originalCount } = useMemo(() => {
+    const _ratedAnimalCards = !cardRatings
+      ? initialAnimalCards
+      : combineDataWithRatings(filteredAnimals, cardRatings);
+
+    switch (sortOrder) {
+      case SortOrder.ID_ASC:
+        _ratedAnimalCards.sort((a, b) => a.id.localeCompare(b.id));
+        break;
+      case SortOrder.ID_DESC:
+        _ratedAnimalCards.sort((a, b) => b.id.localeCompare(a.id));
+        break;
+      case SortOrder.DIFF_ASC:
+        _ratedAnimalCards.sort(
+          (a, b) =>
+            a.model.diffWithSpecialEnclosure - b.model.diffWithSpecialEnclosure
+        );
+        break;
+      case SortOrder.DIFF_DESC:
+        _ratedAnimalCards.sort(
+          (a, b) =>
+            b.model.diffWithSpecialEnclosure - a.model.diffWithSpecialEnclosure
+        );
+        break;
+      case SortOrder.RATING_DESC:
+        _ratedAnimalCards.sort((a, b) => {
+          if ((b.rating ?? -1) !== (a.rating ?? -1)) {
+            return (b.rating ?? -1) - (a.rating ?? -1);
+          } else {
+            return (b.ratingCount ?? -1) - (a.ratingCount ?? -1);
+          }
+        });
+        break;
     }
-    return combineDataWithRatings(filteredAnimals, cardRatings);
-  }, [filteredAnimals, cardRatings, initialAnimalCards]);
+
+    return {
+      ratedAnimalCards:
+        maxNum !== undefined
+          ? _ratedAnimalCards.slice(0, maxNum)
+          : _ratedAnimalCards,
+      originalCount: _ratedAnimalCards.length,
+    };
+  }, [cardRatings, initialAnimalCards, filteredAnimals, sortOrder, maxNum]);
 
   useEffect(() => {
     onCardCountChange(originalCount);
   }, [originalCount, onCardCountChange]);
-
-  switch (sortOrder) {
-    case SortOrder.ID_ASC:
-      ratedAnimalCards.sort((a, b) => a.id.localeCompare(b.id));
-      break;
-    case SortOrder.ID_DESC:
-      ratedAnimalCards.sort((a, b) => b.id.localeCompare(a.id));
-      break;
-    case SortOrder.DIFF_ASC:
-      ratedAnimalCards.sort(
-        (a, b) =>
-          a.model.diffWithSpecialEnclosure - b.model.diffWithSpecialEnclosure
-      );
-      break;
-    case SortOrder.DIFF_DESC:
-      ratedAnimalCards.sort(
-        (a, b) =>
-          b.model.diffWithSpecialEnclosure - a.model.diffWithSpecialEnclosure
-      );
-      break;
-    case SortOrder.RATING_DESC:
-      ratedAnimalCards.sort((a, b) => {
-        if ((b.rating ?? -1) !== (a.rating ?? -1)) {
-          return (b.rating ?? -1) - (a.rating ?? -1);
-        } else {
-          return (b.ratingCount ?? -1) - (a.ratingCount ?? -1);
-        }
-      });
-      break;
-  }
 
   return (
     <CardList>

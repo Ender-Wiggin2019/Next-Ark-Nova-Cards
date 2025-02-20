@@ -10,6 +10,7 @@ import {
 import { BaseSponsorCard } from './BaseSponsorCard';
 
 import { ISponsorCard } from '@/types/ISponsorCard';
+import { SponsorCardType } from '@/types/SponsorCard';
 
 interface RatedSponsorCardProps {
   cardData: ISponsorCard;
@@ -34,6 +35,7 @@ export const RatedSponsorCard: React.FC<RatedSponsorCardProps> = ({
             showLink={showLink}
             rating={rating}
             ratingCount={ratingCount}
+            isPeopleSponsor={sponsorCard.type === SponsorCardType.HUMAN}
           />
         </PopoverContent>
       </PopHover>
