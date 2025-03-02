@@ -87,11 +87,11 @@ export const Quiz: React.FC<Props> = ({
                 </HoverCard>
               </div>
             </div>
-            {!isDailyQuiz && (
+            {/* {!isDailyQuiz && (
               <div className='flex-1'>
                 <RerollButton />
               </div>
-            )}
+            )} */}
             <Button onClick={handleShare}>
               {isCopied ? <Check /> : <Share2 />}
             </Button>

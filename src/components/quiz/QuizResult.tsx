@@ -140,11 +140,11 @@ export const QuizResult: React.FC<Props> = ({
         <CardTitle>
           <div className='flex w-full items-center justify-between gap-4'>
             <div>{t('quiz.result')}</div>
-            {!isDailyQuiz && (
+            {/* {!isDailyQuiz && (
               <div className='flex-1'>
                 <RerollButton />
               </div>
-            )}
+            )} */}
             <Button onClick={handleShare}>
               {isCopied ? <Check /> : <Share2 />}
             </Button>
@@ -227,14 +227,14 @@ export const QuizResult: React.FC<Props> = ({
             orientation='horizontal'
             className='text-md my-2 self-center'
           />
-          <div className='flex flex-col items-start justify-center gap-1'>
+          {/* <div className='flex flex-col items-start justify-center gap-1'>
             <div className='text-lg font-bold'>Want to play more?</div>
             <div className=''>You can wait for next day challenge, or</div>
             <div className='flex items-center justify-start gap-2'>
               try random seed for practice (can not submit)
               <RerollButton />
             </div>
-          </div>
+          </div> */}
           {/* <Separator orientation='horizontal' className='my-2 self-center' />
           <div className='text-lg'>Another player</div>
           <div className='flex max-w-2xl justify-between gap-2'>
