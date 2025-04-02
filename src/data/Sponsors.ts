@@ -1646,7 +1646,7 @@ export const SponsorsData: SponsorCard[] = [
     strength: 3,
     rock: 0,
     water: 0,
-    tags: [OtherTag.Science],
+    tags: [],
     requirements: [OtherTag.Science],
     effects: [
       {
