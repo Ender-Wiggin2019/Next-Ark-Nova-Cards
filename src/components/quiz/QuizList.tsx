@@ -25,14 +25,14 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
     // staleTime: 60 * 1000,
   });
 
-  allQuizs = allQuizs?.filter((q: any) => q.gameconfig.mode === mode);
+  allQuizs = allQuizs?.filter((q: any) => q.gameconfig.mode === mode) || [];
 
-  const todayQuiz = allQuizs ? allQuizs[0] : null;
+  const todayQuiz = allQuizs ? allQuizs?.[0] : null;
 
   const handleViewMore = () => {
     const nextLength = Math.min(
       quizLength + INCREMENT_STEP,
-      allQuizs.length,
+      allQuizs?.length || 0,
       30
     );
     setQuizLength(nextLength);
