@@ -22,7 +22,7 @@ export default function Page(
 
       <main>
         <div className='mt-4 p-2'>
-          <Alert className='bg-[#5765f2]/90'>
+          {/* <Alert className='bg-[#5765f2]/90'>
             <AlertDescription>
               <div className='flex items-center justify-start gap-4'>
                 <FaDiscord className='h-6 w-6 text-white' />
@@ -40,7 +40,7 @@ export default function Page(
                 </div>
               </div>
             </AlertDescription>
-          </Alert>
+          </Alert> */}
         </div>
         <Tabs defaultValue='default' className='mt-6 w-full'>
           <TabsList>
@@ -55,7 +55,6 @@ export default function Page(
             </div>
           </TabsContent>
           <TabsContent value='arena'>
-            {' '}
             <div>
               <QuizList mode='arena' />
             </div>

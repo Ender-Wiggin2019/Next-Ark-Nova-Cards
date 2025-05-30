@@ -1,6 +1,12 @@
+/*
+ * @Author: Ender-Wiggin
+ * @Date: 2025-03-05 09:57:52
+ * @LastEditors: Ender-Wiggin
+ * @LastEditTime: 2025-05-30 18:04:47
+ * @Description:
+ */
 import { Prisma } from '@prisma/client';
 import dayjs from 'dayjs';
-import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 
@@ -19,18 +25,8 @@ export const QuizInfo: React.FC<
   const { t } = useTranslation('common');
 
   return (
-    <Link href={`/daily-quiz?seed=${props.seed}`}>
-      <Card className=' flex h-12 items-center justify-between px-4 py-2'>
-        {/* <Badge
-          className={cn(
-            'flex w-20 justify-center place-self-start text-center',
-            {
-              'bg-sky-600 hover:bg-sky-500': props.title === 'ALL EXP',
-            }
-          )}
-        >
-          {t(props.title)}
-        </Badge> */}
+    <a href={`/daily-quiz?seed=${props.seed}`} className='block'>
+      <Card className='flex h-12 items-center justify-between px-4 py-2'>
         <div className='flex items-center justify-start gap-2'>
           <div className='font-bold'>
             {'Day ' +
@@ -62,17 +58,20 @@ export const QuizInfo: React.FC<
         </div>
         <div className='flex justify-end gap-4'>
           {props.idx !== 0 && (
-            <Link href={`/daily-quiz?seed=${props.seed}&result=true`}>
+            <a
+              href={`/daily-quiz?seed=${props.seed}&result=true`}
+              className='inline-block'
+            >
               <Badge className='bg-lime-500 hover:bg-lime-600'>
                 {t('View Result')}
               </Badge>
-            </Link>
+            </a>
           )}
           <div className='w-28 text-start font-semibold'>
             {t('quiz.total') + ': ' + props.total}
           </div>
         </div>
       </Card>
-    </Link>
+    </a>
   );
 };
