@@ -1647,7 +1647,7 @@ export const SponsorsData: SponsorCard[] = [
     rock: 0,
     water: 0,
     tags: [],
-    requirements: [OtherTag.Science],
+    requirements: [],
     effects: [
       {
         effectType: EffectType.INCOME,
