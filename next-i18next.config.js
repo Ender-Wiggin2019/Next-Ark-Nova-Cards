@@ -10,7 +10,7 @@ module.exports = {
   debug: false,
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'zh-CN', 'de'],
+    locales: ['en', 'zh-CN', 'de', 'tr'],
     localeDetection: true,
   },
   /** To avoid issues when deploying to some paas (vercel...) */

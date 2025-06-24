@@ -1,5 +1,5 @@
 module.exports = {
-  locales: ['en', 'zh-CN', 'de'],
+  locales: ['en', 'zh-CN', 'de', 'tr'],
   output: 'public/locales/$LOCALE/$NAMESPACE.json',
   input: ['src/**/*.ts', 'src/**/*.tsx'],
   keySeparator: false, // if your keys are like: 'app.name'
