@@ -4,7 +4,7 @@ const HumanSponsor: React.FC = () => {
   return (
     <>
       <Image
-        src='/img/human-sponsor.png'
+        src='/img/human-sponsor.webp'
         alt='human sponsor'
         width={24}
         height={24}

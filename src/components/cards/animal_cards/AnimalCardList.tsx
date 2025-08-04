@@ -4,6 +4,7 @@ import React, { useEffect, useMemo } from 'react';
 
 import { RatedAnimalCard } from '@/components/cards/animal_cards/RatedAnimalCard';
 import CardList from '@/components/cards/shared/CardList';
+import { AnimalCardListSkeleton } from '@/components/cards/skeleton';
 
 import { fetchCardRatings } from '@/utils/fetch';
 import { getAnimalCardModel } from '@/utils/GetAnimalCardModel';
@@ -99,7 +100,7 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   const shouldFetchRatings = true;
   const {
     data: cardRatings,
-    // isLoading,
+    isLoading,
     // isError,
     // error,
   } = useQuery(['cardRatings'], fetchCardRatings, {
@@ -196,6 +197,10 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   useEffect(() => {
     onCardCountChange(originalCount);
   }, [originalCount, onCardCountChange]);
+
+  if (isLoading) {
+    return <AnimalCardListSkeleton />;
+  }
 
   return (
     <CardList>

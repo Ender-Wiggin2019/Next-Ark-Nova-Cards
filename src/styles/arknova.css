@@ -1,6 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
-@import url(https://fonts.googleapis.com/css?family=Caveat);
-
 /*html {*/
 /*    background-image: url(../img/wood_background.jpg)*/
 /*}*/
@@ -1667,7 +1664,7 @@
   .ark-card-top-left
   .project-card-top-left-icon.wide
   .icon-partner-zoo {
-  background-image: url(/img/zoo-card-badges.jpg);
+  background-image: url(/img/zoo-card-badges.webp);
   background-position-x: 25%;
   background-position-y: 50%;
   background-size: 500% 700%;
@@ -1870,7 +1867,7 @@
   .project-card-slots-container
   .project-card-slot
   .project-card-slot-cube-holder[data-type='all-continents'] {
-  background-image: url(/img/icons.png);
+  background-image: url(/img/icons.webp);
   background-position: 57.90703713321216% 54.47065277015908%;
   background-repeat: no-repeat;
   background-size: 1671.8367346938776%;
@@ -1882,7 +1879,7 @@
   .project-card-slots-container
   .project-card-slot
   .project-card-slot-cube-holder[data-type='all-animals'] {
-  background-image: url(/img/icons.png);
+  background-image: url(/img/icons.webp);
   background-position: 74.09434454000521% 1.1318619128466327%;
   background-repeat: no-repeat;
   background-size: 1581.4671814671815%;
@@ -3455,7 +3452,7 @@
 }
 
 .badge-icon {
-  background-image: url(/img/zoo-card-badges.jpg);
+  background-image: url(/img/zoo-card-badges.webp);
   background-size: 500% 700%;
 }
 
@@ -4487,7 +4484,7 @@
 }
 
 .arknova-icon {
-  background: url(/img/icons.png);
+  background: url(/img/icons.webp);
   background-repeat: no-repeat;
 }
 
@@ -5362,7 +5359,7 @@
 }
 
 .icon-container .badge-icon {
-  background-image: url(/img/zoo-card-badges.jpg);
+  background-image: url(/img/zoo-card-badges.webp);
   background-size: 500% 700%;
   border: 2px solid #fff;
   border-radius: 50%;
@@ -6911,20 +6908,6 @@
   position: relative;
 }
 
-.ark-player-board-resizable .ark-player-board .zoo-map .map-infos {
-  background-image: url(/img/notebook.png);
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  box-sizing: border-box;
-  font-family: Permanent Marker, cursive;
-  height: 167px;
-  left: -5px;
-  position: absolute;
-  top: -10px;
-  width: 162px;
-  z-index: 3;
-}
-
 .ark-player-board-resizable
   .ark-player-board
   .zoo-map
@@ -7002,17 +6985,6 @@
   .map-infos
   .next-player-board {
   right: 0;
-}
-
-.ark-player-board-resizable .ark-player-board .zoo-map .map-infos .map-desc {
-  align-items: flex-end;
-  color: #1f49ac;
-  display: flex;
-  flex-grow: 1;
-  font-family: Caveat;
-  font-size: 17px;
-  font-weight: 700;
-  justify-content: space-around;
 }
 
 .ark-player-board-resizable
@@ -7873,7 +7845,7 @@
   .zoo-board
   .zoo-map-cell.upgradeNeeded
   .upgradeNeeded-marker:before {
-  background-image: url(/img/zoo-card-badges.jpg);
+  background-image: url(/img/zoo-card-badges.webp);
   background-position: 75% 0;
   background-size: 500% 700%;
   border: 1px solid #fff;
@@ -8334,7 +8306,7 @@
 }
 
 [data-panel-rows='2'] .player-info .appeal-holder .icon-money:before {
-  background: url(/img/icons.png);
+  background: url(/img/icons.webp);
   background-position: 49.12008281573499% 76.15344738206325%;
   background-size: 1765.5172413793102%;
   bottom: -17px;
@@ -8764,7 +8736,7 @@
 [data-enclosure-size='1']
   .building-container[data-state='0'][data-type='size-5']
   .building-crosshairs:before {
-  background: url(/img/icons.png);
+  background: url(/img/icons.webp);
   background-position: 12.596999482669426% 67.37012987012987%;
   background-size: 1780.8695652173913%;
   color: #fff;
