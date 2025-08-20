@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'sonner';
 
 import { cn } from '@/lib/utils';
 
@@ -17,7 +18,9 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import CardWrapper from '@/components/wrapper/CardWrapper';
 
-import { IPlayerData } from '@/types/IQuiz';
+import { submitQuiz } from '@/services/quiz';
+
+import { IPlayerData } from '@/types/quiz';
 
 import { UserArrowLeftIcon } from '~/index';
 export type Props = {
@@ -42,15 +45,14 @@ export const PlayerArea: React.FC<Props> = ({
   const [comment, setComment] = useState('');
   const pathname = usePathname();
   const router = useRouter();
+
   const handleHandSelect = (id: string, add: boolean) => {
     if (handList.length < 4 && add) setHandList([...handList, id]);
     if (!add) setHandList(handList.filter((i) => i !== id));
     if (add && handList.length >= 3) setDisableHand(true);
     else if (!add && handList.length >= 4) setDisableHand(false);
-    // console.log('5555', handList, disableHand);
   };
 
-  console.log('Success', pickRes);
   useEffect(() => {
     setHandList([]);
     setDisableHand(false);
@@ -59,71 +61,22 @@ export const PlayerArea: React.FC<Props> = ({
   const handleSubmitDebounced = debounce(async () => {
     setIsSubmitting(true); // 开始提交时禁用按钮
 
-    // 原来的handleSubmit逻辑...
     try {
-      const sortedHandList = [...handList].sort();
-      const response = await fetch('/api/quiz/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          // 'X-API-Key': 'c&wUxR5V8jV$hZnSMcsD%',
-        },
-        body: JSON.stringify({
-          seed: seed,
-          name: userName,
-          content: comment,
-          cards: sortedHandList,
-        }),
+      await submitQuiz({
+        seed,
+        name: userName,
+        content: comment,
+        cards: handList,
       });
 
-      if (!response.ok && userName) {
-        alert('Name is duplicated. Please change a name.');
-        throw new Error(`Error: ${response.status}`);
-      }
-
-      const result = await response.json();
-      console.log('Success:', result);
+      toast.success('Submit successfully!');
       return router.push(`/daily-quiz?seed=${seed}&result=true`);
     } catch (error) {
-      console.error('An error occurred:', error);
+      toast.error(error instanceof Error ? error.message : 'Unknown error');
     }
 
     setIsSubmitting(false); // 完成提交后启用按钮
   }, 2000); // 2000毫秒内最多执行一次
-
-  // const handleSubmit = async () => {
-  //   try {
-  //     const sortedHandList = [...handList].sort();
-  //     const response = await fetch('/api/quiz/submit', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         // 'X-API-Key': 'c&wUxR5V8jV$hZnSMcsD%',
-  //       },
-  //       body: JSON.stringify({
-  //         seed: seed,
-  //         name: userName,
-  //         content: comment,
-  //         cards: sortedHandList,
-  //       }),
-  //     });
-
-  //     if (!response.ok && userName) {
-  //       alert('Name is duplicated. Please change a name.')
-  //       throw new Error(`Error: ${response.status}`);
-  //     }
-
-  //     const result = await response.json();
-  //     console.log('Success:', result);
-  //     return router.push(`/daily-quiz?seed=${seed}&result=true`);
-
-  //     // 处理结果...
-  //   } catch (error) {
-  //     console.error('An error occurred:', error);
-  //   }
-
-  //   // console.log('res', res);
-  // };
 
   return (
     <div className='flex w-full flex-col items-center justify-center gap-2 p-2'>

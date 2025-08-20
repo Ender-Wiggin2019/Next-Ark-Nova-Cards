@@ -33,10 +33,6 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
   // const router = useRouter();
   const { t } = useTranslation('common');
 
-  const handleRating = (rating: number) => {
-    // check if
-  };
-
   return (
     <div className='flex flex-col text-xs'>
       <div className='text-bold'>
@@ -77,7 +73,6 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
             initialValue={rating}
             allowFraction={true}
             size={16}
-            onClick={handleRating}
           />
           {rating ? `${rating.toFixed(1)} (${ratingCount} ${t('users')})` : ''}
         </div>

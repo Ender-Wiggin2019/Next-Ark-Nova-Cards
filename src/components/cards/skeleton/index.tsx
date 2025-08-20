@@ -12,11 +12,10 @@ import { Skeleton } from '@/components/ui/skeleton';
 const AnimalCardSkeleton: React.FC = () => {
   return (
     <div className='h-96 w-64 rounded-lg border-2 border-gray-200 bg-white/50 px-3 py-4 shadow-md flex flex-col gap-2 justify-between'>
-        <Skeleton className='h-1/2 w-full rounded-md' />
-        <Skeleton className='h-8 w-full rounded' />
+      <Skeleton className='h-1/2 w-full rounded-md' />
+      <Skeleton className='h-8 w-full rounded' />
 
-        <Skeleton className='h-1/2 w-full rounded' />
-
+      <Skeleton className='h-1/2 w-full rounded' />
     </div>
   );
 };

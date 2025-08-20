@@ -49,7 +49,8 @@ export default function HomePage(
   useEffect(() => {
     const map = getMapFromQuery();
     setSelectedMap(map || maps[0]);
-  }, [router.query.map, alternativeMaps]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router?.query?.map, alternativeMaps]);
 
   function getMapFromQuery(): MapBoard {
     const id = router.query.map ? router.query.map : maps[0].id;
@@ -92,7 +93,7 @@ export default function HomePage(
         </Alert>
 
         <div className='grid grid-cols-3 justify-center gap-4 md:grid-cols-3 lg:grid-cols-4'>
-          {maps.map((mapBoard, index) => (
+          {maps.map((mapBoard) => (
             <div key={mapBoard.name} className='w-min justify-self-center'>
               <TextButton
                 selected={selectedMap === mapBoard}

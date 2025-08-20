@@ -3,7 +3,7 @@ import React, { useEffect, useMemo } from 'react';
 
 import CardList from '@/components/cards/shared/CardList';
 
-import { fetchCardRatings } from '@/utils/fetch';
+import { fetchCardRatings } from '@/services/card';
 
 import { RatedSponsorCard } from './RatedSponsorCard';
 import { useSponsorData } from './useSponsorData';
@@ -182,7 +182,7 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
           : _ratedSponsorCards,
       originalCount: _ratedSponsorCards.length,
     };
-  }, [filteredSponsors, cardRatings]);
+  }, [cardRatings, initialSponsorCards, filteredSponsors, sortOrder, maxNum]);
 
   switch (sortOrder) {
     case SortOrder.ID_ASC:

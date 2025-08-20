@@ -1,4 +1,4 @@
-import { endOfDay, startOfDay } from 'date-fns';
+/* eslint-disable no-console */
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -29,23 +29,6 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
       .json({ error: 'Unauthorized due to invalid API key' });
   }
 
-  const todayStart = startOfDay(new Date());
-  const todayEnd = endOfDay(new Date());
-  // 检查是否存在今天创建的记录
-  // const existingRecord = await prisma.setUp.findFirst({
-  //   where: {
-  //     createdat: {
-  //       gte: todayStart,
-  //       lte: todayEnd,
-  //     },
-  //   },
-  // });
-
-  // // 如果存在，则不创建新记录，直接返回存在的记录
-  // if (existingRecord) {
-  //   return res.status(200).json(existingRecord);
-  // }
-
   if (!seed)
     seed = new Date().toISOString().slice(0, 10) + '-' + uuidv4().slice(0, 4);
 
@@ -69,5 +52,4 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
     },
   });
   return res.status(201).json(result);
-  // return res.status(201).json('');
 }

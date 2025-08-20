@@ -56,7 +56,7 @@ export default function HomePage(
   const animalMaxNum = useMemo(() => {
     if (reset) return INIT_MAX_NUM;
     return animalCardsCount > 0 ? Math.min(totalMaxNum, animalCardsCount) : 0;
-  }, [animalCardsCount, totalMaxNum]);
+  }, [animalCardsCount, reset, totalMaxNum]);
 
   const sponsorMaxNum = useMemo(() => {
     if (reset) return 0;
@@ -64,7 +64,7 @@ export default function HomePage(
     return remainingMaxNum > 0
       ? Math.min(remainingMaxNum, sponsorCardsCount)
       : 0;
-  }, [animalMaxNum, sponsorCardsCount, totalMaxNum]);
+  }, [animalMaxNum, reset, sponsorCardsCount, totalMaxNum]);
 
   const shouldDisplayViewMore = useMemo(() => {
     return totalMaxNum < animalCardsCount + sponsorCardsCount;

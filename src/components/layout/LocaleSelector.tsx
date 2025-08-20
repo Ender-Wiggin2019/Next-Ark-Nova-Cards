@@ -43,7 +43,7 @@ const LocaleSelector: React.FC<{
 
       await switchToLocale(locale);
     },
-    [switchToLocale, onChange]
+    [languageNames, onChange, switchToLocale]
   );
 
   return (

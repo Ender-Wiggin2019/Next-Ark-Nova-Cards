@@ -1,4 +1,4 @@
-import { Prisma } from '@prisma/client';
+import { SetUp } from '@prisma/client';
 import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 import { useTranslation } from 'next-i18next';
@@ -19,9 +19,9 @@ import {
 import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
 
-import { fetchAllQuizs } from '@/utils/fetch';
+import { fetchAllQuizzes } from '@/services/quiz';
 
-import { GameMode } from '@/types/IQuiz';
+import { GameConfig, GameMode } from '@/types/quiz';
 
 const ITEMS_PER_PAGE = 5;
 
@@ -67,7 +67,7 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const { data: allQuizsData, isLoading } = useQuery(
     ['allQuizs'],
-    fetchAllQuizs,
+    fetchAllQuizzes,
     {
       enabled: shouldFetchRatings,
     }
@@ -215,7 +215,7 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
           {todayQuiz && (
             <Quiz
               seed={todayQuiz.seed}
-              gameConfig={todayQuiz.gameconfig}
+              gameConfig={todayQuiz.gameconfig as unknown as GameConfig}
               isDailyQuiz={true}
               header={
                 t('quiz.today') +
@@ -233,16 +233,14 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
             <CardHeader>
               <CardTitle>{t('quiz.prev')}</CardTitle>
             </CardHeader>
-            {currentQuizzes.map(
-              (quiz: Prisma.SetUpGroupByOutputType, index: number) => (
-                <QuizInfo
-                  key={quiz.id}
-                  {...quiz}
-                  idx={index}
-                  day={filteredQuizzes.length - (startIndex + index)}
-                />
-              )
-            )}
+            {currentQuizzes.map((quiz: SetUp, index: number) => (
+              <QuizInfo
+                key={quiz.id}
+                {...quiz}
+                idx={index}
+                day={filteredQuizzes.length - (startIndex + index)}
+              />
+            ))}
             {totalPages > 1 && (
               <div className='mt-4 flex justify-center'>
                 <Pagination>

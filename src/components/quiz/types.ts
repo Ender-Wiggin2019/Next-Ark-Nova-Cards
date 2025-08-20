@@ -1,9 +1,9 @@
-import { IQuizComment } from '@/types/IQuiz';
+import { IQuizComment } from '@/types/quiz';
 
 export type ICommentMemo = {
   cardPickComments: Map<string, IQuizComment[]>;
   total: number;
-  userComment: undefined;
+  userComment?: IQuizComment;
 };
 
 export type ICardPickMemo = {

@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import seedrandom from 'seedrandom';
 
 import { getCardIds } from '@/utils/GetAllCardIds';
-import { getMaps } from '@/utils/getMaps';
+import { getMaps } from '@/utils/map';
 
 import { ActionCardType } from '@/types/ActionCard';
 import { CardType } from '@/types/Card';
-import { DEFAULT_CONFIG, GameConfig, IPlayerData } from '@/types/IQuiz';
+import { DEFAULT_CONFIG, GameConfig, IPlayerData } from '@/types/quiz';
 export const NUMBER_HAND = 8;
 export const NUMBER_MAP = 2;
 export const NUMBER_FINAL_SCORING = 2;

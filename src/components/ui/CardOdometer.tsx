@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic';
 import React from 'react';
 
-const Odometer = dynamic(import('react-odometerjs'), {
+const Odometer = dynamic(() => import('react-odometerjs'), {
   ssr: false,
-  loading: () => <span>0</span>,
+  loading: () => <div>0</div>,
 });
 
 type CardOdometerProps = {

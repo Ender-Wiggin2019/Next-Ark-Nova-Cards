@@ -7,18 +7,10 @@ import { prisma } from '@/lib/prisma-client';
 // POST /api/quiz/submit/
 export default async function post(req: NextApiRequest, res: NextApiResponse) {
   const { userId } = getAuth(req);
-  // console.log('userId', userId);
   const user = userId ? await clerkClient.users.getUser(userId) : null;
-  // if (!user) {
-  //   return res.status(401).json({ error: 'Unauthorized' });
-  // }
   if (req.method !== 'POST') {
     return res.status(405).end('Method Not Allowed');
   }
-
-  // const apiKey = req.headers['x-api-key'];
-
-  // console.log(apiKey, apiKey !== process.env.API_SECRET_KEY, req);
 
   const seed = req.body.seed;
   const name = req.body.name;
@@ -33,8 +25,6 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
     return res.status(400).json({ error: 'Bad Request' });
   }
 
-  // const todayStart = startOfDay(new Date());
-  // const todayEnd = endOfDay(new Date());
   // 检查是否存在今天创建的记录
   const existingRecord = await prisma.userSetUp.findFirst({
     where: {
@@ -47,6 +37,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
     },
   });
 
+  // eslint-disable-next-line no-console
   console.log('existingRecord', existingRecord?.userinfo, user, userId);
 
   // 如果存在，则不创建新记录，直接返回存在的记录
@@ -91,8 +82,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
     },
   });
 
-  // total += 1
-  const result2 = await prisma.setUp.updateMany({
+  await prisma.setUp.updateMany({
     where: {
       seed: seed,
     },
@@ -102,5 +92,6 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
       },
     },
   });
+
   return res.status(201).json(result);
 }

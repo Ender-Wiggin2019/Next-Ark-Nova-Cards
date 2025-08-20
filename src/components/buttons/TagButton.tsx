@@ -15,7 +15,7 @@ type TagButtonProps = {
 } & React.ComponentPropsWithRef<'button'>;
 
 const TagButton = React.forwardRef<HTMLButtonElement, TagButtonProps>(
-  ({ className, isLoading, tag, selected, onTagClick, ...rest }, ref) => {
+  ({ tag, selected, onTagClick, ...rest }, ref) => {
     return (
       <button
         ref={ref}

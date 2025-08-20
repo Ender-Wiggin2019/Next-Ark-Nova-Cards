@@ -48,21 +48,13 @@ export function Comments({ cardId, initialComments }: CommentProps) {
   // 查找当前用户的评论
   const userComment = React.useMemo(() => {
     if (user && commentsFromAPI) {
-      console.log(
-        commentsFromAPI,
-        user,
-        commentsFromAPI.find(
-          (comment) =>
-            comment.userid === user.id && comment.cardid.toString() === cardId
-        )
-      );
       return commentsFromAPI.find(
         (comment) =>
           comment.userid === user.id && comment.cardid.toString() === cardId
       );
     }
     return null;
-  }, [user, commentsFromAPI]);
+  }, [user, commentsFromAPI, cardId]);
   return (
     <section className='px-0 py-2'>
       <SignedOut>

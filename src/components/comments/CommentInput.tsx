@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import React, { useEffect, useState } from 'react';
 import { Rating } from 'react-simple-star-rating';
+import { toast } from 'sonner';
 
 import { Textarea } from '@/components/ui/textarea';
 
@@ -93,7 +94,7 @@ const CommentInput = ({
       // setFormState({ userName: '', rating: comment?.rating || 0, content: comment?.content || '' });
       // upToDateCommentsQuery.refetch();
     } catch (error) {
-      console.error('Failed to submit the comment:', error);
+      toast.error(error instanceof Error ? error.message : 'Unknown error');
     } finally {
       setSubmitting(false);
     }

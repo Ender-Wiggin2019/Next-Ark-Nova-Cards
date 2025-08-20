@@ -30,7 +30,7 @@ export const CardSourceFilter: React.FC<CardSourceFilterProps> = ({
 
   useEffect(() => {
     onFilterChange(selectedCardSource);
-  }, [selectedCardSource]);
+  }, [onFilterChange, selectedCardSource]);
 
   useEffect(() => {
     if (reset) {

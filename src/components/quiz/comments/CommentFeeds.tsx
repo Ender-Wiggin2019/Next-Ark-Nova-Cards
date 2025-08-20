@@ -12,7 +12,7 @@ import TitleWrapper from '@/components/wrapper/TitleWrapper';
 
 // import { commentState, setComments } from './comments.state';
 import { type CommentDto } from '@/types/Comment';
-import { IQuizComment } from '@/types/IQuiz';
+import { IQuizComment } from '@/types/quiz';
 
 dayjs.extend(relativeTime);
 
@@ -77,21 +77,18 @@ export function CommentFeeds(props: {
   comments: ICommentMemo;
   replies: CommentDto[];
 }) {
-  console.log('test2', props.comments);
   const sortedCommentsArray = Array.from(props.comments.cardPickComments).sort(
     (a, b) => {
       const COMMENT_WEIGHT = 5;
       const SUBMIT_WEIGHT = 1;
       const weightA = a[1].reduce((acc, comment) => {
-        return (
-          acc + (comment.content.length > 0 ? COMMENT_WEIGHT : SUBMIT_WEIGHT)
-        );
+        const len = comment?.content?.length || 0;
+        return acc + (len > 0 ? COMMENT_WEIGHT : SUBMIT_WEIGHT);
       }, 0);
 
       const weightB = b[1].reduce((acc, comment) => {
-        return (
-          acc + (comment.content.length > 0 ? COMMENT_WEIGHT : SUBMIT_WEIGHT)
-        );
+        const len = comment?.content?.length || 0;
+        return acc + (len > 0 ? COMMENT_WEIGHT : SUBMIT_WEIGHT);
       }, 0);
 
       // 根据计算出的权重进行降序排序
@@ -137,7 +134,7 @@ export function CommentFeeds(props: {
             </div>
             <div className='ml-4 flex flex-col gap-2'>
               {comments
-                .filter((c) => c.content.length > 0)
+                .filter((c) => c?.content?.length && c.content.length > 0)
                 .map((comment, idx) => (
                   <CommentBlock
                     key={key + idx}

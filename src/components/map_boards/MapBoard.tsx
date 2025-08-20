@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { getMaps } from '@/utils/getMaps';
+import { getMaps } from '@/utils/map';
 
 type MapBoardProps = {
   id: string;

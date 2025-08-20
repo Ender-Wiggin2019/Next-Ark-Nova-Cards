@@ -10,7 +10,7 @@ import { Quiz } from '@/components/quiz/Quiz';
 import { QuizResult } from '@/components/quiz/QuizResult';
 import Seo from '@/components/Seo';
 
-import { BGA_CONFIG, DEFAULT_CONFIG, GameConfig } from '@/types/IQuiz';
+import { BGA_CONFIG, DEFAULT_CONFIG, GameConfig } from '@/types/quiz';
 
 export default function Page() {
   const searchParams = useSearchParams();

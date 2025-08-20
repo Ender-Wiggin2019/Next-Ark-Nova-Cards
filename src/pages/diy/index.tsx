@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
+import { toast } from 'sonner';
 
 import { BaseAnimalCard } from '@/components/cards/animal_cards/BaseAnimalCard';
 import { AnimalCardForm } from '@/components/forms/AnimalCardForm';
@@ -83,7 +84,7 @@ export default function Page(
         document.body.removeChild(link);
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err instanceof Error ? err?.message : 'Unknown error');
       });
   };
 

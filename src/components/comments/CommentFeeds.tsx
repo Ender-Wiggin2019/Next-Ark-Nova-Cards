@@ -7,7 +7,7 @@ import React from 'react';
 import { Rating } from 'react-simple-star-rating';
 import 'dayjs/locale/en-gb';
 
-import { getAvgRatings } from '@/utils/GetAvgRatings';
+import { getAvgRatings } from '@/utils/rating';
 
 // import { commentState, setComments } from './comments.state';
 import { type CommentDto } from '@/types/Comment';

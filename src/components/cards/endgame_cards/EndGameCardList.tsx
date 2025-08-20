@@ -6,7 +6,7 @@ import { EndGameData } from '@/data/EndGames';
 import { RatedEndGameCard } from '@/components/cards/endgame_cards/RatedEndGameCard';
 import CardList from '@/components/cards/shared/CardList';
 
-import { fetchCardRatings } from '@/utils/fetch';
+import { fetchCardRatings } from '@/services/card';
 
 import { CardSource } from '@/types/CardSource';
 import { EndGameCard, IEndGameCard } from '@/types/EndGameCard';

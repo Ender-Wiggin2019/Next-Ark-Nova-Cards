@@ -1,3 +1,5 @@
+import { SetUp, UserSetUp } from '@prisma/client';
+
 import { ActionCardType } from '@/types/ActionCard';
 import { CardSource } from '@/types/CardSource';
 
@@ -50,15 +52,24 @@ export interface IPlayerData {
   isMainPlayer: boolean;
 }
 
-export type IQuizComment = {
-  id: string;
-  createdat: string;
-  updatedat: string;
-  userid: string;
-  content: string;
-  cards: string[];
+export type IQuizComment = UserSetUp & {
+  data: { cards: string[] };
   userinfo: {
     username: string;
     imageUrl: string;
   };
 };
+
+export type IQuizData = SetUp & {
+  gameconfig: GameConfig;
+};
+
+/**
+ * 提交quiz数据的接口类型
+ */
+export interface ISubmitQuizDataReq {
+  seed: string;
+  name: string;
+  content: string;
+  cards: string[];
+}

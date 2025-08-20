@@ -2,10 +2,10 @@
  * @Author: Ender-Wiggin
  * @Date: 2025-03-05 09:57:52
  * @LastEditors: Ender-Wiggin
- * @LastEditTime: 2025-05-30 18:04:47
+ * @LastEditTime: 2025-08-07 15:50:58
  * @Description:
  */
-import { Prisma } from '@prisma/client';
+import type { SetUp } from '@prisma/client';
 import dayjs from 'dayjs';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
@@ -19,9 +19,11 @@ import {
   HoverCardTrigger,
 } from '@/components/ui/hover-card';
 
-export const QuizInfo: React.FC<
-  Prisma.SetUpGroupByOutputType & { idx: number; day: number }
-> = (props) => {
+import { GameConfig } from '@/types/quiz';
+
+export const QuizInfo: React.FC<SetUp & { idx: number; day: number }> = (
+  props
+) => {
   const { t } = useTranslation('common');
 
   return (
@@ -38,7 +40,8 @@ export const QuizInfo: React.FC<
           </div>
 
           <div>
-            {(props.gameconfig as any)?.mode !== 'default' && (
+            {(props.gameconfig as unknown as GameConfig)?.mode !==
+              'default' && (
               <>
                 <HoverCard>
                   <HoverCardTrigger>
@@ -49,9 +52,6 @@ export const QuizInfo: React.FC<
                     <GameConfigCard gameConfig={props.gameconfig as any} />
                   </HoverCardContent>
                 </HoverCard>
-                {/* <Badge>
-          {t((props.gameconfig as any)?.mode)}
-          </Badge> */}
               </>
             )}
           </div>

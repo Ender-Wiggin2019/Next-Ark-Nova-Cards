@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use client';
 
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
@@ -20,7 +21,6 @@ export default function Page(
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // 'X-API-Key': 'c&wUxR5V8jV$hZnSMcsD%',
         },
         body: JSON.stringify({
           gameConfig: {

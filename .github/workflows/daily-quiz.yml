@@ -13,7 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-
       - name: BGA Game
         run: |
           curl -X POST -H "Content-Type: application/json" \

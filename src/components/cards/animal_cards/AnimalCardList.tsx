@@ -1,12 +1,10 @@
-// import { useUser } from '@clerk/nextjs';
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useMemo } from 'react';
 
 import { RatedAnimalCard } from '@/components/cards/animal_cards/RatedAnimalCard';
 import CardList from '@/components/cards/shared/CardList';
-import { AnimalCardListSkeleton } from '@/components/cards/skeleton';
 
-import { fetchCardRatings } from '@/utils/fetch';
+import { fetchCardRatings } from '@/services/card';
 import { getAnimalCardModel } from '@/utils/GetAnimalCardModel';
 
 import { useAnimalData } from './useAnimalData';
@@ -95,24 +93,11 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   size = [0],
   maxNum,
 }) => {
-  // const { user } = useUser();
-  // const userId = user?.id ?? '';
   const shouldFetchRatings = true;
-  const {
-    data: cardRatings,
-    isLoading,
-    // isError,
-    // error,
-  } = useQuery(['cardRatings'], fetchCardRatings, {
+  const { data: cardRatings } = useQuery(['cardRatings'], fetchCardRatings, {
     enabled: shouldFetchRatings,
     // staleTime: 60 * 1000,
   });
-
-  // const {
-  //   data: userCardRatings,
-  // } = useQuery(['userCardRatings', userId], fetchUserCardRatings, {
-  //   enabled: shouldFetchRatings,
-  // });
 
   const animalsData = useAnimalData();
   const filteredAnimals = filterAnimals(
@@ -197,10 +182,6 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   useEffect(() => {
     onCardCountChange(originalCount);
   }, [originalCount, onCardCountChange]);
-
-  if (isLoading) {
-    return <AnimalCardListSkeleton />;
-  }
 
   return (
     <CardList>

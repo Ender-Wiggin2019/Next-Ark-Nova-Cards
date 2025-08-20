@@ -156,7 +156,6 @@ export const TokenProjectCard: React.FC<
     };
   };
 
-  console.log('pos', pos, toStyle(pos));
   return (
     <div className='relative'>
       <div

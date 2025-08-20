@@ -11,9 +11,7 @@ interface EffectProps {
   style: 'full' | 'short' | 'icon';
 }
 
-const EffectComponent: React.FC<EffectProps> = ({ effect, style }) => {
-  // const { t } = useTranslation();
-
+const EffectComponent: React.FC<EffectProps> = ({ effect }) => {
   const effectClass = cn(`effect-${effect.effectType.toLowerCase()}`, {
     [`text-${effect.fontSize}`]: effect.fontSize !== undefined,
   });

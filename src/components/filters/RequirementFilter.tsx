@@ -47,7 +47,7 @@ export const RequirementFilter: React.FC<RequirementFilterProps> = ({
 
   useEffect(() => {
     onFilterChange(selectedTags);
-  }, [selectedTags]);
+  }, [onFilterChange, selectedTags]);
 
   useEffect(() => {
     if (reset) {

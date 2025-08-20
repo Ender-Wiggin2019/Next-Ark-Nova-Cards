@@ -1,6 +1,5 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 
@@ -31,8 +30,6 @@ export default function Page(
 ) {
   const router = useRouter();
 
-  /* {router.query.id} 根据这个获得AnimalCard*/
-  const { t } = useTranslation('common');
   if (typeof router.query.id !== 'string') return null;
   const card = getCardById(router.query.id);
   if (typeof card !== 'object') return null;

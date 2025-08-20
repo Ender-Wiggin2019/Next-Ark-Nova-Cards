@@ -777,8 +777,7 @@ export const AnimalCardForm = ({
     </Form>
   );
 
-  function onSubmit(values: AnimalCardSchemaDto) {
+  function onSubmit() {
     exportToJson();
-    // Handle the form submission...
   }
 };

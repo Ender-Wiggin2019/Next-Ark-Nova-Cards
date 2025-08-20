@@ -25,9 +25,7 @@ import CardWrapper from '@/components/wrapper/CardWrapper';
 
 import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
 
-import { RerollButton } from './Reroll';
-
-import { GameConfig } from '@/types/IQuiz';
+import { GameConfig } from '@/types/quiz';
 
 export type Props = {
   seed: string;
@@ -43,11 +41,9 @@ export const Quiz: React.FC<Props> = ({
 }) => {
   const { t } = useTranslation('common');
   const [isCopied, setIsCopied] = useState(false);
-  const pathname = usePathname();
   const gameSetupGenerator = new GameSetupGenerator(seed, gameConfig);
   const setup = gameSetupGenerator.generateGameSetup();
 
-  console.log('tt', gameConfig);
   const mainPlayerIndex = setup.playersData.findIndex((p) => p.isMainPlayer);
 
   const handleShare = () => {

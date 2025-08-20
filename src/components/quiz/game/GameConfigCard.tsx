@@ -3,7 +3,7 @@ import React from 'react';
 
 import { ConfigBadge } from '@/components/quiz/game/ConfigBadge';
 
-import { GameConfig } from '@/types/IQuiz';
+import { GameConfig } from '@/types/quiz';
 
 export type Props = {
   gameConfig: GameConfig;
