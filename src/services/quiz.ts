@@ -5,16 +5,6 @@ import { request } from '@/services/base';
 import { IQuizComment, IQuizData, ISubmitQuizDataReq } from '@/types/quiz';
 
 /**
- * 提交quiz数据的接口类型
- */
-interface ISubmitQuizData {
-  seed: string;
-  name: string;
-  content: string;
-  cards: string[];
-}
-
-/**
  * 获取quiz结果数据
  */
 export async function getQuizResult(seed: string): Promise<IQuizComment[]> {

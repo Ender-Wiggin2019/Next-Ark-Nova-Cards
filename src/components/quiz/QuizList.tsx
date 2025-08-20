@@ -1,4 +1,3 @@
-import { SetUp } from '@prisma/client';
 import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 import { useTranslation } from 'next-i18next';
@@ -21,7 +20,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 import { fetchAllQuizzes } from '@/services/quiz';
 
-import { GameConfig, GameMode } from '@/types/quiz';
+import { GameMode, IQuizData } from '@/types/quiz';
 
 const ITEMS_PER_PAGE = 5;
 
@@ -215,7 +214,7 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
           {todayQuiz && (
             <Quiz
               seed={todayQuiz.seed}
-              gameConfig={todayQuiz.gameconfig as unknown as GameConfig}
+              gameConfig={todayQuiz.gameconfig}
               isDailyQuiz={true}
               header={
                 t('quiz.today') +
@@ -233,7 +232,7 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
             <CardHeader>
               <CardTitle>{t('quiz.prev')}</CardTitle>
             </CardHeader>
-            {currentQuizzes.map((quiz: SetUp, index: number) => (
+            {currentQuizzes.map((quiz: IQuizData, index: number) => (
               <QuizInfo
                 key={quiz.id}
                 {...quiz}

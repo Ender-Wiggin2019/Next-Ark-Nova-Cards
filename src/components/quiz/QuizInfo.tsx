@@ -5,7 +5,6 @@
  * @LastEditTime: 2025-08-07 15:50:58
  * @Description:
  */
-import type { SetUp } from '@prisma/client';
 import dayjs from 'dayjs';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
@@ -19,9 +18,9 @@ import {
   HoverCardTrigger,
 } from '@/components/ui/hover-card';
 
-import { GameConfig } from '@/types/quiz';
+import { IQuizData } from '@/types/quiz';
 
-export const QuizInfo: React.FC<SetUp & { idx: number; day: number }> = (
+export const QuizInfo: React.FC<IQuizData & { idx: number; day: number }> = (
   props
 ) => {
   const { t } = useTranslation('common');
@@ -40,16 +39,15 @@ export const QuizInfo: React.FC<SetUp & { idx: number; day: number }> = (
           </div>
 
           <div>
-            {(props.gameconfig as unknown as GameConfig)?.mode !==
-              'default' && (
+            {props.gameconfig?.mode !== 'default' && (
               <>
                 <HoverCard>
                   <HoverCardTrigger>
                     {' '}
-                    <Badge>{t((props.gameconfig as any)?.mode)}</Badge>
+                    <Badge>{t(props.gameconfig?.mode)}</Badge>
                   </HoverCardTrigger>
                   <HoverCardContent className='w-full'>
-                    <GameConfigCard gameConfig={props.gameconfig as any} />
+                    <GameConfigCard gameConfig={props.gameconfig} />
                   </HoverCardContent>
                 </HoverCard>
               </>
