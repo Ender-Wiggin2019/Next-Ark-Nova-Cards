@@ -103,12 +103,12 @@ export const AnimalCardSchema = z.object({
   water: z.optional(z.number()),
   price: z.number(),
   requirements: z.optional(
-    z.array(TagSchema).max(3, 'Only support 3 requirements')
+    z.array(TagSchema).max(3, 'Only support 3 requirements'),
   ),
   tags: z.array(TagSchema),
   canBeInStandardEnclosure: z.optional(z.boolean()),
   specialEnclosures: z.optional(
-    z.array(SpecialEnclosureSchema).max(2, 'Only support 2 special enclosures')
+    z.array(SpecialEnclosureSchema).max(2, 'Only support 2 special enclosures'),
   ),
 
   abilities: z.optional(z.array(AbilitySchema)),

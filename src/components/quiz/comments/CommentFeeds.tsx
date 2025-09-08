@@ -93,7 +93,7 @@ export function CommentFeeds(props: {
 
       // 根据计算出的权重进行降序排序
       return weightB - weightA;
-    }
+    },
   );
   // const { averageRating, numberOfRatings } = getAvgRatings(props.comments);
   // const withContentComments = props.comments.filter(

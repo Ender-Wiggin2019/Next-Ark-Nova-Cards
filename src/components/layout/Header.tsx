@@ -10,22 +10,19 @@ import {
 import { AnimatePresence, motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import React from 'react';
-
-// import { url } from '~/lib'
-import { clamp } from '@/lib/math';
-import { cn } from '@/lib/utils';
-
 import LocaleSelector from '@/components/layout/LocaleSelector';
 import { Container } from '@/components/ui/Container';
 import { Tooltip } from '@/components/ui/Tooltip2';
-
-import { NavigationBar } from './NavigationBar';
+// import { url } from '~/lib'
+import { clamp } from '@/lib/math';
+import { cn } from '@/lib/utils';
 import {
   GitHubBrandIcon,
   GoogleBrandIcon,
   MailIcon,
   UserArrowLeftIcon,
 } from '../../../public';
+import { NavigationBar } from './NavigationBar';
 
 export function Header() {
   const isHomePage = usePathname() === '/';
@@ -55,7 +52,7 @@ export function Header() {
       const scrollY = clamp(
         window.scrollY,
         0,
-        document.body.scrollHeight - window.innerHeight
+        document.body.scrollHeight - window.innerHeight,
       );
 
       if (isInitial.current) {
@@ -100,7 +97,6 @@ export function Header() {
       window.removeEventListener('scroll', updateStyles);
       window.removeEventListener('resize', updateStyles);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHomePage]);
 
   return (
@@ -110,7 +106,7 @@ export function Header() {
           'mb-var(--header-mb mb-[0px])flex pointer-events-none relative z-50 flex-col',
           isHomePage
             ? 'h-[var(--header-heighth-180px)]'
-            : 'h-[var(--header-heighth-64px)]'
+            : 'h-[var(--header-heighth-64px)]',
         )}
         layout
         layoutRoot
@@ -178,7 +174,7 @@ function UserInfo() {
     switch (strategy) {
       case 'from_oauth_github':
         return GitHubBrandIcon as (
-          props: React.ComponentProps<'svg'>
+          props: React.ComponentProps<'svg'>,
         ) => JSX.Element;
       case 'from_oauth_google':
         return GoogleBrandIcon;

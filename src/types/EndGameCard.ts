@@ -25,7 +25,7 @@ export function getCSSDataId(endGameCard: EndGameCard) {
 
 export function isTableLayout(endGameCard: EndGameCard) {
   return !endGameCard.scoreArray.some(
-    (score) => typeof score.requirement === 'string'
+    (score) => typeof score.requirement === 'string',
   );
 }
 

@@ -8,7 +8,7 @@ export class KeyWord {
     false,
     {
       laterModel: 3,
-    }
+    },
   );
   static SUN_BATHING = new KeyWord(
     IconName.SUN_BATHING,
@@ -17,155 +17,155 @@ export class KeyWord {
     true,
     {
       laterModel: 2,
-    }
+    },
   );
   static POUCH = new KeyWord(IconName.POUCH, 'abilities.pouch_description', 3);
   static HUNTER = new KeyWord(
     IconName.HUNTER,
     'abilities.hunter_description',
-    1
+    1,
   );
   static SPRINT = new KeyWord(
     IconName.SPRINT,
     'abilities.sprint_description',
-    2.5
+    2.5,
   );
   static PACK = new KeyWord(
     IconName.PACK,
     'abilities.pack_description',
     6,
-    false
+    false,
   );
   static JUMPING = new KeyWord(
     IconName.JUMPING,
     'abilities.jumping_description',
-    1
+    1,
   );
   static INVENTIVE = new KeyWord(
     IconName.INVENTIVE,
     'abilities.inventive_description',
-    3
+    3,
   );
   static INVENTIVE_BEAR = new KeyWord(
     IconName.INVENTIVE_BEAR,
     'abilities.inventive_bear_description',
     3,
-    false
+    false,
   );
   static INVENTIVE_PRIMARY = new KeyWord(
     IconName.INVENTIVE_PRIMARY,
     'abilities.inventive_primary_description',
     3,
-    false
+    false,
   );
   static BOOST_ASSOCIATION = new KeyWord(
     IconName.BOOST_ASSOCIATION,
     'abilities.boost_association_description',
     3,
-    false
+    false,
   );
   static BOOST_BUILDING = new KeyWord(
     IconName.BOOST_BUILDING,
     'abilities.boost_building_description',
     2,
-    false
+    false,
   );
   static BOOST_CARD = new KeyWord(
     IconName.BOOST_CARD,
     'abilities.boost_card_description',
     2,
-    false
+    false,
   );
 
   static BOOST_SPONSORS = new KeyWord(
     IconName.BOOST_SPONSORS,
     'abilities.boost_sponsors_description',
     2,
-    false
+    false,
   );
 
   static BOOST_ANIMAL = new KeyWord(
     IconName.BOOST_ANIMAL,
     'abilities.boost_animal_description',
     2,
-    false
+    false,
   );
 
   static ACTION_ASSOCIATION = new KeyWord(
     IconName.ACTION_ASSOCIATION,
     'abilities.action_association_description',
     14,
-    false
+    false,
   );
 
   static ACTION_BUILDING = new KeyWord(
     IconName.ACTION_BUILDING,
     'abilities.action_building_description',
     6,
-    false
+    false,
   );
 
   static ACTION_CARDS = new KeyWord(
     IconName.ACTION_CARDS,
     'abilities.action_cards_description',
     6,
-    false
+    false,
   );
 
   static ACTION_SPONSORS = new KeyWord(
     IconName.ACTION_SPONSORS,
     'abilities.action_sponsors_description',
     7,
-    false
+    false,
   );
 
   static ACTION_ANIMAL = new KeyWord(
     IconName.ACTION_ANIMAL,
     'abilities.action_animal_description',
     0.2,
-    false
+    false,
   );
 
   static MULTIPLIER_ASSOCIATION = new KeyWord(
     IconName.MULTIPLIER_ASSOCIATION,
     'abilities.multiplier_association_description',
     9,
-    false
+    false,
   );
 
   static MULTIPLIER_BUILDING = new KeyWord(
     IconName.MULTIPLIER_BUILDING,
     'abilities.multiplier_building_description',
     3,
-    false
+    false,
   );
 
   static MULTIPLIER_CARD = new KeyWord(
     IconName.MULTIPLIER_CARD,
     'abilities.multiplier_card_description',
     5,
-    false
+    false,
   );
 
   static MULTIPLIER_SPONSORS = new KeyWord(
     IconName.MULTIPLIER_SPONSORS,
     'abilities.multiplier_sponsors_description',
     7,
-    false
+    false,
   );
 
   static MULTIPLIER_ANIMAL = new KeyWord(
     IconName.MULTIPLIER_ANIMAL,
     'abilities.multiplier_animal_description',
     4,
-    false
+    false,
   );
 
   static FULL_THROATED = new KeyWord(
     IconName.FULL_THROATED,
     'abilities.full_throated_description',
     10,
-    false
+    false,
   );
 
   static ICONIC_ANIMAL = new KeyWord(
@@ -175,91 +175,91 @@ export class KeyWord {
     false,
     {
       laterModel: 12,
-    }
+    },
   );
 
   static RESISTANCE = new KeyWord(
     IconName.RESISTANCE,
     'abilities.resistance_description',
     15,
-    false
+    false,
   );
 
   static ASSERTION = new KeyWord(
     IconName.ASSERTION,
     'abilities.assertion_description',
     15,
-    false
+    false,
   );
 
   static DIGGING = new KeyWord(
     IconName.DIGGING,
     'abilities.digging_description',
-    1.5
+    1.5,
   );
 
   static SPONSOR_MAGNET = new KeyWord(
     IconName.SPONSOR_MAGNET,
-    'abilities.sponsor_magnet_description'
+    'abilities.sponsor_magnet_description',
   );
 
   static FLOCK_ANIMAL = new KeyWord(
     IconName.FLOCK_ANIMAL,
     'abilities.flock_animal_description',
-    2
+    2,
   );
 
   static DOMINANCE = new KeyWord(
     IconName.DOMINANCE,
     'abilities.dominance_description',
     10,
-    false
+    false,
   );
 
   static PILFERING_1 = new KeyWord(
     IconName.PILFERING_1,
     'abilities.pilfering_1_description',
     5,
-    false
+    false,
   );
 
   static PILFERING_2 = new KeyWord(
     IconName.PILFERING_2,
     'abilities.pilfering_2_description',
     10,
-    false
+    false,
   );
 
   static SNAPPING_1 = new KeyWord(
     IconName.SNAPPING_1,
     'abilities.snapping_1_description',
     5,
-    false
+    false,
   );
   static SNAPPING_2 = new KeyWord(
     IconName.SNAPPING_2,
     'abilities.snapping_2_description',
     8,
-    false
+    false,
   );
   static VENOM = new KeyWord(
     IconName.VENOM,
     'abilities.venom_description',
     2,
-    false
+    false,
   );
   static CONSTRICTION = new KeyWord(
     IconName.CONSTRICTION,
     'abilities.constriction_description',
     3,
-    false
+    false,
   );
 
   static HYPNOSIS = new KeyWord(
     IconName.HYPNOSIS,
     'abilities.hypnosis_description',
     5,
-    false
+    false,
   );
 
   static SCAVENGING = new KeyWord(
@@ -269,7 +269,7 @@ export class KeyWord {
     false,
     {
       modelFn: (count) => 0.5 * count + 1,
-    }
+    },
   );
 
   static POSTURING = new KeyWord(
@@ -279,39 +279,39 @@ export class KeyWord {
     true,
     {
       laterModel: 12,
-    }
+    },
   );
 
   static PERCEPTION_2 = new KeyWord(
     IconName.PERCEPTION_2,
     'abilities.perception_2_description',
     3,
-    false
+    false,
   );
 
   static PERCEPTION_4 = new KeyWord(
     IconName.PERCEPTION_4,
     'abilities.perception_4_description',
     6,
-    false
+    false,
   );
   static DETERMINATION = new KeyWord(
     IconName.DETERMINATION,
     'abilities.determination_description',
     18,
-    false
+    false,
   );
   static PEACOCKING = new KeyWord(
     IconName.PEACOCKING,
     'abilities.peacocking_description',
     10,
-    false
+    false,
   );
   static PETTING_ZOO_ANIMAL = new KeyWord(
     IconName.PETTING_ZOO_ANIMAL,
     'abilities.petting_zoo_animal_description',
     9,
-    false
+    false,
   );
 
   // Marine World
@@ -321,48 +321,48 @@ export class KeyWord {
 
   static SEA_ANIMAL_MAGNET = new KeyWord(
     IconName.SEA_ANIMAL_MAGNET,
-    'abilities.sea_animal_magnet_description'
+    'abilities.sea_animal_magnet_description',
   );
 
   static REEF_MONEY = new KeyWord(
     IconName.REEF_MONEY,
     'abilities.reef_money_description',
-    1
+    1,
   );
 
   static SYMBIOSIS = new KeyWord(
     IconName.SYMBIOSIS,
-    'abilities.symbiosis_description'
+    'abilities.symbiosis_description',
   );
 
   static HELPFUL = new KeyWord(
     IconName.HELPFUL,
-    'abilities.helpful_description'
+    'abilities.helpful_description',
   );
 
   static TAKE_CARD_IN_RANGE = new KeyWord(
     IconName.TAKE_CARD_IN_RANGE,
     'abilities.take_card_in_range_description',
-    3
+    3,
   );
 
   static REPUTATION = new KeyWord(
     IconName.REPUTATION,
     'abilities.reputation_description',
-    4
+    4,
   );
 
   static CONSERVATION_POINT = new KeyWord(
     IconName.CONSERVATION_POINT,
     'abilities.conservation_point_description',
-    9
+    9,
   );
 
   static EXTRA_SHIFT = new KeyWord(
     IconName.EXTRA_SHIFT,
     'abilities.extra_shift_description',
     3,
-    false
+    false,
   );
 
   static GLIDE = new KeyWord(IconName.GLIDE, 'abilities.glide_description');
@@ -370,29 +370,29 @@ export class KeyWord {
   static SHARK_ATTACK = new KeyWord(
     IconName.SHARK_ATTACK,
     'abilities.shark_attack_description',
-    9
+    9,
   );
 
   static CUT_DOWN = new KeyWord(
     IconName.CUT_DOWN,
-    'abilities.cut_down_description'
+    'abilities.cut_down_description',
   );
 
   static CAMOUFLAGE = new KeyWord(
     IconName.CAMOUFLAGE,
-    'abilities.camouflage_description'
+    'abilities.camouflage_description',
   );
 
   static SCUBA_DIVE = new KeyWord(
     IconName.SCUBA_DIVE,
     'abilities.scuba_dive_description',
     3,
-    false
+    false,
   );
 
   static MARKETING = new KeyWord(
     IconName.MARKETING,
-    'abilities.marketing_description'
+    'abilities.marketing_description',
   );
 
   static ADAPT = new KeyWord(IconName.ADAPT, 'abilities.adapt_description');
@@ -400,7 +400,7 @@ export class KeyWord {
     IconName.MONKEY_GANG,
     'abilities.monkey_gang_description',
     4,
-    false
+    false,
   );
   static APPEAL = new KeyWord(
     IconName.APPEAL,
@@ -409,14 +409,14 @@ export class KeyWord {
     true,
     {
       laterModel: 2,
-    }
+    },
   );
 
   static WATER_AFFINITY = new KeyWord(
     IconName.WATER_AFFINITY,
     'abilities.water_affinity_description',
     5,
-    false
+    false,
   );
 
   constructor(
@@ -427,7 +427,7 @@ export class KeyWord {
     public options?: {
       laterModel?: number; // add a new measurement for later game
       modelFn?: (count: number) => number;
-    }
+    },
   ) {}
 
   toObject(): object {
@@ -441,13 +441,13 @@ export class KeyWord {
 
   // 根据对应类型构建 KeyWord 实例
   static fromObject(
-    obj: Pick<KeyWord, 'name' | 'descriptionTemplate' | 'model' | 'multiply'>
+    obj: Pick<KeyWord, 'name' | 'descriptionTemplate' | 'model' | 'multiply'>,
   ): KeyWord {
     return new KeyWord(
       obj.name,
       obj.descriptionTemplate,
       obj.model,
-      obj.multiply
+      obj.multiply,
     );
   }
 }
@@ -517,7 +517,10 @@ export const ALL_KEYWORDS = [
 ];
 
 export class Ability {
-  constructor(public keyword: KeyWord, public value: string | number = '') {}
+  constructor(
+    public keyword: KeyWord,
+    public value: string | number = '',
+  ) {}
 
   get title(): string {
     const valueString = this.value.toString();
@@ -533,7 +536,7 @@ export class Ability {
   get description(): string {
     return this.keyword.descriptionTemplate.replace(
       '{}',
-      this.value.toString()
+      this.value.toString(),
     );
   }
 
@@ -544,7 +547,7 @@ export class Ability {
     };
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Object parse
   static fromObject(obj: any): Ability {
     const keyword = KeyWord.fromObject(obj.keyword);
     return new Ability(keyword, obj.value);

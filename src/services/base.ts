@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/** biome-ignore-all lint/suspicious/noExplicitAny: <> */
 import { toast } from 'sonner';
 
 interface IRequestOptions {
@@ -17,9 +17,10 @@ interface IRequestResponse<T = any> {
 /**
  * 基础请求函数，封装fetch并提供错误处理
  */
+
 export async function request<T = any>(
   url: string,
-  options: IRequestOptions = {}
+  options: IRequestOptions = {},
 ): Promise<IRequestResponse<T>> {
   const { method = 'GET', headers = {}, body, timeout = 10000 } = options;
 

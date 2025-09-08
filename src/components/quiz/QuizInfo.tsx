@@ -21,7 +21,7 @@ import {
 import { IQuizData } from '@/types/quiz';
 
 export const QuizInfo: React.FC<IQuizData & { idx: number; day: number }> = (
-  props
+  props,
 ) => {
   const { t } = useTranslation('common');
 

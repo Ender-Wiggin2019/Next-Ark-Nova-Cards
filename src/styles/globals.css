@@ -11,10 +11,10 @@ body {
 }
 
 html.light {
-  --bg-color: theme('colors.zinc.50');
+  --bg-color: theme("colors.zinc.50");
 }
 html.dark {
-  --bg-color: theme('colors.zinc.900');
+  --bg-color: theme("colors.zinc.900");
 }
 
 [data-radix-popper-content-wrapper] {
@@ -26,8 +26,8 @@ html.dark {
 }
 
 ::selection {
-  background-color: theme('colors.lime.300');
-  color: theme('colors.lime.950');
+  background-color: theme("colors.lime.300");
+  color: theme("colors.lime.950");
 }
 
 @keyframes typing-pulse {

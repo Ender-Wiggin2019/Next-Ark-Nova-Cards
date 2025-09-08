@@ -21,9 +21,9 @@ import { Separator } from '@/components/ui/separator';
 import CardWrapper from '@/components/wrapper/CardWrapper';
 
 import { getQuizResult } from '@/services/quiz';
-import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
-
+import { TProjectSlotPosition } from '@/types/ProjectCard';
 import { GameConfig, IQuizComment } from '@/types/quiz';
+import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
 
 export type Props = {
   seed: string;
@@ -52,7 +52,7 @@ export const QuizResult: React.FC<Props> = ({
     {
       refetchInterval: 30000 * 60,
       initialData: [],
-    }
+    },
   );
 
   const cardPickRes: ICardPickMemo = React.useMemo(() => {
@@ -158,7 +158,7 @@ export const QuizResult: React.FC<Props> = ({
                 </div>
                 <CardWrapper
                   id={id}
-                  index={idx + 1}
+                  index={(idx + 1) as TProjectSlotPosition}
                   canSelect={false}
                   disable={false}
                 />
@@ -171,7 +171,7 @@ export const QuizResult: React.FC<Props> = ({
               <CardWrapper
                 key={'q_conservation_' + id}
                 id={id}
-                index={idx + 1}
+                index={(idx + 1) as TProjectSlotPosition}
                 canSelect={false}
                 disable={false}
                 preview={true}

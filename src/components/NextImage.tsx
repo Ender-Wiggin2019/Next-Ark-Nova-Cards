@@ -31,7 +31,7 @@ export default function NextImage({
   ...rest
 }: NextImageProps) {
   const [status, setStatus] = React.useState(
-    useSkeleton ? 'loading' : 'complete'
+    useSkeleton ? 'loading' : 'complete',
   );
   const widthIsSet = className?.includes('w-') ?? false;
 
@@ -43,7 +43,7 @@ export default function NextImage({
       <Image
         className={cn(
           imgClassName,
-          status === 'loading' && cn('animate-pulse', blurClassName)
+          status === 'loading' && cn('animate-pulse', blurClassName),
         )}
         src={src}
         width={width}

@@ -1,7 +1,7 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FiRotateCcw } from 'react-icons/fi';
 
 import { SortButton } from '@/components/buttons/SortButton';
@@ -24,7 +24,7 @@ type Props = {
 };
 
 export default function EndGamePage(
-  _props: InferGetStaticPropsType<typeof getStaticProps>
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
   const { t } = useTranslation('common');
   const [conservationCount, setConservationCount] = useState<number>(0);
@@ -33,7 +33,7 @@ export default function EndGamePage(
   const [textFilter, setTextFilter] = useState<string>(''); // add this line
   const [selectedCardTypes, setSelectedCardTypes] = useState<CardType[]>([]);
   const [selectedCardSources, setSelectedCardSources] = useState<CardSource[]>(
-    []
+    [],
   );
   const [sortOrder, setSortOrder] = useState<SortOrder>(SortOrder.ID_ASC);
 

@@ -7,10 +7,9 @@ import React from 'react';
 import { Rating } from 'react-simple-star-rating';
 import 'dayjs/locale/en-gb';
 
-import { getAvgRatings } from '@/utils/rating';
-
 // import { commentState, setComments } from './comments.state';
 import { type CommentDto } from '@/types/Comment';
+import { getAvgRatings } from '@/utils/rating';
 
 dayjs.extend(relativeTime);
 
@@ -76,7 +75,7 @@ export function CommentFeeds(props: {
 }) {
   const { averageRating, numberOfRatings } = getAvgRatings(props.comments);
   const withContentComments = props.comments.filter(
-    (comment) => comment.content.length > 0
+    (comment) => comment.content.length > 0,
   );
   return (
     <div className='relative mt-2'>

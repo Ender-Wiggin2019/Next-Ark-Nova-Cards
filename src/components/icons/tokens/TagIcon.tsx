@@ -10,6 +10,7 @@ interface TagProps {
   slotCubeHolder?: boolean;
 }
 
+// biome-ignore lint/suspicious/noExplicitAny: <>
 const getKeyByValue = (enumObject: any, value: string): string => {
   for (const enumMember in enumObject) {
     if (enumObject[enumMember] === value) {
@@ -29,7 +30,7 @@ const otherTagList: Tag[] = [OtherTag.ALL_ANIMALS, OtherTag.ALL_CONTINENTS];
 const formatDataType = (tag: Tag): string => {
   // The keys are combined enum objects
   const keys = { ...AnimalTag, ...ContinentTag, ...OtherTag };
-  // eslint-disable-next-line no-console
+
   return getKeyByValue(keys, tag);
 };
 

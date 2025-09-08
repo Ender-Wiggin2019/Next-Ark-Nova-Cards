@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -14,8 +13,6 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
   }
 
   const apiKey = req.headers['x-api-key'];
-
-  console.log(apiKey, apiKey !== process.env.API_SECRET_KEY, req);
 
   const gameConfig = req.body.gameConfig;
   let seed = req.body.seed;

@@ -3,9 +3,6 @@ import { Terminal } from 'lucide-react';
 import { useTranslation } from 'next-i18next';
 import React, { useEffect, useState } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
-
-import { cn } from '@/lib/utils';
-
 import TagButton from '@/components/buttons/TagButton';
 import TagDiv from '@/components/icons/TagDiv';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -29,6 +26,7 @@ import {
 } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
+import { cn } from '@/lib/utils';
 
 import { AnimalCardSchema, AnimalCardSchemaDto } from '@/types/AnimalCard';
 import { CardSource } from '@/types/CardSource';
@@ -191,7 +189,7 @@ export const AnimalCardForm = ({
                   onChange={(e) => {
                     if (e.target.files)
                       return field.onChange(
-                        URL.createObjectURL(e.target.files[0])
+                        URL.createObjectURL(e.target.files[0]),
                       );
                   }}
                 />
@@ -381,7 +379,7 @@ export const AnimalCardForm = ({
                             <SelectItem key={enclosure} value={enclosure}>
                               {enclosure}
                             </SelectItem>
-                          )
+                          ),
                         )}
                       </SelectContent>
                     </Select>
@@ -586,7 +584,7 @@ export const AnimalCardForm = ({
                         <Select
                           onValueChange={(value) => {
                             field.onChange(
-                              ALL_KEYWORDS.find((kw) => kw.name === value)
+                              ALL_KEYWORDS.find((kw) => kw.name === value),
                             );
                           }}
                           defaultValue={field.value.name}
@@ -655,7 +653,7 @@ export const AnimalCardForm = ({
                             onKeyPress={(
                               e: React.KeyboardEvent<
                                 HTMLInputElement | HTMLTextAreaElement
-                              >
+                              >,
                             ) => {
                               e.key === 'Enter' && e.preventDefault();
                             }}
@@ -683,7 +681,7 @@ export const AnimalCardForm = ({
                       }
                       abilitiesRemove(index);
                       setDisplayModes((prev) =>
-                        prev.filter((_, idx) => idx !== index)
+                        prev.filter((_, idx) => idx !== index),
                       );
                     }}
                   >

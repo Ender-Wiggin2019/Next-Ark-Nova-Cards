@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   lint:
-    name: ⬣ ESLint
+    name: ⬣ Biome
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
@@ -23,11 +23,16 @@ jobs:
         with:
           node-version: 18
 
+      - name: 📥 Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.12
+
       - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
+        run: pnpm install --frozen-lockfile
 
       - name: 🔬 Lint
-        run: yarn lint:strict
+        run: pnpm lint:errors
 
   typecheck:
     name: ʦ TypeScript
@@ -41,14 +46,19 @@ jobs:
         with:
           node-version: 18
 
+      - name: 📥 Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.12
+
       - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
+        run: pnpm install --frozen-lockfile
 
       - name: 🔎 Type check
-        run: yarn typecheck
+        run: pnpm typecheck
 
   prettier:
-    name: 💅 Prettier
+    name: 💅 Biome Format
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
@@ -59,11 +69,16 @@ jobs:
         with:
           node-version: 18
 
-      - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
+      - name: 📥 Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.12
 
-      - name: 💅 Prettier check
-        run: yarn format:check
+      - name: 📥 Download deps
+        run: pnpm install --frozen-lockfile
+
+      - name: 💅 Format check
+        run: pnpm format:check
 
   test:
     name: 🃏 Test
@@ -77,8 +92,13 @@ jobs:
         with:
           node-version: 18
 
+      - name: 📥 Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.12
+
       - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
+        run: pnpm install --frozen-lockfile
 
       - name: 🃏 Run jest
-        run: yarn test
+        run: pnpm test

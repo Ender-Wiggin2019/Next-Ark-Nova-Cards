@@ -3,8 +3,9 @@ import { CardSource } from '@/types/CardSource';
 import { Effect } from '@/types/Effect';
 import { Tag } from '@/types/Tags';
 
+export type TProjectSlotPosition = 1 | 2 | 3;
 export interface ProjectSlot {
-  position: 1 | 2 | 3;
+  position: TProjectSlotPosition;
   bonuses: Bonus[];
   indicator?: number;
 }

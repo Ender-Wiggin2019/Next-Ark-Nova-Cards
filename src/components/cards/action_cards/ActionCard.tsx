@@ -13,9 +13,6 @@ interface AnimalCardProps {
 export const ActionCard: React.FC<AnimalCardProps> = ({ animal }) => {
   const { t } = useTranslation('common');
   const [isFlipped, setIsFlipped] = React.useState(false);
-  let dataSize = 1;
-  if (animal.reputation !== undefined) dataSize += 1;
-  if (animal.conservationPoint !== undefined) dataSize += 1;
 
   const handleClick = () => {
     setIsFlipped(!isFlipped);

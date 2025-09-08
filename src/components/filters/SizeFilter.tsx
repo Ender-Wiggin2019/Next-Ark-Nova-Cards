@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { FiHexagon } from 'react-icons/fi';
-
+import { Slider } from '@/components/ui/slider';
 import { cn } from '@/lib/utils';
 
-import { Slider } from '@/components/ui/slider';
 type SizeFilterProps = React.ComponentProps<typeof Slider> & {
   onFilterChange: (size: number[]) => void;
   reset: boolean;

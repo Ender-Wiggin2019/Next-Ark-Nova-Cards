@@ -7,6 +7,7 @@ interface TagProps {
 }
 
 // key is the same as the css class name
+// biome-ignore lint/suspicious/noExplicitAny: <>
 const getKeyByValue = (enumObject: any, value: string): string => {
   for (const enumMember in enumObject) {
     if (enumObject[enumMember] === value) {
@@ -19,7 +20,7 @@ const getKeyByValue = (enumObject: any, value: string): string => {
 const formatDataType = (tag: Tag): string => {
   // The keys are combined enum objects
   const keys = { ...AnimalTag, ...ContinentTag, ...OtherTag };
-  // eslint-disable-next-line no-console
+
   return getKeyByValue(keys, tag);
 };
 

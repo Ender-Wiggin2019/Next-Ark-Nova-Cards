@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
 
 import CardList from '@/components/cards/shared/CardList';
-
-import { ProjectCard } from './ProjectCard';
-import { useProjectData } from './useProjectData';
-
 import { CardSource } from '@/types/CardSource';
 import { ProjectCard as ProjectCardType } from '@/types/ProjectCard';
 import { Tag } from '@/types/Tags';
+import { ProjectCard } from './ProjectCard';
+import { useProjectData } from './useProjectData';
 
 interface ProjectCardListProps {
   selectedTags?: Tag[];
@@ -20,7 +18,7 @@ interface ProjectCardListProps {
 const filterCards = (
   cards: ProjectCardType[],
   selectedCardSources: CardSource[] = [],
-  textFilter = ''
+  textFilter = '',
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
 
@@ -30,7 +28,7 @@ const filterCards = (
         selectedCardSources.some((src) => card.source === src)) &&
       (textFilter === '' ||
         card.id.toLowerCase().includes(lowercaseFilter) ||
-        card.name.toLowerCase().includes(lowercaseFilter))
+        card.name.toLowerCase().includes(lowercaseFilter)),
   );
 };
 
@@ -44,7 +42,7 @@ export const ProjectCardList: React.FC<ProjectCardListProps> = ({
   const filteredConservations = filterCards(
     projectsData,
     selectedCardSources,
-    textFilter
+    textFilter,
   );
 
   useEffect(() => {

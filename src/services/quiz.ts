@@ -9,7 +9,7 @@ import { IQuizComment, IQuizData, ISubmitQuizDataReq } from '@/types/quiz';
  */
 export async function getQuizResult(seed: string): Promise<IQuizComment[]> {
   const response = await request<IQuizComment[]>(
-    `/api/quiz/result?seed=${seed}`
+    `/api/quiz/result?seed=${seed}`,
   );
   return response?.data;
 }
@@ -17,7 +17,8 @@ export async function getQuizResult(seed: string): Promise<IQuizComment[]> {
 /**
  * 创建quiz
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
+// biome-ignore lint/suspicious/noExplicitAny: <>
 export async function createQuiz(quizData: any): Promise<SetUp> {
   const response = await request('/api/quiz/create', {
     method: 'POST',
@@ -38,7 +39,7 @@ export const fetchAllQuizzes = async (): Promise<IQuizData[]> => {
  * 提交quiz数据
  */
 export async function submitQuiz(
-  submitData: ISubmitQuizDataReq
+  submitData: ISubmitQuizDataReq,
 ): Promise<void> {
   const { seed, name, content, cards } = submitData;
   const sortedCards = [...cards].sort();

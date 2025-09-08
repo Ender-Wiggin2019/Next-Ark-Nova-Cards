@@ -7,6 +7,7 @@ interface HoverCardProps {
   rating?: number | null;
   ratingCount?: number | null;
 }
+
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
@@ -75,7 +76,7 @@ export const EndGameHoverCard: React.FC<HoverCardProps> = ({
                             card.originalArray &&
                             obj.requirement >
                               card.originalArray[idx].requirement,
-                        }
+                        },
                       )}
                     >
                       {obj.requirement}

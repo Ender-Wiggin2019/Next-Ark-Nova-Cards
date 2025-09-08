@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import seedrandom from 'seedrandom';
-
-import { getCardIds } from '@/utils/GetAllCardIds';
-import { getMaps } from '@/utils/map';
-
 import { ActionCardType } from '@/types/ActionCard';
 import { CardType } from '@/types/Card';
 import { DEFAULT_CONFIG, GameConfig, IPlayerData } from '@/types/quiz';
+import { getCardIds } from '@/utils/GetAllCardIds';
+import { getMaps } from '@/utils/map';
 export const NUMBER_HAND = 8;
 export const NUMBER_MAP = 2;
 export const NUMBER_FINAL_SCORING = 2;
@@ -27,7 +24,7 @@ export class GameSetupGenerator {
     this.gameConfig = { ...DEFAULT_CONFIG, ...gameConfig };
   }
 
-  private shuffleArrayWithSeed(array: any[], seed: string = this.seed): any[] {
+  private shuffleArrayWithSeed<T>(array: T[], seed: string = this.seed): T[] {
     let currentIndex = array.length,
       temporaryValue,
       randomIndex;
@@ -44,22 +41,22 @@ export class GameSetupGenerator {
     return array;
   }
 
-  private sampleSizeWithSeed(
-    array: any[],
+  private sampleSizeWithSeed<T>(
+    array: T[],
     size: number,
-    seed: string = this.seed
-  ): any[] {
-    return this.shuffleArrayWithSeed(array, seed).slice(0, size);
+    seed: string = this.seed,
+  ): T[] {
+    return this.shuffleArrayWithSeed<T>(array, seed).slice(0, size);
   }
 
   private distributeItemsToPlayers(
     items: string[],
-    itemsPerPlayer: number
+    itemsPerPlayer: number,
   ): string[][] {
     const distributedItems: string[][] = [];
     for (let i = 0; i < this.gameConfig.players; i++) {
       distributedItems.push(
-        items.slice(i * itemsPerPlayer, (i + 1) * itemsPerPlayer)
+        items.slice(i * itemsPerPlayer, (i + 1) * itemsPerPlayer),
       );
     }
     return distributedItems;
@@ -67,12 +64,12 @@ export class GameSetupGenerator {
 
   private distributeCards(
     items: string[],
-    itemsPerPlayer: number
+    itemsPerPlayer: number,
   ): { cards: string[][]; display: string[] } {
     const distributedItems: string[][] = [];
     for (let i = 0; i < this.gameConfig.players; i++) {
       distributedItems.push(
-        items.slice(i * itemsPerPlayer, (i + 1) * itemsPerPlayer)
+        items.slice(i * itemsPerPlayer, (i + 1) * itemsPerPlayer),
       );
     }
     return {
@@ -81,7 +78,10 @@ export class GameSetupGenerator {
     };
   }
 
-  private generateAndDistribute(array: any[], singleSize: number): string[][] {
+  private generateAndDistribute(
+    array: string[],
+    singleSize: number,
+  ): string[][] {
     const num = this.gameConfig.players;
     if (this.gameConfig.mode === 'arena') {
       const ids = this.shuffleArrayWithSeed(array).slice(0, singleSize);
@@ -93,13 +93,13 @@ export class GameSetupGenerator {
   }
 
   private generateAndDistributeCards(
-    array: any[],
-    singleSize: number
+    array: string[],
+    singleSize: number,
   ): { cards: string[][]; display: string[] } {
     const num = this.gameConfig.players;
     const ids = this.shuffleArrayWithSeed(array).slice(
       0,
-      singleSize * num + NUMBER_DISPLAY
+      singleSize * num + NUMBER_DISPLAY,
     );
 
     return this.distributeCards(ids, singleSize);
@@ -115,7 +115,7 @@ export class GameSetupGenerator {
 
     const mainPlayer = this.sampleSizeWithSeed(
       Array.from({ length: this.gameConfig.players }, (_, index) => index),
-      this.gameConfig.players
+      this.gameConfig.players,
     )[0];
     const playersData: IPlayerData[] = new Array(this.gameConfig.players)
       .fill(null)
@@ -138,7 +138,7 @@ export class GameSetupGenerator {
     const ids = getCardIds(
       [CardType.ANIMAL_CARD, CardType.SPONSOR_CARD, CardType.CONSERVATION_CARD],
       this.gameConfig.cardSources,
-      'hand'
+      'hand',
     );
     return this.generateAndDistributeCards(ids, NUMBER_HAND);
   }
@@ -147,7 +147,7 @@ export class GameSetupGenerator {
     const ids = getCardIds(
       [CardType.CONSERVATION_CARD],
       this.gameConfig.cardSources,
-      'game'
+      'game',
     );
     return this.sampleSizeWithSeed(ids, NUMBER_CONSERVATION);
   }
@@ -160,7 +160,7 @@ export class GameSetupGenerator {
   public generateSetUpFinalScoring(): string[][] {
     const ids = getCardIds(
       [CardType.END_GAME_CARD],
-      this.gameConfig.cardSources
+      this.gameConfig.cardSources,
     );
     return this.generateAndDistribute(ids, NUMBER_FINAL_SCORING);
   }

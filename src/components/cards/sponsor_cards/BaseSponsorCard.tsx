@@ -1,10 +1,8 @@
 import { useTranslation } from 'next-i18next';
 import React from 'react';
-
-import { cn } from '@/lib/utils';
-
 import Effect from '@/components/abilities/Effect';
 import SponsorCardWrapper from '@/components/wrapper/SponsorWrapper';
+import { cn } from '@/lib/utils';
 
 import { SponsorCard as SponsorCardType } from '@/types/SponsorCard';
 

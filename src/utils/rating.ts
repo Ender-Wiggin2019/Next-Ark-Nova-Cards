@@ -9,7 +9,7 @@ export function getAvgRatings(comments: CommentDto[]): {
   }
   // only count non-zero ratings
   const nonZeroRatingComments = comments.filter(
-    (comment) => comment.rating !== 0
+    (comment) => comment.rating !== 0,
   );
 
   if (nonZeroRatingComments.length === 0) {
@@ -17,7 +17,7 @@ export function getAvgRatings(comments: CommentDto[]): {
   }
   const totalRating = nonZeroRatingComments.reduce(
     (accumulator: number, comment: CommentDto) => accumulator + comment.rating,
-    0
+    0,
   );
   const averageRating = totalRating / nonZeroRatingComments.length;
   return { averageRating, numberOfRatings: nonZeroRatingComments.length };

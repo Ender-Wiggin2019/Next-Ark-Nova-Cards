@@ -69,11 +69,11 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
     fetchAllQuizzes,
     {
       enabled: shouldFetchRatings,
-    }
+    },
   );
 
   const filteredQuizzes =
-    allQuizsData?.filter((q: any) => q.gameconfig.mode === mode) || [];
+    allQuizsData?.filter((q: IQuizData) => q.gameconfig.mode === mode) || [];
   const todayQuiz = filteredQuizzes[0] || null;
 
   const totalPages = Math.ceil(filteredQuizzes.length / ITEMS_PER_PAGE);
@@ -108,7 +108,7 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
           }}
           aria-disabled={currentPage === 1}
         />
-      </PaginationItem>
+      </PaginationItem>,
     );
 
     // First page
@@ -124,13 +124,13 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
           >
             1
           </PaginationLink>
-        </PaginationItem>
+        </PaginationItem>,
       );
       if (startPage > 2) {
         items.push(
           <PaginationItem key='ellipsis1'>
             <PaginationEllipsis />
-          </PaginationItem>
+          </PaginationItem>,
         );
       }
     }
@@ -149,7 +149,7 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
           >
             {i}
           </PaginationLink>
-        </PaginationItem>
+        </PaginationItem>,
       );
     }
 
@@ -159,7 +159,7 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
         items.push(
           <PaginationItem key='ellipsis2'>
             <PaginationEllipsis />
-          </PaginationItem>
+          </PaginationItem>,
         );
       }
       items.push(
@@ -173,7 +173,7 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
           >
             {totalPages}
           </PaginationLink>
-        </PaginationItem>
+        </PaginationItem>,
       );
     }
 
@@ -188,7 +188,7 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
           }}
           aria-disabled={currentPage === totalPages}
         />
-      </PaginationItem>
+      </PaginationItem>,
     );
 
     return items;
@@ -221,7 +221,7 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
                 ' Day ' +
                 (dayjs(todayQuiz.createdat || '').diff(
                   dayjs('2024-07-02'),
-                  'day'
+                  'day',
                 ) +
                   1)
               }

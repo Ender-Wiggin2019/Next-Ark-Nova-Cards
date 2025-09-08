@@ -1,6 +1,5 @@
-import { cardTypeDataMapping } from '@/utils/GetAllCardIds';
-
 import { Card } from '@/types/Card';
+import { cardTypeDataMapping } from '@/utils/GetAllCardIds';
 export function getCardById(id: string): Card | undefined {
   for (const [_, value] of cardTypeDataMapping) {
     for (const card of value) {

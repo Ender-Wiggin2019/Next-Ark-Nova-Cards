@@ -1,11 +1,9 @@
 import * as React from 'react';
 import { IconType } from 'react-icons';
-
-import { cn } from '@/lib/utils';
-
 import UnstyledLink, {
   UnstyledLinkProps,
 } from '@/components/links/UnstyledLink';
+import { cn } from '@/lib/utils';
 
 const IconLinkVariant = [
   'primary',
@@ -32,7 +30,7 @@ const IconLink = React.forwardRef<HTMLAnchorElement, IconLinkProps>(
       iconClassName,
       ...rest
     },
-    ref
+    ref,
   ) => {
     return (
       <UnstyledLink
@@ -81,14 +79,14 @@ const IconLink = React.forwardRef<HTMLAnchorElement, IconLinkProps>(
           ],
           //#endregion  //*======== Variants ===========
           'disabled:cursor-not-allowed',
-          className
+          className,
         )}
         {...rest}
       >
         {Icon && <Icon className={cn(iconClassName)} />}
       </UnstyledLink>
     );
-  }
+  },
 );
 
 export default IconLink;

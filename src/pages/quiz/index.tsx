@@ -1,9 +1,8 @@
-/* eslint-disable no-console */
+/** biome-ignore-all lint/suspicious/noConsole: <> */
 'use client';
 
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import * as React from 'react';
 
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
@@ -11,7 +10,7 @@ import Seo from '@/components/Seo';
 import { CardSource } from '@/types/CardSource';
 
 export default function Page(
-  _props: InferGetStaticPropsType<typeof getStaticProps>
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
   // 处理表单提交
   const handleSubmit = async () => {

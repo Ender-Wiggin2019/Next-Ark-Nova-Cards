@@ -1,13 +1,11 @@
-import { type PopoverProps, Popover, Transition } from '@headlessui/react';
+import { Popover, type PopoverProps, Transition } from '@headlessui/react';
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
-
-import { cn } from '@/lib/utils';
-
 import { navigationItems } from '@/config/nav';
+import { cn } from '@/lib/utils';
 
 function NavItem({
   href,
@@ -25,7 +23,7 @@ function NavItem({
           'relative block whitespace-nowrap px-3 py-2 transition',
           isActive
             ? 'text-lime-600 dark:text-lime-400'
-            : 'hover:text-lime-600 dark:hover:text-lime-400'
+            : 'hover:text-lime-600 dark:hover:text-lime-400',
         )}
       >
         {children}
@@ -56,7 +54,7 @@ function Desktop({
       mouseY.set(clientY - bounds.top);
       radius.set(Math.sqrt(bounds.width ** 2 + bounds.height ** 2) / 2.5);
     },
-    [mouseX, mouseY, radius]
+    [mouseX, mouseY, radius],
   );
   const background = useMotionTemplate`radial-gradient(${radius}px circle at ${mouseX}px ${mouseY}px, var(--spotlight-color) 0%, transparent 65%)`;
 
@@ -69,7 +67,7 @@ function Desktop({
         'shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur-md',
         'dark:from-zinc-900/70 dark:to-zinc-800/90 dark:ring-zinc-100/10',
         '[--spotlight-color:rgb(236_252_203_/_0.6)] dark:[--spotlight-color:rgb(217_249_157_/_0.07)]',
-        className
+        className,
       )}
       {...props}
     >

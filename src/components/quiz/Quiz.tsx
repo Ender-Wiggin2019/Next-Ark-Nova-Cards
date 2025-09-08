@@ -1,5 +1,4 @@
 import { Check, Info, Share2 } from 'lucide-react';
-import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
 
@@ -22,10 +21,9 @@ import {
 } from '@/components/ui/hover-card';
 import { Separator } from '@/components/ui/separator';
 import CardWrapper from '@/components/wrapper/CardWrapper';
-
-import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
-
+import { TProjectSlotPosition } from '@/types/ProjectCard';
 import { GameConfig } from '@/types/quiz';
+import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
 
 export type Props = {
   seed: string;
@@ -134,7 +132,7 @@ export const Quiz: React.FC<Props> = ({
               <CardWrapper
                 key={'q_conservation_' + id}
                 id={id}
-                index={idx + 1}
+                index={(idx + 1) as TProjectSlotPosition}
                 canSelect={false}
                 disable={false}
                 preview={true}

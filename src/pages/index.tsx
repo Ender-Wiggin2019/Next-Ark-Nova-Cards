@@ -1,7 +1,7 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { FiRotateCcw } from 'react-icons/fi';
 
 import { SortButton } from '@/components/buttons/SortButton';
@@ -32,7 +32,7 @@ type Props = {
 const INIT_MAX_NUM = 20;
 
 export default function HomePage(
-  _props: InferGetStaticPropsType<typeof getStaticProps>
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
   const { t } = useTranslation('common');
   const [reset, setReset] = useState<boolean>(false);
@@ -44,7 +44,7 @@ export default function HomePage(
   const [textFilter, setTextFilter] = useState<string>(''); // add this line
   const [selectedCardTypes, setSelectedCardTypes] = useState<CardType[]>([]);
   const [selectedCardSources, setSelectedCardSources] = useState<CardSource[]>(
-    []
+    [],
   );
   const [sortOrder, setSortOrder] = useState<SortOrder>(SortOrder.ID_ASC);
   const [size, setSize] = useState<number[]>([0]);

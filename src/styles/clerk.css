@@ -3,13 +3,13 @@
   @apply border shadow-xl shadow-zinc-500/10 backdrop-blur-xl backdrop-saturate-150;
   @apply border-zinc-200 bg-white/90 text-zinc-800;
   @apply py-4;
-  --accent: theme('colors.zinc.900');
-  --accentDark: theme('colors.zinc.800');
+  --accent: theme("colors.zinc.900");
+  --accentDark: theme("colors.zinc.800");
 }
 
 .cl-formButtonPrimary {
-  --accent: theme('colors.lime.600');
-  --accentDark: theme('colors.zinc.800');
+  --accent: theme("colors.lime.600");
+  --accentDark: theme("colors.zinc.800");
   @apply text-zinc-50;
 }
 

@@ -3,20 +3,18 @@ import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 import { GiSevenPointedStar } from 'react-icons/gi';
-
-import { cn } from '@/lib/utils';
-
 import AbilityComponent from '@/components/abilities/Ability';
 import Constriction from '@/components/icons/abilities/Constriction';
 import Hypnosis from '@/components/icons/abilities/Hypnosis';
 import Venom from '@/components/icons/abilities/Venom';
 import Enclosures from '@/components/icons/Enclosures';
 import Pilfering from '@/components/icons/interaction/Pilfering';
+import Money from '@/components/icons/Money';
 import ReefEffect from '@/components/icons/marine_world/ReefEffect';
 import WaveIcon from '@/components/icons/marine_world/WaveIcon';
-import Money from '@/components/icons/Money';
 import Tag from '@/components/icons/Tag';
 import AnimalCardWrapper from '@/components/wrapper/AnimalWrapper';
+import { cn } from '@/lib/utils';
 
 import { AnimalCard as AnimalCardType } from '@/types/AnimalCard';
 import { CardSource } from '@/types/CardSource';
@@ -59,7 +57,7 @@ export const BaseAnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
             ) : ability.keyword === KeyWord.PILFERING_1 ||
               ability.keyword === KeyWord.PILFERING_2 ? (
               <Pilfering key={index} />
-            ) : null
+            ) : null,
           )}
           {animal.reefDwellerEffect !== undefined &&
             animal.reefDwellerEffect.length > 0 && (
@@ -143,7 +141,7 @@ export const BaseAnimalCard: React.FC<AnimalCardProps> = ({ animal }) => {
                   animal.reefDwellerEffect !== undefined &&
                   animal.reefDwellerEffect.some(
                     (reefDwellerAbility) =>
-                      reefDwellerAbility.keyword === ability.keyword
+                      reefDwellerAbility.keyword === ability.keyword,
                   );
                 return (
                   <AbilityComponent

@@ -25,7 +25,7 @@ export const cardTypeDataMapping = new Map<CardType, Card[]>([
 export function getCardIds(
   cardTypes: CardType[],
   cardSources?: CardSource[],
-  setUpType?: 'hand' | 'game'
+  setUpType?: 'hand' | 'game',
 ) {
   const ids: string[] = [];
   cardTypes.forEach((cardType) => {
@@ -36,13 +36,13 @@ export function getCardIds(
     }
     if (setUpType === 'hand' && cardType === CardType.CONSERVATION_CARD) {
       data = data.filter(
-        (d) => (d as ProjectCard).type !== ProjectCategory.BASE
+        (d) => (d as ProjectCard).type !== ProjectCategory.BASE,
       );
     }
 
     if (setUpType === 'game' && cardType === CardType.CONSERVATION_CARD) {
       data = data.filter(
-        (d) => (d as ProjectCard).type === ProjectCategory.BASE
+        (d) => (d as ProjectCard).type === ProjectCategory.BASE,
       );
     }
 

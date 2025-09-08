@@ -5,6 +5,7 @@ import ActionCardIcon from '@/components/icons/actions/ActionCardIcon';
 import Strength from '@/components/icons/actions/Strength';
 
 import { ActionCardType } from '@/types/ActionCard';
+
 interface actionTypeProps {
   actionType?: ActionCardType;
 }

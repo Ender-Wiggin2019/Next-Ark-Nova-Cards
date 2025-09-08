@@ -14,6 +14,7 @@ interface HoverCardProps {
   ratingCount?: number | null;
   isPeopleSponsor?: boolean;
 }
+
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import React from 'react';

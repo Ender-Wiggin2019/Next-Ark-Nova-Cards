@@ -1,9 +1,6 @@
 // ProjectCard.tsx
 import { useTranslation } from 'next-i18next';
 import React from 'react';
-
-import { cn } from '@/lib/utils';
-
 import ParseDescription from '@/components/abilities/ParseDescription';
 import PartenerZoo from '@/components/icons/conservations/PartenerZoo';
 import ReleaseAnimal from '@/components/icons/conservations/ReleaseAnimal';
@@ -11,11 +8,13 @@ import ConservationIcon from '@/components/icons/tokens/ConservationIcon';
 import ReputationIcon from '@/components/icons/tokens/ReputationIcon';
 import TagIcon from '@/components/icons/tokens/TagIcon';
 import ProjectCardWrapper from '@/components/wrapper/ProjectWrapper';
+import { cn } from '@/lib/utils';
 
 import { BonusType } from '@/types/Bonus';
 import {
   ProjectCard as ProjectCardType,
   ProjectCategory,
+  TProjectSlotPosition,
 } from '@/types/ProjectCard';
 
 interface ProjectCardProps {
@@ -77,7 +76,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             {
               release: project.type === ProjectCategory.RELEASE,
             },
-            { breed: project.type === ProjectCategory.BREED }
+            { breed: project.type === ProjectCategory.BREED },
           )}
         >
           {project.slots.map((slot, index) => (
@@ -88,7 +87,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                   {
                     release: project.type === ProjectCategory.RELEASE,
                   },
-                  { breed: project.type === ProjectCategory.BREED }
+                  { breed: project.type === ProjectCategory.BREED },
                 )}
               >
                 {/*<SizeCard size='4' />*/}
@@ -100,7 +99,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                         'arknova-icon',
                         { 'icon-animal-size-4': slot.position === 1 },
                         { 'icon-animal-size-3': slot.position === 2 },
-                        { 'icon-animal-size-2': slot.position === 3 }
+                        { 'icon-animal-size-2': slot.position === 3 },
                       )}
                     ></div>
                   </div>
@@ -138,7 +137,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 };
 
 export const TokenProjectCard: React.FC<
-  ProjectCardProps & { pos: 1 | 2 | 3 }
+  ProjectCardProps & { pos?: TProjectSlotPosition }
 > = ({ project, pos }) => {
   const styles = {
     1: { top: 122, left: 17 },
@@ -146,7 +145,8 @@ export const TokenProjectCard: React.FC<
     3: { top: 122, left: 78 },
   };
 
-  const toStyle = (pos: 1 | 2 | 3) => {
+  const toStyle = (pos?: TProjectSlotPosition) => {
+    if (!pos) return {};
     const config = styles[pos];
     if (!config) return {};
     return {

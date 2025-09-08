@@ -4,19 +4,15 @@ import React, { useEffect, useMemo } from 'react';
 import CardList from '@/components/cards/shared/CardList';
 
 import { fetchCardRatings } from '@/services/card';
-
-import { RatedSponsorCard } from './RatedSponsorCard';
-import { useSponsorData } from './useSponsorData';
-
 import { CardSource } from '@/types/CardSource';
 import { IRating } from '@/types/IRating';
 import { ISponsorCard } from '@/types/ISponsorCard';
 import { SortOrder } from '@/types/Order';
 import {
-  SponsorCard as TypedSponsorCard,
+  SponsorCard,
   SponsorCardType,
+  SponsorCard as TypedSponsorCard,
 } from '@/types/SponsorCard';
-import { SponsorCard } from '@/types/SponsorCard';
 import {
   isAnimalTag,
   isContinentTag,
@@ -24,6 +20,8 @@ import {
   OtherTag,
   Tag,
 } from '@/types/Tags';
+import { RatedSponsorCard } from './RatedSponsorCard';
+import { useSponsorData } from './useSponsorData';
 
 interface SponsorCardListProps {
   selectedTags?: Tag[];
@@ -54,7 +52,7 @@ const filterSponsors = (
   selectedCardSources: CardSource[] = [],
   showHumanSponsors = false,
   textFilter = '',
-  strength: number[] = [2]
+  strength: number[] = [2],
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
 
@@ -80,7 +78,7 @@ const filterSponsors = (
         selectedRequirements.some(
           (req) =>
             (sponsor.requirements && sponsor.requirements.includes(req)) ||
-            hasRockAndWaterRequirements(sponsor, req)
+            hasRockAndWaterRequirements(sponsor, req),
         )) &&
       (selectedCardSources.length === 0 ||
         selectedCardSources.some((src) => sponsor.source === src)) &&
@@ -89,13 +87,13 @@ const filterSponsors = (
         sponsor.name.toLowerCase().includes(lowercaseFilter) ||
         (sponsor.effects !== undefined &&
           sponsor.effects.some((effect) =>
-            effect.effectDesc.toLowerCase().includes(lowercaseFilter)
+            effect.effectDesc.toLowerCase().includes(lowercaseFilter),
           ))) &&
       (strength.length === 0 ||
         strength.includes(0) ||
         strength.includes(1) ||
         strength.includes(2) ||
-        strength.includes(sponsor.strength))
+        strength.includes(sponsor.strength)),
   );
 
   return res;
@@ -125,12 +123,12 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
     selectedCardSources,
     showHumanSponsors,
     textFilter,
-    strength
+    strength,
   );
 
   const combineDataWithRatings = (
     sponsors: SponsorCard[],
-    ratings: IRating[]
+    ratings: IRating[],
   ): ISponsorCard[] => {
     return sponsors.map((sponsor) => {
       const rating = ratings.find((r) => r.cardid === sponsor.id);

@@ -1,6 +1,9 @@
 import * as React from 'react';
+
 const TextButtonVariant = ['primary', 'basic'] as const;
+
 import { cn } from '@/lib/utils';
+
 type TextButtonProps = {
   selected: boolean;
   selectClassName?: string;
@@ -18,7 +21,7 @@ const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
       disabled: buttonDisabled,
       ...rest
     },
-    ref
+    ref,
   ) => {
     return (
       <button
@@ -43,14 +46,14 @@ const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
           selected &&
             selectClassName === undefined &&
             'ring-2 ring-lime-700/90',
-          selected && selectClassName !== undefined && selectClassName
+          selected && selectClassName !== undefined && selectClassName,
         )}
         {...rest}
       >
         {children}
       </button>
     );
-  }
+  },
 );
 
 export default TextButton;

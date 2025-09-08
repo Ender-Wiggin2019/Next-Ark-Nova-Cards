@@ -8,7 +8,10 @@ export enum SpecialEnclosureType {
 }
 
 export class SpecialEnclosure {
-  constructor(public type: SpecialEnclosureType, public size: number) {}
+  constructor(
+    public type: SpecialEnclosureType,
+    public size: number,
+  ) {}
 
   toObject(): { type: SpecialEnclosureType; size: number } {
     return {

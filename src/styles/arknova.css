@@ -123,7 +123,9 @@
   background: #fafafa;
   border: 1px solid #d3d3d3;
   border-radius: 4px;
-  box-shadow: inset 0 1px 1px #f0f0f0, 0 3px 6px -5px #bbb;
+  box-shadow:
+    inset 0 1px 1px #f0f0f0,
+    0 3px 6px -5px #bbb;
 }
 
 .noUi-connects {
@@ -146,18 +148,24 @@
   background: #fff;
   border: 1px solid #d9d9d9;
   border-radius: 3px;
-  box-shadow: inset 0 0 1px #fff, inset 0 1px 7px #ebebeb, 0 3px 6px -3px #bbb;
+  box-shadow:
+    inset 0 0 1px #fff,
+    inset 0 1px 7px #ebebeb,
+    0 3px 6px -3px #bbb;
   cursor: default;
 }
 
 .noUi-active {
-  box-shadow: inset 0 0 1px #fff, inset 0 1px 7px #ddd, 0 3px 6px -3px #bbb;
+  box-shadow:
+    inset 0 0 1px #fff,
+    inset 0 1px 7px #ddd,
+    0 3px 6px -3px #bbb;
 }
 
 .noUi-handle:after,
 .noUi-handle:before {
   background: #e8e7e6;
-  content: '';
+  content: "";
   display: block;
   height: 14px;
   left: 14px;
@@ -430,7 +438,7 @@
   .ark-card-top-left
   .zoo-card-prerequisites
   .zoo-card-badge
-  .badge-icon[data-type='Appeal'] {
+  .badge-icon[data-type="Appeal"] {
   background: none;
   border: none;
   border-radius: 0;
@@ -444,7 +452,7 @@
   .ark-card-top-left
   .zoo-card-prerequisites
   .zoo-card-badge
-  .badge-icon[data-type='Appeal']
+  .badge-icon[data-type="Appeal"]
   .icon-appeal {
   align-items: center;
   display: flex;
@@ -460,7 +468,7 @@
   .ark-card-top-left
   .zoo-card-prerequisites
   .zoo-card-badge
-  .badge-icon[data-type='Reputation'] {
+  .badge-icon[data-type="Reputation"] {
   color: #fff;
   font-family: MyriadPro-Bold;
   font-size: 28px;
@@ -520,14 +528,14 @@
 .ark-card.zoo-card
   .ark-card-wrapper
   .ark-card-bottom
-  .zoo-card-bonuses[data-size='2'] {
+  .zoo-card-bonuses[data-size="2"] {
   shape-outside: polygon(0 90px, 0 167px, 134px 167px, 134px 90px);
 }
 
 .ark-card.zoo-card
   .ark-card-wrapper
   .ark-card-bottom
-  .zoo-card-bonuses[data-size='3'] {
+  .zoo-card-bonuses[data-size="3"] {
   shape-outside: polygon(0 90px, 0 167px, 201px 167px, 201px 90px);
 }
 
@@ -765,8 +773,7 @@
 }
 
 /* FIXME: a black line should be remove */
-.ark-card.zoo-card.animal-card
-  .ark-card-wrapper
+.ark-card.zoo-card.animal-card .ark-card-wrapper
   .ark-card-top
   .ark-card-top-left
   .animal-card-cost {
@@ -814,7 +821,7 @@
   display: none;
 }
 
-[data-reduced-cost='1']
+[data-reduced-cost="1"]
   .ark-card.zoo-card.animal-card
   .ark-card-wrapper
   .ark-card-top
@@ -825,7 +832,7 @@
   position: relative;
 }
 
-[data-reduced-cost='1']
+[data-reduced-cost="1"]
   .ark-card.zoo-card.animal-card
   .ark-card-wrapper
   .ark-card-top
@@ -843,14 +850,14 @@
   );
   border-radius: 15px;
   bottom: -2px;
-  content: '';
+  content: "";
   left: -2px;
   position: absolute;
   right: -2px;
   top: -2px;
 }
 
-[data-reduced-cost='1']
+[data-reduced-cost="1"]
   .ark-card.zoo-card.animal-card
   .ark-card-wrapper
   .ark-card-top
@@ -925,7 +932,7 @@
   margin: 4px 0;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.animal-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle {
@@ -934,7 +941,7 @@
   margin-top: -10px;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.animal-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle
@@ -942,7 +949,7 @@
   display: none;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.animal-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle
@@ -950,7 +957,7 @@
   padding: 3px 20px 1px;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.animal-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle
@@ -965,7 +972,7 @@
   width: 100%;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.animal-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle
@@ -974,7 +981,7 @@
   display: none;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.animal-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-bottom
@@ -984,7 +991,7 @@
   margin-top: 10px;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.animal-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-bottom
@@ -993,618 +1000,618 @@
   display: none;
 }
 
-.zoo-card.animal-card[data-id='A341_Capybara'] .ark-card-top {
+.zoo-card.animal-card[data-id="A341_Capybara"] .ark-card-top {
   background-image: url(/img/animals/A341_Capybara.jpg);
 }
 
-.zoo-card.animal-card[data-id='A401_Cheetah'] .ark-card-top {
+.zoo-card.animal-card[data-id="A401_Cheetah"] .ark-card-top {
   background-image: url(/img/animals/A401_Cheetah.jpg);
 }
 
-.zoo-card.animal-card[data-id='A402_Lion'] .ark-card-top {
+.zoo-card.animal-card[data-id="A402_Lion"] .ark-card-top {
   background-image: url(/img/animals/A402_Lion.jpg);
 }
 
-.zoo-card.animal-card[data-id='A403_Leopard'] .ark-card-top {
+.zoo-card.animal-card[data-id="A403_Leopard"] .ark-card-top {
   background-image: url(/img/animals/A403_Leopard.jpg);
 }
 
-.zoo-card.animal-card[data-id='A404_Caracal'] .ark-card-top {
+.zoo-card.animal-card[data-id="A404_Caracal"] .ark-card-top {
   background-image: url(/img/animals/A404_Caracal.jpg);
 }
 
-.zoo-card.animal-card[data-id='A405_FennecFox'] .ark-card-top {
+.zoo-card.animal-card[data-id="A405_FennecFox"] .ark-card-top {
   background-image: url(/img/animals/A405_FennecFox.jpg);
 }
 
-.zoo-card.animal-card[data-id='A406_SiberianTiger'] .ark-card-top {
+.zoo-card.animal-card[data-id="A406_SiberianTiger"] .ark-card-top {
   background-image: url(/img/animals/A406_SiberianTiger.jpg);
 }
 
-.zoo-card.animal-card[data-id='A407_SumatranTiger'] .ark-card-top {
+.zoo-card.animal-card[data-id="A407_SumatranTiger"] .ark-card-top {
   background-image: url(/img/animals/A407_SumatranTiger.jpg);
 }
 
-.zoo-card.animal-card[data-id='A408_SlothBear'] .ark-card-top {
+.zoo-card.animal-card[data-id="A408_SlothBear"] .ark-card-top {
   background-image: url(/img/animals/A408_SlothBear.jpg);
 }
 
-.zoo-card.animal-card[data-id='A409_SunBear'] .ark-card-top {
+.zoo-card.animal-card[data-id="A409_SunBear"] .ark-card-top {
   background-image: url(/img/animals/A409_SunBear.jpg);
 }
 
-.zoo-card.animal-card[data-id='A410_YellowthroatedMarten'] .ark-card-top {
+.zoo-card.animal-card[data-id="A410_YellowthroatedMarten"] .ark-card-top {
   background-image: url(/img/animals/A410_YellowthroatedMarten.jpg);
 }
 
-.zoo-card.animal-card[data-id='A411_GrizzlyBear'] .ark-card-top {
+.zoo-card.animal-card[data-id="A411_GrizzlyBear"] .ark-card-top {
   background-image: url(/img/animals/A411_GrizzlyBear.jpg);
 }
 
-.zoo-card.animal-card[data-id='A412_Jaguar'] .ark-card-top {
+.zoo-card.animal-card[data-id="A412_Jaguar"] .ark-card-top {
   background-image: url(/img/animals/A412_Jaguar.jpg);
 }
 
-.zoo-card.animal-card[data-id='A413_Cougar'] .ark-card-top {
+.zoo-card.animal-card[data-id="A413_Cougar"] .ark-card-top {
   background-image: url(/img/animals/A413_Cougar.jpg);
 }
 
-.zoo-card.animal-card[data-id='A414_SouthAmericanCoati'] .ark-card-top {
+.zoo-card.animal-card[data-id="A414_SouthAmericanCoati"] .ark-card-top {
   background-image: url(/img/animals/A414_SouthAmericanCoati.jpg);
 }
 
-.zoo-card.animal-card[data-id='A415_Raccoon'] .ark-card-top {
+.zoo-card.animal-card[data-id="A415_Raccoon"] .ark-card-top {
   background-image: url(/img/animals/A415_Raccoon.jpg);
 }
 
-.zoo-card.animal-card[data-id='A416_EurasianBrownBear'] .ark-card-top {
+.zoo-card.animal-card[data-id="A416_EurasianBrownBear"] .ark-card-top {
   background-image: url(/img/animals/A416_EurasianBrownBear.jpg);
 }
 
-.zoo-card.animal-card[data-id='A417_Wolf'] .ark-card-top {
+.zoo-card.animal-card[data-id="A417_Wolf"] .ark-card-top {
   background-image: url(/img/animals/A417_Wolf.jpg);
 }
 
-.zoo-card.animal-card[data-id='A418_EurasianLynx'] .ark-card-top {
+.zoo-card.animal-card[data-id="A418_EurasianLynx"] .ark-card-top {
   background-image: url(/img/animals/A418_EurasianLynx.jpg);
 }
 
-.zoo-card.animal-card[data-id='A419_EuropeanBadger'] .ark-card-top {
+.zoo-card.animal-card[data-id="A419_EuropeanBadger"] .ark-card-top {
   background-image: url(/img/animals/A419_EuropeanBadger.jpg);
 }
 
-.zoo-card.animal-card[data-id='A420_Stoat'] .ark-card-top {
+.zoo-card.animal-card[data-id="A420_Stoat"] .ark-card-top {
   background-image: url(/img/animals/A420_Stoat.jpg);
 }
 
-.zoo-card.animal-card[data-id='A421_NewZealandFurSeal'] .ark-card-top {
+.zoo-card.animal-card[data-id="A421_NewZealandFurSeal"] .ark-card-top {
   background-image: url(/img/animals/A421_NewZealandFurSeal.jpg);
 }
 
-.zoo-card.animal-card[data-id='A422_AustralianSeaLion'] .ark-card-top {
+.zoo-card.animal-card[data-id="A422_AustralianSeaLion"] .ark-card-top {
   background-image: url(/img/animals/A422_AustralianSeaLion.jpg);
 }
 
-.zoo-card.animal-card[data-id='A423_NewZealandSeaLion'] .ark-card-top {
+.zoo-card.animal-card[data-id="A423_NewZealandSeaLion"] .ark-card-top {
   background-image: url(/img/animals/A423_NewZealandSeaLion.jpg);
 }
 
-.zoo-card.animal-card[data-id='A424_AustralianDingo'] .ark-card-top {
+.zoo-card.animal-card[data-id="A424_AustralianDingo"] .ark-card-top {
   background-image: url(/img/animals/A424_AustralianDingo.jpg);
 }
 
-.zoo-card.animal-card[data-id='A425_TasmanianDevil'] .ark-card-top {
+.zoo-card.animal-card[data-id="A425_TasmanianDevil"] .ark-card-top {
   background-image: url(/img/animals/A425_TasmanianDevil.jpg);
 }
 
-.zoo-card.animal-card[data-id='A426_AfricanBushElephant'] .ark-card-top {
+.zoo-card.animal-card[data-id="A426_AfricanBushElephant"] .ark-card-top {
   background-image: url(/img/animals/A426_AfricanBushElephant.jpg);
 }
 
-.zoo-card.animal-card[data-id='A427_WhiteRhinoceros'] .ark-card-top {
+.zoo-card.animal-card[data-id="A427_WhiteRhinoceros"] .ark-card-top {
   background-image: url(/img/animals/A427_WhiteRhinoceros.jpg);
 }
 
-.zoo-card.animal-card[data-id='A428_NorthernGiraffe'] .ark-card-top {
+.zoo-card.animal-card[data-id="A428_NorthernGiraffe"] .ark-card-top {
   background-image: url(/img/animals/A428_NorthernGiraffe.jpg);
 }
 
-.zoo-card.animal-card[data-id='A429_GrevysZebra'] .ark-card-top {
+.zoo-card.animal-card[data-id="A429_GrevysZebra"] .ark-card-top {
   background-image: url(/img/animals/A429_GrevysZebra.jpg);
 }
 
-.zoo-card.animal-card[data-id='A430_PygmyHippopotamus'] .ark-card-top {
+.zoo-card.animal-card[data-id="A430_PygmyHippopotamus"] .ark-card-top {
   background-image: url(/img/animals/A430_PygmyHippopotamus.jpg);
 }
 
-.zoo-card.animal-card[data-id='A431_AsianElephant'] .ark-card-top {
+.zoo-card.animal-card[data-id="A431_AsianElephant"] .ark-card-top {
   background-image: url(/img/animals/A431_AsianElephant.jpg);
 }
 
-.zoo-card.animal-card[data-id='A432_IndianRhinoceros'] .ark-card-top {
+.zoo-card.animal-card[data-id="A432_IndianRhinoceros"] .ark-card-top {
   background-image: url(/img/animals/A432_IndianRhinoceros.jpg);
 }
 
-.zoo-card.animal-card[data-id='A433_GiantPanda'] .ark-card-top {
+.zoo-card.animal-card[data-id="A433_GiantPanda"] .ark-card-top {
   background-image: url(/img/animals/A433_GiantPanda.jpg);
 }
 
-.zoo-card.animal-card[data-id='A434_RedPanda'] .ark-card-top {
+.zoo-card.animal-card[data-id="A434_RedPanda"] .ark-card-top {
   background-image: url(/img/animals/A434_RedPanda.jpg);
 }
 
-.zoo-card.animal-card[data-id='A435_MalayanTapir'] .ark-card-top {
+.zoo-card.animal-card[data-id="A435_MalayanTapir"] .ark-card-top {
   background-image: url(/img/animals/A435_MalayanTapir.jpg);
 }
 
-.zoo-card.animal-card[data-id='A436_AmericanBison'] .ark-card-top {
+.zoo-card.animal-card[data-id="A436_AmericanBison"] .ark-card-top {
   background-image: url(/img/animals/A436_AmericanBison.jpg);
 }
 
-.zoo-card.animal-card[data-id='A437_Muskox'] .ark-card-top {
+.zoo-card.animal-card[data-id="A437_Muskox"] .ark-card-top {
   background-image: url(/img/animals/A437_Muskox.jpg);
 }
 
-.zoo-card.animal-card[data-id='A438_Reindeer'] .ark-card-top {
+.zoo-card.animal-card[data-id="A438_Reindeer"] .ark-card-top {
   background-image: url(/img/animals/A438_Reindeer.jpg);
 }
 
-.zoo-card.animal-card[data-id='A439_Llama'] .ark-card-top {
+.zoo-card.animal-card[data-id="A439_Llama"] .ark-card-top {
   background-image: url(/img/animals/A439_Llama.jpg);
 }
 
-.zoo-card.animal-card[data-id='A440_MountainTapir'] .ark-card-top {
+.zoo-card.animal-card[data-id="A440_MountainTapir"] .ark-card-top {
   background-image: url(/img/animals/A440_MountainTapir.jpg);
 }
 
-.zoo-card.animal-card[data-id='A441_EuropeanBison'] .ark-card-top {
+.zoo-card.animal-card[data-id="A441_EuropeanBison"] .ark-card-top {
   background-image: url(/img/animals/A441_EuropeanBison.jpg);
 }
 
-.zoo-card.animal-card[data-id='A442_Moose'] .ark-card-top {
+.zoo-card.animal-card[data-id="A442_Moose"] .ark-card-top {
   background-image: url(/img/animals/A442_Moose.jpg);
 }
 
-.zoo-card.animal-card[data-id='A443_RedDeer'] .ark-card-top {
+.zoo-card.animal-card[data-id="A443_RedDeer"] .ark-card-top {
   background-image: url(/img/animals/A443_RedDeer.jpg);
 }
 
-.zoo-card.animal-card[data-id='A444_AlpineIbex'] .ark-card-top {
+.zoo-card.animal-card[data-id="A444_AlpineIbex"] .ark-card-top {
   background-image: url(/img/animals/A444_AlpineIbex.jpg);
 }
 
-.zoo-card.animal-card[data-id='A445_CrestedPorcupine'] .ark-card-top {
+.zoo-card.animal-card[data-id="A445_CrestedPorcupine"] .ark-card-top {
   background-image: url(/img/animals/A445_CrestedPorcupine.jpg);
 }
 
-.zoo-card.animal-card[data-id='A446_Dugong'] .ark-card-top {
+.zoo-card.animal-card[data-id="A446_Dugong"] .ark-card-top {
   background-image: url(/img/animals/A446_Dugong.jpg);
 }
 
-.zoo-card.animal-card[data-id='A447_RedKangaroo'] .ark-card-top {
+.zoo-card.animal-card[data-id="A447_RedKangaroo"] .ark-card-top {
   background-image: url(/img/animals/A447_RedKangaroo.jpg);
 }
 
-.zoo-card.animal-card[data-id='A448_Koala'] .ark-card-top {
+.zoo-card.animal-card[data-id="A448_Koala"] .ark-card-top {
   background-image: url(/img/animals/A448_Koala.jpg);
 }
 
-.zoo-card.animal-card[data-id='A449_Platypus'] .ark-card-top {
+.zoo-card.animal-card[data-id="A449_Platypus"] .ark-card-top {
   background-image: url(/img/animals/A449_Platypus.jpg);
 }
 
-.zoo-card.animal-card[data-id='A450_CommonWombat'] .ark-card-top {
+.zoo-card.animal-card[data-id="A450_CommonWombat"] .ark-card-top {
   background-image: url(/img/animals/A450_CommonWombat.jpg);
 }
 
-.zoo-card.animal-card[data-id='A451_ProboscisMonkey'] .ark-card-top {
+.zoo-card.animal-card[data-id="A451_ProboscisMonkey"] .ark-card-top {
   background-image: url(/img/animals/A451_ProboscisMonkey.jpg);
 }
 
-.zoo-card.animal-card[data-id='A452_SenegalBushbaby'] .ark-card-top {
+.zoo-card.animal-card[data-id="A452_SenegalBushbaby"] .ark-card-top {
   background-image: url(/img/animals/A452_SenegalBushbaby.jpg);
 }
 
-.zoo-card.animal-card[data-id='A453_CollaredMangabey'] .ark-card-top {
+.zoo-card.animal-card[data-id="A453_CollaredMangabey"] .ark-card-top {
   background-image: url(/img/animals/A453_CollaredMangabey.jpg);
 }
 
-.zoo-card.animal-card[data-id='A454_RingtailedLemur'] .ark-card-top {
+.zoo-card.animal-card[data-id="A454_RingtailedLemur"] .ark-card-top {
   background-image: url(/img/animals/A454_RingtailedLemur.jpg);
 }
 
-.zoo-card.animal-card[data-id='A455_MantledGuereza'] .ark-card-top {
+.zoo-card.animal-card[data-id="A455_MantledGuereza"] .ark-card-top {
   background-image: url(/img/animals/A455_MantledGuereza.jpg);
 }
 
-.zoo-card.animal-card[data-id='A456_BarbaryMacaque'] .ark-card-top {
+.zoo-card.animal-card[data-id="A456_BarbaryMacaque"] .ark-card-top {
   background-image: url(/img/animals/A456_BarbaryMacaque.jpg);
 }
 
-.zoo-card.animal-card[data-id='A457_Mandrill'] .ark-card-top {
+.zoo-card.animal-card[data-id="A457_Mandrill"] .ark-card-top {
   background-image: url(/img/animals/A457_Mandrill.jpg);
 }
 
-.zoo-card.animal-card[data-id='A458_JapaneseMacaque'] .ark-card-top {
+.zoo-card.animal-card[data-id="A458_JapaneseMacaque"] .ark-card-top {
   background-image: url(/img/animals/A458_JapaneseMacaque.jpg);
 }
 
-.zoo-card.animal-card[data-id='A459_RedshankedDouc'] .ark-card-top {
+.zoo-card.animal-card[data-id="A459_RedshankedDouc"] .ark-card-top {
   background-image: url(/img/animals/A459_RedshankedDouc.jpg);
 }
 
-.zoo-card.animal-card[data-id='A460_DuskyleafMonkey'] .ark-card-top {
+.zoo-card.animal-card[data-id="A460_DuskyleafMonkey"] .ark-card-top {
   background-image: url(/img/animals/A460_DuskyleafMonkey.jpg);
 }
 
-.zoo-card.animal-card[data-id='A461_HorsfieldsTarsier'] .ark-card-top {
+.zoo-card.animal-card[data-id="A461_HorsfieldsTarsier"] .ark-card-top {
   background-image: url(/img/animals/A461_HorsfieldsTarsier.jpg);
 }
 
-.zoo-card.animal-card[data-id='A462_NorthernPlainsGrayLangur'] .ark-card-top {
+.zoo-card.animal-card[data-id="A462_NorthernPlainsGrayLangur"] .ark-card-top {
   background-image: url(/img/animals/A462_NorthernPlainsGrayLangur.jpg);
 }
 
-.zoo-card.animal-card[data-id='A463_PanamanianWhitefacedCapuchin']
+.zoo-card.animal-card[data-id="A463_PanamanianWhitefacedCapuchin"]
   .ark-card-top {
   background-image: url(/img/animals/A463_PanamanianWhitefacedCapuchin.jpg);
 }
 
-.zoo-card.animal-card[data-id='A464_BrownSpiderMonkey'] .ark-card-top {
+.zoo-card.animal-card[data-id="A464_BrownSpiderMonkey"] .ark-card-top {
   background-image: url(/img/animals/A464_BrownSpiderMonkey.jpg);
 }
 
-.zoo-card.animal-card[data-id='A465_GoldenLionTamarin'] .ark-card-top {
+.zoo-card.animal-card[data-id="A465_GoldenLionTamarin"] .ark-card-top {
   background-image: url(/img/animals/A465_GoldenLionTamarin.jpg);
 }
 
-.zoo-card.animal-card[data-id='A466_BolivianRedHowler'] .ark-card-top {
+.zoo-card.animal-card[data-id="A466_BolivianRedHowler"] .ark-card-top {
   background-image: url(/img/animals/A466_BolivianRedHowler.jpg);
 }
 
-.zoo-card.animal-card[data-id='A467_EcuadorianSquirellMonkey'] .ark-card-top {
+.zoo-card.animal-card[data-id="A467_EcuadorianSquirellMonkey"] .ark-card-top {
   background-image: url(/img/animals/A467_EcuadorianSquirellMonkey.jpg);
 }
 
-.zoo-card.animal-card[data-id='A468_CottontopTamarin'] .ark-card-top {
+.zoo-card.animal-card[data-id="A468_CottontopTamarin"] .ark-card-top {
   background-image: url(/img/animals/A468_CottontopTamarin.jpg);
 }
 
-.zoo-card.animal-card[data-id='A469_NileCrocodile'] .ark-card-top {
+.zoo-card.animal-card[data-id="A469_NileCrocodile"] .ark-card-top {
   background-image: url(/img/animals/A469_NileCrocodile.jpg);
 }
 
-.zoo-card.animal-card[data-id='A470_WesternGreenMamba'] .ark-card-top {
+.zoo-card.animal-card[data-id="A470_WesternGreenMamba"] .ark-card-top {
   background-image: url(/img/animals/A470_WesternGreenMamba.jpg);
 }
 
-.zoo-card.animal-card[data-id='A471_AfricanSpurredTortoise'] .ark-card-top {
+.zoo-card.animal-card[data-id="A471_AfricanSpurredTortoise"] .ark-card-top {
   background-image: url(/img/animals/A471_AfricanSpurredTortoise.jpg);
 }
 
-.zoo-card.animal-card[data-id='A472_RockMonitor'] .ark-card-top {
+.zoo-card.animal-card[data-id="A472_RockMonitor"] .ark-card-top {
   background-image: url(/img/animals/A472_RockMonitor.jpg);
 }
 
-.zoo-card.animal-card[data-id='A473_CommonAgama'] .ark-card-top {
+.zoo-card.animal-card[data-id="A473_CommonAgama"] .ark-card-top {
   background-image: url(/img/animals/A473_CommonAgama.jpg);
 }
 
-.zoo-card.animal-card[data-id='A474_IndianRockPython'] .ark-card-top {
+.zoo-card.animal-card[data-id="A474_IndianRockPython"] .ark-card-top {
   background-image: url(/img/animals/A474_IndianRockPython.jpg);
 }
 
-.zoo-card.animal-card[data-id='A475_IndianCobra'] .ark-card-top {
+.zoo-card.animal-card[data-id="A475_IndianCobra"] .ark-card-top {
   background-image: url(/img/animals/A475_IndianCobra.jpg);
 }
 
-.zoo-card.animal-card[data-id='A476_KomodoDragon'] .ark-card-top {
+.zoo-card.animal-card[data-id="A476_KomodoDragon"] .ark-card-top {
   background-image: url(/img/animals/A476_KomodoDragon.jpg);
 }
 
-.zoo-card.animal-card[data-id='A477_VeiledChameleon'] .ark-card-top {
+.zoo-card.animal-card[data-id="A477_VeiledChameleon"] .ark-card-top {
   background-image: url(/img/animals/A477_VeiledChameleon.jpg);
 }
 
-.zoo-card.animal-card[data-id='A478_ChineseWaterDragon'] .ark-card-top {
+.zoo-card.animal-card[data-id="A478_ChineseWaterDragon"] .ark-card-top {
   background-image: url(/img/animals/A478_ChineseWaterDragon.jpg);
 }
 
-.zoo-card.animal-card[data-id='A479_AmericanAlligator'] .ark-card-top {
+.zoo-card.animal-card[data-id="A479_AmericanAlligator"] .ark-card-top {
   background-image: url(/img/animals/A479_AmericanAlligator.jpg);
 }
 
-.zoo-card.animal-card[data-id='A480_BroadsnoutedCaiman'] .ark-card-top {
+.zoo-card.animal-card[data-id="A480_BroadsnoutedCaiman"] .ark-card-top {
   background-image: url(/img/animals/A480_BroadsnoutedCaiman.jpg);
 }
 
-.zoo-card.animal-card[data-id='A481_GalApagosGiantTortoise'] .ark-card-top {
+.zoo-card.animal-card[data-id="A481_GalApagosGiantTortoise"] .ark-card-top {
   background-image: url(/img/animals/A481_GalApagosGiantTortoise.jpg);
 }
 
-.zoo-card.animal-card[data-id='A482_Anaconda'] .ark-card-top {
+.zoo-card.animal-card[data-id="A482_Anaconda"] .ark-card-top {
   background-image: url(/img/animals/A482_Anaconda.jpg);
 }
 
-.zoo-card.animal-card[data-id='A483_BoaConstrictor'] .ark-card-top {
+.zoo-card.animal-card[data-id="A483_BoaConstrictor"] .ark-card-top {
   background-image: url(/img/animals/A483_BoaConstrictor.jpg);
 }
 
-.zoo-card.animal-card[data-id='A484_EuropeanPondTurtle'] .ark-card-top {
+.zoo-card.animal-card[data-id="A484_EuropeanPondTurtle"] .ark-card-top {
   background-image: url(/img/animals/A484_EuropeanPondTurtle.jpg);
 }
 
-.zoo-card.animal-card[data-id='A485_CommonEuropeanAdder'] .ark-card-top {
+.zoo-card.animal-card[data-id="A485_CommonEuropeanAdder"] .ark-card-top {
   background-image: url(/img/animals/A485_CommonEuropeanAdder.jpg);
 }
 
-.zoo-card.animal-card[data-id='A486_CommonWallLizard'] .ark-card-top {
+.zoo-card.animal-card[data-id="A486_CommonWallLizard"] .ark-card-top {
   background-image: url(/img/animals/A486_CommonWallLizard.jpg);
 }
 
-.zoo-card.animal-card[data-id='A487_EuropeanGrassSnake'] .ark-card-top {
+.zoo-card.animal-card[data-id="A487_EuropeanGrassSnake"] .ark-card-top {
   background-image: url(/img/animals/A487_EuropeanGrassSnake.jpg);
 }
 
-.zoo-card.animal-card[data-id='A488_SlowWorm'] .ark-card-top {
+.zoo-card.animal-card[data-id="A488_SlowWorm"] .ark-card-top {
   background-image: url(/img/animals/A488_SlowWorm.jpg);
 }
 
-.zoo-card.animal-card[data-id='A489_SaltwaterCrocodile'] .ark-card-top {
+.zoo-card.animal-card[data-id="A489_SaltwaterCrocodile"] .ark-card-top {
   background-image: url(/img/animals/A489_SaltwaterCrocodile.jpg);
 }
 
-.zoo-card.animal-card[data-id='A490_GouldsMonitor'] .ark-card-top {
+.zoo-card.animal-card[data-id="A490_GouldsMonitor"] .ark-card-top {
   background-image: url(/img/animals/A490_GouldsMonitor.jpg);
 }
 
-.zoo-card.animal-card[data-id='A491_FrilledLizard'] .ark-card-top {
+.zoo-card.animal-card[data-id="A491_FrilledLizard"] .ark-card-top {
   background-image: url(/img/animals/A491_FrilledLizard.jpg);
 }
 
-.zoo-card.animal-card[data-id='A492_InlandTaipan'] .ark-card-top {
+.zoo-card.animal-card[data-id="A492_InlandTaipan"] .ark-card-top {
   background-image: url(/img/animals/A492_InlandTaipan.jpg);
 }
 
-.zoo-card.animal-card[data-id='A493_ThornyDevil'] .ark-card-top {
+.zoo-card.animal-card[data-id="A493_ThornyDevil"] .ark-card-top {
   background-image: url(/img/animals/A493_ThornyDevil.jpg);
 }
 
-.zoo-card.animal-card[data-id='A494_AfricanOstrich'] .ark-card-top {
+.zoo-card.animal-card[data-id="A494_AfricanOstrich"] .ark-card-top {
   background-image: url(/img/animals/A494_AfricanOstrich.jpg);
 }
 
-.zoo-card.animal-card[data-id='A495_SecretaryBird'] .ark-card-top {
+.zoo-card.animal-card[data-id="A495_SecretaryBird"] .ark-card-top {
   background-image: url(/img/animals/A495_SecretaryBird.jpg);
 }
 
-.zoo-card.animal-card[data-id='A496_Marabou'] .ark-card-top {
+.zoo-card.animal-card[data-id="A496_Marabou"] .ark-card-top {
   background-image: url(/img/animals/A496_Marabou.jpg);
 }
 
-.zoo-card.animal-card[data-id='A497_LesserFlamingo'] .ark-card-top {
+.zoo-card.animal-card[data-id="A497_LesserFlamingo"] .ark-card-top {
   background-image: url(/img/animals/A497_LesserFlamingo.jpg);
 }
 
-.zoo-card.animal-card[data-id='A498_Shoebill'] .ark-card-top {
+.zoo-card.animal-card[data-id="A498_Shoebill"] .ark-card-top {
   background-image: url(/img/animals/A498_Shoebill.jpg);
 }
 
-.zoo-card.animal-card[data-id='A499_CinereousVulture'] .ark-card-top {
+.zoo-card.animal-card[data-id="A499_CinereousVulture"] .ark-card-top {
   background-image: url(/img/animals/A499_CinereousVulture.jpg);
 }
 
-.zoo-card.animal-card[data-id='A500_LongbilledVulture'] .ark-card-top {
+.zoo-card.animal-card[data-id="A500_LongbilledVulture"] .ark-card-top {
   background-image: url(/img/animals/A500_LongbilledVulture.jpg);
 }
 
-.zoo-card.animal-card[data-id='A501_IndianPeafowl'] .ark-card-top {
+.zoo-card.animal-card[data-id="A501_IndianPeafowl"] .ark-card-top {
   background-image: url(/img/animals/A501_IndianPeafowl.jpg);
 }
 
-.zoo-card.animal-card[data-id='A502_GreatHornbill'] .ark-card-top {
+.zoo-card.animal-card[data-id="A502_GreatHornbill"] .ark-card-top {
   background-image: url(/img/animals/A502_GreatHornbill.jpg);
 }
 
-.zoo-card.animal-card[data-id='A503_SnowyOwl'] .ark-card-top {
+.zoo-card.animal-card[data-id="A503_SnowyOwl"] .ark-card-top {
   background-image: url(/img/animals/A503_SnowyOwl.jpg);
 }
 
-.zoo-card.animal-card[data-id='A504_AndeanCondor'] .ark-card-top {
+.zoo-card.animal-card[data-id="A504_AndeanCondor"] .ark-card-top {
   background-image: url(/img/animals/A504_AndeanCondor.jpg);
 }
 
-.zoo-card.animal-card[data-id='A505_BaldEagle'] .ark-card-top {
+.zoo-card.animal-card[data-id="A505_BaldEagle"] .ark-card-top {
   background-image: url(/img/animals/A505_BaldEagle.jpg);
 }
 
-.zoo-card.animal-card[data-id='A506_KingVulture'] .ark-card-top {
+.zoo-card.animal-card[data-id="A506_KingVulture"] .ark-card-top {
   background-image: url(/img/animals/A506_KingVulture.jpg);
 }
 
-.zoo-card.animal-card[data-id='A507_GreaterRhea'] .ark-card-top {
+.zoo-card.animal-card[data-id="A507_GreaterRhea"] .ark-card-top {
   background-image: url(/img/animals/A507_GreaterRhea.jpg);
 }
 
-.zoo-card.animal-card[data-id='A508_ScarletMacaw'] .ark-card-top {
+.zoo-card.animal-card[data-id="A508_ScarletMacaw"] .ark-card-top {
   background-image: url(/img/animals/A508_ScarletMacaw.jpg);
 }
 
-.zoo-card.animal-card[data-id='A509_GoldenEagle'] .ark-card-top {
+.zoo-card.animal-card[data-id="A509_GoldenEagle"] .ark-card-top {
   background-image: url(/img/animals/A509_GoldenEagle.jpg);
 }
 
-.zoo-card.animal-card[data-id='A510_WhiteStork'] .ark-card-top {
+.zoo-card.animal-card[data-id="A510_WhiteStork"] .ark-card-top {
   background-image: url(/img/animals/A510_WhiteStork.jpg);
 }
 
-.zoo-card.animal-card[data-id='A511_GreaterFlamingo'] .ark-card-top {
+.zoo-card.animal-card[data-id="A511_GreaterFlamingo"] .ark-card-top {
   background-image: url(/img/animals/A511_GreaterFlamingo.jpg);
 }
 
-.zoo-card.animal-card[data-id='A512_EurasianEagleowl'] .ark-card-top {
+.zoo-card.animal-card[data-id="A512_EurasianEagleowl"] .ark-card-top {
   background-image: url(/img/animals/A512_EurasianEagleowl.jpg);
 }
 
-.zoo-card.animal-card[data-id='A513_BarnOwl'] .ark-card-top {
+.zoo-card.animal-card[data-id="A513_BarnOwl"] .ark-card-top {
   background-image: url(/img/animals/A513_BarnOwl.jpg);
 }
 
-.zoo-card.animal-card[data-id='A514_Emu'] .ark-card-top {
+.zoo-card.animal-card[data-id="A514_Emu"] .ark-card-top {
   background-image: url(/img/animals/A514_Emu.jpg);
 }
 
-.zoo-card.animal-card[data-id='A515_AustralianPelican'] .ark-card-top {
+.zoo-card.animal-card[data-id="A515_AustralianPelican"] .ark-card-top {
   background-image: url(/img/animals/A515_AustralianPelican.jpg);
 }
 
-.zoo-card.animal-card[data-id='A516_NorhternCassowary'] .ark-card-top {
+.zoo-card.animal-card[data-id="A516_NorhternCassowary"] .ark-card-top {
   background-image: url(/img/animals/A516_NorhternCassowary.jpg);
 }
 
-.zoo-card.animal-card[data-id='A517_LaughingKookaburra'] .ark-card-top {
+.zoo-card.animal-card[data-id="A517_LaughingKookaburra"] .ark-card-top {
   background-image: url(/img/animals/A517_LaughingKookaburra.jpg);
 }
 
-.zoo-card.animal-card[data-id='A518_LesserBirdofparadise'] .ark-card-top {
+.zoo-card.animal-card[data-id="A518_LesserBirdofparadise"] .ark-card-top {
   background-image: url(/img/animals/A518_LesserBirdofparadise.jpg);
 }
 
-.zoo-card.animal-card[data-id='A519_domesticGoat'] .ark-card-top {
+.zoo-card.animal-card[data-id="A519_domesticGoat"] .ark-card-top {
   background-image: url(/img/animals/A519_domesticGoat.jpg);
 }
 
-.zoo-card.animal-card[data-id='A520_Sheep'] .ark-card-top {
+.zoo-card.animal-card[data-id="A520_Sheep"] .ark-card-top {
   background-image: url(/img/animals/A520_Sheep.jpg);
 }
 
-.zoo-card.animal-card[data-id='A521_Horse'] .ark-card-top {
+.zoo-card.animal-card[data-id="A521_Horse"] .ark-card-top {
   background-image: url(/img/animals/A521_Horse.jpg);
 }
 
-.zoo-card.animal-card[data-id='A522_Donkey'] .ark-card-top {
+.zoo-card.animal-card[data-id="A522_Donkey"] .ark-card-top {
   background-image: url(/img/animals/A522_Donkey.jpg);
 }
 
-.zoo-card.animal-card[data-id='A523_DomesticRabbit'] .ark-card-top {
+.zoo-card.animal-card[data-id="A523_DomesticRabbit"] .ark-card-top {
   background-image: url(/img/animals/A523_DomesticRabbit.jpg);
 }
 
-.zoo-card.animal-card[data-id='A524_Mangalica'] .ark-card-top {
+.zoo-card.animal-card[data-id="A524_Mangalica"] .ark-card-top {
   background-image: url(/img/animals/A524_Mangalica.jpg);
 }
 
-.zoo-card.animal-card[data-id='A525_GuineaPig'] .ark-card-top {
+.zoo-card.animal-card[data-id="A525_GuineaPig"] .ark-card-top {
   background-image: url(/img/animals/A525_GuineaPig.jpg);
 }
 
-.zoo-card.animal-card[data-id='A526_Alpaca'] .ark-card-top {
+.zoo-card.animal-card[data-id="A526_Alpaca"] .ark-card-top {
   background-image: url(/img/animals/A526_Alpaca.jpg);
 }
 
-.zoo-card.animal-card[data-id='A527_CoconutLorikeet'] .ark-card-top {
+.zoo-card.animal-card[data-id="A527_CoconutLorikeet"] .ark-card-top {
   background-image: url(/img/animals/A527_CoconutLorikeet.jpg);
 }
 
-.zoo-card.animal-card[data-id='A528_BennettsWallaby'] .ark-card-top {
+.zoo-card.animal-card[data-id="A528_BennettsWallaby"] .ark-card-top {
   background-image: url(/img/animals/A528_BennettsWallaby.jpg);
 }
 
 /* Marine World */
-.zoo-card.animal-card[data-id='A529_MagnificentSeaAnemone'] .ark-card-top {
+.zoo-card.animal-card[data-id="A529_MagnificentSeaAnemone"] .ark-card-top {
   background-image: url(/img/animals/A529_MagnificentSeaAnemone.jpg);
 }
-.zoo-card.animal-card[data-id='A530_OrangeClownfish'] .ark-card-top {
+.zoo-card.animal-card[data-id="A530_OrangeClownfish"] .ark-card-top {
   background-image: url(/img/animals/A530_OrangeClownfish.jpg);
 }
-.zoo-card.animal-card[data-id='A531_PaletteSurgeonfish'] .ark-card-top {
+.zoo-card.animal-card[data-id="A531_PaletteSurgeonfish"] .ark-card-top {
   background-image: url(/img/animals/A531_PaletteSurgeonfish.jpg);
 }
-.zoo-card.animal-card[data-id='A532_Zooplankton'] .ark-card-top {
+.zoo-card.animal-card[data-id="A532_Zooplankton"] .ark-card-top {
   background-image: url(/img/animals/A532_Zooplankton.jpg);
 }
-.zoo-card.animal-card[data-id='A533_BlacksideHawkfish'] .ark-card-top {
+.zoo-card.animal-card[data-id="A533_BlacksideHawkfish"] .ark-card-top {
   background-image: url(/img/animals/A533_BlacksideHawkfish.jpg);
 }
-.zoo-card.animal-card[data-id='A534_SouthernBlue-RingedOctopl'] .ark-card-top {
+.zoo-card.animal-card[data-id="A534_SouthernBlue-RingedOctopl"] .ark-card-top {
   background-image: url(/img/animals/A534_SouthernBlue-RingedOctopl.jpg);
 }
-.zoo-card.animal-card[data-id='A535_SharknoseGoby'] .ark-card-top {
+.zoo-card.animal-card[data-id="A535_SharknoseGoby"] .ark-card-top {
   background-image: url(/img/animals/A535_SharknoseGoby.jpg);
 }
-.zoo-card.animal-card[data-id='A536_LonghornCowfish'] .ark-card-top {
+.zoo-card.animal-card[data-id="A536_LonghornCowfish"] .ark-card-top {
   background-image: url(/img/animals/A536_LonghornCowfish.jpg);
 }
-.zoo-card.animal-card[data-id='A537_BlackbarTriggerfish'] .ark-card-top {
+.zoo-card.animal-card[data-id="A537_BlackbarTriggerfish"] .ark-card-top {
   background-image: url(/img/animals/A537_BlackbarTriggerfish.jpg);
 }
-.zoo-card.animal-card[data-id='A538_DevilFirefish'] .ark-card-top {
+.zoo-card.animal-card[data-id="A538_DevilFirefish"] .ark-card-top {
   background-image: url(/img/animals/A538_DevilFirefish.jpg);
 }
-.zoo-card.animal-card[data-id='A539_MericanWhitespottedFilefis'] .ark-card-top {
+.zoo-card.animal-card[data-id="A539_MericanWhitespottedFilefis"] .ark-card-top {
   background-image: url(/img/animals/A539_MericanWhitespottedFilefis.jpg);
 }
-.zoo-card.animal-card[data-id='A540_GuineafowlPuffer'] .ark-card-top {
+.zoo-card.animal-card[data-id="A540_GuineafowlPuffer"] .ark-card-top {
   background-image: url(/img/animals/A540_GuineafowlPuffer.jpg);
 }
-.zoo-card.animal-card[data-id='A541_BluespottedRibbontailRay'] .ark-card-top {
+.zoo-card.animal-card[data-id="A541_BluespottedRibbontailRay"] .ark-card-top {
   background-image: url(/img/animals/A541_BluespottedRibbontailRay.jpg);
 }
-.zoo-card.animal-card[data-id='A542_Humpheadwrasse'] .ark-card-top {
+.zoo-card.animal-card[data-id="A542_Humpheadwrasse"] .ark-card-top {
   background-image: url(/img/animals/A542_Humpheadwrasse.jpg);
 }
-.zoo-card.animal-card[data-id='A543_CoastalMantaRay'] .ark-card-top {
+.zoo-card.animal-card[data-id="A543_CoastalMantaRay"] .ark-card-top {
   background-image: url(/img/animals/A543_CoastalMantaRay.jpg);
 }
-.zoo-card.animal-card[data-id='A544_CaribbeanReefShark'] .ark-card-top {
+.zoo-card.animal-card[data-id="A544_CaribbeanReefShark"] .ark-card-top {
   background-image: url(/img/animals/A544_CaribbeanReefShark.jpg);
 }
-.zoo-card.animal-card[data-id='A545_LongcombSawfish'] .ark-card-top {
+.zoo-card.animal-card[data-id="A545_LongcombSawfish"] .ark-card-top {
   background-image: url(/img/animals/A545_LongcombSawfish.jpg);
 }
-.zoo-card.animal-card[data-id='A546_SandTigerShark'] .ark-card-top {
+.zoo-card.animal-card[data-id="A546_SandTigerShark"] .ark-card-top {
   background-image: url(/img/animals/A546_SandTigerShark.jpg);
 }
-.zoo-card.animal-card[data-id='A547_MediterraneanRainbow'] .ark-card-top {
+.zoo-card.animal-card[data-id="A547_MediterraneanRainbow"] .ark-card-top {
   background-image: url(/img/animals/A547_MediterraneanRainbow.jpg);
 }
-.zoo-card.animal-card[data-id='A548_LinedSeahorse'] .ark-card-top {
+.zoo-card.animal-card[data-id="A548_LinedSeahorse"] .ark-card-top {
   background-image: url(/img/animals/A548_LinedSeahorse.jpg);
 }
-.zoo-card.animal-card[data-id='A549_MmonOctopus'] .ark-card-top {
+.zoo-card.animal-card[data-id="A549_MmonOctopus"] .ark-card-top {
   background-image: url(/img/animals/A549_MmonOctopus.jpg);
 }
-.zoo-card.animal-card[data-id='A550_CompassJellyfish'] .ark-card-top {
+.zoo-card.animal-card[data-id="A550_CompassJellyfish"] .ark-card-top {
   background-image: url(/img/animals/A550_CompassJellyfish.jpg);
 }
-.zoo-card.animal-card[data-id='A551_LoggerheadSeaTurtle'] .ark-card-top {
+.zoo-card.animal-card[data-id="A551_LoggerheadSeaTurtle"] .ark-card-top {
   background-image: url(/img/animals/A551_LoggerheadSeaTurtle.jpg);
 }
-.zoo-card.animal-card[data-id='A552_GreenSeaTurtle'] .ark-card-top {
+.zoo-card.animal-card[data-id="A552_GreenSeaTurtle"] .ark-card-top {
   background-image: url(/img/animals/A552_GreenSeaTurtle.jpg);
 }
-.zoo-card.animal-card[data-id='A553_Tambaqui'] .ark-card-top {
+.zoo-card.animal-card[data-id="A553_Tambaqui"] .ark-card-top {
   background-image: url(/img/animals/A553_Tambaqui.jpg);
 }
-.zoo-card.animal-card[data-id='A554_AfricanPenguin'] .ark-card-top {
+.zoo-card.animal-card[data-id="A554_AfricanPenguin"] .ark-card-top {
   background-image: url(/img/animals/A554_AfricanPenguin.jpg);
 }
-.zoo-card.animal-card[data-id='A555_SoldenSnub-NosedMonkey'] .ark-card-top {
+.zoo-card.animal-card[data-id="A555_SoldenSnub-NosedMonkey"] .ark-card-top {
   background-image: url(/img/animals/A555_SoldenSnub-NosedMonkey.jpg);
 }
-.zoo-card.animal-card[data-id='A556_Wolverine'] .ark-card-top {
+.zoo-card.animal-card[data-id="A556_Wolverine"] .ark-card-top {
   background-image: url(/img/animals/A556_Wolverine.jpg);
 }
-.zoo-card.animal-card[data-id='A557_IetnamesePot-BelliedPig'] .ark-card-top {
+.zoo-card.animal-card[data-id="A557_IetnamesePot-BelliedPig"] .ark-card-top {
   background-image: url(/img/animals/A557_IetnamesePot-BelliedPig.jpg);
 }
-.zoo-card.animal-card[data-id='A558_NorthernMuriqui'] .ark-card-top {
+.zoo-card.animal-card[data-id="A558_NorthernMuriqui"] .ark-card-top {
   background-image: url(/img/animals/A558_NorthernMuriqui.jpg);
 }
-.zoo-card.animal-card[data-id='A559_CoquerelsSifaka'] .ark-card-top {
+.zoo-card.animal-card[data-id="A559_CoquerelsSifaka"] .ark-card-top {
   background-image: url(/img/animals/A559_CoquerelsSifaka.jpg);
 }
-.zoo-card.animal-card[data-id='A560_BrahminyKite'] .ark-card-top {
+.zoo-card.animal-card[data-id="A560_BrahminyKite"] .ark-card-top {
   background-image: url(/img/animals/A560_BrahminyKite.jpg);
 }
 
@@ -1784,15 +1791,25 @@
   pointer-events: none;
   position: relative;
   text-align: center;
-  text-shadow: #1f5c21 3px 0 0, #1f5c21 2.83487px 0.981584px 0,
-    #1f5c21 2.35766px 1.85511px 0, #1f5c21 1.62091px 2.52441px 0,
-    #1f5c21 0.705713px 2.91581px 0, #1f5c21 -0.287171px 2.98622px 0,
-    #1f5c21 -1.24844px 2.72789px 0, #1f5c21 -2.07227px 2.16926px 0,
-    #1f5c21 -2.66798px 1.37182px 0, #1f5c21 -2.96998px 0.42336px 0,
-    #1f5c21 -2.94502px -0.571704px 0, #1f5c21 -2.59586px -1.50383px 0,
-    #1f5c21 -1.96093px -2.27041px 0, #1f5c21 -1.11013px -2.78704px 0,
-    #1f5c21 -0.137119px -2.99686px 0, #1f5c21 0.850987px -2.87677px 0,
-    #1f5c21 1.74541px -2.43999px 0, #1f5c21 2.44769px -1.73459px 0,
+  text-shadow:
+    #1f5c21 3px 0 0,
+    #1f5c21 2.83487px 0.981584px 0,
+    #1f5c21 2.35766px 1.85511px 0,
+    #1f5c21 1.62091px 2.52441px 0,
+    #1f5c21 0.705713px 2.91581px 0,
+    #1f5c21 -0.287171px 2.98622px 0,
+    #1f5c21 -1.24844px 2.72789px 0,
+    #1f5c21 -2.07227px 2.16926px 0,
+    #1f5c21 -2.66798px 1.37182px 0,
+    #1f5c21 -2.96998px 0.42336px 0,
+    #1f5c21 -2.94502px -0.571704px 0,
+    #1f5c21 -2.59586px -1.50383px 0,
+    #1f5c21 -1.96093px -2.27041px 0,
+    #1f5c21 -1.11013px -2.78704px 0,
+    #1f5c21 -0.137119px -2.99686px 0,
+    #1f5c21 0.850987px -2.87677px 0,
+    #1f5c21 1.74541px -2.43999px 0,
+    #1f5c21 2.44769px -1.73459px 0,
     #1f5c21 2.88051px -0.838247px 0;
   z-index: 2;
 }
@@ -1866,7 +1883,7 @@
   .ark-card-bottom
   .project-card-slots-container
   .project-card-slot
-  .project-card-slot-cube-holder[data-type='all-continents'] {
+  .project-card-slot-cube-holder[data-type="all-continents"] {
   background-image: url(/img/icons.webp);
   background-position: 57.90703713321216% 54.47065277015908%;
   background-repeat: no-repeat;
@@ -1878,7 +1895,7 @@
   .ark-card-bottom
   .project-card-slots-container
   .project-card-slot
-  .project-card-slot-cube-holder[data-type='all-animals'] {
+  .project-card-slot-cube-holder[data-type="all-animals"] {
   background-image: url(/img/icons.webp);
   background-position: 74.09434454000521% 1.1318619128466327%;
   background-repeat: no-repeat;
@@ -1939,7 +1956,7 @@
   width: 1.7em;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.project-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle {
@@ -1948,7 +1965,7 @@
   margin-top: -10px;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.project-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle
@@ -1956,7 +1973,7 @@
   display: none;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.project-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle
@@ -1964,7 +1981,7 @@
   padding: 3px 20px 1px;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.project-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle
@@ -1979,12 +1996,12 @@
   width: 100%;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.project-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-bottom
   .project-card-description,
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.project-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle
@@ -1993,182 +2010,182 @@
   display: none;
 }
 
-.zoo-card.project-card[data-id='P101_SpeciesDiversity'] .ark-card-top {
+.zoo-card.project-card[data-id="P101_SpeciesDiversity"] .ark-card-top {
   background-position-x: 0;
   background-position-y: 0;
 }
 
-.zoo-card.project-card[data-id='P102_HabitatDiversity'] .ark-card-top {
+.zoo-card.project-card[data-id="P102_HabitatDiversity"] .ark-card-top {
   background-position-x: 20%;
   background-position-y: 0;
 }
 
-.zoo-card.project-card[data-id='P103_Africa'] .ark-card-top {
+.zoo-card.project-card[data-id="P103_Africa"] .ark-card-top {
   background-position-x: 40%;
   background-position-y: 0;
 }
 
-.zoo-card.project-card[data-id='P104_Americas'] .ark-card-top {
+.zoo-card.project-card[data-id="P104_Americas"] .ark-card-top {
   background-position-x: 60%;
   background-position-y: 0;
 }
 
-.zoo-card.project-card[data-id='P105_Australia'] .ark-card-top {
+.zoo-card.project-card[data-id="P105_Australia"] .ark-card-top {
   background-position-x: 80%;
   background-position-y: 0;
 }
 
-.zoo-card.project-card[data-id='P106_Asia'] .ark-card-top {
+.zoo-card.project-card[data-id="P106_Asia"] .ark-card-top {
   background-position-x: 100%;
   background-position-y: 0;
 }
 
-.zoo-card.project-card[data-id='P107_Europe'] .ark-card-top {
+.zoo-card.project-card[data-id="P107_Europe"] .ark-card-top {
   background-position-x: 0;
   background-position-y: 20%;
 }
 
-.zoo-card.project-card[data-id='P108_Primates'] .ark-card-top {
+.zoo-card.project-card[data-id="P108_Primates"] .ark-card-top {
   background-position-x: 20%;
   background-position-y: 20%;
 }
 
-.zoo-card.project-card[data-id='P109_Reptiles'] .ark-card-top {
+.zoo-card.project-card[data-id="P109_Reptiles"] .ark-card-top {
   background-position-x: 40%;
   background-position-y: 20%;
 }
 
-.zoo-card.project-card[data-id='P110_Predators'] .ark-card-top {
+.zoo-card.project-card[data-id="P110_Predators"] .ark-card-top {
   background-position-x: 60%;
   background-position-y: 20%;
 }
 
-.zoo-card.project-card[data-id='P111_Herbivores'] .ark-card-top {
+.zoo-card.project-card[data-id="P111_Herbivores"] .ark-card-top {
   background-position-x: 80%;
   background-position-y: 20%;
 }
 
-.zoo-card.project-card[data-id='P112_Birds'] .ark-card-top {
+.zoo-card.project-card[data-id="P112_Birds"] .ark-card-top {
   background-position-x: 100%;
   background-position-y: 20%;
 }
 
-.zoo-card.project-card[data-id='P113_ReleaseBavarianForest'] .ark-card-top {
+.zoo-card.project-card[data-id="P113_ReleaseBavarianForest"] .ark-card-top {
   background-position-x: 0;
   background-position-y: 40%;
 }
 
-.zoo-card.project-card[data-id='P114_ReleaseYosemite'] .ark-card-top {
+.zoo-card.project-card[data-id="P114_ReleaseYosemite"] .ark-card-top {
   background-position-x: 20%;
   background-position-y: 40%;
 }
 
-.zoo-card.project-card[data-id='P115_ReleaseAngthong'] .ark-card-top {
+.zoo-card.project-card[data-id="P115_ReleaseAngthong"] .ark-card-top {
   background-position-x: 40%;
   background-position-y: 40%;
 }
 
-.zoo-card.project-card[data-id='P116_ReleaseSerengeti'] .ark-card-top {
+.zoo-card.project-card[data-id="P116_ReleaseSerengeti"] .ark-card-top {
   background-position-x: 60%;
   background-position-y: 40%;
 }
 
-.zoo-card.project-card[data-id='P117_ReleaseBlueMountains'] .ark-card-top {
+.zoo-card.project-card[data-id="P117_ReleaseBlueMountains"] .ark-card-top {
   background-position-x: 80%;
   background-position-y: 40%;
 }
 
-.zoo-card.project-card[data-id='P118_ReleaseSavanna'] .ark-card-top {
+.zoo-card.project-card[data-id="P118_ReleaseSavanna"] .ark-card-top {
   background-position-x: 100%;
   background-position-y: 40%;
 }
 
-.zoo-card.project-card[data-id='P119_ReleaseLowMountainRange'] .ark-card-top {
+.zoo-card.project-card[data-id="P119_ReleaseLowMountainRange"] .ark-card-top {
   background-position-x: 0;
   background-position-y: 60%;
 }
 
-.zoo-card.project-card[data-id='P120_ReleaseBambooForest'] .ark-card-top {
+.zoo-card.project-card[data-id="P120_ReleaseBambooForest"] .ark-card-top {
   background-position-x: 20%;
   background-position-y: 60%;
 }
 
-.zoo-card.project-card[data-id='P121_ReleaseSeaCave'] .ark-card-top {
+.zoo-card.project-card[data-id="P121_ReleaseSeaCave"] .ark-card-top {
   background-position-x: 40%;
   background-position-y: 60%;
 }
 
-.zoo-card.project-card[data-id='P122_ReleaseJungle'] .ark-card-top {
+.zoo-card.project-card[data-id="P122_ReleaseJungle"] .ark-card-top {
   background-position-x: 60%;
   background-position-y: 60%;
 }
 
-.zoo-card.project-card[data-id='P123_BirdBreeding'] .ark-card-top {
+.zoo-card.project-card[data-id="P123_BirdBreeding"] .ark-card-top {
   background-position-x: 80%;
   background-position-y: 60%;
 }
 
-.zoo-card.project-card[data-id='P124_PredatorBreeding'] .ark-card-top {
+.zoo-card.project-card[data-id="P124_PredatorBreeding"] .ark-card-top {
   background-position-x: 100%;
   background-position-y: 60%;
 }
 
-.zoo-card.project-card[data-id='P125_ReptileBreeding'] .ark-card-top {
+.zoo-card.project-card[data-id="P125_ReptileBreeding"] .ark-card-top {
   background-position-x: 0;
   background-position-y: 80%;
 }
 
-.zoo-card.project-card[data-id='P126_HerbivoreBreeding'] .ark-card-top {
+.zoo-card.project-card[data-id="P126_HerbivoreBreeding"] .ark-card-top {
   background-position-x: 20%;
   background-position-y: 80%;
 }
 
-.zoo-card.project-card[data-id='P127_PrimateBreeding'] .ark-card-top {
+.zoo-card.project-card[data-id="P127_PrimateBreeding"] .ark-card-top {
   background-position-x: 40%;
   background-position-y: 80%;
 }
 
-.zoo-card.project-card[data-id='P128_Aquatic'] .ark-card-top {
+.zoo-card.project-card[data-id="P128_Aquatic"] .ark-card-top {
   background-position-x: 60%;
   background-position-y: 80%;
 }
 
-.zoo-card.project-card[data-id='P129_Geological'] .ark-card-top {
+.zoo-card.project-card[data-id="P129_Geological"] .ark-card-top {
   background-position-x: 80%;
   background-position-y: 80%;
 }
 
-.zoo-card.project-card[data-id='P130_SmallAnimals'] .ark-card-top {
+.zoo-card.project-card[data-id="P130_SmallAnimals"] .ark-card-top {
   background-position-x: 100%;
   background-position-y: 80%;
 }
 
-.zoo-card.project-card[data-id='P131_LargeAnimals'] .ark-card-top {
+.zoo-card.project-card[data-id="P131_LargeAnimals"] .ark-card-top {
   background-position-x: 0;
   background-position-y: 100%;
 }
 
-.zoo-card.project-card[data-id='P132_Research'] .ark-card-top {
+.zoo-card.project-card[data-id="P132_Research"] .ark-card-top {
   background-position-x: 20%;
   background-position-y: 100%;
 }
 
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #base-projects-holder
   > .icon-container,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #projects-holder
   > .icon-container {
   top: 10px;
 }
 
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #base-projects-holder
   .project-holder,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #projects-holder
   .project-holder {
@@ -2176,11 +2193,11 @@
 }
 
 #customActions .ark-card.zoo-card.project-card,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #base-projects-holder
   .ark-card.zoo-card.project-card,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #projects-holder
   .ark-card.zoo-card.project-card {
@@ -2188,12 +2205,12 @@
 }
 
 #customActions .ark-card.zoo-card.project-card .ark-card-wrapper,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #base-projects-holder
   .ark-card.zoo-card.project-card
   .ark-card-wrapper,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #projects-holder
   .ark-card.zoo-card.project-card
@@ -2202,13 +2219,13 @@
 }
 
 #customActions .ark-card.zoo-card.project-card .ark-card-wrapper .ark-card-top,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #base-projects-holder
   .ark-card.zoo-card.project-card
   .ark-card-wrapper
   .ark-card-top,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #projects-holder
   .ark-card.zoo-card.project-card
@@ -2227,14 +2244,14 @@
   .ark-card-wrapper
   .ark-card-top
   .project-card-top-left-icon,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #base-projects-holder
   .ark-card.zoo-card.project-card
   .ark-card-wrapper
   .ark-card-top
   .project-card-top-left-icon,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #projects-holder
   .ark-card.zoo-card.project-card
@@ -2254,13 +2271,13 @@
   .ark-card.zoo-card.project-card
   .ark-card-wrapper
   .ark-card-middle,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #base-projects-holder
   .ark-card.zoo-card.project-card
   .ark-card-wrapper
   .ark-card-middle,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #projects-holder
   .ark-card.zoo-card.project-card
@@ -2273,13 +2290,13 @@
   .ark-card.zoo-card.project-card
   .ark-card-wrapper
   .ark-card-bottom,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #base-projects-holder
   .ark-card.zoo-card.project-card
   .ark-card-wrapper
   .ark-card-bottom,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #projects-holder
   .ark-card.zoo-card.project-card
@@ -2300,28 +2317,28 @@
   .ark-card-wrapper
   .ark-card-bottom
   .zoo-card-bonuses,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #base-projects-holder
   .ark-card.zoo-card.project-card
   .ark-card-wrapper
   .ark-card-bottom
   .project-card-description,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #base-projects-holder
   .ark-card.zoo-card.project-card
   .ark-card-wrapper
   .ark-card-bottom
   .zoo-card-bonuses,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #projects-holder
   .ark-card.zoo-card.project-card
   .ark-card-wrapper
   .ark-card-bottom
   .project-card-description,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #projects-holder
   .ark-card.zoo-card.project-card
@@ -2337,7 +2354,7 @@
   .ark-card-bottom
   .project-card-slot-indicator.breed
   ~ .project-card-slot-reward,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #base-projects-holder
   .ark-card.zoo-card.project-card
@@ -2345,7 +2362,7 @@
   .ark-card-bottom
   .project-card-slot-indicator.breed
   ~ .project-card-slot-reward,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #projects-holder
   .ark-card.zoo-card.project-card
@@ -2362,7 +2379,7 @@
   .ark-card-bottom
   .project-card-slot-indicator.release
   ~ .project-card-slot-reward,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #base-projects-holder
   .ark-card.zoo-card.project-card
@@ -2370,7 +2387,7 @@
   .ark-card-bottom
   .project-card-slot-indicator.release
   ~ .project-card-slot-reward,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #projects-holder
   .ark-card.zoo-card.project-card
@@ -2387,7 +2404,7 @@
   .ark-card-bottom
   .project-card-slot
   .project-card-slot-indicator:empty,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #base-projects-holder
   .ark-card.zoo-card.project-card
@@ -2395,7 +2412,7 @@
   .ark-card-bottom
   .project-card-slot
   .project-card-slot-indicator:empty,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #projects-holder
   .ark-card.zoo-card.project-card
@@ -2411,14 +2428,14 @@
   .ark-card-wrapper
   .ark-card-bottom
   .project-card-slots-container.release,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #base-projects-holder
   .ark-card.zoo-card.project-card
   .ark-card-wrapper
   .ark-card-bottom
   .project-card-slots-container.release,
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-container
   #projects-holder
   .ark-card.zoo-card.project-card
@@ -2601,7 +2618,7 @@
   width: 60px;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.scoring-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle {
@@ -2610,7 +2627,7 @@
   margin-top: -10px;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.scoring-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle
@@ -2618,7 +2635,7 @@
   display: none;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.scoring-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle
@@ -2626,7 +2643,7 @@
   padding: 3px 20px 1px;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.scoring-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle
@@ -2641,97 +2658,97 @@
   width: 100%;
 }
 
-.zoo-card.scoring-card[data-id='F001_LargeAnimalZoo'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F001_LargeAnimalZoo"] .ark-card-top {
   background-position-x: 0;
   background-position-y: 0;
 }
 
-.zoo-card.scoring-card[data-id='F002_SmallAnimalZoo'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F002_SmallAnimalZoo"] .ark-card-top {
   background-position-x: 25%;
   background-position-y: 0;
 }
 
-.zoo-card.scoring-card[data-id='F003_ResearchZoo'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F003_ResearchZoo"] .ark-card-top {
   background-position-x: 50%;
   background-position-y: 0;
 }
 
-.zoo-card.scoring-card[data-id='F004_ArchitecturalZoo'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F004_ArchitecturalZoo"] .ark-card-top {
   background-position-x: 75%;
   background-position-y: 0;
 }
 
-.zoo-card.scoring-card[data-id='F005_ConservationZoo'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F005_ConservationZoo"] .ark-card-top {
   background-position-x: 100%;
   background-position-y: 0;
 }
 
-.zoo-card.scoring-card[data-id='F006_NaturalistsZoo'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F006_NaturalistsZoo"] .ark-card-top {
   background-position-x: 0;
   background-position-y: 50%;
 }
 
-.zoo-card.scoring-card[data-id='F007_FavoriteZoo'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F007_FavoriteZoo"] .ark-card-top {
   background-position-x: 25%;
   background-position-y: 50%;
 }
 
-.zoo-card.scoring-card[data-id='F008_SponsoredZoo'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F008_SponsoredZoo"] .ark-card-top {
   background-position-x: 50%;
   background-position-y: 50%;
 }
 
-.zoo-card.scoring-card[data-id='F009_DiverseSpeciesZoo'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F009_DiverseSpeciesZoo"] .ark-card-top {
   background-position-x: 75%;
   background-position-y: 50%;
 }
 
-.zoo-card.scoring-card[data-id='F010_ClimbingPark'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F010_ClimbingPark"] .ark-card-top {
   background-position-x: 100%;
   background-position-y: 50%;
 }
 
-.zoo-card.scoring-card[data-id='F011_AquaticPark'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F011_AquaticPark"] .ark-card-top {
   background-position-x: 0;
   background-position-y: 100%;
 }
 
-.zoo-card.scoring-card[data-id='F012_DesignerZoo'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F012_DesignerZoo"] .ark-card-top {
   background-image: url(/img/objectives2.jpg) !important;
 
   background-position-x: 0;
   background-position-y: 0;
 }
 
-.zoo-card.scoring-card[data-id='F013_SpecializedHabitatZoo'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F013_SpecializedHabitatZoo"] .ark-card-top {
   background-image: url(/img/objectives2.jpg) !important;
 
   background-position-x: 25%;
   background-position-y: 0;
 }
 
-.zoo-card.scoring-card[data-id='F014_SpecializedSpeciesZoo'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F014_SpecializedSpeciesZoo"] .ark-card-top {
   background-image: url(/img/objectives2.jpg) !important;
 
   background-position-x: 50%;
   background-position-y: 0;
 }
 
-.zoo-card.scoring-card[data-id='F015_CateredPicnicAreas'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F015_CateredPicnicAreas"] .ark-card-top {
   background-image: url(/img/objectives2.jpg) !important;
 
   background-position-x: 75%;
   background-position-y: 0;
 }
 
-.zoo-card.scoring-card[data-id='F016_AccessibleZoo'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F016_AccessibleZoo"] .ark-card-top {
   background-image: url(/img/objectives2.jpg) !important;
 
   background-position-x: 100%;
   background-position-y: 0;
 }
 
-.zoo-card.scoring-card[data-id='F017_InternationalZoo'] .ark-card-top {
+.zoo-card.scoring-card[data-id="F017_InternationalZoo"] .ark-card-top {
   background-image: url(/img/objectives2.jpg) !important;
 
   background-position-x: 0;
@@ -2813,7 +2830,7 @@
   letter-spacing: -1px;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.sponsor-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle {
@@ -2821,7 +2838,7 @@
   margin-top: -10px;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.sponsor-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle
@@ -2829,7 +2846,7 @@
   display: none;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.sponsor-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle
@@ -2837,7 +2854,7 @@
   padding: 3px 20px 1px;
 }
 
-[data-card-desc='0']
+[data-card-desc="0"]
   .ark-card.zoo-card.sponsor-card:not(.tooltip)
   .ark-card-wrapper
   .ark-card-middle
@@ -2853,14 +2870,14 @@
   width: 100%;
 }
 
-.ark-card.zoo-card.sponsor-card[data-id='S253_OkapiStable']
+.ark-card.zoo-card.sponsor-card[data-id="S253_OkapiStable"]
   .ark-card-wrapper
   > .arknova-meeple.icon-token {
   left: 10px;
   top: 0;
 }
 
-.ark-card.zoo-card.sponsor-card[data-id='S253_OkapiStable']
+.ark-card.zoo-card.sponsor-card[data-id="S253_OkapiStable"]
   .ark-card-wrapper
   > .arknova-meeple.icon-token
   ~ .arknova-meeple.icon-token {
@@ -2868,7 +2885,7 @@
   top: 0;
 }
 
-.ark-card.zoo-card.sponsor-card[data-id='S253_OkapiStable']
+.ark-card.zoo-card.sponsor-card[data-id="S253_OkapiStable"]
   .ark-card-wrapper
   > .arknova-meeple.icon-token
   ~ .arknova-meeple.icon-token
@@ -2877,15 +2894,15 @@
   top: 21px;
 }
 
-.ark-card.zoo-card.sponsor-card[data-id='S227_WazaSpecialAssignment'][data-choice]
+.ark-card.zoo-card.sponsor-card[data-id="S227_WazaSpecialAssignment"][data-choice]
   .ark-card-wrapper:before {
   align-items: center;
   background: #e1e1e1c4;
   border-radius: 9px;
   color: red;
-  content: '\f00d';
+  content: "\f00d";
   display: flex;
-  font: normal normal normal 14px/1 FontAwesome;
+  font: normal normal normal 14px / 1 FontAwesome;
   font-size: 60px;
   height: 65px;
   justify-content: center;
@@ -2896,7 +2913,7 @@
   z-index: 10;
 }
 
-.ark-card.zoo-card.sponsor-card[data-id='S227_WazaSpecialAssignment'][data-choice='small']
+.ark-card.zoo-card.sponsor-card[data-id="S227_WazaSpecialAssignment"][data-choice="small"]
   .ark-card-wrapper:before {
   left: 227px;
 }
@@ -2911,7 +2928,7 @@
 .dijitTooltipContainer ul.sponsor-effects-list li:before {
   border: 1px solid #000;
   border-radius: 50%;
-  content: '';
+  content: "";
   display: inline-block;
   height: 12px;
   margin-right: 5px;
@@ -2938,513 +2955,565 @@
   border-color: #04587c;
 }
 
-.zoo-card.sponsor-card[data-id='S201_ScienceLab'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S201_ScienceLab"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S201_ScienceLab.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S202_Spokesperson'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S202_Spokesperson"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S202_Spokesperson.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S203_Veterinarian'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S203_Veterinarian"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S203_Veterinarian.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S204_ScienceMuseum'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S204_ScienceMuseum"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S204_ScienceMuseum.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S205_GorillaFieldResearch'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S205_GorillaFieldResearch"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S205_GorillaFieldResearch.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S206_MedicalBreakthrough'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S206_MedicalBreakthrough"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S206_MedicalBreakthrough.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S207_BasicResearch'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S207_BasicResearch"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S207_BasicResearch.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S208_ScienceLibrary'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S208_ScienceLibrary"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S208_ScienceLibrary.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S209_TechnologyInstitute'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S209_TechnologyInstitute"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S209_TechnologyInstitute.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S210_ExpertOnTheAmericas'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S210_ExpertOnTheAmericas"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S210_ExpertOnTheAmericas.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S211_ExpertOnEurope'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S211_ExpertOnEurope"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S211_ExpertOnEurope.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S212_ExpertOnAustralia'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S212_ExpertOnAustralia"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S212_ExpertOnAustralia.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S213_ExpertOnAsia'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S213_ExpertOnAsia"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S213_ExpertOnAsia.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S214_ExpertOnAfrica'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S214_ExpertOnAfrica"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S214_ExpertOnAfrica.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S215_BreedingCooperation'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S215_BreedingCooperation"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S215_BreedingCooperation.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S216_TalentedCommunicator'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S216_TalentedCommunicator"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S216_TalentedCommunicator.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S217_Engineer'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S217_Engineer"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S217_Engineer.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S218_BreedingProgram'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S218_BreedingProgram"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S218_BreedingProgram.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S219_DiversityResearcher'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S219_DiversityResearcher"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S219_DiversityResearcher.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S220_FederalGrants'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S220_FederalGrants"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S220_FederalGrants.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S221_Archeologist'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S221_Archeologist"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S221_Archeologist.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S222_ReleaseOfPatents'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S222_ReleaseOfPatents"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S222_ReleaseOfPatents.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S223_ScienceInstitute'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S223_ScienceInstitute"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S223_ScienceInstitute.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S224_MigrationRecording'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S224_MigrationRecording"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S224_MigrationRecording.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S225_QuarantineLab'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S225_QuarantineLab"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S225_QuarantineLab.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S226_ForeignInstitute'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S226_ForeignInstitute"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S226_ForeignInstitute.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S227_WazaSpecialAssignment'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S227_WazaSpecialAssignment"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S227_WazaSpecialAssignment.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S228_WazaSmallAnimalProgram']
+.zoo-card.sponsor-card[data-id="S228_WazaSmallAnimalProgram"]
   .ark-card-wrapper {
   background-image: url(/img/sponsors/S228_WazaSmallAnimalProgram.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S229_ExpertInSmallAnimals'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S229_ExpertInSmallAnimals"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S229_ExpertInSmallAnimals.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S230_ExpertInLargeAnimals'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S230_ExpertInLargeAnimals"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S230_ExpertInLargeAnimals.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S231_SponsorshipPrimates'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S231_SponsorshipPrimates"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S231_SponsorshipPrimates.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S232_SponsorshipReptiles'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S232_SponsorshipReptiles"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S232_SponsorshipReptiles.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S233_SponsorshipVultures'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S233_SponsorshipVultures"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S233_SponsorshipVultures.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S234_SponsorshipLions'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S234_SponsorshipLions"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S234_SponsorshipLions.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S235_SponsorshipElephants'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S235_SponsorshipElephants"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S235_SponsorshipElephants.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S236_Primatologist'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S236_Primatologist"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S236_Primatologist.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S237_Herpetologist'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S237_Herpetologist"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S237_Herpetologist.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S238_Ornithologist'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S238_Ornithologist"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S238_Ornithologist.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S239_ExpertInPredators'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S239_ExpertInPredators"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S239_ExpertInPredators.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S240_ExpertInHerbivores'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S240_ExpertInHerbivores"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S240_ExpertInHerbivores.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S241_Hydrologist'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S241_Hydrologist"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S241_Hydrologist.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S242_Geologist'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S242_Geologist"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S242_Geologist.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S243_MeerkatDen'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S243_MeerkatDen"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S243_MeerkatDen.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S244_PenguinPool'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S244_PenguinPool"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S244_PenguinPool.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S245_Aquarium'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S245_Aquarium"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S245_Aquarium.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S246_CableCar'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S246_CableCar"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S246_CableCar.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S247_BaboonRock'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S247_BaboonRock"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S247_BaboonRock.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S248_RhesusMonkeyPark'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S248_RhesusMonkeyPark"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S248_RhesusMonkeyPark.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S249_BarredOwlHut'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S249_BarredOwlHut"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S249_BarredOwlHut.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S250_SeaTurtleTank'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S250_SeaTurtleTank"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S250_SeaTurtleTank.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S251_PolarBearExhibit'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S251_PolarBearExhibit"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S251_PolarBearExhibit.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S252_SpottedHyenaCompound'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S252_SpottedHyenaCompound"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S252_SpottedHyenaCompound.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S253_OkapiStable'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S253_OkapiStable"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S253_OkapiStable.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S254_ZooSchool'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S254_ZooSchool"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S254_ZooSchool.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S255_AdventurePlayground'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S255_AdventurePlayground"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S255_AdventurePlayground.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S256_WaterPlayground'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S256_WaterPlayground"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S256_WaterPlayground.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S257_SideEntrance'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S257_SideEntrance"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S257_SideEntrance.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S258_NativeSeabirds'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S258_NativeSeabirds"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S258_NativeSeabirds.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S259_NativeLizards'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S259_NativeLizards"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S259_NativeLizards.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S260_NativeFarmAnimals'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S260_NativeFarmAnimals"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S260_NativeFarmAnimals.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S261_GuidedSchoolTours'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S261_GuidedSchoolTours"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S261_GuidedSchoolTours.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S262_Explorer'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S262_Explorer"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S262_Explorer.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S263_WazaLargeAnimalProgram']
+.zoo-card.sponsor-card[data-id="S263_WazaLargeAnimalProgram"]
   .ark-card-wrapper {
   background-image: url(/img/sponsors/S263_WazaLargeAnimalProgram.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S264_FreerangeNewWorldMonkeys']
+.zoo-card.sponsor-card[data-id="S264_FreerangeNewWorldMonkeys"]
   .ark-card-wrapper {
   background-image: url(/img/sponsors/S264_FreerangeNewWorldMonkeys.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S265_FranchiseBusiness'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S265_FranchiseBusiness"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S265_FranchiseBusiness.jpg);
 }
-.zoo-card.sponsor-card[data-id='S266_MarineBiologist'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S266_MarineBiologist"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S266_MarineBiologist.jpg);
 }
-.zoo-card.sponsor-card[data-id='S267_FarmCat'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S267_FarmCat"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S267_FarmCat.jpg);
 }
-.zoo-card.sponsor-card[data-id='S268_ConferenceOnEurope'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S268_ConferenceOnEurope"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S268_ConferenceOnEurope.jpg);
 }
-.zoo-card.sponsor-card[data-id='S269_ConferenceOnAustralia'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S269_ConferenceOnAustralia"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S269_ConferenceOnAustralia.jpg);
 }
-.zoo-card.sponsor-card[data-id='S270_MarineResearchExpedition']
+.zoo-card.sponsor-card[data-id="S270_MarineResearchExpedition"]
   .ark-card-wrapper {
   background-image: url(/img/sponsors/S270_MarineResearchExpedition.jpg);
 }
-.zoo-card.sponsor-card[data-id='S271_ExcavationSite'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S271_ExcavationSite"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S271_ExcavationSite.jpg);
 }
-.zoo-card.sponsor-card[data-id='S272_ExpansionArea'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S272_ExpansionArea"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S272_ExpansionArea.jpg);
 }
-.zoo-card.sponsor-card[data-id='S273_Publications'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S273_Publications"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S273_Publications.jpg);
 }
-.zoo-card.sponsor-card[data-id='S274_MascotStatue'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S274_MascotStatue"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S274_MascotStatue.jpg);
 }
-.zoo-card.sponsor-card[data-id='S275_HorseWhisperer'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S275_HorseWhisperer"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S275_HorseWhisperer.jpg);
 }
-.zoo-card.sponsor-card[data-id='S276_LandscapeGardener'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S276_LandscapeGardener"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S276_LandscapeGardener.jpg);
 }
-.zoo-card.sponsor-card[data-id='S277_FieldResearchTypeDOrcas']
+.zoo-card.sponsor-card[data-id="S277_FieldResearchTypeDOrcas"]
   .ark-card-wrapper {
   background-image: url(/img/sponsors/S277_FieldResearchTypeDOrcas.jpg);
 }
-.zoo-card.sponsor-card[data-id='S278_AmazonHouse'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S278_AmazonHouse"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S278_AmazonHouse.jpg);
 }
-.zoo-card.sponsor-card[data-id='S279_UnderwaterTunnel'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S279_UnderwaterTunnel"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S279_UnderwaterTunnel.jpg);
 }
-.zoo-card.sponsor-card[data-id='S280_Reconstruction'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S280_Reconstruction"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S280_Reconstruction.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S274_VictoryColumn'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S274_VictoryColumn"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S274_VictoryColumn.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S281_Arcade'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S281_Arcade"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S281_Arcade.jpg);
 }
 
-.zoo-card.sponsor-card[data-id='S282_PromotionTeam'] .ark-card-wrapper {
+.zoo-card.sponsor-card[data-id="S282_PromotionTeam"] .ark-card-wrapper {
   background-image: url(/img/sponsors/S282_PromotionTeam.jpg);
 }
 
-[data-starting-appeal='10']
-  .zoo-card.sponsor-card[data-id='S207_BasicResearch']
+[data-starting-appeal="10"]
+  .zoo-card.sponsor-card[data-id="S207_BasicResearch"]
   .ark-card-wrapper {
-  background-image: url(/img/solo/max-35.png),
-    url(/img/sponsors/S207_BasicResearch.jpg);
-  background-position: 0 79px, 0 0;
+  background-image:
+    url(/img/solo/max-35.png), url(/img/sponsors/S207_BasicResearch.jpg);
+  background-position:
+    0 79px,
+    0 0;
   background-repeat: no-repeat;
-  background-size: 69px 52px, 100%;
+  background-size:
+    69px 52px,
+    100%;
 }
 
-[data-starting-appeal='20']
-  .zoo-card.sponsor-card[data-id='S207_BasicResearch']
+[data-starting-appeal="20"]
+  .zoo-card.sponsor-card[data-id="S207_BasicResearch"]
   .ark-card-wrapper {
-  background-image: url(/img/solo/max-45.png),
-    url(/img/sponsors/S207_BasicResearch.jpg);
-  background-position: 0 79px, 0 0;
+  background-image:
+    url(/img/solo/max-45.png), url(/img/sponsors/S207_BasicResearch.jpg);
+  background-position:
+    0 79px,
+    0 0;
   background-repeat: no-repeat;
-  background-size: 69px 52px, 100%;
+  background-size:
+    69px 52px,
+    100%;
 }
 
-[data-starting-appeal='10']
-  .zoo-card.sponsor-card[data-id='S222_ReleaseOfPatents']
+[data-starting-appeal="10"]
+  .zoo-card.sponsor-card[data-id="S222_ReleaseOfPatents"]
   .ark-card-wrapper {
-  background-image: url(/img/solo/max-35.png),
-    url(/img/sponsors/S222_ReleaseOfPatents.jpg);
-  background-position: 0 79px, 0 0;
+  background-image:
+    url(/img/solo/max-35.png), url(/img/sponsors/S222_ReleaseOfPatents.jpg);
+  background-position:
+    0 79px,
+    0 0;
   background-repeat: no-repeat;
-  background-size: 69px 52px, 100%;
+  background-size:
+    69px 52px,
+    100%;
 }
 
-[data-starting-appeal='20']
-  .zoo-card.sponsor-card[data-id='S222_ReleaseOfPatents']
+[data-starting-appeal="20"]
+  .zoo-card.sponsor-card[data-id="S222_ReleaseOfPatents"]
   .ark-card-wrapper {
-  background-image: url(/img/solo/max-45.png),
-    url(/img/sponsors/S222_ReleaseOfPatents.jpg);
-  background-position: 0 79px, 0 0;
+  background-image:
+    url(/img/solo/max-45.png), url(/img/sponsors/S222_ReleaseOfPatents.jpg);
+  background-position:
+    0 79px,
+    0 0;
   background-repeat: no-repeat;
-  background-size: 69px 52px, 100%;
+  background-size:
+    69px 52px,
+    100%;
 }
 
-[data-starting-appeal='10']
-  .zoo-card.sponsor-card[data-id='S258_NativeSeabirds']
+[data-starting-appeal="10"]
+  .zoo-card.sponsor-card[data-id="S258_NativeSeabirds"]
   .ark-card-wrapper {
-  background-image: url(/img/solo/max-35.png),
-    url(/img/sponsors/S258_NativeSeabirds.jpg);
-  background-position: 0 79px, 0 0;
+  background-image:
+    url(/img/solo/max-35.png), url(/img/sponsors/S258_NativeSeabirds.jpg);
+  background-position:
+    0 79px,
+    0 0;
   background-repeat: no-repeat;
-  background-size: 69px 52px, 100%;
+  background-size:
+    69px 52px,
+    100%;
 }
 
-[data-starting-appeal='20']
-  .zoo-card.sponsor-card[data-id='S258_NativeSeabirds']
+[data-starting-appeal="20"]
+  .zoo-card.sponsor-card[data-id="S258_NativeSeabirds"]
   .ark-card-wrapper {
-  background-image: url(/img/solo/max-45.png),
-    url(/img/sponsors/S258_NativeSeabirds.jpg);
-  background-position: 0 79px, 0 0;
+  background-image:
+    url(/img/solo/max-45.png), url(/img/sponsors/S258_NativeSeabirds.jpg);
+  background-position:
+    0 79px,
+    0 0;
   background-repeat: no-repeat;
-  background-size: 69px 52px, 100%;
+  background-size:
+    69px 52px,
+    100%;
 }
 
-[data-starting-appeal='10']
-  .zoo-card.sponsor-card[data-id='S259_NativeLizards']
+[data-starting-appeal="10"]
+  .zoo-card.sponsor-card[data-id="S259_NativeLizards"]
   .ark-card-wrapper {
-  background-image: url(/img/solo/max-35.png),
-    url(/img/sponsors/S259_NativeLizards.jpg);
-  background-position: 0 79px, 0 0;
+  background-image:
+    url(/img/solo/max-35.png), url(/img/sponsors/S259_NativeLizards.jpg);
+  background-position:
+    0 79px,
+    0 0;
   background-repeat: no-repeat;
-  background-size: 69px 52px, 100%;
+  background-size:
+    69px 52px,
+    100%;
 }
 
-[data-starting-appeal='20']
-  .zoo-card.sponsor-card[data-id='S259_NativeLizards']
+[data-starting-appeal="20"]
+  .zoo-card.sponsor-card[data-id="S259_NativeLizards"]
   .ark-card-wrapper {
-  background-image: url(/img/solo/max-45.png),
-    url(/img/sponsors/S259_NativeLizards.jpg);
-  background-position: 0 79px, 0 0;
+  background-image:
+    url(/img/solo/max-45.png), url(/img/sponsors/S259_NativeLizards.jpg);
+  background-position:
+    0 79px,
+    0 0;
   background-repeat: no-repeat;
-  background-size: 69px 52px, 100%;
+  background-size:
+    69px 52px,
+    100%;
 }
 
-[data-starting-appeal='10']
-  .zoo-card.sponsor-card[data-id='S260_NativeFarmAnimals']
+[data-starting-appeal="10"]
+  .zoo-card.sponsor-card[data-id="S260_NativeFarmAnimals"]
   .ark-card-wrapper {
-  background-image: url(/img/solo/max-35.png),
-    url(/img/sponsors/S260_NativeFarmAnimals.jpg);
-  background-position: 0 79px, 0 0;
+  background-image:
+    url(/img/solo/max-35.png), url(/img/sponsors/S260_NativeFarmAnimals.jpg);
+  background-position:
+    0 79px,
+    0 0;
   background-repeat: no-repeat;
-  background-size: 69px 52px, 100%;
+  background-size:
+    69px 52px,
+    100%;
 }
 
-[data-starting-appeal='20']
-  .zoo-card.sponsor-card[data-id='S260_NativeFarmAnimals']
+[data-starting-appeal="20"]
+  .zoo-card.sponsor-card[data-id="S260_NativeFarmAnimals"]
   .ark-card-wrapper {
-  background-image: url(/img/solo/max-45.png),
-    url(/img/sponsors/S260_NativeFarmAnimals.jpg);
-  background-position: 0 79px, 0 0;
+  background-image:
+    url(/img/solo/max-45.png), url(/img/sponsors/S260_NativeFarmAnimals.jpg);
+  background-position:
+    0 79px,
+    0 0;
   background-repeat: no-repeat;
-  background-size: 69px 52px, 100%;
+  background-size:
+    69px 52px,
+    100%;
 }
 
-[data-starting-appeal='10']
-  .zoo-card.sponsor-card[data-id='S264_FreerangeNewWorldMonkeys']
+[data-starting-appeal="10"]
+  .zoo-card.sponsor-card[data-id="S264_FreerangeNewWorldMonkeys"]
   .ark-card-wrapper {
-  background-image: url(/img/solo/max-35.png),
+  background-image:
+    url(/img/solo/max-35.png),
     url(/img/sponsors/S264_FreerangeNewWorldMonkeys.jpg);
-  background-position: 0 79px, 0 0;
+  background-position:
+    0 79px,
+    0 0;
   background-repeat: no-repeat;
-  background-size: 69px 52px, 100%;
+  background-size:
+    69px 52px,
+    100%;
 }
 
-[data-starting-appeal='20']
-  .zoo-card.sponsor-card[data-id='S264_FreerangeNewWorldMonkeys']
+[data-starting-appeal="20"]
+  .zoo-card.sponsor-card[data-id="S264_FreerangeNewWorldMonkeys"]
   .ark-card-wrapper {
-  background-image: url(/img/solo/max-45.png),
+  background-image:
+    url(/img/solo/max-45.png),
     url(/img/sponsors/S264_FreerangeNewWorldMonkeys.jpg);
-  background-position: 0 79px, 0 0;
+  background-position:
+    0 79px,
+    0 0;
   background-repeat: no-repeat;
-  background-size: 69px 52px, 100%;
+  background-size:
+    69px 52px,
+    100%;
 }
 
-[data-starting-appeal='10']
-  .zoo-card.sponsor-card[data-id='S207_BasicResearch']
+[data-starting-appeal="10"]
+  .zoo-card.sponsor-card[data-id="S207_BasicResearch"]
   .ark-card-wrapper,
-[data-starting-appeal='20']
-  .zoo-card.sponsor-card[data-id='S207_BasicResearch']
+[data-starting-appeal="20"]
+  .zoo-card.sponsor-card[data-id="S207_BasicResearch"]
   .ark-card-wrapper {
-  background-position: 0 138px, 0 0;
+  background-position:
+    0 138px,
+    0 0;
 }
 
-[data-disable-snake='1']
-  .zoo-card[data-id='A470_WesternGreenMamba']
+[data-disable-snake="1"]
+  .zoo-card[data-id="A470_WesternGreenMamba"]
   .ark-card-wrapper
   .ark-card-top,
-[data-disable-snake='1']
-  .zoo-card[data-id='A474_IndianRockPython']
+[data-disable-snake="1"]
+  .zoo-card[data-id="A474_IndianRockPython"]
   .ark-card-wrapper
   .ark-card-top,
-[data-disable-snake='1']
-  .zoo-card[data-id='A475_IndianCobra']
+[data-disable-snake="1"]
+  .zoo-card[data-id="A475_IndianCobra"]
   .ark-card-wrapper
   .ark-card-top,
-[data-disable-snake='1']
-  .zoo-card[data-id='A482_Anaconda']
+[data-disable-snake="1"]
+  .zoo-card[data-id="A482_Anaconda"]
   .ark-card-wrapper
   .ark-card-top,
-[data-disable-snake='1']
-  .zoo-card[data-id='A483_BoaConstrictor']
+[data-disable-snake="1"]
+  .zoo-card[data-id="A483_BoaConstrictor"]
   .ark-card-wrapper
   .ark-card-top,
-[data-disable-snake='1']
-  .zoo-card[data-id='A485_CommonEuropeanAdder']
+[data-disable-snake="1"]
+  .zoo-card[data-id="A485_CommonEuropeanAdder"]
   .ark-card-wrapper
   .ark-card-top,
-[data-disable-snake='1']
-  .zoo-card[data-id='A486_CommonWallLizard']
+[data-disable-snake="1"]
+  .zoo-card[data-id="A486_CommonWallLizard"]
   .ark-card-wrapper
   .ark-card-top,
-[data-disable-snake='1']
-  .zoo-card[data-id='A487_EuropeanGrassSnake']
+[data-disable-snake="1"]
+  .zoo-card[data-id="A487_EuropeanGrassSnake"]
   .ark-card-wrapper
   .ark-card-top,
-[data-disable-snake='1']
-  .zoo-card[data-id='A488_SlowWorm']
+[data-disable-snake="1"]
+  .zoo-card[data-id="A488_SlowWorm"]
   .ark-card-wrapper
   .ark-card-top,
-[data-disable-snake='1']
-  .zoo-card[data-id='A492_InlandTaipan']
+[data-disable-snake="1"]
+  .zoo-card[data-id="A492_InlandTaipan"]
   .ark-card-wrapper
   .ark-card-top {
   background-image: url(/img/animals/placeholder.png) !important;
   background-size: 100% auto !important;
 }
 
-[data-disable-snake='1']
-  .zoo-card[data-id='S203_Veterinarian']
+[data-disable-snake="1"]
+  .zoo-card[data-id="S203_Veterinarian"]
   .ark-card-wrapper {
   background-image: url(/img/sponsors/S203_Veterinarian_placeholder.jpg) !important;
 }
 
-[data-disable-snake='1']
-  .zoo-card[data-id='P109_Reptiles']
+[data-disable-snake="1"]
+  .zoo-card[data-id="P109_Reptiles"]
   .ark-card-wrapper
   .ark-card-top,
-[data-disable-snake='1']
-  .zoo-card[data-id='P125_ReptileBreeding']
+[data-disable-snake="1"]
+  .zoo-card[data-id="P125_ReptileBreeding"]
   .ark-card-wrapper
   .ark-card-top {
   background-image: url(/img/animals/placeholder.png) !important;
@@ -3456,177 +3525,177 @@
   background-size: 500% 700%;
 }
 
-.badge-icon[data-type='AnimalsI'] {
+.badge-icon[data-type="AnimalsI"] {
   background-position-x: 0;
   background-position-y: 0;
 }
 
-.badge-icon[data-type='AnimalsII'] {
+.badge-icon[data-type="AnimalsII"] {
   background-position-x: 25%;
   background-position-y: 0;
 }
 
-.badge-icon[data-type='BuildI'] {
+.badge-icon[data-type="BuildI"] {
   background-position-x: 50%;
   background-position-y: 0;
 }
 
-.badge-icon[data-type='BuildII'] {
+.badge-icon[data-type="BuildII"] {
   background-position-x: 75%;
   background-position-y: 0;
 }
 
-.badge-icon[data-type='CardsI'] {
+.badge-icon[data-type="CardsI"] {
   background-position-x: 100%;
   background-position-y: 0;
 }
 
-.badge-icon[data-type='CardsII'] {
+.badge-icon[data-type="CardsII"] {
   background-position-x: 0;
   background-position-y: 16.6666666667%;
 }
 
-.badge-icon[data-type='SponsorsI'] {
+.badge-icon[data-type="SponsorsI"] {
   background-position-x: 25%;
   background-position-y: 16.6666666667%;
 }
 
-.badge-icon[data-type='SponsorsII'] {
+.badge-icon[data-type="SponsorsII"] {
   background-position-x: 50%;
   background-position-y: 16.6666666667%;
 }
 
-.badge-icon[data-type='WorkerI'] {
+.badge-icon[data-type="WorkerI"] {
   background-position-x: 75%;
   background-position-y: 16.6666666667%;
 }
 
-.badge-icon[data-type='WorkerII'] {
+.badge-icon[data-type="WorkerII"] {
   background-position-x: 100%;
   background-position-y: 16.6666666667%;
 }
 
-.badge-icon[data-type='Africa'] {
+.badge-icon[data-type="Africa"] {
   background-position-x: 0;
   background-position-y: 33.3333333333%;
 }
 
-.badge-icon[data-type='Americas'] {
+.badge-icon[data-type="Americas"] {
   background-position-x: 25%;
   background-position-y: 33.3333333333%;
 }
 
-.badge-icon[data-type='Asia'] {
+.badge-icon[data-type="Asia"] {
   background-position-x: 50%;
   background-position-y: 33.3333333333%;
 }
 
-.badge-icon[data-type='Australia'] {
+.badge-icon[data-type="Australia"] {
   background-position-x: 75%;
   background-position-y: 33.3333333333%;
 }
 
-.badge-icon[data-type='Europe'] {
+.badge-icon[data-type="Europe"] {
   background-position-x: 100%;
   background-position-y: 33.3333333333%;
 }
 
-.badge-icon[data-type='Appeal'] {
+.badge-icon[data-type="Appeal"] {
   background-position-x: 0;
   background-position-y: 50%;
 }
 
-.badge-icon[data-type='Partner_Zoo'] {
+.badge-icon[data-type="Partner_Zoo"] {
   background-position-x: 25%;
   background-position-y: 50%;
 }
 
-.badge-icon[data-type='Reputation'] {
+.badge-icon[data-type="Reputation"] {
   background-position-x: 50%;
   background-position-y: 50%;
 }
 
-.badge-icon[data-type='Science'] {
+.badge-icon[data-type="Science"] {
   background-position-x: 75%;
   background-position-y: 50%;
 }
 
-.badge-icon[data-type='Upgrade'] {
+.badge-icon[data-type="Upgrade"] {
   background-position-x: 100%;
   background-position-y: 50%;
 }
 
-.badge-icon[data-type='Primate'] {
+.badge-icon[data-type="Primate"] {
   background-position-x: 0;
   background-position-y: 66.6666666667%;
 }
 
-.badge-icon[data-type='Bear'] {
+.badge-icon[data-type="Bear"] {
   background-position-x: 25%;
   background-position-y: 66.6666666667%;
 }
 
-.badge-icon[data-type='Bear2'] {
+.badge-icon[data-type="Bear2"] {
   background-position-x: 50%;
   background-position-y: 66.6666666667%;
 }
 
-.badge-icon[data-type='Bird'] {
+.badge-icon[data-type="Bird"] {
   background-position-x: 75%;
   background-position-y: 66.6666666667%;
 }
 
-.badge-icon[data-type='Predator'] {
+.badge-icon[data-type="Predator"] {
   background-position-x: 100%;
   background-position-y: 66.6666666667%;
 }
 
-.badge-icon[data-type='Herbivore'] {
+.badge-icon[data-type="Herbivore"] {
   background-position-x: 0;
   background-position-y: 83.3333333333%;
 }
 
-.badge-icon[data-type='Reptile'] {
+.badge-icon[data-type="Reptile"] {
   background-position-x: 25%;
   background-position-y: 83.3333333333%;
 }
 
-.badge-icon[data-type='Pet'] {
+.badge-icon[data-type="Pet"] {
   background-position-x: 50%;
   background-position-y: 83.3333333333%;
 }
 
-.badge-icon[data-type='Pet2'] {
+.badge-icon[data-type="Pet2"] {
   background-position-x: 75%;
   background-position-y: 83.3333333333%;
 }
 
-.badge-icon[data-type='ANIMAL_SIZE_4'] {
+.badge-icon[data-type="ANIMAL_SIZE_4"] {
   background-position-x: 100%;
   background-position-y: 83.3333333333%;
 }
 
-.badge-icon[data-type='ANIMAL_SIZE_2'] {
+.badge-icon[data-type="ANIMAL_SIZE_2"] {
   background-position-x: 0;
   background-position-y: 100%;
 }
 
-.badge-icon[data-type='Rock'] {
+.badge-icon[data-type="Rock"] {
   background-position-x: 25%;
   background-position-y: 100%;
 }
 
-.badge-icon[data-type='Water'] {
+.badge-icon[data-type="Water"] {
   background-position-x: 50%;
   background-position-y: 100%;
 }
 
-.badge-icon[data-type='University'] {
+.badge-icon[data-type="University"] {
   background-position-x: 75%;
   background-position-y: 100%;
 }
 
-.badge-icon[data-type='SeaAnimal'] {
+.badge-icon[data-type="SeaAnimal"] {
   background-position-x: 100%;
   background-position-y: 100%;
 }
@@ -3744,7 +3813,7 @@
   width: calc(var(--arkNovaActionCardScale) * 375px);
 }
 
-.ark-card.action-card[data-lvl='2'] .action-card-perspective {
+.ark-card.action-card[data-lvl="2"] .action-card-perspective {
   transform: rotateY(180deg);
 }
 
@@ -3936,30 +4005,30 @@
   border-color: #a71b71 !important;
 }
 
-.ark-card.action-card[data-type='Association']
+.ark-card.action-card[data-type="Association"]
   .ark-card-wrapper:nth-of-type(2)
   .ark-card-bottom {
   line-height: 28px;
   padding: 10px 30px;
 }
 
-.ark-card.action-card[data-type='Sponsors']
+.ark-card.action-card[data-type="Sponsors"]
   .ark-card-wrapper:nth-of-type(2)
   .ark-card-bottom {
   padding: 10px 20px;
 }
 
-.ark-card.action-card[data-type='Cards'] .ark-card-bottom {
+.ark-card.action-card[data-type="Cards"] .ark-card-bottom {
   font-size: 18px;
 }
 
-.ark-card.action-card[data-type='Cards']
+.ark-card.action-card[data-type="Cards"]
   .ark-card-bottom
   .icon-container-break {
   font-size: 0.8em;
 }
 
-.ark-card.action-card[data-type='Cards']
+.ark-card.action-card[data-type="Cards"]
   .ark-card-bottom
   table
   tr:not(:first-of-type)
@@ -3970,7 +4039,7 @@
   padding: 0;
 }
 
-.ark-card.action-card[data-type='Cards']
+.ark-card.action-card[data-type="Cards"]
   .ark-card-bottom
   table
   tr:nth-of-type(3)
@@ -3978,23 +4047,23 @@
   border-bottom: 3px solid #00addb;
 }
 
-.action-card[data-type='Cards'] .ark-card-top {
+.action-card[data-type="Cards"] .ark-card-top {
   background-position-x: 0;
 }
 
-.action-card[data-type='Animals'] .ark-card-top {
+.action-card[data-type="Animals"] .ark-card-top {
   background-position-x: 25%;
 }
 
-.action-card[data-type='Build'] .ark-card-top {
+.action-card[data-type="Build"] .ark-card-top {
   background-position-x: 50%;
 }
 
-.action-card[data-type='Association'] .ark-card-top {
+.action-card[data-type="Association"] .ark-card-top {
   background-position-x: 75%;
 }
 
-.action-card[data-type='Sponsors'] .ark-card-top {
+.action-card[data-type="Sponsors"] .ark-card-top {
   background-position-x: 100%;
 }
 
@@ -4031,7 +4100,7 @@
   width: 200px;
 }
 
-[data-helper-playable='1'] .zoo-card-tooltip .card-status {
+[data-helper-playable="1"] .zoo-card-tooltip .card-status {
   display: none;
 }
 
@@ -4107,9 +4176,9 @@
   border-radius: 20px;
   bottom: 250px;
   color: green;
-  content: '\f00c';
+  content: "\f00c";
   display: flex;
-  font: normal normal normal 14px/1 FontAwesome;
+  font: normal normal normal 14px / 1 FontAwesome;
   font-size: 140px;
   justify-content: center;
   left: 100px;
@@ -4134,9 +4203,9 @@
   align-items: center;
   background: #d1d1d1be;
   bottom: 0;
-  content: '\f1f8';
+  content: "\f1f8";
   display: flex;
-  font: normal normal normal 14px/1 FontAwesome;
+  font: normal normal normal 14px / 1 FontAwesome;
   font-size: 140px;
   justify-content: center;
   left: 0;
@@ -4311,7 +4380,9 @@
   cursor: pointer;
   margin: -38px 5px 0;
   transform: translateY(0);
-  transition: transform 0.4s, margin 0.4s;
+  transition:
+    transform 0.4s,
+    margin 0.4s;
 }
 
 #floating-hand-wrapper
@@ -4371,21 +4442,21 @@
   display: none;
 }
 
-#floating-hand-wrapper[data-open='hand']
+#floating-hand-wrapper[data-open="hand"]
   #floating-hand-button-container
   #floating-hand-button {
   margin-bottom: 20px;
   margin-top: -58px;
 }
 
-#floating-hand-wrapper[data-open='hand']
+#floating-hand-wrapper[data-open="hand"]
   #floating-hand-button-container
   #floating-hand-button
   .icon-hand {
   background: none;
 }
 
-#floating-hand-wrapper[data-open='hand']
+#floating-hand-wrapper[data-open="hand"]
   #floating-hand-button-container
   #floating-hand-button
   .icon-hand
@@ -4393,28 +4464,28 @@
   display: block;
 }
 
-#floating-hand-wrapper[data-open='hand']
+#floating-hand-wrapper[data-open="hand"]
   #floating-hand-button-container
   #floating-hand-button:hover
   .icon-hand {
   font-size: 34px;
 }
 
-#floating-hand-wrapper[data-open='scoringHand']
+#floating-hand-wrapper[data-open="scoringHand"]
   #floating-hand-button-container
   #floating-scoring-hand-button {
   margin-bottom: 20px;
   margin-top: -58px;
 }
 
-#floating-hand-wrapper[data-open='scoringHand']
+#floating-hand-wrapper[data-open="scoringHand"]
   #floating-hand-button-container
   #floating-scoring-hand-button
   .icon-scoring-hand {
   background: none;
 }
 
-#floating-hand-wrapper[data-open='scoringHand']
+#floating-hand-wrapper[data-open="scoringHand"]
   #floating-hand-button-container
   #floating-scoring-hand-button
   .icon-scoring-hand
@@ -4422,7 +4493,7 @@
   display: block;
 }
 
-#floating-hand-wrapper[data-open='scoringHand']
+#floating-hand-wrapper[data-open="scoringHand"]
   #floating-hand-button-container
   #floating-scoring-hand-button:hover
   .icon-scoring-hand {
@@ -4471,13 +4542,13 @@
   display: none;
 }
 
-#floating-hand-wrapper[data-open='scoringHand']
+#floating-hand-wrapper[data-open="scoringHand"]
   #floating-hand
   .player-board-scoring-hand {
   display: flex;
 }
 
-#floating-hand-wrapper[data-open='scoringHand']
+#floating-hand-wrapper[data-open="scoringHand"]
   #floating-hand
   .player-board-hand {
   display: none;
@@ -4680,8 +4751,7 @@
 
 /* Marine World */
 
-.ark-card.zoo-card.animal-card
-  .ark-card-wrapper
+.ark-card.zoo-card.animal-card .ark-card-wrapper
   .ark-card-top
   .ark-card-top-left
   .animal-card-enclosure-cost
@@ -5566,63 +5636,63 @@
   width: 2em;
 }
 
-.icon-cylinder[data-color='30a638'],
-.icon-token[data-color='30a638'],
-.icon-worker[data-color='30a638'] {
+.icon-cylinder[data-color="30a638"],
+.icon-token[data-color="30a638"],
+.icon-worker[data-color="30a638"] {
   background-position-x: 0;
 }
 
-.icon-cylinder[data-color='1863a5'],
-.icon-token[data-color='1863a5'],
-.icon-worker[data-color='1863a5'] {
+.icon-cylinder[data-color="1863a5"],
+.icon-token[data-color="1863a5"],
+.icon-worker[data-color="1863a5"] {
   background-position-x: 11.1111111111%;
 }
 
-.icon-cylinder[data-color='7f4e30'],
-.icon-token[data-color='7f4e30'],
-.icon-worker[data-color='7f4e30'] {
+.icon-cylinder[data-color="7f4e30"],
+.icon-token[data-color="7f4e30"],
+.icon-worker[data-color="7f4e30"] {
   background-position-x: 22.2222222222%;
 }
 
-.icon-cylinder[data-color='000000'],
-.icon-token[data-color='000000'],
-.icon-worker[data-color='000000'] {
+.icon-cylinder[data-color="000000"],
+.icon-token[data-color="000000"],
+.icon-worker[data-color="000000"] {
   background-position-x: 33.3333333333%;
 }
 
-.icon-cylinder[data-color='5a5856'],
-.icon-token[data-color='5a5856'],
-.icon-worker[data-color='5a5856'] {
+.icon-cylinder[data-color="5a5856"],
+.icon-token[data-color="5a5856"],
+.icon-worker[data-color="5a5856"] {
   background-position-x: 44.4444444444%;
 }
 
-.icon-cylinder[data-color='ffffff'],
-.icon-token[data-color='ffffff'],
-.icon-worker[data-color='ffffff'] {
+.icon-cylinder[data-color="ffffff"],
+.icon-token[data-color="ffffff"],
+.icon-worker[data-color="ffffff"] {
   background-position-x: 55.5555555556%;
 }
 
-.icon-cylinder[data-color='d1c81c'],
-.icon-token[data-color='d1c81c'],
-.icon-worker[data-color='d1c81c'] {
+.icon-cylinder[data-color="d1c81c"],
+.icon-token[data-color="d1c81c"],
+.icon-worker[data-color="d1c81c"] {
   background-position-x: 66.6666666667%;
 }
 
-.icon-cylinder[data-color='b91b1b'],
-.icon-token[data-color='b91b1b'],
-.icon-worker[data-color='b91b1b'] {
+.icon-cylinder[data-color="b91b1b"],
+.icon-token[data-color="b91b1b"],
+.icon-worker[data-color="b91b1b"] {
   background-position-x: 77.7777777778%;
 }
 
-.icon-cylinder[data-color='c028d3'],
-.icon-token[data-color='c028d3'],
-.icon-worker[data-color='c028d3'] {
+.icon-cylinder[data-color="c028d3"],
+.icon-token[data-color="c028d3"],
+.icon-worker[data-color="c028d3"] {
   background-position-x: 88.8888888889%;
 }
 
-.icon-cylinder[data-color='cb7b19'],
-.icon-token[data-color='cb7b19'],
-.icon-worker[data-color='cb7b19'] {
+.icon-cylinder[data-color="cb7b19"],
+.icon-token[data-color="cb7b19"],
+.icon-worker[data-color="cb7b19"] {
   background-position-x: 100%;
 }
 
@@ -5809,7 +5879,7 @@
   width: 2em;
 }
 
-.arknova-meeple.icon-multiplier[data-state='0'] {
+.arknova-meeple.icon-multiplier[data-state="0"] {
   opacity: 0.7;
 }
 
@@ -5830,7 +5900,7 @@
   grid-template-rows: calc(var(--arkNovaLeftColumnScale) * 260px) auto auto;
 }
 
-[data-two-columns='1'] #arknova-main-container {
+[data-two-columns="1"] #arknova-main-container {
   align-items: center;
   display: flex;
   flex-flow: column;
@@ -5960,7 +6030,7 @@
   #cards-pool.showFolderCosts
   .card-pool-folder
   .folder-cost,
-[data-folder-cost='1']
+[data-folder-cost="1"]
   #arknova-main-container
   #board-pool-resizable
   #board-pool
@@ -5970,7 +6040,7 @@
   display: block;
 }
 
-[data-folder-cost='2']
+[data-folder-cost="2"]
   #arknova-main-container
   #board-pool-resizable
   #board-pool
@@ -6122,7 +6192,7 @@
   width: calc(var(--arkNovaAssociationBoardScale) * 695px);
 }
 
-[data-conservation-track='0'] #association-board-resizable {
+[data-conservation-track="0"] #association-board-resizable {
   height: calc(var(--arkNovaAssociationBoardScale) * 585px);
 }
 
@@ -6138,7 +6208,7 @@
   width: 695px;
 }
 
-[data-conservation-track='0']
+[data-conservation-track="0"]
   #association-board-resizable
   #association-board-container {
   height: 585px;
@@ -6644,7 +6714,7 @@
   width: 100%;
 }
 
-[data-conservation-track='0']
+[data-conservation-track="0"]
   #association-board-resizable
   #association-board-container
   #conservation-track-duplicate {
@@ -6834,34 +6904,34 @@
   left: 644px;
 }
 
-#ebd-body[data-association-board-projects='1'] #association-board-resizable {
+#ebd-body[data-association-board-projects="1"] #association-board-resizable {
   height: calc(var(--arkNovaAssociationBoardScale) * 400px);
 }
 
-#ebd-body[data-association-board-projects='1']
+#ebd-body[data-association-board-projects="1"]
   #association-board-resizable
   #association-board-container {
   height: 400px;
 }
 
-#ebd-body[data-association-board-projects='1'][data-conservation-track='0']
+#ebd-body[data-association-board-projects="1"][data-conservation-track="0"]
   #association-board-resizable {
   height: calc(var(--arkNovaAssociationBoardScale) * 320px);
 }
 
-#ebd-body[data-association-board-projects='1'][data-conservation-track='0']
+#ebd-body[data-association-board-projects="1"][data-conservation-track="0"]
   #association-board-resizable
   #association-board-container {
   height: 320px;
 }
 
-[data-player-boards-layout='0']
+[data-player-boards-layout="0"]
   #arknova-main-container
   .ark-player-board-resizable:not(.active),
-[data-player-boards-layout='0']
+[data-player-boards-layout="0"]
   #arknova-main-container
   .player-board-action-cards-resizable:not(.active),
-[data-player-boards-layout='0']
+[data-player-boards-layout="0"]
   #arknova-main-container
   .player-board-cards:not(.active) {
   display: none;
@@ -6876,7 +6946,7 @@
 }
 
 .worker-counter-container span:after {
-  content: ' x ';
+  content: " x ";
   margin-right: 3px;
 }
 
@@ -6887,7 +6957,7 @@
   width: calc(var(--arkNovaLeftColumnScale) * 926px);
 }
 
-[data-player-boards-layout='1']
+[data-player-boards-layout="1"]
   .ark-player-board-resizable
   ~ .ark-player-board-resizable {
   margin-top: 20px;
@@ -6932,7 +7002,7 @@
   text-overflow: ellipsis;
 }
 
-[data-player-boards-layout='1']
+[data-player-boards-layout="1"]
   .ark-player-board-resizable
   .ark-player-board
   .zoo-map
@@ -6964,13 +7034,13 @@
   width: 26px;
 }
 
-[data-player-boards-layout='1']
+[data-player-boards-layout="1"]
   .ark-player-board-resizable
   .ark-player-board
   .zoo-map
   .map-infos
   .next-player-board,
-[data-player-boards-layout='1']
+[data-player-boards-layout="1"]
   .ark-player-board-resizable
   .ark-player-board
   .zoo-map
@@ -7086,7 +7156,8 @@
 
 .ark-player-board-resizable .ark-player-board .zoo-map .zoo-map-bonus-spaces {
   background-color: #eee4d3;
-  background-image: linear-gradient(#918884 0.05rem, transparent 0),
+  background-image:
+    linear-gradient(#918884 0.05rem, transparent 0),
     linear-gradient(90deg, #918884 0.05rem, transparent 0);
   background-position: -0.2rem -0.5rem;
   background-size: 1rem 1rem;
@@ -7375,7 +7446,7 @@
   .zoo-map-association:before {
   background: #ac9e89;
   clip-path: polygon(0 0, 100% 0, 0 100%);
-  content: '';
+  content: "";
   display: block;
   height: 13px;
   left: -2px;
@@ -7678,7 +7749,7 @@
   .zoo-map
   .zoo-map-board
   .zoo-map-board-border
-  .zoo-map-board-background[data-map='0'] {
+  .zoo-map-board-background[data-map="0"] {
   background-image: url(/img/maps/map-0.jpg);
   background-size: 100%;
 }
@@ -7688,7 +7759,7 @@
   .zoo-map
   .zoo-map-board
   .zoo-map-board-border
-  .zoo-map-board-background[data-map='1'] {
+  .zoo-map-board-background[data-map="1"] {
   background-image: url(/img/maps/map-1.jpg);
   background-size: 100%;
 }
@@ -7698,7 +7769,7 @@
   .zoo-map
   .zoo-map-board
   .zoo-map-board-border
-  .zoo-map-board-background[data-map='2'] {
+  .zoo-map-board-background[data-map="2"] {
   background-image: url(/img/maps/map-2.jpg);
   background-size: 100%;
 }
@@ -7708,7 +7779,7 @@
   .zoo-map
   .zoo-map-board
   .zoo-map-board-border
-  .zoo-map-board-background[data-map='3'] {
+  .zoo-map-board-background[data-map="3"] {
   background-image: url(/img/maps/map-3.jpg);
   background-size: 100%;
 }
@@ -7718,7 +7789,7 @@
   .zoo-map
   .zoo-map-board
   .zoo-map-board-border
-  .zoo-map-board-background[data-map='4'] {
+  .zoo-map-board-background[data-map="4"] {
   background-image: url(/img/maps/map-4.jpg);
   background-size: 100%;
 }
@@ -7728,7 +7799,7 @@
   .zoo-map
   .zoo-map-board
   .zoo-map-board-border
-  .zoo-map-board-background[data-map='5'] {
+  .zoo-map-board-background[data-map="5"] {
   background-image: url(/img/maps/map-5.jpg);
   background-size: 100%;
 }
@@ -7738,7 +7809,7 @@
   .zoo-map
   .zoo-map-board
   .zoo-map-board-border
-  .zoo-map-board-background[data-map='6'] {
+  .zoo-map-board-background[data-map="6"] {
   background-image: url(/img/maps/map-6.jpg);
   background-size: 100%;
 }
@@ -7748,7 +7819,7 @@
   .zoo-map
   .zoo-map-board
   .zoo-map-board-border
-  .zoo-map-board-background[data-map='7'] {
+  .zoo-map-board-background[data-map="7"] {
   background-image: url(/img/maps/map-7.jpg);
   background-size: 100%;
 }
@@ -7758,7 +7829,7 @@
   .zoo-map
   .zoo-map-board
   .zoo-map-board-border
-  .zoo-map-board-background[data-map='8'] {
+  .zoo-map-board-background[data-map="8"] {
   background-image: url(/img/maps/map-8.jpg);
   background-size: 100%;
 }
@@ -7768,7 +7839,7 @@
   .zoo-map
   .zoo-map-board
   .zoo-map-board-border
-  .zoo-map-board-background[data-map='A'] {
+  .zoo-map-board-background[data-map="A"] {
   background-image: url(/img/maps/map-A.jpg);
   background-size: 100%;
 }
@@ -7851,7 +7922,7 @@
   border: 1px solid #fff;
   border-radius: 50%;
   box-sizing: border-box;
-  content: '';
+  content: "";
   display: block;
   height: 100%;
   position: absolute;
@@ -7945,13 +8016,15 @@
   .player-board-action-cards
   .action-card-slot
   .action-card {
-  transition: top 0.5s, box-shadow 0.5s;
+  transition:
+    top 0.5s,
+    box-shadow 0.5s;
 }
 
 .player-board-action-cards-resizable
   .player-board-action-cards
   .action-card-slot
-  .action-card[data-status='1'] {
+  .action-card[data-status="1"] {
   border: 1px solid #000;
   border-radius: 8px;
   box-shadow: 0 0 7px 2px red;
@@ -7972,7 +8045,7 @@
   padding: 10px 10px 10px 20px;
 }
 
-[data-player-boards-layout='1'] .player-board-cards ~ .player-board-cards {
+[data-player-boards-layout="1"] .player-board-cards ~ .player-board-cards {
   grid-row-end: span 3;
   margin-top: 25px;
 }
@@ -8202,14 +8275,14 @@
   width: 10px;
 }
 
-[data-panel-rows='2'] .player-info {
+[data-panel-rows="2"] .player-info {
   display: grid;
   grid-template-columns: 2fr 2fr 3fr;
   grid-template-rows: 1fr 1fr;
   row-gap: 7px;
 }
 
-[data-panel-rows='2'] .player-info > .icon-money {
+[data-panel-rows="2"] .player-info > .icon-money {
   border: 1px solid #fff;
   color: #000;
   height: 26px;
@@ -8221,11 +8294,11 @@
   width: 27px;
 }
 
-[data-panel-rows='2'] .player-info .xtoken-holder {
+[data-panel-rows="2"] .player-info .xtoken-holder {
   order: 2;
 }
 
-[data-panel-rows='2'] .player-info .xtoken-holder .player-xtoken {
+[data-panel-rows="2"] .player-info .xtoken-holder .player-xtoken {
   line-height: 31px;
   margin-left: 4px;
   margin-right: 5px;
@@ -8233,38 +8306,38 @@
   width: 21px;
 }
 
-[data-panel-rows='2'] .player-info .handCount-holder {
+[data-panel-rows="2"] .player-info .handCount-holder {
   align-items: center;
   display: flex;
   justify-content: center;
   order: 3;
 }
 
-[data-panel-rows='2'] .player-info .handCount-holder .player-handCount {
+[data-panel-rows="2"] .player-info .handCount-holder .player-handCount {
   margin-left: 8px;
   width: 22px;
 }
 
-[data-panel-rows='2'] .player-info .handCount-holder .scoringHandCount-holder {
+[data-panel-rows="2"] .player-info .handCount-holder .scoringHandCount-holder {
   margin-left: 7px;
   position: static;
 }
 
-[data-panel-rows='2']
+[data-panel-rows="2"]
   .player-info
   .handCount-holder
   .scoringHandCount-holder:before {
-  content: '(';
+  content: "(";
 }
 
-[data-panel-rows='2']
+[data-panel-rows="2"]
   .player-info
   .handCount-holder
   .scoringHandCount-holder:after {
-  content: ')';
+  content: ")";
 }
 
-[data-panel-rows='2'] .player-info .icon-reputation {
+[data-panel-rows="2"] .player-info .icon-reputation {
   color: #000;
   height: 30px;
   margin-left: 28px;
@@ -8273,7 +8346,7 @@
   width: 31px;
 }
 
-[data-panel-rows='2'] .player-info .icon-conservation {
+[data-panel-rows="2"] .player-info .icon-conservation {
   height: 30px;
   margin-left: 30px;
   order: 5;
@@ -8281,21 +8354,21 @@
   width: 30px;
 }
 
-[data-panel-rows='2'] .player-info .appeal-holder {
+[data-panel-rows="2"] .player-info .appeal-holder {
   align-items: center;
   display: flex;
   justify-content: center;
   order: 6;
 }
 
-[data-panel-rows='2'] .player-info .appeal-holder .icon-appeal {
+[data-panel-rows="2"] .player-info .appeal-holder .icon-appeal {
   height: 30px;
   margin-left: 33px;
   text-indent: -54px;
   width: 23px;
 }
 
-[data-panel-rows='2'] .player-info .appeal-holder .icon-money {
+[data-panel-rows="2"] .player-info .appeal-holder .icon-money {
   color: #000;
   font-size: 20px;
   left: auto;
@@ -8305,12 +8378,12 @@
   top: -8px;
 }
 
-[data-panel-rows='2'] .player-info .appeal-holder .icon-money:before {
+[data-panel-rows="2"] .player-info .appeal-holder .icon-money:before {
   background: url(/img/icons.webp);
   background-position: 49.12008281573499% 76.15344738206325%;
   background-size: 1765.5172413793102%;
   bottom: -17px;
-  content: '';
+  content: "";
   display: block;
   height: 18px;
   left: -19px;
@@ -8352,13 +8425,15 @@
   border-radius: 5px;
   box-shadow: 0 0 1px 1px #000000ee;
   height: 28px;
-  transition: margin 0.5s, box-shadow 0.5s;
+  transition:
+    margin 0.5s,
+    box-shadow 0.5s;
   width: 28px;
 }
 
 .action-cards-summary
   > div
-  .summary-action-card[data-lvl='2']
+  .summary-action-card[data-lvl="2"]
   .icon-container
   .arknova-icon {
   border-color: #a71b71;
@@ -8366,10 +8441,12 @@
 
 .action-cards-summary
   > div
-  .summary-action-card[data-status='1']
+  .summary-action-card[data-status="1"]
   .icon-container
   .arknova-icon {
-  box-shadow: 0 0 1px 1px #000, 0 0 3px 3px red;
+  box-shadow:
+    0 0 1px 1px #000,
+    0 0 3px 3px red;
   margin-top: -5px;
 }
 
@@ -8496,8 +8573,8 @@
 }
 
 #building-controls.inactive,
-[data-rotation-arrows='1'] #building-controls,
-[data-rotation-arrows='2'] #building-controls {
+[data-rotation-arrows="1"] #building-controls,
+[data-rotation-arrows="2"] #building-controls {
   display: none;
 }
 
@@ -8567,22 +8644,22 @@
 }
 
 #building-controls.hovering #building-controls-circle #building-confirm-btn,
-#building-controls[data-type='kiosk']
+#building-controls[data-type="kiosk"]
   #building-controls-circle
   #building-rotate-cclockwise,
-#building-controls[data-type='kiosk']
+#building-controls[data-type="kiosk"]
   #building-controls-circle
   #building-rotate-clockwise,
-#building-controls[data-type='pavilion']
+#building-controls[data-type="pavilion"]
   #building-controls-circle
   #building-rotate-cclockwise,
-#building-controls[data-type='pavilion']
+#building-controls[data-type="pavilion"]
   #building-controls-circle
   #building-rotate-clockwise,
-#building-controls[data-type='size-1']
+#building-controls[data-type="size-1"]
   #building-controls-circle
   #building-rotate-cclockwise,
-#building-controls[data-type='size-1']
+#building-controls[data-type="size-1"]
   #building-controls-circle
   #building-rotate-clockwise {
   display: none;
@@ -8597,74 +8674,74 @@
   visibility: hidden;
 }
 
-.building-container[data-rotation='0'],
-.building-container[data-rotation='0'] .building-crosshairs {
+.building-container[data-rotation="0"],
+.building-container[data-rotation="0"] .building-crosshairs {
   transform: rotate(0deg);
 }
 
-.building-container[data-rotation='1'] {
+.building-container[data-rotation="1"] {
   transform: rotate(60deg);
 }
 
-.building-container[data-rotation='1'] .building-crosshairs {
+.building-container[data-rotation="1"] .building-crosshairs {
   transform: rotate(-60deg);
 }
 
-.building-container[data-rotation='2'] {
+.building-container[data-rotation="2"] {
   transform: rotate(120deg);
 }
 
-.building-container[data-rotation='2'] .building-crosshairs {
+.building-container[data-rotation="2"] .building-crosshairs {
   transform: rotate(-120deg);
 }
 
-.building-container[data-rotation='3'] {
+.building-container[data-rotation="3"] {
   transform: rotate(180deg);
 }
 
-.building-container[data-rotation='3'] .building-crosshairs {
+.building-container[data-rotation="3"] .building-crosshairs {
   transform: rotate(-180deg);
 }
 
-.building-container[data-rotation='4'] {
+.building-container[data-rotation="4"] {
   transform: rotate(240deg);
 }
 
-.building-container[data-rotation='4'] .building-crosshairs {
+.building-container[data-rotation="4"] .building-crosshairs {
   transform: rotate(-240deg);
 }
 
-.building-container[data-rotation='5'] {
+.building-container[data-rotation="5"] {
   transform: rotate(300deg);
 }
 
-.building-container[data-rotation='5'] .building-crosshairs {
+.building-container[data-rotation="5"] .building-crosshairs {
   transform: rotate(-300deg);
 }
 
-.building-container[data-type='kiosk']
+.building-container[data-type="kiosk"]
   .building-crosshairs
   #building-rotate-cclockwise-on-tile,
-.building-container[data-type='kiosk']
+.building-container[data-type="kiosk"]
   .building-crosshairs
   #building-rotate-clockwise-on-tile,
-.building-container[data-type='pavilion']
+.building-container[data-type="pavilion"]
   .building-crosshairs
   #building-rotate-cclockwise-on-tile,
-.building-container[data-type='pavilion']
+.building-container[data-type="pavilion"]
   .building-crosshairs
   #building-rotate-clockwise-on-tile,
-.building-container[data-type='size-1']
+.building-container[data-type="size-1"]
   .building-crosshairs
   #building-rotate-cclockwise-on-tile,
-.building-container[data-type='size-1']
+.building-container[data-type="size-1"]
   .building-crosshairs
   #building-rotate-clockwise-on-tile,
-[data-rotation-arrows='2']
+[data-rotation-arrows="2"]
   .building-container
   .building-crosshairs
   #building-rotate-cclockwise-on-tile,
-[data-rotation-arrows='2']
+[data-rotation-arrows="2"]
   .building-container
   .building-crosshairs
   #building-rotate-clockwise-on-tile {
@@ -8692,7 +8769,7 @@
   width: 100%;
 }
 
-[data-buildings-borders='1'] .building-container .building-border {
+[data-buildings-borders="1"] .building-container .building-border {
   background: #a68731;
 }
 
@@ -8721,20 +8798,20 @@
   width: 100%;
 }
 
-[data-enclosure-size='1']
-  .building-container[data-state='0'][data-type='size-1']
+[data-enclosure-size="1"]
+  .building-container[data-state="0"][data-type="size-1"]
   .building-crosshairs:before,
-[data-enclosure-size='1']
-  .building-container[data-state='0'][data-type='size-2']
+[data-enclosure-size="1"]
+  .building-container[data-state="0"][data-type="size-2"]
   .building-crosshairs:before,
-[data-enclosure-size='1']
-  .building-container[data-state='0'][data-type='size-3']
+[data-enclosure-size="1"]
+  .building-container[data-state="0"][data-type="size-3"]
   .building-crosshairs:before,
-[data-enclosure-size='1']
-  .building-container[data-state='0'][data-type='size-4']
+[data-enclosure-size="1"]
+  .building-container[data-state="0"][data-type="size-4"]
   .building-crosshairs:before,
-[data-enclosure-size='1']
-  .building-container[data-state='0'][data-type='size-5']
+[data-enclosure-size="1"]
+  .building-container[data-state="0"][data-type="size-5"]
   .building-crosshairs:before {
   background: url(/img/icons.webp);
   background-position: 12.596999482669426% 67.37012987012987%;
@@ -8753,34 +8830,34 @@
   width: 41px;
 }
 
-[data-enclosure-size='1']
-  .building-container[data-type='size-1']
+[data-enclosure-size="1"]
+  .building-container[data-type="size-1"]
   .building-crosshairs:before {
-  content: '1';
+  content: "1";
 }
 
-[data-enclosure-size='1']
-  .building-container[data-type='size-2']
+[data-enclosure-size="1"]
+  .building-container[data-type="size-2"]
   .building-crosshairs:before {
-  content: '2';
+  content: "2";
 }
 
-[data-enclosure-size='1']
-  .building-container[data-type='size-3']
+[data-enclosure-size="1"]
+  .building-container[data-type="size-3"]
   .building-crosshairs:before {
-  content: '3';
+  content: "3";
 }
 
-[data-enclosure-size='1']
-  .building-container[data-type='size-4']
+[data-enclosure-size="1"]
+  .building-container[data-type="size-4"]
   .building-crosshairs:before {
-  content: '4';
+  content: "4";
 }
 
-[data-enclosure-size='1']
-  .building-container[data-type='size-5']
+[data-enclosure-size="1"]
+  .building-container[data-type="size-5"]
   .building-crosshairs:before {
-  content: '5';
+  content: "5";
 }
 
 .building-container#building-hover {
@@ -8821,46 +8898,46 @@
   display: none;
 }
 
-[data-rotation-arrows='0']
+[data-rotation-arrows="0"]
   .building-container#building-hover
   .building-crosshairs {
   visibility: visible;
 }
 
-[data-rotation-arrows='0']
+[data-rotation-arrows="0"]
   .building-container#building-hover
   .building-crosshairs
   #building-rotate-cclockwise-on-tile,
-[data-rotation-arrows='0']
+[data-rotation-arrows="0"]
   .building-container#building-hover
   .building-crosshairs
   #building-rotate-clockwise-on-tile {
   visibility: hidden;
 }
 
-[data-rotation-arrows='1']
+[data-rotation-arrows="1"]
   .building-container#building-hover
   .building-crosshairs,
-[data-rotation-arrows='2']
+[data-rotation-arrows="2"]
   .building-container#building-hover
   .building-crosshairs {
   transition: transform 0.4s;
   visibility: visible;
 }
 
-[data-rotation-arrows='1']
+[data-rotation-arrows="1"]
   .building-container#building-hover
   .building-crosshairs
   #building-rotate-cclockwise-on-tile,
-[data-rotation-arrows='1']
+[data-rotation-arrows="1"]
   .building-container#building-hover
   .building-crosshairs
   #building-rotate-clockwise-on-tile,
-[data-rotation-arrows='2']
+[data-rotation-arrows="2"]
   .building-container#building-hover
   .building-crosshairs
   #building-rotate-cclockwise-on-tile,
-[data-rotation-arrows='2']
+[data-rotation-arrows="2"]
   .building-container#building-hover
   .building-crosshairs
   #building-rotate-clockwise-on-tile {
@@ -8872,22 +8949,22 @@
   width: 33px;
 }
 
-[data-rotation-arrows='1']
+[data-rotation-arrows="1"]
   .building-container#building-hover
   .building-crosshairs
   #building-rotate-cclockwise-on-tile
   svg,
-[data-rotation-arrows='1']
+[data-rotation-arrows="1"]
   .building-container#building-hover
   .building-crosshairs
   #building-rotate-clockwise-on-tile
   svg,
-[data-rotation-arrows='2']
+[data-rotation-arrows="2"]
   .building-container#building-hover
   .building-crosshairs
   #building-rotate-cclockwise-on-tile
   svg,
-[data-rotation-arrows='2']
+[data-rotation-arrows="2"]
   .building-container#building-hover
   .building-crosshairs
   #building-rotate-clockwise-on-tile
@@ -8896,23 +8973,23 @@
   width: 50%;
 }
 
-[data-rotation-arrows='1']
+[data-rotation-arrows="1"]
   .building-container#building-hover
   .building-crosshairs
   #building-rotate-clockwise-on-tile,
-[data-rotation-arrows='2']
+[data-rotation-arrows="2"]
   .building-container#building-hover
   .building-crosshairs
   #building-rotate-clockwise-on-tile {
   left: 25px;
 }
 
-[data-rotation-arrows='1']
+[data-rotation-arrows="1"]
   .building-container#building-hover
   .building-crosshairs
   #building-rotate-clockwise-on-tile
   svg,
-[data-rotation-arrows='2']
+[data-rotation-arrows="2"]
   .building-container#building-hover
   .building-crosshairs
   #building-rotate-clockwise-on-tile
@@ -8921,11 +8998,11 @@
 }
 
 .building-container:not([data-type]),
-.building-container[data-type=''] {
+.building-container[data-type=""] {
   display: none;
 }
 
-.building-container[data-type='size-1'][data-state='0'] {
+.building-container[data-type="size-1"][data-state="0"] {
   clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
   height: 78px;
   margin-left: 0;
@@ -8934,7 +9011,7 @@
   width: 90px;
 }
 
-.building-container[data-type='size-1'][data-state='0'] .building-inner {
+.building-container[data-type="size-1"][data-state="0"] .building-inner {
   background-position: 0 0;
   clip-path: polygon(
     26.25% 2.5%,
@@ -8947,7 +9024,7 @@
   );
 }
 
-.building-container[data-type='size-1'][data-state='0'] .building-border {
+.building-container[data-type="size-1"][data-state="0"] .building-border {
   clip-path: polygon(
     25% 0,
     75% 0,
@@ -8968,12 +9045,12 @@
   );
 }
 
-.building-container[data-type='size-1'][data-state='0'] .building-crosshairs {
+.building-container[data-type="size-1"][data-state="0"] .building-crosshairs {
   left: 50%;
   top: 50%;
 }
 
-.building-container[data-type='size-2'][data-state='0'] {
+.building-container[data-type="size-2"][data-state="0"] {
   clip-path: polygon(
     25% 0,
     75% 0,
@@ -8994,7 +9071,7 @@
   width: 90px;
 }
 
-.building-container[data-type='size-2'][data-state='0'] .building-inner {
+.building-container[data-type="size-2"][data-state="0"] .building-inner {
   background-position: 0 14.285714285714285%;
   clip-path: polygon(
     26.25% 1.25%,
@@ -9011,7 +9088,7 @@
   );
 }
 
-.building-container[data-type='size-2'][data-state='0'] .building-border {
+.building-container[data-type="size-2"][data-state="0"] .building-border {
   clip-path: polygon(
     25% 0,
     75% 0,
@@ -9040,12 +9117,12 @@
   );
 }
 
-.building-container[data-type='size-2'][data-state='0'] .building-crosshairs {
+.building-container[data-type="size-2"][data-state="0"] .building-crosshairs {
   left: 50%;
   top: 25%;
 }
 
-.building-container[data-type='size-3'][data-state='0'] {
+.building-container[data-type="size-3"][data-state="0"] {
   clip-path: polygon(
     14.2857142857% 0,
     42.8571428571% 0,
@@ -9068,7 +9145,7 @@
   width: 158px;
 }
 
-.building-container[data-type='size-3'][data-state='0'] .building-inner {
+.building-container[data-type="size-3"][data-state="0"] .building-inner {
   background-position: 10% 7.142857142857142%;
   clip-path: polygon(
     15% 1.25%,
@@ -9087,7 +9164,7 @@
   );
 }
 
-.building-container[data-type='size-3'][data-state='0'] .building-border {
+.building-container[data-type="size-3"][data-state="0"] .building-border {
   clip-path: polygon(
     14.2857142857% 0,
     42.8571428571% 0,
@@ -9120,12 +9197,12 @@
   );
 }
 
-.building-container[data-type='size-3'][data-state='0'] .building-crosshairs {
+.building-container[data-type="size-3"][data-state="0"] .building-crosshairs {
   left: 28.57142857142857%;
   top: 25%;
 }
 
-.building-container[data-type='size-4'][data-state='0'] {
+.building-container[data-type="size-4"][data-state="0"] {
   clip-path: polygon(
     14.2857142857% 40%,
     0 60%,
@@ -9150,7 +9227,7 @@
   width: 158px;
 }
 
-.building-container[data-type='size-4'][data-state='0'] .building-inner {
+.building-container[data-type="size-4"][data-state="0"] .building-inner {
   background-position: 30% 7.6923076923076925%;
   clip-path: polygon(
     15.7142857143% 40%,
@@ -9171,7 +9248,7 @@
   );
 }
 
-.building-container[data-type='size-4'][data-state='0'] .building-border {
+.building-container[data-type="size-4"][data-state="0"] .building-border {
   clip-path: polygon(
     14.2857142857% 40%,
     0 60%,
@@ -9208,12 +9285,12 @@
   );
 }
 
-.building-container[data-type='size-4'][data-state='0'] .building-crosshairs {
+.building-container[data-type="size-4"][data-state="0"] .building-crosshairs {
   left: 28.57142857142857%;
   top: 60%;
 }
 
-.building-container[data-type='size-5'][data-state='0'] {
+.building-container[data-type="size-5"][data-state="0"] {
   clip-path: polygon(
     85.7142857143% 33.3333333333%,
     100% 50%,
@@ -9240,7 +9317,7 @@
   width: 158px;
 }
 
-.building-container[data-type='size-5'][data-state='0'] .building-inner {
+.building-container[data-type="size-5"][data-state="0"] .building-inner {
   background-position: 50% 0;
   clip-path: polygon(
     84.2857142857% 33.3333333333%,
@@ -9263,7 +9340,7 @@
   );
 }
 
-.building-container[data-type='size-5'][data-state='0'] .building-border {
+.building-container[data-type="size-5"][data-state="0"] .building-border {
   clip-path: polygon(
     85.7142857143% 33.3333333333%,
     100% 50%,
@@ -9304,12 +9381,12 @@
   );
 }
 
-.building-container[data-type='size-5'][data-state='0'] .building-crosshairs {
+.building-container[data-type="size-5"][data-state="0"] .building-crosshairs {
   left: 71.42857142857143%;
   top: 50%;
 }
 
-.building-container[data-type='size-1'][data-state='1'] {
+.building-container[data-type="size-1"][data-state="1"] {
   clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
   height: 78px;
   margin-left: 0;
@@ -9318,7 +9395,7 @@
   width: 90px;
 }
 
-.building-container[data-type='size-1'][data-state='1'] .building-inner {
+.building-container[data-type="size-1"][data-state="1"] .building-inner {
   background-position: 0 37.5%;
   clip-path: polygon(
     26.25% 2.5%,
@@ -9331,7 +9408,7 @@
   );
 }
 
-.building-container[data-type='size-1'][data-state='1'] .building-border {
+.building-container[data-type="size-1"][data-state="1"] .building-border {
   clip-path: polygon(
     25% 0,
     75% 0,
@@ -9352,12 +9429,12 @@
   );
 }
 
-.building-container[data-type='size-1'][data-state='1'] .building-crosshairs {
+.building-container[data-type="size-1"][data-state="1"] .building-crosshairs {
   left: 50%;
   top: 50%;
 }
 
-.building-container[data-type='size-2'][data-state='1'] {
+.building-container[data-type="size-2"][data-state="1"] {
   clip-path: polygon(
     25% 0,
     75% 0,
@@ -9378,7 +9455,7 @@
   width: 90px;
 }
 
-.building-container[data-type='size-2'][data-state='1'] .building-inner {
+.building-container[data-type="size-2"][data-state="1"] .building-inner {
   background-position: 0 57.14285714285714%;
   clip-path: polygon(
     26.25% 1.25%,
@@ -9395,7 +9472,7 @@
   );
 }
 
-.building-container[data-type='size-2'][data-state='1'] .building-border {
+.building-container[data-type="size-2"][data-state="1"] .building-border {
   clip-path: polygon(
     25% 0,
     75% 0,
@@ -9424,12 +9501,12 @@
   );
 }
 
-.building-container[data-type='size-2'][data-state='1'] .building-crosshairs {
+.building-container[data-type="size-2"][data-state="1"] .building-crosshairs {
   left: 50%;
   top: 25%;
 }
 
-.building-container[data-type='size-3'][data-state='1'] {
+.building-container[data-type="size-3"][data-state="1"] {
   clip-path: polygon(
     14.2857142857% 0,
     42.8571428571% 0,
@@ -9452,7 +9529,7 @@
   width: 158px;
 }
 
-.building-container[data-type='size-3'][data-state='1'] .building-inner {
+.building-container[data-type="size-3"][data-state="1"] .building-inner {
   background-position: 10% 35.714285714285715%;
   clip-path: polygon(
     15% 1.25%,
@@ -9471,7 +9548,7 @@
   );
 }
 
-.building-container[data-type='size-3'][data-state='1'] .building-border {
+.building-container[data-type="size-3"][data-state="1"] .building-border {
   clip-path: polygon(
     14.2857142857% 0,
     42.8571428571% 0,
@@ -9504,12 +9581,12 @@
   );
 }
 
-.building-container[data-type='size-3'][data-state='1'] .building-crosshairs {
+.building-container[data-type="size-3"][data-state="1"] .building-crosshairs {
   left: 28.57142857142857%;
   top: 25%;
 }
 
-.building-container[data-type='size-4'][data-state='1'] {
+.building-container[data-type="size-4"][data-state="1"] {
   clip-path: polygon(
     14.2857142857% 40%,
     0 60%,
@@ -9534,7 +9611,7 @@
   width: 158px;
 }
 
-.building-container[data-type='size-4'][data-state='1'] .building-inner {
+.building-container[data-type="size-4"][data-state="1"] .building-inner {
   background-position: 30% 38.46153846153847%;
   clip-path: polygon(
     15.7142857143% 40%,
@@ -9555,7 +9632,7 @@
   );
 }
 
-.building-container[data-type='size-4'][data-state='1'] .building-border {
+.building-container[data-type="size-4"][data-state="1"] .building-border {
   clip-path: polygon(
     14.2857142857% 40%,
     0 60%,
@@ -9592,12 +9669,12 @@
   );
 }
 
-.building-container[data-type='size-4'][data-state='1'] .building-crosshairs {
+.building-container[data-type="size-4"][data-state="1"] .building-crosshairs {
   left: 28.57142857142857%;
   top: 60%;
 }
 
-.building-container[data-type='size-5'][data-state='1'] {
+.building-container[data-type="size-5"][data-state="1"] {
   clip-path: polygon(
     85.7142857143% 33.3333333333%,
     100% 50%,
@@ -9624,7 +9701,7 @@
   width: 158px;
 }
 
-.building-container[data-type='size-5'][data-state='1'] .building-inner {
+.building-container[data-type="size-5"][data-state="1"] .building-inner {
   background-position: 50% 50%;
   clip-path: polygon(
     84.2857142857% 33.3333333333%,
@@ -9647,7 +9724,7 @@
   );
 }
 
-.building-container[data-type='size-5'][data-state='1'] .building-border {
+.building-container[data-type="size-5"][data-state="1"] .building-border {
   clip-path: polygon(
     85.7142857143% 33.3333333333%,
     100% 50%,
@@ -9688,12 +9765,12 @@
   );
 }
 
-.building-container[data-type='size-5'][data-state='1'] .building-crosshairs {
+.building-container[data-type="size-5"][data-state="1"] .building-crosshairs {
   left: 71.42857142857143%;
   top: 50%;
 }
 
-.building-container[data-type='large-bird-aviary'] {
+.building-container[data-type="large-bird-aviary"] {
   clip-path: polygon(
     40% 20%,
     60% 20%,
@@ -9722,7 +9799,7 @@
   width: 226px;
 }
 
-.building-container[data-type='large-bird-aviary'] .building-inner {
+.building-container[data-type="large-bird-aviary"] .building-inner {
   background-position: 33.33333333333333% 84.61538461538461%;
   clip-path: polygon(
     39.5% 21%,
@@ -9747,7 +9824,7 @@
   );
 }
 
-.building-container[data-type='large-bird-aviary'] .building-border {
+.building-container[data-type="large-bird-aviary"] .building-border {
   clip-path: polygon(
     40% 20%,
     60% 20%,
@@ -9792,12 +9869,12 @@
   );
 }
 
-.building-container[data-type='large-bird-aviary'] .building-crosshairs {
+.building-container[data-type="large-bird-aviary"] .building-crosshairs {
   left: 50%;
   top: 40%;
 }
 
-.building-container[data-type='petting-zoo'] {
+.building-container[data-type="petting-zoo"] {
   clip-path: polygon(
     14.2857142857% 20%,
     42.8571428571% 20%,
@@ -9822,7 +9899,7 @@
   width: 158px;
 }
 
-.building-container[data-type='petting-zoo'] .building-inner {
+.building-container[data-type="petting-zoo"] .building-inner {
   background-position: 10% 61.53846153846154%;
   clip-path: polygon(
     15% 21%,
@@ -9843,7 +9920,7 @@
   );
 }
 
-.building-container[data-type='petting-zoo'] .building-border {
+.building-container[data-type="petting-zoo"] .building-border {
   clip-path: polygon(
     14.2857142857% 20%,
     42.8571428571% 20%,
@@ -9880,12 +9957,12 @@
   );
 }
 
-.building-container[data-type='petting-zoo'] .building-crosshairs {
+.building-container[data-type="petting-zoo"] .building-crosshairs {
   left: 28.57142857142857%;
   top: 40%;
 }
 
-.building-container[data-type='reptile-house'] {
+.building-container[data-type="reptile-house"] {
   clip-path: polygon(
     40% 25%,
     60% 25%,
@@ -9914,7 +9991,7 @@
   width: 226px;
 }
 
-.building-container[data-type='reptile-house'] .building-inner {
+.building-container[data-type="reptile-house"] .building-inner {
   background-position: 0 85.71428571428571%;
   clip-path: polygon(
     39.5% 26.25%,
@@ -9939,7 +10016,7 @@
   );
 }
 
-.building-container[data-type='reptile-house'] .building-border {
+.building-container[data-type="reptile-house"] .building-border {
   clip-path: polygon(
     40% 25%,
     60% 25%,
@@ -9984,12 +10061,12 @@
   );
 }
 
-.building-container[data-type='reptile-house'] .building-crosshairs {
+.building-container[data-type="reptile-house"] .building-crosshairs {
   left: 50%;
   top: 50%;
 }
 
-.building-container[data-type='kiosk'] {
+.building-container[data-type="kiosk"] {
   clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
   height: 78px;
   margin-left: 0;
@@ -9998,7 +10075,7 @@
   width: 90px;
 }
 
-.building-container[data-type='kiosk'] .building-inner {
+.building-container[data-type="kiosk"] .building-inner {
   background-position: 18.181818181818183% 25%;
   clip-path: polygon(
     26.25% 2.5%,
@@ -10011,7 +10088,7 @@
   );
 }
 
-.building-container[data-type='kiosk'] .building-border {
+.building-container[data-type="kiosk"] .building-border {
   clip-path: polygon(
     25% 0,
     75% 0,
@@ -10032,12 +10109,12 @@
   );
 }
 
-.building-container[data-type='kiosk'] .building-crosshairs {
+.building-container[data-type="kiosk"] .building-crosshairs {
   left: 50%;
   top: 50%;
 }
 
-.building-container[data-type='monkey'] {
+.building-container[data-type="monkey"] {
   clip-path: polygon(
     57.1428571429% 14.2857142857%,
     85.7142857143% 14.2857142857%,
@@ -10066,7 +10143,7 @@
   width: 158px;
 }
 
-.building-container[data-type='monkey'] .building-inner {
+.building-container[data-type="monkey"] .building-inner {
   background-position: 70% 9.090909090909092%;
   clip-path: polygon(
     56.4285714286% 15%,
@@ -10091,7 +10168,7 @@
   );
 }
 
-.building-container[data-type='monkey'] .building-border {
+.building-container[data-type="monkey"] .building-border {
   clip-path: polygon(
     57.1428571429% 14.2857142857%,
     85.7142857143% 14.2857142857%,
@@ -10136,12 +10213,12 @@
   );
 }
 
-.building-container[data-type='monkey'] .building-crosshairs {
+.building-container[data-type="monkey"] .building-crosshairs {
   left: 71.42857142857143%;
   top: 28.57142857142857%;
 }
 
-.building-container[data-type='meerkat'] {
+.building-container[data-type="meerkat"] {
   clip-path: polygon(
     40% 0,
     60% 0,
@@ -10166,7 +10243,7 @@
   width: 226px;
 }
 
-.building-container[data-type='meerkat'] .building-inner {
+.building-container[data-type="meerkat"] .building-inner {
   background-position: 22.22222222222222% 60%;
   clip-path: polygon(
     40.5% 1.6666666667%,
@@ -10187,7 +10264,7 @@
   );
 }
 
-.building-container[data-type='meerkat'] .building-border {
+.building-container[data-type="meerkat"] .building-border {
   clip-path: polygon(
     40% 0,
     60% 0,
@@ -10224,12 +10301,12 @@
   );
 }
 
-.building-container[data-type='meerkat'] .building-crosshairs {
+.building-container[data-type="meerkat"] .building-crosshairs {
   left: 50%;
   top: 33.33333333333333%;
 }
 
-.building-container[data-type='owl'] {
+.building-container[data-type="owl"] {
   clip-path: polygon(
     25% 33.3333333333%,
     0 50%,
@@ -10254,7 +10331,7 @@
   width: 90px;
 }
 
-.building-container[data-type='owl'] .building-inner {
+.building-container[data-type="owl"] .building-inner {
   background-position: 63.63636363636363% 25%;
   clip-path: polygon(
     27.5% 33.3333333333%,
@@ -10275,7 +10352,7 @@
   );
 }
 
-.building-container[data-type='owl'] .building-border {
+.building-container[data-type="owl"] .building-border {
   clip-path: polygon(
     25% 33.3333333333%,
     0 50%,
@@ -10312,12 +10389,12 @@
   );
 }
 
-.building-container[data-type='owl'] .building-crosshairs {
+.building-container[data-type="owl"] .building-crosshairs {
   left: 50%;
   top: 50%;
 }
 
-.building-container[data-type='sea-turtle'] {
+.building-container[data-type="sea-turtle"] {
   clip-path: polygon(
     40% 40%,
     30% 60%,
@@ -10346,7 +10423,7 @@
   width: 226px;
 }
 
-.building-container[data-type='sea-turtle'] .building-inner {
+.building-container[data-type="sea-turtle"] .building-inner {
   background-position: 66.66666666666666% 69.23076923076923%;
   clip-path: polygon(
     41% 40%,
@@ -10371,7 +10448,7 @@
   );
 }
 
-.building-container[data-type='sea-turtle'] .building-border {
+.building-container[data-type="sea-turtle"] .building-border {
   clip-path: polygon(
     40% 40%,
     30% 60%,
@@ -10416,12 +10493,12 @@
   );
 }
 
-.building-container[data-type='sea-turtle'] .building-crosshairs {
+.building-container[data-type="sea-turtle"] .building-crosshairs {
   left: 50%;
   top: 60%;
 }
 
-.building-container[data-type='okapi'] {
+.building-container[data-type="okapi"] {
   clip-path: polygon(
     53.8461538462% 0,
     69.2307692308% 0,
@@ -10450,7 +10527,7 @@
   width: 294px;
 }
 
-.building-container[data-type='okapi'] .building-inner {
+.building-container[data-type="okapi"] .building-inner {
   background-position: 62.5% 86.66666666666667%;
   clip-path: polygon(
     54.2307692308% 1.6666666667%,
@@ -10475,7 +10552,7 @@
   );
 }
 
-.building-container[data-type='okapi'] .building-border {
+.building-container[data-type="okapi"] .building-border {
   clip-path: polygon(
     53.8461538462% 0,
     69.2307692308% 0,
@@ -10520,12 +10597,12 @@
   );
 }
 
-.building-container[data-type='okapi'] .building-crosshairs {
+.building-container[data-type="okapi"] .building-crosshairs {
   left: 61.53846153846154%;
   top: 33.33333333333333%;
 }
 
-.building-container[data-type='adventure'] {
+.building-container[data-type="adventure"] {
   clip-path: polygon(
     25% 0,
     75% 0,
@@ -10546,7 +10623,7 @@
   width: 90px;
 }
 
-.building-container[data-type='adventure'] .building-inner {
+.building-container[data-type="adventure"] .building-inner {
   background-position: 72.72727272727273% 57.14285714285714%;
   clip-path: polygon(
     26.25% 1.25%,
@@ -10563,7 +10640,7 @@
   );
 }
 
-.building-container[data-type='adventure'] .building-border {
+.building-container[data-type="adventure"] .building-border {
   clip-path: polygon(
     25% 0,
     75% 0,
@@ -10592,12 +10669,12 @@
   );
 }
 
-.building-container[data-type='adventure'] .building-crosshairs {
+.building-container[data-type="adventure"] .building-crosshairs {
   left: 50%;
   top: 25%;
 }
 
-.building-container[data-type='pavilion'] {
+.building-container[data-type="pavilion"] {
   clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
   height: 78px;
   margin-left: 0;
@@ -10606,7 +10683,7 @@
   width: 90px;
 }
 
-.building-container[data-type='pavilion'] .building-inner {
+.building-container[data-type="pavilion"] .building-inner {
   background-position: 45.45454545454545% 31.25%;
   clip-path: polygon(
     26.25% 2.5%,
@@ -10619,7 +10696,7 @@
   );
 }
 
-.building-container[data-type='pavilion'] .building-border {
+.building-container[data-type="pavilion"] .building-border {
   clip-path: polygon(
     25% 0,
     75% 0,
@@ -10640,12 +10717,12 @@
   );
 }
 
-.building-container[data-type='pavilion'] .building-crosshairs {
+.building-container[data-type="pavilion"] .building-crosshairs {
   left: 50%;
   top: 50%;
 }
 
-.building-container[data-type='penguin'] {
+.building-container[data-type="penguin"] {
   clip-path: polygon(
     40% 25%,
     60% 25%,
@@ -10672,7 +10749,7 @@
   width: 226px;
 }
 
-.building-container[data-type='penguin'] .building-inner {
+.building-container[data-type="penguin"] .building-inner {
   background-position: 88.88888888888889% 0;
   clip-path: polygon(
     39.5% 26.25%,
@@ -10695,7 +10772,7 @@
   );
 }
 
-.building-container[data-type='penguin'] .building-border {
+.building-container[data-type="penguin"] .building-border {
   clip-path: polygon(
     40% 25%,
     60% 25%,
@@ -10736,12 +10813,12 @@
   );
 }
 
-.building-container[data-type='penguin'] .building-crosshairs {
+.building-container[data-type="penguin"] .building-crosshairs {
   left: 50%;
   top: 50%;
 }
 
-.building-container[data-type='aquarium'] {
+.building-container[data-type="aquarium"] {
   clip-path: polygon(
     40% 0,
     60% 0,
@@ -10770,7 +10847,7 @@
   width: 226px;
 }
 
-.building-container[data-type='aquarium'] .building-inner {
+.building-container[data-type="aquarium"] .building-inner {
   background-position: 100% 30.76923076923077%;
   clip-path: polygon(
     40.5% 1%,
@@ -10795,7 +10872,7 @@
   );
 }
 
-.building-container[data-type='aquarium'] .building-border {
+.building-container[data-type="aquarium"] .building-border {
   clip-path: polygon(
     40% 0,
     60% 0,
@@ -10840,12 +10917,12 @@
   );
 }
 
-.building-container[data-type='aquarium'] .building-crosshairs {
+.building-container[data-type="aquarium"] .building-crosshairs {
   left: 50%;
   top: 20%;
 }
 
-.building-container[data-type='polar-bear'] {
+.building-container[data-type="polar-bear"] {
   clip-path: polygon(
     30.7692307692% 0,
     46.1538461538% 0,
@@ -10874,7 +10951,7 @@
   width: 294px;
 }
 
-.building-container[data-type='polar-bear'] .building-inner {
+.building-container[data-type="polar-bear"] .building-inner {
   background-position: 0 100%;
   clip-path: polygon(
     31.1538461538% 1.6666666667%,
@@ -10899,7 +10976,7 @@
   );
 }
 
-.building-container[data-type='polar-bear'] .building-border {
+.building-container[data-type="polar-bear"] .building-border {
   clip-path: polygon(
     30.7692307692% 0,
     46.1538461538% 0,
@@ -10944,12 +11021,12 @@
   );
 }
 
-.building-container[data-type='polar-bear'] .building-crosshairs {
+.building-container[data-type="polar-bear"] .building-crosshairs {
   left: 38.46153846153847%;
   top: 33.33333333333333%;
 }
 
-.building-container[data-type='hyena'] {
+.building-container[data-type="hyena"] {
   clip-path: polygon(
     14.2857142857% 14.2857142857%,
     42.8571428571% 14.2857142857%,
@@ -10978,7 +11055,7 @@
   width: 158px;
 }
 
-.building-container[data-type='hyena'] .building-inner {
+.building-container[data-type="hyena"] .building-inner {
   background-position: 90% 54.54545454545454%;
   clip-path: polygon(
     15% 15%,
@@ -11003,7 +11080,7 @@
   );
 }
 
-.building-container[data-type='hyena'] .building-border {
+.building-container[data-type="hyena"] .building-border {
   clip-path: polygon(
     14.2857142857% 14.2857142857%,
     42.8571428571% 14.2857142857%,
@@ -11048,12 +11125,12 @@
   );
 }
 
-.building-container[data-type='hyena'] .building-crosshairs {
+.building-container[data-type="hyena"] .building-crosshairs {
   left: 28.57142857142857%;
   top: 28.57142857142857%;
 }
 
-.building-container[data-type='zoo-school'] {
+.building-container[data-type="zoo-school"] {
   clip-path: polygon(
     40% 0,
     60% 0,
@@ -11078,7 +11155,7 @@
   width: 226px;
 }
 
-.building-container[data-type='zoo-school'] .building-inner {
+.building-container[data-type="zoo-school"] .building-inner {
   background-position: 44.44444444444444% 100%;
   clip-path: polygon(
     40.5% 1.6666666667%,
@@ -11099,7 +11176,7 @@
   );
 }
 
-.building-container[data-type='zoo-school'] .building-border {
+.building-container[data-type="zoo-school"] .building-border {
   clip-path: polygon(
     40% 0,
     60% 0,
@@ -11136,12 +11213,12 @@
   );
 }
 
-.building-container[data-type='zoo-school'] .building-crosshairs {
+.building-container[data-type="zoo-school"] .building-crosshairs {
   left: 50%;
   top: 33.33333333333333%;
 }
 
-.building-container[data-type='baboon'] {
+.building-container[data-type="baboon"] {
   clip-path: polygon(
     57.1428571429% 33.3333333333%,
     42.8571428571% 50%,
@@ -11168,7 +11245,7 @@
   width: 158px;
 }
 
-.building-container[data-type='baboon'] .building-inner {
+.building-container[data-type="baboon"] .building-inner {
   background-position: 90% 83.33333333333334%;
   clip-path: polygon(
     58.5714285714% 33.3333333333%,
@@ -11191,7 +11268,7 @@
   );
 }
 
-.building-container[data-type='baboon'] .building-border {
+.building-container[data-type="baboon"] .building-border {
   clip-path: polygon(
     57.1428571429% 33.3333333333%,
     42.8571428571% 50%,
@@ -11232,12 +11309,12 @@
   );
 }
 
-.building-container[data-type='baboon'] .building-crosshairs {
+.building-container[data-type="baboon"] .building-crosshairs {
   left: 71.42857142857143%;
   top: 50%;
 }
 
-.building-container[data-type='water-playground'] {
+.building-container[data-type="water-playground"] {
   clip-path: polygon(
     14.2857142857% 0,
     42.8571428571% 0,
@@ -11258,7 +11335,7 @@
   width: 158px;
 }
 
-.building-container[data-type='water-playground'] .building-inner {
+.building-container[data-type="water-playground"] .building-inner {
   background-position: 70% 100%;
   clip-path: polygon(
     15% 1.6666666667%,
@@ -11275,7 +11352,7 @@
   );
 }
 
-.building-container[data-type='water-playground'] .building-border {
+.building-container[data-type="water-playground"] .building-border {
   clip-path: polygon(
     14.2857142857% 0,
     42.8571428571% 0,
@@ -11304,12 +11381,12 @@
   );
 }
 
-.building-container[data-type='water-playground'] .building-crosshairs {
+.building-container[data-type="water-playground"] .building-crosshairs {
   left: 28.57142857142857%;
   top: 33.33333333333333%;
 }
 
-.building-container[data-type='entrance'] {
+.building-container[data-type="entrance"] {
   clip-path: polygon(
     14.2857142857% 0,
     42.8571428571% 0,
@@ -11330,7 +11407,7 @@
   width: 158px;
 }
 
-.building-container[data-type='entrance'] .building-inner {
+.building-container[data-type="entrance"] .building-inner {
   background-position: 90% 100%;
   clip-path: polygon(
     15% 1.6666666667%,
@@ -11347,7 +11424,7 @@
   );
 }
 
-.building-container[data-type='entrance'] .building-border {
+.building-container[data-type="entrance"] .building-border {
   clip-path: polygon(
     14.2857142857% 0,
     42.8571428571% 0,
@@ -11376,12 +11453,12 @@
   );
 }
 
-.building-container[data-type='entrance'] .building-crosshairs {
+.building-container[data-type="entrance"] .building-crosshairs {
   left: 28.57142857142857%;
   top: 33.33333333333333%;
 }
 
-.building-container[data-type='cable'] {
+.building-container[data-type="cable"] {
   clip-path: polygon(
     25% 25%,
     0 37.5%,
@@ -11410,7 +11487,7 @@
   width: 90px;
 }
 
-.building-container[data-type='cable'] .building-inner {
+.building-container[data-type="cable"] .building-inner {
   background-position: 100% 90%;
   clip-path: polygon(
     27.5% 25%,
@@ -11435,7 +11512,7 @@
   );
 }
 
-.building-container[data-type='cable'] .building-border {
+.building-container[data-type="cable"] .building-border {
   clip-path: polygon(
     25% 25%,
     0 37.5%,
@@ -11480,12 +11557,12 @@
   );
 }
 
-.building-container[data-type='cable'] .building-crosshairs {
+.building-container[data-type="cable"] .building-crosshairs {
   left: 50%;
   top: 37.5%;
 }
 
-.building-container[data-type='arcade'] {
+.building-container[data-type="arcade"] {
   clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
   height: 78px;
   margin-left: 0;
@@ -11494,7 +11571,7 @@
   width: 90px;
 }
 
-.building-container[data-type='arcade'] .building-inner {
+.building-container[data-type="arcade"] .building-inner {
   background-position: 36.36363636363637% 0;
   clip-path: polygon(
     26.25% 2.5%,
@@ -11507,7 +11584,7 @@
   );
 }
 
-.building-container[data-type='arcade'] .building-border {
+.building-container[data-type="arcade"] .building-border {
   clip-path: polygon(
     25% 0,
     75% 0,
@@ -11528,12 +11605,12 @@
   );
 }
 
-.building-container[data-type='arcade'] .building-crosshairs {
+.building-container[data-type="arcade"] .building-crosshairs {
   left: 50%;
   top: 50%;
 }
 
-.building-container[data-type='victory'] {
+.building-container[data-type="victory"] {
   clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
   height: 78px;
   margin-left: 0;
@@ -11542,7 +11619,7 @@
   width: 90px;
 }
 
-.building-container[data-type='victory'] .building-inner {
+.building-container[data-type="victory"] .building-inner {
   background-position: 18.181818181818183% 0;
   clip-path: polygon(
     26.25% 2.5%,
@@ -11555,7 +11632,7 @@
   );
 }
 
-.building-container[data-type='victory'] .building-border {
+.building-container[data-type="victory"] .building-border {
   clip-path: polygon(
     25% 0,
     75% 0,
@@ -11576,142 +11653,142 @@
   );
 }
 
-.building-container[data-type='victory'] .building-crosshairs {
+.building-container[data-type="victory"] .building-crosshairs {
   left: 50%;
   top: 50%;
 }
 
-.building-container[data-state='0'] .building-inner .arknova-meeple:first-child,
-.building-container[data-state='0']
+.building-container[data-state="0"] .building-inner .arknova-meeple:first-child,
+.building-container[data-state="0"]
   .building-inner
   .arknova-meeple:nth-child(2),
-.building-container[data-state='0']
+.building-container[data-state="0"]
   .building-inner
   .arknova-meeple:nth-child(3),
-.building-container[data-state='0']
+.building-container[data-state="0"]
   .building-inner
   .arknova-meeple:nth-child(4),
-.building-container[data-state='0']
+.building-container[data-state="0"]
   .building-inner
   .arknova-meeple:nth-child(5),
-.building-container[data-state='1']
+.building-container[data-state="1"]
   .building-inner
   .arknova-meeple:nth-child(2),
-.building-container[data-state='1']
+.building-container[data-state="1"]
   .building-inner
   .arknova-meeple:nth-child(3),
-.building-container[data-state='1']
+.building-container[data-state="1"]
   .building-inner
   .arknova-meeple:nth-child(4),
-.building-container[data-state='1']
+.building-container[data-state="1"]
   .building-inner
   .arknova-meeple:nth-child(5),
-.building-container[data-state='2']
+.building-container[data-state="2"]
   .building-inner
   .arknova-meeple:nth-child(3),
-.building-container[data-state='2']
+.building-container[data-state="2"]
   .building-inner
   .arknova-meeple:nth-child(4),
-.building-container[data-state='2']
+.building-container[data-state="2"]
   .building-inner
   .arknova-meeple:nth-child(5),
-.building-container[data-state='3']
+.building-container[data-state="3"]
   .building-inner
   .arknova-meeple:nth-child(4),
-.building-container[data-state='3']
+.building-container[data-state="3"]
   .building-inner
   .arknova-meeple:nth-child(5),
-.building-container[data-state='4']
+.building-container[data-state="4"]
   .building-inner
   .arknova-meeple:nth-child(5) {
   display: none;
 }
 
-.building-container[data-type='petting-zoo']
+.building-container[data-type="petting-zoo"]
   .building-inner
   .arknova-meeple:first-child {
   left: 20%;
   top: 33%;
 }
 
-.building-container[data-type='petting-zoo']
+.building-container[data-type="petting-zoo"]
   .building-inner
   .arknova-meeple:nth-child(2) {
   left: 62%;
   top: 15%;
 }
 
-.building-container[data-type='petting-zoo']
+.building-container[data-type="petting-zoo"]
   .building-inner
   .arknova-meeple:nth-child(3) {
   left: 20%;
   top: 73%;
 }
 
-.building-container[data-type='reptile-house']
+.building-container[data-type="reptile-house"]
   .building-inner
   .arknova-meeple:first-child {
   left: 13%;
   top: 16%;
 }
 
-.building-container[data-type='reptile-house']
+.building-container[data-type="reptile-house"]
   .building-inner
   .arknova-meeple:nth-child(2) {
   left: 42%;
   top: 41%;
 }
 
-.building-container[data-type='reptile-house']
+.building-container[data-type="reptile-house"]
   .building-inner
   .arknova-meeple:nth-child(3) {
   left: 72%;
   top: 16%;
 }
 
-.building-container[data-type='reptile-house']
+.building-container[data-type="reptile-house"]
   .building-inner
   .arknova-meeple:nth-child(4) {
   left: 13%;
   top: 65%;
 }
 
-.building-container[data-type='reptile-house']
+.building-container[data-type="reptile-house"]
   .building-inner
   .arknova-meeple:nth-child(5) {
   left: 72%;
   top: 65%;
 }
 
-.building-container[data-type='large-bird-aviary']
+.building-container[data-type="large-bird-aviary"]
   .building-inner
   .arknova-meeple:first-child {
   left: 14%;
   top: 14%;
 }
 
-.building-container[data-type='large-bird-aviary']
+.building-container[data-type="large-bird-aviary"]
   .building-inner
   .arknova-meeple:nth-child(2) {
   left: 43%;
   top: 33%;
 }
 
-.building-container[data-type='large-bird-aviary']
+.building-container[data-type="large-bird-aviary"]
   .building-inner
   .arknova-meeple:nth-child(3) {
   left: 73%;
   top: 13%;
 }
 
-.building-container[data-type='large-bird-aviary']
+.building-container[data-type="large-bird-aviary"]
   .building-inner
   .arknova-meeple:nth-child(4) {
   left: 14%;
   top: 52%;
 }
 
-.building-container[data-type='large-bird-aviary']
+.building-container[data-type="large-bird-aviary"]
   .building-inner
   .arknova-meeple:nth-child(5) {
   left: 43%;
@@ -11779,7 +11856,7 @@
   border-bottom: 10px solid transparent;
   border-right: 10px solid #6031239c;
   border-top: 10px solid transparent;
-  content: '';
+  content: "";
   display: block;
   left: -10px;
   position: absolute;
@@ -11825,7 +11902,7 @@
 
 #player_config #round-counter-wrapper #solo-tile,
 #player_config #round-counter-wrapper.solo #break-counter-wrapper,
-[data-break-counter='1']
+[data-break-counter="1"]
   #player_config
   #round-counter-wrapper
   #break-counter-max {
@@ -11856,7 +11933,7 @@
   justify-content: center;
 }
 
-[data-solo-tile='1'] #player_config #round-counter-wrapper.solo #solo-tile {
+[data-solo-tile="1"] #player_config #round-counter-wrapper.solo #solo-tile {
   grid-row-gap: 0;
   grid-column-gap: 7px;
   background: url(/img/solo-tile-horizontal.jpg);
@@ -11875,37 +11952,37 @@
   width: calc(100% + 12px);
 }
 
-[data-solo-tile='1']
+[data-solo-tile="1"]
   #player_config
   #round-counter-wrapper.solo
   #solo-tile
   #solo-tile-left-1,
-[data-solo-tile='1']
+[data-solo-tile="1"]
   #player_config
   #round-counter-wrapper.solo
   #solo-tile
   #solo-tile-left-2,
-[data-solo-tile='1']
+[data-solo-tile="1"]
   #player_config
   #round-counter-wrapper.solo
   #solo-tile
   #solo-tile-left-3,
-[data-solo-tile='1']
+[data-solo-tile="1"]
   #player_config
   #round-counter-wrapper.solo
   #solo-tile
   #solo-tile-left-4,
-[data-solo-tile='1']
+[data-solo-tile="1"]
   #player_config
   #round-counter-wrapper.solo
   #solo-tile
   #solo-tile-left-5,
-[data-solo-tile='1']
+[data-solo-tile="1"]
   #player_config
   #round-counter-wrapper.solo
   #solo-tile
   #solo-tile-left-6,
-[data-solo-tile='1']
+[data-solo-tile="1"]
   #player_config
   #round-counter-wrapper.solo
   #solo-tile
@@ -11913,37 +11990,37 @@
   grid-row: 1 / span 1;
 }
 
-[data-solo-tile='1']
+[data-solo-tile="1"]
   #player_config
   #round-counter-wrapper.solo
   #solo-tile
   #solo-tile-right-1,
-[data-solo-tile='1']
+[data-solo-tile="1"]
   #player_config
   #round-counter-wrapper.solo
   #solo-tile
   #solo-tile-right-2,
-[data-solo-tile='1']
+[data-solo-tile="1"]
   #player_config
   #round-counter-wrapper.solo
   #solo-tile
   #solo-tile-right-3,
-[data-solo-tile='1']
+[data-solo-tile="1"]
   #player_config
   #round-counter-wrapper.solo
   #solo-tile
   #solo-tile-right-4,
-[data-solo-tile='1']
+[data-solo-tile="1"]
   #player_config
   #round-counter-wrapper.solo
   #solo-tile
   #solo-tile-right-5,
-[data-solo-tile='1']
+[data-solo-tile="1"]
   #player_config
   #round-counter-wrapper.solo
   #solo-tile
   #solo-tile-right-6,
-[data-solo-tile='1']
+[data-solo-tile="1"]
   #player_config
   #round-counter-wrapper.solo
   #solo-tile
@@ -11993,7 +12070,9 @@
   position: absolute;
   top: 2px;
   transform: translateX(0);
-  transition: transform 0.2s linear, color 0.7s linear;
+  transition:
+    transform 0.2s linear,
+    color 0.7s linear;
   width: 22px;
 }
 
@@ -12159,7 +12238,7 @@
   background-color: #fff;
   border-radius: 50%;
   bottom: 4px;
-  content: '';
+  content: "";
   height: 19px;
   left: 4px;
   position: absolute;
@@ -12179,9 +12258,9 @@
   left: 30px;
 }
 
-[data-two-columns='1']
+[data-two-columns="1"]
   #settings-controls-container
-  .row-data[data-id='columnSizes'] {
+  .row-data[data-id="columnSizes"] {
   display: none;
 }
 
@@ -12330,9 +12409,13 @@
 
 #popin_showScoreboard #arknova-scoreboard {
   background-image: url(/img/solo/ticket-25.jpg), url(/img/score-board.jpg);
-  background-position: 1345px 380px, 0 0;
+  background-position:
+    1345px 380px,
+    0 0;
   background-repeat: no-repeat;
-  background-size: 40px 64px, 100% auto;
+  background-size:
+    40px 64px,
+    100% auto;
   border: 1px solid #000;
   border-radius: 8px;
   box-sizing: border-box;
@@ -12345,14 +12428,18 @@
   width: 1400px;
 }
 
-[data-starting-appeal='10'] #popin_showScoreboard #arknova-scoreboard {
+[data-starting-appeal="10"] #popin_showScoreboard #arknova-scoreboard {
   background-image: url(/img/solo/ticket-35.jpg), url(/img/score-board.jpg);
-  background-position: 890px 380px, 0 0;
+  background-position:
+    890px 380px,
+    0 0;
 }
 
-[data-starting-appeal='20'] #popin_showScoreboard #arknova-scoreboard {
+[data-starting-appeal="20"] #popin_showScoreboard #arknova-scoreboard {
   background-image: url(/img/solo/ticket-45.jpg), url(/img/score-board.jpg);
-  background-position: 435px 380px, 0 0;
+  background-position:
+    435px 380px,
+    0 0;
 }
 
 #popin_showScoreboard #arknova-scoreboard .icon-cylinder {
@@ -12587,7 +12674,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   bottom: -29px;
-  content: '';
+  content: "";
   height: 50px;
   position: absolute;
   right: -25px;
@@ -12762,7 +12849,7 @@
   border-style: none none solid solid;
   border-width: 0 0 2px 2px;
   bottom: 50%;
-  content: '';
+  content: "";
   left: -2px;
   position: absolute;
   top: 0;
@@ -12778,8 +12865,9 @@
   font-family: MyriadPro-Regular;
   font-style: normal;
   font-weight: 400;
-  src: url(/img/fonts/MyriadPro-Regular.woff) format('woff'),
-    url(/img/fonts/MyriadPro-Regular.ttf) format('truetype');
+  src:
+    url(/img/fonts/MyriadPro-Regular.woff) format("woff"),
+    url(/img/fonts/MyriadPro-Regular.ttf) format("truetype");
 }
 
 @font-face {
@@ -12787,8 +12875,9 @@
   font-family: MyriadPro-Bold;
   font-style: normal;
   font-weight: 400;
-  src: url(/img/fonts/MyriadPro-Bold.woff) format('woff'),
-    url(/img/fonts/MyriadPro-Bold.ttf) format('truetype');
+  src:
+    url(/img/fonts/MyriadPro-Bold.woff) format("woff"),
+    url(/img/fonts/MyriadPro-Bold.ttf) format("truetype");
 }
 
 @font-face {
@@ -12796,8 +12885,9 @@
   font-family: MyriadPro-Semibold;
   font-style: normal;
   font-weight: 400;
-  src: url(/img/fonts/MyriadPro-Semibold.woff) format('woff'),
-    url(/img/fonts/MyriadPro-Semibold.ttf) format('truetype');
+  src:
+    url(/img/fonts/MyriadPro-Semibold.woff) format("woff"),
+    url(/img/fonts/MyriadPro-Semibold.ttf) format("truetype");
 }
 
 @font-face {
@@ -12805,8 +12895,9 @@
   font-family: MyriadPro-Cond;
   font-style: normal;
   font-weight: 400;
-  src: url(/img/fonts/MyriadPro-Cond.woff) format('woff'),
-    url(/img/fonts/MyriadPro-Cond.ttf) format('truetype');
+  src:
+    url(/img/fonts/MyriadPro-Cond.woff) format("woff"),
+    url(/img/fonts/MyriadPro-Cond.ttf) format("truetype");
 }
 
 @font-face {
@@ -12814,8 +12905,9 @@
   font-family: MyriadPro-CondIt;
   font-style: normal;
   font-weight: 400;
-  src: url(/img/fonts/MyriadPro-CondIt.woff) format('woff'),
-    url(/img/fonts/MyriadPro-CondIt.ttf) format('truetype');
+  src:
+    url(/img/fonts/MyriadPro-CondIt.woff) format("woff"),
+    url(/img/fonts/MyriadPro-CondIt.ttf) format("truetype");
 }
 
 @font-face {
@@ -12823,8 +12915,10 @@
   font-family: Espera;
   font-style: normal;
   font-weight: 700;
-  src: local('Espera'), url(/img/fonts/Espera-Bold.woff) format('woff'),
-    url(/img/fonts/Espera-Bold.ttf) format('truetype');
+  src:
+    local("Espera"),
+    url(/img/fonts/Espera-Bold.woff) format("woff"),
+    url(/img/fonts/Espera-Bold.ttf) format("truetype");
 }
 
 .notransition {
@@ -12849,8 +12943,8 @@
 
 #logs .log.notif_newUndoableStep .roundedbox:after,
 #logs .log.notif_newUndoableStep .roundedbox:before {
-  content: '\f0e2';
-  font: normal normal normal 12px/1 FontAwesome;
+  content: "\f0e2";
+  font: normal normal normal 12px / 1 FontAwesome;
   margin: 0 10px;
 }
 
@@ -12882,8 +12976,8 @@
 .chatwindowlogs_zone
   .log.notif_newUndoableStep.selectable
   .roundedboxinner:before {
-  content: '\f0e2';
-  font: normal normal normal 12px/1 FontAwesome;
+  content: "\f0e2";
+  font: normal normal normal 12px / 1 FontAwesome;
   margin: 0 10px;
 }
 
@@ -12910,8 +13004,8 @@
   background: #d97050;
 }
 
-[data-undobuttons='0'] #btnUndoLastStep,
-[data-undobuttons='2'] #btnRestartTurn {
+[data-undobuttons="0"] #btnUndoLastStep,
+[data-undobuttons="2"] #btnRestartTurn {
   display: none;
 }
 

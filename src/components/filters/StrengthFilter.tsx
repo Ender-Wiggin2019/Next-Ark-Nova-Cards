@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { SiSquareenix } from 'react-icons/si';
-
+import { Slider } from '@/components/ui/slider';
 import { cn } from '@/lib/utils';
 
-import { Slider } from '@/components/ui/slider';
 type StrengthFilterProps = React.ComponentProps<typeof Slider> & {
   onFilterChange: (strength: number[]) => void;
   reset: boolean;

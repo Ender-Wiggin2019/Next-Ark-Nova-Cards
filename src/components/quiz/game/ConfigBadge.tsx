@@ -1,8 +1,6 @@
 import { useTranslation } from 'next-i18next';
-
-import { cn } from '@/lib/utils';
-
 import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 
 import { CardSource } from '@/types/CardSource';
 
@@ -18,7 +16,9 @@ export const ConfigBadge: React.FC<Props> = ({ source }) => {
         '',
         { 'bg-blue-600 hover:bg-blue-500': source === CardSource.MARINE_WORLD },
         { 'bg-zinc-600 hover:bg-zinc-500': source === CardSource.PROMO },
-        { 'bg-amber-600 hover:bg-amber-500': source === CardSource.ALTERNATIVE }
+        {
+          'bg-amber-600 hover:bg-amber-500': source === CardSource.ALTERNATIVE,
+        },
       )}
     >
       {t(source)}

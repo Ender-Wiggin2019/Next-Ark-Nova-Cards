@@ -33,7 +33,7 @@ import { Ability } from '@/types/KeyWords';
 import { SpecialEnclosure } from '@/types/SpecialEnclosure';
 
 export default function Page(
-  _props: InferGetStaticPropsType<typeof getStaticProps>
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
   const { t } = useTranslation('common');
   const downloadRef = React.useRef<HTMLDivElement>(null);
@@ -92,13 +92,13 @@ export default function Page(
     const transformedValues = {
       ...values,
       specialEnclosures: values.specialEnclosures?.map((se) =>
-        SpecialEnclosure.fromObject(se)
+        SpecialEnclosure.fromObject(se),
       ),
       abilities: values.abilities?.map((ability) =>
-        Ability.fromObject(ability)
+        Ability.fromObject(ability),
       ),
       reefDwellerEffect: values.reefDwellerEffect?.map((effect) =>
-        Ability.fromObject(effect)
+        Ability.fromObject(effect),
       ),
       // ... add any other properties that need transformation here ...
     };
@@ -128,14 +128,14 @@ export default function Page(
         const result = AnimalCardSchema.safeParse(parsedData);
         if (!result.success) {
           alert(
-            'The parsed JSON does not match the expected Animal Card structure.'
+            'The parsed JSON does not match the expected Animal Card structure.',
           );
           return;
         }
 
         setDiyAnimalCard(parsedData);
         setIsResetting(true);
-      } catch (error) {
+      } catch (_) {
         alert("Failed to parse the JSON. Please ensure it's a valid JSON.");
       }
     };

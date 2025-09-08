@@ -1,12 +1,8 @@
 import React from 'react';
-
-import { cn } from '@/lib/utils';
-
 import SpecialEnclosureComponent from '@/components/icons/SpecialEnclosure';
-
-import StandardEnclosure from './StandardEnclosure';
-
+import { cn } from '@/lib/utils';
 import { SpecialEnclosure } from '@/types/SpecialEnclosure';
+import StandardEnclosure from './StandardEnclosure';
 
 interface EnclosuresProps {
   size: number;

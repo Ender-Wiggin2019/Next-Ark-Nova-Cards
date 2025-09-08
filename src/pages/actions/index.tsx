@@ -1,9 +1,7 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import React from 'react';
 
 import { ActionCardList } from '@/components/cards/action_cards/ActionCardList';
-// make sure to import your TextFilter
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
@@ -12,7 +10,7 @@ type Props = {
 };
 
 export default function HomePage(
-  _props: InferGetStaticPropsType<typeof getStaticProps>
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
   return (
     <Layout>

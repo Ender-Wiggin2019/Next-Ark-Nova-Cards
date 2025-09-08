@@ -5,11 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Trans, useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import React, { useEffect, useState } from 'react';
-
-import { AlternativeMapBoards } from '@/data/AlternativeMapBoards';
-import { MapBoards } from '@/data/MapBoards';
-
+import { useEffect, useState } from 'react';
 import TextButton from '@/components/buttons/TextButton';
 import { Comments } from '@/components/comments/Comments';
 import Layout from '@/components/layout/Layout';
@@ -22,14 +18,17 @@ import {
 } from '@/components/ui/accordion';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Switch } from '@/components/ui/switch';
+import { AlternativeMapBoards } from '@/data/AlternativeMapBoards';
+import { MapBoards } from '@/data/MapBoards';
 
 import { MapBoard } from '@/types/MapBoard';
+
 type Props = {
   // Add custom props here
 };
 
 export default function HomePage(
-  _props: InferGetStaticPropsType<typeof getStaticProps>
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
   const router = useRouter();
   const { t } = useTranslation('common');
@@ -49,7 +48,6 @@ export default function HomePage(
   useEffect(() => {
     const map = getMapFromQuery();
     setSelectedMap(map || maps[0]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router?.query?.map, alternativeMaps]);
 
   function getMapFromQuery(): MapBoard {

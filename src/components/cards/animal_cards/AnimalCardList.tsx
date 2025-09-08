@@ -5,10 +5,6 @@ import { RatedAnimalCard } from '@/components/cards/animal_cards/RatedAnimalCard
 import CardList from '@/components/cards/shared/CardList';
 
 import { fetchCardRatings } from '@/services/card';
-import { getAnimalCardModel } from '@/utils/GetAnimalCardModel';
-
-import { useAnimalData } from './useAnimalData';
-
 import { AnimalCard } from '@/types/AnimalCard';
 import { CardSource } from '@/types/CardSource';
 import { IAnimalCard } from '@/types/IAnimalCard';
@@ -21,6 +17,8 @@ import {
   OtherTag,
   Tag,
 } from '@/types/Tags';
+import { getAnimalCardModel } from '@/utils/GetAnimalCardModel';
+import { useAnimalData } from './useAnimalData';
 
 interface AnimalCardListProps {
   selectedTags?: Tag[];
@@ -40,7 +38,7 @@ const filterAnimals = (
   selectedRequirements: Tag[] = [],
   selectedCardSources: CardSource[] = [],
   textFilter = '',
-  size: number[] = [0]
+  size: number[] = [0],
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
 
@@ -62,7 +60,7 @@ const filterAnimals = (
         selectedRequirements.some(
           (req) =>
             (animal.requirements && animal.requirements.includes(req)) ||
-            hasRockAndWaterRequirements(animal, req)
+            hasRockAndWaterRequirements(animal, req),
         )) &&
       (selectedCardSources.length === 0 ||
         selectedCardSources.some((src) => animal.source === src)) &&
@@ -75,9 +73,9 @@ const filterAnimals = (
           animal.abilities.some(
             (ability) =>
               ability.title.toLowerCase().includes(lowercaseFilter) ||
-              ability.description.toLowerCase().includes(lowercaseFilter)
+              ability.description.toLowerCase().includes(lowercaseFilter),
           ))) &&
-      (size.length === 0 || size.includes(0) || size.includes(animal.size))
+      (size.length === 0 || size.includes(0) || size.includes(animal.size)),
   );
 
   return res;
@@ -106,12 +104,12 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
     selectedRequirements,
     selectedCardSources,
     textFilter,
-    size
+    size,
   );
 
   const combineDataWithRatings = (
     animals: AnimalCard[],
-    ratings: IRating[]
+    ratings: IRating[],
   ): IAnimalCard[] => {
     return animals.map((animal) => {
       const rating = ratings.find((r) => r.cardid === animal.id);
@@ -150,13 +148,13 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
       case SortOrder.DIFF_ASC:
         _ratedAnimalCards.sort(
           (a, b) =>
-            a.model.diffWithSpecialEnclosure - b.model.diffWithSpecialEnclosure
+            a.model.diffWithSpecialEnclosure - b.model.diffWithSpecialEnclosure,
         );
         break;
       case SortOrder.DIFF_DESC:
         _ratedAnimalCards.sort(
           (a, b) =>
-            b.model.diffWithSpecialEnclosure - a.model.diffWithSpecialEnclosure
+            b.model.diffWithSpecialEnclosure - a.model.diffWithSpecialEnclosure,
         );
         break;
       case SortOrder.RATING_DESC:

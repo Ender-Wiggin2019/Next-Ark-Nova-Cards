@@ -1,9 +1,7 @@
 import * as React from 'react';
-
-import { cn } from '@/lib/utils';
-
 import UnderlineLink from '@/components/links/UnderlineLink';
 import { UnstyledLinkProps } from '@/components/links/UnstyledLink';
+import { cn } from '@/lib/utils';
 
 type ArrowLinkProps<C extends React.ElementType> = {
   as?: C;
@@ -26,7 +24,7 @@ export default function ArrowLink<C extends React.ElementType>({
       className={cn(
         'group gap-[0.25em]',
         direction === 'left' && 'flex-row-reverse',
-        className
+        className,
       )}
     >
       <span>{children}</span>
@@ -40,7 +38,7 @@ export default function ArrowLink<C extends React.ElementType>({
           'relative',
           'transition-transform duration-200',
           direction === 'right' ? 'motion-safe:-translate-x-1' : 'rotate-180',
-          'group-hover:translate-x-0'
+          'group-hover:translate-x-0',
         )}
       >
         <path
@@ -55,7 +53,7 @@ export default function ArrowLink<C extends React.ElementType>({
           className={cn(
             'origin-left transition-all duration-200',
             'opacity-0 motion-safe:-translate-x-1',
-            'group-hover:translate-x-0 group-hover:opacity-100'
+            'group-hover:translate-x-0 group-hover:opacity-100',
           )}
         />
       </svg>

@@ -2,14 +2,12 @@ import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
 import { Rating } from 'react-simple-star-rating';
-
-import { cn } from '@/lib/utils';
-
 import AppealIcon from '@/components/icons/tokens/AppealIcon';
 import ConservationIcon from '@/components/icons/tokens/ConservationIcon';
 import MoneyIcon from '@/components/icons/tokens/MoneyIcon';
 import ReputationIcon from '@/components/icons/tokens/ReputationIcon';
 import { Separator } from '@/components/ui/separator';
+import { cn } from '@/lib/utils';
 
 import { AnimalCardModel } from '@/types/AnimalCardModel';
 
@@ -41,7 +39,7 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
           className={cn(
             'text-bold',
             { 'text-lime-600': model.cost >= 0 },
-            { 'text-red-600': model.diff < 0 }
+            { 'text-red-600': model.diff < 0 },
           )}
         >
           {model.diff}
@@ -55,7 +53,7 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
             className={cn(
               'text-bold',
               { 'text-lime-600': model.diffWithSpecialEnclosure >= 0 },
-              { 'text-red-600': model.diffWithSpecialEnclosure < 0 }
+              { 'text-red-600': model.diffWithSpecialEnclosure < 0 },
             )}
           >
             {model.diffWithSpecialEnclosure}
@@ -119,8 +117,8 @@ export const AnimalModelCard: React.FC<ModelCardProps> = ({
               ability.value.toString().length > 1
                 ? t(ability.keyword.name) + ':' + t(ability.value.toString())
                 : ability.value.toString().length === 1
-                ? t(ability.keyword.name) + ' ' + t(ability.value.toString())
-                : t(ability.keyword.name);
+                  ? t(ability.keyword.name) + ' ' + t(ability.value.toString())
+                  : t(ability.keyword.name);
             return (
               <div key={index} className='item-center flex'>
                 {keyWord}

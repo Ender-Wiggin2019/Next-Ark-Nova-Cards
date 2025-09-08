@@ -5,7 +5,7 @@ import { prisma } from '@/lib/prisma-client';
 // PUT /api/comments/update/
 export default async function update(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   const { rating, title, content, commentId } = req.body;
 

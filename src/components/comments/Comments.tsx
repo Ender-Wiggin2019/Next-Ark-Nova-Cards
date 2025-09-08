@@ -1,7 +1,6 @@
 'use client';
 
-import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
-import { useUser } from '@clerk/nextjs';
+import { SignedIn, SignedOut, SignInButton, useUser } from '@clerk/nextjs';
 import { useQuery } from '@tanstack/react-query';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'next-i18next';
@@ -11,10 +10,9 @@ import { CommentFeeds } from '@/components/comments/CommentFeeds';
 import CommentInput from '@/components/comments/CommentInput';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-
+import { CommentDto } from '@/types/Comment';
 import { UserArrowLeftIcon } from '../../../public';
 
-import { CommentDto } from '@/types/Comment';
 // import { commentState, setComments } from '@/components/comments/comments.state';
 
 type CommentProps = {
@@ -42,7 +40,7 @@ export function Comments({ cardId, initialComments }: CommentProps) {
       //     // 更新 Valtio 的状态
       //     setComments(newComments);
       // }
-    }
+    },
   );
 
   // 查找当前用户的评论
@@ -50,7 +48,7 @@ export function Comments({ cardId, initialComments }: CommentProps) {
     if (user && commentsFromAPI) {
       return commentsFromAPI.find(
         (comment) =>
-          comment.userid === user.id && comment.cardid.toString() === cardId
+          comment.userid === user.id && comment.cardid.toString() === cardId,
       );
     }
     return null;

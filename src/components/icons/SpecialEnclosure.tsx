@@ -22,7 +22,7 @@ const SpecialEnclosureComponent: React.FC<SpecialEnclosureProps> = ({
         <div
           key={index}
           className={`arknova-icon icon-enclosure-special-${formatClassName(
-            enclosure.type
+            enclosure.type,
           )}`}
         >
           {enclosure.size}

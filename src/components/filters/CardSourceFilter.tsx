@@ -17,14 +17,14 @@ export const CardSourceFilter: React.FC<CardSourceFilterProps> = ({
 }) => {
   const { t } = useTranslation('common');
   const [selectedCardSource, setSelectedCardSource] = useState<CardSource[]>(
-    []
+    [],
   );
 
   const handleCategoryChange = (CardSource: CardSource) => {
     setSelectedCardSource((prev: CardSource[]) =>
       prev.includes(CardSource)
         ? prev.filter((t) => t !== CardSource)
-        : [...prev, CardSource]
+        : [...prev, CardSource],
     );
   };
 

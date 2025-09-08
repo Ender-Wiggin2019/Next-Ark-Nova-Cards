@@ -6,10 +6,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/PopHover';
-
-import { BaseAnimalCard } from './BaseAnimalCard';
-
 import { IAnimalCard } from '@/types/IAnimalCard';
+import { BaseAnimalCard } from './BaseAnimalCard';
 
 interface RatedAnimalCardProps {
   cardData: IAnimalCard;

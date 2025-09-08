@@ -12,7 +12,7 @@ export const getMaps = (cardSources: CardSource[]) => {
 
   const filteredMaps: MapBoard[] = [];
   cardSources.forEach((src) =>
-    filteredMaps.push(...maps.filter((map) => map.cardSource === src))
+    filteredMaps.push(...maps.filter((map) => map.cardSource === src)),
   );
 
   return filteredMaps;

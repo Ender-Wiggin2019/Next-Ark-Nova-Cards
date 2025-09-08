@@ -1,11 +1,9 @@
 import { useTranslation } from 'next-i18next';
 import React from 'react';
-
-import { cn } from '@/lib/utils';
-
 import ParseDescription from '@/components/abilities/ParseDescription';
 import ReefDwellerIcon from '@/components/icons/abilities/ReefDwellerIcon';
 import { IconFactory } from '@/components/icons/IconFactory';
+import { cn } from '@/lib/utils';
 
 import { Ability } from '@/types/KeyWords';
 
@@ -44,15 +42,15 @@ const AbilityComponent: React.FC<AbilityProps> = ({
       ability.value.toString().length > 1
         ? t(ability.keyword.name) + ':' + t(ability.value.toString())
         : ability.value.toString().length === 1
-        ? t(ability.keyword.name) + ' ' + t(ability.value.toString())
-        : t(ability.keyword.name);
+          ? t(ability.keyword.name) + ' ' + t(ability.value.toString())
+          : t(ability.keyword.name);
   } catch {
     keyWord =
       ability.value.toString().length > 1
         ? ability.keyword.name + ':' + ability.value.toString()
         : ability.value.toString().length === 1
-        ? ability.keyword.name + ' ' + ability.value.toString()
-        : ability.keyword.name;
+          ? ability.keyword.name + ' ' + ability.value.toString()
+          : ability.keyword.name;
   }
   return (
     <div

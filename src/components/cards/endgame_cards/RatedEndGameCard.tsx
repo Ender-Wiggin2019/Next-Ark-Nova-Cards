@@ -6,10 +6,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/PopHover';
-
-import { BaseEndGameCard } from './BaseEndGameCard';
-
 import { IEndGameCard } from '@/types/EndGameCard';
+import { BaseEndGameCard } from './BaseEndGameCard';
 
 interface RatedEndGameCardProps {
   cardData: IEndGameCard;

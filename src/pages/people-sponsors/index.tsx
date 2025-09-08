@@ -2,13 +2,12 @@
  * @Author: Ender-Wiggin
  * @Date: 2024-10-07 00:33:52
  * @LastEditors: Ender-Wiggin
- * @LastEditTime: 2024-10-07 01:18:35
+ * @LastEditTime: 2025-09-08 17:16:08
  * @Description:
  */
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import React from 'react';
 
 import { SponsorCardList } from '@/components/cards/sponsor_cards/SponsorCardList';
 import Layout from '@/components/layout/Layout';
@@ -19,7 +18,7 @@ type Props = {
 };
 
 export default function EndGamePage(
-  _props: InferGetStaticPropsType<typeof getStaticProps>
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
   const { t } = useTranslation('common');
 

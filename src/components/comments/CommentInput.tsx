@@ -54,7 +54,7 @@ const CommentInput = ({
         // 使评论列表查询失效
         queryClient.invalidateQueries(['comments', cardId]);
       },
-    }
+    },
   );
 
   const updateMutation = useMutation(
@@ -77,7 +77,7 @@ const CommentInput = ({
         // 使评论列表查询失效
         queryClient.invalidateQueries(['comments', cardId]);
       },
-    }
+    },
   );
 
   const onSubmit = async (e: React.FormEvent) => {
@@ -174,8 +174,8 @@ const CommentForm = ({
         {submitting
           ? t('Submitting')
           : shouldUpdate
-          ? t('Update')
-          : t('Submit')}
+            ? t('Update')
+            : t('Submit')}
       </button>
     </form>
   );

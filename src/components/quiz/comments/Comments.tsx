@@ -1,7 +1,6 @@
 'use client';
 
 import { SignedIn, SignedOut } from '@clerk/nextjs';
-import React from 'react';
 
 import { CommentFeeds } from '@/components/quiz/comments/CommentFeeds';
 import { ICommentMemo } from '@/components/quiz/types';

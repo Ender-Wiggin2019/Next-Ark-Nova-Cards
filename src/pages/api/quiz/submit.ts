@@ -37,7 +37,7 @@ export default async function post(req: NextApiRequest, res: NextApiResponse) {
     },
   });
 
-  // eslint-disable-next-line no-console
+  // biome-ignore lint/suspicious/noConsole: <>
   console.log('existingRecord', existingRecord?.userinfo, user, userId);
 
   // 如果存在，则不创建新记录，直接返回存在的记录

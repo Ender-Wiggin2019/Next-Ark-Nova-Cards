@@ -1,10 +1,8 @@
 import * as React from 'react';
-
-import { cn } from '@/lib/utils';
-
 import UnstyledLink, {
   UnstyledLinkProps,
 } from '@/components/links/UnstyledLink';
+import { cn } from '@/lib/utils';
 
 const PrimaryLinkVariant = ['primary', 'basic'] as const;
 type PrimaryLinkProps = {
@@ -31,13 +29,13 @@ const PrimaryLink = React.forwardRef<HTMLAnchorElement, PrimaryLinkProps>(
             'disabled:text-gray-300',
           ],
           //#endregion  //*======== Variant ===========
-          className
+          className,
         )}
       >
         {children}
       </UnstyledLink>
     );
-  }
+  },
 );
 
 export default PrimaryLink;

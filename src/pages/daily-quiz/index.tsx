@@ -3,7 +3,6 @@
 import { GetStaticProps } from 'next';
 import { useSearchParams } from 'next/navigation';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import * as React from 'react';
 
 import Layout from '@/components/layout/Layout';
 import { Quiz } from '@/components/quiz/Quiz';

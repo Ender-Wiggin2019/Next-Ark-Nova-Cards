@@ -1,11 +1,9 @@
 import React from 'react';
 
 import CardList from '@/components/cards/shared/CardList';
-
-import { useAnimalData } from './useAnimalData';
-
 import { AnimalCard as AnimalCardType } from '@/types/AnimalCard';
 import { OtherTag, Tag } from '@/types/Tags';
+import { useAnimalData } from './useAnimalData';
 
 interface AnimalCardListProps {
   selectedTags?: Tag[];
@@ -27,7 +25,7 @@ const filterAnimals = (
   animals: AnimalCardType[],
   selectedTags: Tag[] = [],
   selectedRequirements: Tag[] = [],
-  textFilter = ''
+  textFilter = '',
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
 
@@ -39,7 +37,7 @@ const filterAnimals = (
         selectedRequirements.some(
           (req) =>
             (animal.requirements && animal.requirements.includes(req)) ||
-            hasRockAndWaterRequirements(animal, req)
+            hasRockAndWaterRequirements(animal, req),
         )) &&
       (textFilter === '' ||
         animal.id.toLowerCase().includes(lowercaseFilter) ||
@@ -50,8 +48,8 @@ const filterAnimals = (
           animal.abilities.some(
             (ability) =>
               ability.title.toLowerCase().includes(lowercaseFilter) ||
-              ability.description.toLowerCase().includes(lowercaseFilter)
-          )))
+              ability.description.toLowerCase().includes(lowercaseFilter),
+          ))),
   );
 };
 
@@ -65,7 +63,7 @@ export const ActionCardList: React.FC<AnimalCardListProps> = ({
     animalsData,
     selectedTags,
     selectedRequirements,
-    textFilter
+    textFilter,
   );
 
   return (

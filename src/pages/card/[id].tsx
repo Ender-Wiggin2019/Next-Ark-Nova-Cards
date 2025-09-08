@@ -1,7 +1,6 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import React from 'react';
 
 import { BaseAnimalCard } from '@/components/cards/animal_cards/BaseAnimalCard';
 import { AnimalModelCard } from '@/components/cards/animal_cards/models/AnimalModelCard';
@@ -12,21 +11,20 @@ import { Comments } from '@/components/comments/Comments';
 // make sure to import your TextFilter
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
-
-import { getAllCardIds } from '@/utils/GetAllCardIds';
-import { getAnimalCardModel } from '@/utils/GetAnimalCardModel';
-import { getCardById, getCardTypeById } from '@/utils/GetCardById';
-
 import { AnimalCard as AnimalCardType } from '@/types/AnimalCard';
 import { CardType } from '@/types/Card';
 import { EndGameCard as EndGameCardType } from '@/types/EndGameCard';
 import { SponsorCard as SponsorCardType } from '@/types/SponsorCard';
+import { getAllCardIds } from '@/utils/GetAllCardIds';
+import { getAnimalCardModel } from '@/utils/GetAnimalCardModel';
+import { getCardById, getCardTypeById } from '@/utils/GetCardById';
+
 type Props = {
   // Add custom props here
 };
 
 export default function Page(
-  _props: InferGetStaticPropsType<typeof getStaticProps>
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
   const router = useRouter();
 
@@ -94,7 +92,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => ({
 // }
 
 // should add locales to getStaticPaths
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+
 // @ts-ignore
 export async function getStaticPaths({ locales }) {
   const ids = getAllCardIds();
@@ -103,7 +101,7 @@ export async function getStaticPaths({ locales }) {
       locales.map((locale: string) => ({
         params: { id: id.toString() },
         locale, //locale should not be inside `params`
-      }))
+      })),
     )
     .flat(); // to avoid nested array
   return {

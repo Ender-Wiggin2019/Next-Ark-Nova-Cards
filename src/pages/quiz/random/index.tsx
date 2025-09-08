@@ -2,20 +2,19 @@
  * @Author: Ender-Wiggin
  * @Date: 2024-07-07 17:11:51
  * @LastEditors: Ender-Wiggin
- * @LastEditTime: 2025-03-03 00:37:17
+ * @LastEditTime: 2025-09-08 17:12:45
  * @Description:
  */
 'use client';
 
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import * as React from 'react';
 
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
 export default function Page(
-  _props: InferGetStaticPropsType<typeof getStaticProps>
+  _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
   // const gameSetupGenerator = new GameSetupGenerator(seed || '', gameConfig);
 

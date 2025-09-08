@@ -34,7 +34,7 @@ export const CardTypeFilter: React.FC<CardTypeFilterProps> = ({
     setSelectedCategories((prev: CardType[]) =>
       prev.includes(cardType)
         ? prev.filter((t) => t !== cardType)
-        : [...prev, cardType]
+        : [...prev, cardType],
     );
   };
 

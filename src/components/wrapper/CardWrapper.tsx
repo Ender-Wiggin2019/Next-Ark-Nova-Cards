@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from 'react';
-
-import { cn } from '@/lib/utils';
-
 import { BaseAnimalCard } from '@/components/cards/animal_cards/BaseAnimalCard';
 import { BaseEndGameCard } from '@/components/cards/endgame_cards/BaseEndGameCard';
 import { TokenProjectCard } from '@/components/cards/project_cards/ProjectCard';
 import { BaseSponsorCard } from '@/components/cards/sponsor_cards/BaseSponsorCard';
-
-import { getCardById } from '@/utils/GetCardById';
-
+import { cn } from '@/lib/utils';
 import {
   isAnimalCard,
   isEndGameCard,
   isProjectCard,
   isSponsorCard,
 } from '@/types/Card';
+import { TProjectSlotPosition } from '@/types/ProjectCard';
+import { getCardById } from '@/utils/GetCardById';
 
 interface CardWrapperProps {
   id: string;
   canSelect: boolean;
   disable: boolean;
-  index?: number;
+  index?: TProjectSlotPosition;
   onSelect?: (id: string, add: boolean) => void;
   initSelect?: boolean;
   preview?: boolean;
@@ -60,7 +57,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
   ) : isSponsorCard(cardData) ? (
     <BaseSponsorCard sponsor={cardData} />
   ) : isProjectCard(cardData) ? (
-    <TokenProjectCard project={cardData} pos={index as any} />
+    <TokenProjectCard project={cardData} pos={index} />
   ) : isEndGameCard(cardData) ? (
     <BaseEndGameCard card={cardData} />
   ) : null;

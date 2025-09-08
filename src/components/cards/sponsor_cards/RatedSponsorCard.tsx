@@ -6,11 +6,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/PopHover';
-
-import { BaseSponsorCard } from './BaseSponsorCard';
-
 import { ISponsorCard } from '@/types/ISponsorCard';
 import { SponsorCardType } from '@/types/SponsorCard';
+import { BaseSponsorCard } from './BaseSponsorCard';
 
 interface RatedSponsorCardProps {
   cardData: ISponsorCard;

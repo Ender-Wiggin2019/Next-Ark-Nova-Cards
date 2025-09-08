@@ -1,10 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useMemo } from 'react';
-
-import { EndGameData } from '@/data/EndGames';
-
 import { RatedEndGameCard } from '@/components/cards/endgame_cards/RatedEndGameCard';
 import CardList from '@/components/cards/shared/CardList';
+import { EndGameData } from '@/data/EndGames';
 
 import { fetchCardRatings } from '@/services/card';
 
@@ -23,7 +21,7 @@ interface EndGameCardListProps {
 const filterCards = (
   cards: EndGameCard[],
   selectedCardSources: CardSource[] = [],
-  textFilter = ''
+  textFilter = '',
 ) => {
   const lowercaseFilter = textFilter.toLowerCase();
 
@@ -33,7 +31,7 @@ const filterCards = (
         selectedCardSources.some((src) => card.source === src)) &&
       (textFilter === '' ||
         card.id.toLowerCase().includes(lowercaseFilter) ||
-        card.name.toLowerCase().includes(lowercaseFilter))
+        card.name.toLowerCase().includes(lowercaseFilter)),
   );
 };
 
@@ -51,12 +49,12 @@ export const EndGameCardList: React.FC<EndGameCardListProps> = ({
   const filteredEndGames = filterCards(
     EndGameData,
     selectedCardSources,
-    textFilter
+    textFilter,
   );
 
   const combineDataWithRatings = (
     cards: EndGameCard[],
-    ratings: IRating[]
+    ratings: IRating[],
   ): IEndGameCard[] => {
     return cards.map((card) => {
       const rating = ratings.find((r) => r.cardid === card.id);

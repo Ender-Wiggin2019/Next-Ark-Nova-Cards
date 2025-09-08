@@ -17,7 +17,7 @@ export const TagFilter: React.FC<TagFilterProps> = ({
 
   const toggleTag = (tag: Tag) => {
     setSelectedTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
     );
   };
 
