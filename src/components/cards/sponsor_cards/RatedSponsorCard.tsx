@@ -6,6 +6,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/PopHover';
+import { useRatingTrigger } from '@/hooks/useRatingTrigger';
 import { ISponsorCard } from '@/types/ISponsorCard';
 import { SponsorCardType } from '@/types/SponsorCard';
 import { BaseSponsorCard } from './BaseSponsorCard';
@@ -20,10 +21,18 @@ export const RatedSponsorCard: React.FC<RatedSponsorCardProps> = ({
   showLink,
 }) => {
   const { sponsorCard, rating, ratingCount } = cardData;
+  const { triggerRatingFetch } = useRatingTrigger();
+
+  const handleOpenChange = (open: boolean) => {
+    if (open) {
+      // 当popover打开时，触发评分数据获取
+      triggerRatingFetch();
+    }
+  };
 
   return (
     <>
-      <PopHover>
+      <PopHover onOpenChange={handleOpenChange}>
         <PopoverTrigger>
           <BaseSponsorCard sponsor={sponsorCard} />
         </PopoverTrigger>

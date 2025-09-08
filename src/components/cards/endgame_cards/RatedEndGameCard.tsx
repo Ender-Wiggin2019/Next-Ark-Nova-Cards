@@ -6,6 +6,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/PopHover';
+import { useRatingTrigger } from '@/hooks/useRatingTrigger';
 import { IEndGameCard } from '@/types/EndGameCard';
 import { BaseEndGameCard } from './BaseEndGameCard';
 
@@ -19,10 +20,18 @@ export const RatedEndGameCard: React.FC<RatedEndGameCardProps> = ({
   showLink,
 }) => {
   const { endGameCard, rating, ratingCount } = cardData;
+  const { triggerRatingFetch } = useRatingTrigger();
+
+  const handleOpenChange = (open: boolean) => {
+    if (open) {
+      // 当popover打开时，触发评分数据获取
+      triggerRatingFetch();
+    }
+  };
 
   return (
     <>
-      <PopHover>
+      <PopHover onOpenChange={handleOpenChange}>
         <PopoverTrigger>
           <BaseEndGameCard card={endGameCard} />
         </PopoverTrigger>

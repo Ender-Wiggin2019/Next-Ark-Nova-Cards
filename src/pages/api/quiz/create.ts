@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { prisma } from '@/lib/prisma-client';
 
-import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
+import { GameSetupGenerator } from '@/utils/setup';
 
 // import { generateSetUp } from '@/utils/GenerateRandomCards';
 // POST /api/comments/create/

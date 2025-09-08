@@ -41,10 +41,10 @@ export const EndGameCardList: React.FC<EndGameCardListProps> = ({
   onCardCountChange,
   sortOrder = SortOrder.ID_ASC,
 }) => {
-  const shouldFetchRatings = true;
+  // 监听评分数据，但不主动获取（由点击触发）
   const { data: cardRatings } = useQuery(['cardRatings'], fetchCardRatings, {
-    enabled: shouldFetchRatings,
-    // staleTime: 60 * 1000,
+    enabled: false, // 不主动获取
+    staleTime: 5 * 60 * 1000, // 5分钟缓存
   });
   const filteredEndGames = filterCards(
     EndGameData,

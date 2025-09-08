@@ -23,7 +23,7 @@ import CardWrapper from '@/components/wrapper/CardWrapper';
 import { getQuizResult } from '@/services/quiz';
 import { TProjectSlotPosition } from '@/types/ProjectCard';
 import { GameConfig, IQuizComment } from '@/types/quiz';
-import { GameSetupGenerator } from '@/utils/GenerateRandomCards';
+import { GameSetupGenerator } from '@/utils/setup';
 
 export type Props = {
   seed: string;
