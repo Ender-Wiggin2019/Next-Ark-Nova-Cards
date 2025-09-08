@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useTranslation } from 'next-i18next';
 import React, { useEffect, useMemo } from 'react';
 
 import { RatedAnimalCard } from '@/components/cards/animal_cards/RatedAnimalCard';
@@ -17,6 +18,7 @@ import {
   OtherTag,
   Tag,
 } from '@/types/Tags';
+import { filterAnimalsByText } from '@/utils/filter';
 import { getAnimalCardModel } from '@/utils/GetAnimalCardModel';
 import { useAnimalData } from './useAnimalData';
 
@@ -39,10 +41,13 @@ const filterAnimals = (
   selectedCardSources: CardSource[] = [],
   textFilter = '',
   size: number[] = [0],
+  t: (text: string) => string,
 ) => {
-  const lowercaseFilter = textFilter.toLowerCase();
+  // First apply text filter using the utility function
+  const textFilteredAnimals = filterAnimalsByText(textFilter, animals, t);
 
-  const res = animals.filter(
+  // Then apply other filters
+  const res = textFilteredAnimals.filter(
     (animal) =>
       (selectedTags.filter(isAnimalTag).length === 0 ||
         selectedTags
@@ -64,17 +69,6 @@ const filterAnimals = (
         )) &&
       (selectedCardSources.length === 0 ||
         selectedCardSources.some((src) => animal.source === src)) &&
-      (textFilter === '' ||
-        animal.id.toLowerCase().includes(lowercaseFilter) ||
-        animal.name.toLowerCase().includes(lowercaseFilter) ||
-        (animal.latinName !== undefined &&
-          animal.latinName.toLowerCase().includes(lowercaseFilter)) ||
-        (animal.abilities !== undefined &&
-          animal.abilities.some(
-            (ability) =>
-              ability.title.toLowerCase().includes(lowercaseFilter) ||
-              ability.description.toLowerCase().includes(lowercaseFilter),
-          ))) &&
       (size.length === 0 || size.includes(0) || size.includes(animal.size)),
   );
 
@@ -91,6 +85,7 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
   size = [0],
   maxNum,
 }) => {
+  const { t } = useTranslation('common');
   const shouldFetchRatings = true;
   const { data: cardRatings } = useQuery(['cardRatings'], fetchCardRatings, {
     enabled: shouldFetchRatings,
@@ -105,6 +100,7 @@ export const AnimalCardList: React.FC<AnimalCardListProps> = ({
     selectedCardSources,
     textFilter,
     size,
+    t,
   );
 
   const combineDataWithRatings = (

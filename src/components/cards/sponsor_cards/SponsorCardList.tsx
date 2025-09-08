@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useTranslation } from 'next-i18next';
 import React, { useEffect, useMemo } from 'react';
 
 import CardList from '@/components/cards/shared/CardList';
@@ -20,6 +21,7 @@ import {
   OtherTag,
   Tag,
 } from '@/types/Tags';
+import { filterSponsorsByText } from '@/utils/filter';
 import { RatedSponsorCard } from './RatedSponsorCard';
 import { useSponsorData } from './useSponsorData';
 
@@ -53,10 +55,13 @@ const filterSponsors = (
   showHumanSponsors = false,
   textFilter = '',
   strength: number[] = [2],
+  t: (text: string) => string,
 ) => {
-  const lowercaseFilter = textFilter.toLowerCase();
+  // First apply text filter using the utility function
+  const textFilteredSponsors = filterSponsorsByText(textFilter, sponsors, t);
 
-  const res = sponsors.filter(
+  // Then apply other filters
+  const res = textFilteredSponsors.filter(
     (sponsor) =>
       (!showHumanSponsors ||
         (showHumanSponsors &&
@@ -82,13 +87,6 @@ const filterSponsors = (
         )) &&
       (selectedCardSources.length === 0 ||
         selectedCardSources.some((src) => sponsor.source === src)) &&
-      (textFilter === '' ||
-        sponsor.id.toLowerCase().includes(lowercaseFilter) ||
-        sponsor.name.toLowerCase().includes(lowercaseFilter) ||
-        (sponsor.effects !== undefined &&
-          sponsor.effects.some((effect) =>
-            effect.effectDesc.toLowerCase().includes(lowercaseFilter),
-          ))) &&
       (strength.length === 0 ||
         strength.includes(0) ||
         strength.includes(1) ||
@@ -110,6 +108,7 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
   strength = [0],
   maxNum,
 }) => {
+  const { t } = useTranslation('common');
   const shouldFetchRatings = true;
   const { data: cardRatings } = useQuery(['cardRatings'], fetchCardRatings, {
     enabled: shouldFetchRatings,
@@ -124,6 +123,7 @@ export const SponsorCardList: React.FC<SponsorCardListProps> = ({
     showHumanSponsors,
     textFilter,
     strength,
+    t,
   );
 
   const combineDataWithRatings = (
