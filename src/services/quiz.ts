@@ -11,7 +11,7 @@ export async function getQuizResult(seed: string): Promise<IQuizComment[]> {
   const response = await request<IQuizComment[]>(
     `/api/quiz/result?seed=${seed}`,
   );
-  return response?.data;
+  return response?.data || [];
 }
 
 /**
@@ -32,7 +32,7 @@ export async function createQuiz(quizData: any): Promise<SetUp> {
  */
 export const fetchAllQuizzes = async (): Promise<IQuizData[]> => {
   const response = await request<IQuizData[]>('/api/quiz/lists');
-  return response?.data;
+  return response?.data || [];
 };
 
 /**

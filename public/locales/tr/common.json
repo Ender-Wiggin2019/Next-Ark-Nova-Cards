@@ -10,7 +10,11 @@
     "random": "Rastgele Bilgi Yarışması",
     "prev": "Geçmiş Yarışmalar",
     "total": "Toplam",
-    "banner_desc": "Bilgi yarışmaları ve Ark Nova hakkındaki konuları tartışmak için <1>Discord Grubumuza</1> katılın!"
+    "banner_desc": "Bilgi yarışmaları ve Ark Nova hakkındaki konuları tartışmak için <1>Discord Grubumuza</1> katılın!",
+    "maintenance": {
+      "title": "Günlük Bilgi Yarışması Hizmeti Geçici Olarak Kullanılamıyor",
+      "description": "Hizmet sağlayıcı fiyat değişiklikleri nedeniyle günlük bilgi yarışması özelliğimiz şu anda bakım altındadır. Ekibimiz bu sorunu çözmek ve hizmeti en kısa sürede geri yüklemek için çalışmaktadır. Sabrınız için teşekkür ederiz."
+    }
   },
   "abilities": {
     "clever_description": "Eylem tamamlandığında herhangi bir Eylem kartını {Slot-1} yerine yerleştirebilirsiniz.",

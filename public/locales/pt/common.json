@@ -10,7 +10,11 @@
     "random": "Quiz Aleatório",
     "prev": "Quizzes Anteriores",
     "total": "Total",
-    "banner_desc": "Participe do <1>Grupo no Discord</1> para discutir quizzes e qualquer assunto sobre Ark Nova!"
+    "banner_desc": "Participe do <1>Grupo no Discord</1> para discutir quizzes e qualquer assunto sobre Ark Nova!",
+    "maintenance": {
+      "title": "Serviço de Quiz Diário Temporariamente Indisponível",
+      "description": "Devido a mudanças de preços do provedor de serviços, nossa funcionalidade de quiz diário está atualmente em manutenção. Nossa equipe está trabalhando para resolver este problema e restaurar o serviço o mais rápido possível. Obrigado pela sua paciência."
+    }
   },
   "abilities": {
     "clever_description": "Ao terminar, você pode colocar qualquer carta de Ação em {Slot-1}.",
