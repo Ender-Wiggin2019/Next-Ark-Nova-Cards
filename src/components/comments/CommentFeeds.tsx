@@ -73,9 +73,8 @@ export function CommentFeeds(props: {
   cardId: string;
   comments: CommentDto[];
 }) {
-  // const { averageRating, numberOfRatings } = getAvgRatings(props.comments);
-    const { averageRating, numberOfRatings } = { averageRating: 0, numberOfRatings: 0 };
-  const withContentComments = props.comments?.filter?.(
+  const { averageRating, numberOfRatings } = getAvgRatings(props.comments);
+  const withContentComments = props.comments.filter(
     (comment) => comment.content.length > 0,
   );
   return (
@@ -97,14 +96,14 @@ export function CommentFeeds(props: {
         {averageRating.toFixed(2)} / 5 ({numberOfRatings} users)
       </div>
       <ul role='list' className='-mb-8 mt-2 px-1 md:px-4'>
-        {/* {withContentComments.map((comment, idx) => (
+        {withContentComments.map((comment, idx) => (
           <CommentBlock
             key={comment.id}
             comment={comment}
             idx={idx}
             length={withContentComments.length}
           />
-        ))} */}
+        ))}
       </ul>
     </div>
   );
