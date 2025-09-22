@@ -5,9 +5,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Layout from '@/components/layout/Layout';
 import { QuizList } from '@/components/quiz/QuizList';
 import Seo from '@/components/Seo';
-import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { enableDb } from '@/constant/env';
 
 export default function Page(
   _props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -20,25 +18,6 @@ export default function Page(
 
       <main>
         <div className='mt-4 p-2'>
-          {!enableDb && (
-            <Alert className='bg-orange-500/90 border-orange-400'>
-              <AlertDescription>
-                <div className='flex items-center justify-start gap-4'>
-                  <div className='h-6 w-6 rounded-full bg-orange-600 flex items-center justify-center'>
-                    <span className='text-white text-sm font-bold'>!</span>
-                  </div>
-                  <div className='max-w-2xl text-white'>
-                    <p className='font-semibold'>
-                      {t('quiz.maintenance.title')}
-                    </p>
-                    <p className='text-sm mt-1'>
-                      {t('quiz.maintenance.description')}
-                    </p>
-                  </div>
-                </div>
-              </AlertDescription>
-            </Alert>
-          )}
           {/* <Alert className='bg-[#5765f2]/90'>
             <AlertDescription>
               <div className='flex items-center justify-start gap-4'>

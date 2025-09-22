@@ -10,11 +10,7 @@
     "random": "Random Quiz",
     "prev": "Previous Quizzes",
     "total": "Total",
-    "banner_desc": "Join the <1>Discord Group</1> to discuss quizzes and any topics about Ark Nova!",
-    "maintenance": {
-      "title": "Daily Quiz Service Temporarily Unavailable",
-      "description": "Due to service provider pricing changes, our daily quiz feature is currently under maintenance. Our team is working to resolve this issue and restore the service as soon as possible. Thank you for your patience."
-    }
+    "banner_desc": "Join the <1>Discord Group</1> to discuss quizzes and any topics about Ark Nova!"
   },
   "abilities": {
     "clever_description": "After finishing you may place any Action card on {Slot-1} .",

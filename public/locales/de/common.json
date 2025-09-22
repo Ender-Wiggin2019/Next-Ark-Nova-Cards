@@ -1,16 +1,4 @@
 {
-  "quiz": {
-    "today": "Tägliches Quiz",
-    "result": "Statistiken",
-    "random": "Zufälliges Quiz",
-    "prev": "Vorherige Quizzes",
-    "total": "Gesamt",
-    "banner_desc": "Trete der <1>Discord-Gruppe</1> bei, um über Quizzes und alle Themen rund um Ark Nova zu diskutieren!",
-    "maintenance": {
-      "title": "Täglicher Quiz-Service vorübergehend nicht verfügbar",
-      "description": "Aufgrund von Preisänderungen des Dienstleisters befindet sich unsere tägliche Quiz-Funktion derzeit in der Wartung. Unser Team arbeitet daran, dieses Problem zu lösen und den Service so schnell wie möglich wiederherzustellen. Vielen Dank für Ihre Geduld."
-    }
-  },
   "abilities": {
     "clever_description": "Du darfst im Anschluss eine beliebige Aktionskarte auf {Slot-1} legen.",
     "sun_bathing_description": "Du darfst bis zu {} Karte(n) von der Hand für je {Money-4} verkaufen.",

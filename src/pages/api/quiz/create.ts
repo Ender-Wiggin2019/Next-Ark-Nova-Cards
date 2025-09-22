@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { v4 as uuidv4 } from 'uuid';
 
-import { enableDb } from '@/constant/env';
 import { prisma } from '@/lib/prisma-client';
 
 import { GameSetupGenerator } from '@/utils/setup';
@@ -11,10 +10,6 @@ import { GameSetupGenerator } from '@/utils/setup';
 export default async function post(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).end('Method Not Allowed');
-  }
-
-  if (!enableDb) {
-    return res.status(503).json({ error: 'Database service is disabled' });
   }
 
   const apiKey = req.headers['x-api-key'];

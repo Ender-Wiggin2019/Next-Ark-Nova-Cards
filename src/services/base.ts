@@ -1,8 +1,6 @@
 /** biome-ignore-all lint/suspicious/noExplicitAny: <> */
 import { toast } from 'sonner';
 
-import { enableDb } from '@/constant/env';
-
 interface IRequestOptions {
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
   headers?: Record<string, string>;
@@ -11,7 +9,7 @@ interface IRequestOptions {
 }
 
 interface IRequestResponse<T = any> {
-  data: T | null;
+  data: T;
   status: number;
   ok: boolean;
 }
@@ -24,19 +22,6 @@ export async function request<T = any>(
   url: string,
   options: IRequestOptions = {},
 ): Promise<IRequestResponse<T>> {
-  // 如果数据库被禁用，直接返回错误，不发送请求
-  if (!enableDb) {
-    // toast.error("Database service is disabled", {
-    // 	duration: 5000,
-    // 	description: "All database operations are currently unavailable",
-    // });
-    return {
-      data: [] as T,
-      status: 503,
-      ok: false,
-    };
-  }
-
   const { method = 'GET', headers = {}, body, timeout = 10000 } = options;
 
   const controller = new AbortController();
@@ -56,23 +41,7 @@ export async function request<T = any>(
     clearTimeout(timeoutId);
 
     if (!response.ok) {
-      // 尝试获取错误信息
-      let errorMessage = `Request failed with status ${response.status}`;
-      try {
-        const errorData = await response.json();
-        if (errorData?.error) {
-          errorMessage = errorData.error;
-        }
-      } catch {
-        // 如果无法解析JSON，使用默认错误信息
-      }
-
-      toast.error(errorMessage);
-      return {
-        data: null,
-        status: response.status,
-        ok: false,
-      };
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const data = await response.json();
@@ -96,10 +65,6 @@ export async function request<T = any>(
     }
 
     toast.error(errorMessage);
-    return {
-      data: null,
-      status: 0,
-      ok: false,
-    };
+    throw error;
   }
 }

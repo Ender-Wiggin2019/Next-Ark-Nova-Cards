@@ -2,21 +2,15 @@ import { clerkClient, getAuth } from '@clerk/nextjs/server';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { z } from 'zod';
 
-import { enableDb } from '@/constant/env';
 import { prisma } from '@/lib/prisma-client';
 
 // POST /api/quiz/submit/
 export default async function post(req: NextApiRequest, res: NextApiResponse) {
+  const { userId } = getAuth(req);
+  const user = userId ? await clerkClient.users.getUser(userId) : null;
   if (req.method !== 'POST') {
     return res.status(405).end('Method Not Allowed');
   }
-
-  if (!enableDb) {
-    return res.status(503).json({ error: 'Database service is disabled' });
-  }
-
-  const { userId } = getAuth(req);
-  const user = userId ? await clerkClient.users.getUser(userId) : null;
 
   const seed = req.body.seed;
   const name = req.body.name;
