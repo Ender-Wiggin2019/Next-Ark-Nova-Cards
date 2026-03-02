@@ -540,6 +540,7 @@
     "home": "主页",
     "cards": "卡牌",
     "actions": "行动卡",
+    "project_bonuses": "保护项目奖励",
     "about": "关于",
     "diy": "卡牌制作",
     "maps": "地图",
@@ -1047,5 +1048,9 @@
   "Maiasaura Sanctuary": "慈母龙特区",
   "Velociraptor Training Room": "迅猛龙培训室",
   "Global Paleontology Museum": "环球古生物博物馆",
-  "Jurassic Park": "侏罗纪公园"
+  "Jurassic Park": "侏罗纪公园",
+  "project_bonus": {
+    "title": "保护项目奖励 (Project Bonus)",
+    "description": "整理了保护项目奖励图标及说明，支持中英文显示。"
+  }
 }

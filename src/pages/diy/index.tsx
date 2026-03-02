@@ -147,7 +147,7 @@ export default function Page(
     <Layout>
       <Seo templateTitle='Ark Nova Card Maker' />
       <div className='flex flex-col items-center gap-8 px-3 py-8 md:flex-row md:items-start md:justify-center md:gap-12 md:px-6 lg:gap-16'>
-        <div className='sticky top-24 scale-125 py-4 md:mt-4 xl:scale-150'>
+        <div className='mt-6 origin-top scale-125 py-4 md:sticky md:top-24 md:mt-4 xl:scale-150'>
           <div ref={downloadRef}>
             <BaseAnimalCard animal={valuesToAnimalCard(diyAnimalCard)} />
           </div>

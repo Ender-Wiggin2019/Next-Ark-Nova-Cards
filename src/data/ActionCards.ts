@@ -17,6 +17,32 @@ export interface ActionCard {
   isBase?: boolean;
 }
 
+export function getLocalizedActionCardImagePath(
+  imagePath: string,
+  isZhCN: boolean,
+) {
+  if (isZhCN || imagePath.startsWith('/img/actions/base/')) {
+    return imagePath;
+  }
+
+  const match = imagePath.match(/^\/img\/actions\/([^/]+)\/(.+)\.(jpg|webp)$/i);
+  if (!match) return imagePath;
+
+  const [, category, filename] = match;
+  const categoryMap: Record<string, string> = {
+    animals: '英文animals',
+    association: '英文association',
+    build: '英文build',
+    cards: '英文cards',
+    sponsors: '英文sponsors',
+  };
+
+  const enCategory = categoryMap[category];
+  if (!enCategory) return imagePath;
+
+  return `/img/actions/en/${enCategory}/${filename}.webp`;
+}
+
 export const ACTION_CATEGORIES: { key: ActionCategory; label: string }[] = [
   { key: 'animals', label: '动物' },
   { key: 'association', label: '协会' },
@@ -473,8 +499,15 @@ export function getLocalizedActionImagePath(
   language: string,
   isBase = false,
 ) {
-  if (isBase) return imagePath;
   const isZhCN = language === 'zh-CN' || language === 'zh';
+
+  if (isBase) {
+    if (!isZhCN) return imagePath;
+    const filename = imagePath.split('/').at(-1) ?? '';
+    const id = filename.split('_').slice(0, 3).join('_');
+    return id ? `/img/actions/base/zh/${id}.webp` : imagePath;
+  }
+
   return isZhCN
     ? imagePath
     : imagePath.replace('/img/actions/cn/', '/img/actions/en/');

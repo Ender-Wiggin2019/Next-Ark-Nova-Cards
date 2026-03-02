@@ -536,6 +536,7 @@
     "home": "Home",
     "cards": "Cards",
     "actions": "Actions",
+    "project_bonuses": "Project Bonus",
     "about": "About",
     "diy": "Card Maker",
     "maps": "Maps",
@@ -993,5 +994,9 @@
   "Maiasaura Sanctuary": "Maiasaura Sanctuary",
   "Velociraptor Training Room": "Velociraptor Training Room",
   "Global Paleontology Museum": "Global Paleontology Museum",
-  "Jurassic Park": "Jurassic Park"
+  "Jurassic Park": "Jurassic Park",
+  "project_bonus": {
+    "title": "Project Bonus",
+    "description": "A quick reference for project bonus icons with bilingual support."
+  }
 }
