@@ -1,6 +1,7 @@
 import { toPng } from 'html-to-image';
 import debounce from 'lodash/debounce';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import * as React from 'react';
@@ -11,6 +12,7 @@ import { BaseAnimalCard } from '@/components/cards/animal_cards/BaseAnimalCard';
 import { AnimalCardForm } from '@/components/forms/AnimalCardForm';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -146,6 +148,16 @@ export default function Page(
   return (
     <Layout>
       <Seo templateTitle='Ark Nova Card Maker' />
+      <div className='flex justify-center px-3 pt-6 md:px-6'>
+        <Button asChild size='sm' variant='outline' className='gap-2'>
+          <Link href='/victory_column'>
+            <span>{t('diy.victory_column_cta')}</span>
+            <Badge variant='destructive' className='px-2 py-0 text-[10px]'>
+              {t('diy.new_badge')}
+            </Badge>
+          </Link>
+        </Button>
+      </div>
       <div className='flex flex-col items-center gap-8 px-3 py-8 md:flex-row md:items-start md:justify-center md:gap-12 md:px-6 lg:gap-16'>
         <div className='mt-6 origin-top scale-125 py-4 md:sticky md:top-24 md:mt-4 xl:scale-150'>
           <div ref={downloadRef}>
