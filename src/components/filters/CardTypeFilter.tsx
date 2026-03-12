@@ -12,6 +12,7 @@ import React, { useEffect, useState } from 'react';
 
 import TextButton from '@/components/buttons/TextButton';
 import HumanSponsor from '@/components/icons/HumanSponsor';
+import { Button } from '@/components/ui/button';
 
 import { CardType } from '@/types/Card';
 
@@ -70,12 +71,16 @@ export const CardTypeFilter: React.FC<CardTypeFilterProps> = ({
           >
             {t('Sponsor Card')}
           </TextButton>
-          <div
-            className='absolute -top-2 right-0 cursor-pointer hover:opacity-80'
+          <Button
+            type='button'
+            variant='ghost'
+            size='sm'
+            className='absolute -top-2 right-0 h-auto cursor-pointer p-0 hover:bg-transparent hover:opacity-80'
             onClick={() => router.push('/people-sponsors')}
+            aria-label={t('Open people sponsors page')}
           >
             <HumanSponsor />
-          </div>
+          </Button>
         </div>
       )}
       {cardTypes.includes(CardType.CONSERVATION_CARD) && (

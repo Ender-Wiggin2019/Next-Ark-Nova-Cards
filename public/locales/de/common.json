@@ -1,4 +1,13 @@
 {
+  "Close": "Schließen",
+  "Reset filters": "Filter zurücksetzen",
+  "Open action card details": "Aktionskartendetails öffnen",
+  "Open people sponsors page": "Personen-Sponsoren-Seite öffnen",
+  "quiz": {
+    "share": "Teilen",
+    "link_copied": "Link kopiert",
+    "game_config": "Spielkonfiguration"
+  },
   "abilities": {
     "clever_description": "Du darfst im Anschluss eine beliebige Aktionskarte auf {Slot-1} legen.",
     "sun_bathing_description": "Du darfst bis zu {} Karte(n) von der Hand für je {Money-4} verkaufen.",

@@ -18,7 +18,7 @@ export function BleedThroughImage({
 }: BleedThroughImageProps) {
   return (
     <div className='group relative'>
-      <div className='not-prose absolute z-10 hidden h-full w-full scale-[0.96] transform-gpu opacity-80 blur-2xl saturate-150 transition-transform after:absolute after:inset-0 after:block after:bg-white/50 group-hover:scale-105 dark:opacity-70 dark:after:bg-black/50 md:block'>
+      <div className='not-prose absolute z-10 hidden h-full w-full scale-[0.96] transform-gpu opacity-80 blur-2xl saturate-150 transition-transform after:absolute after:inset-0 after:block after:bg-background/50 group-hover:scale-105 dark:opacity-70 md:block'>
         <Image
           width={dimensions.width}
           height={dimensions.height}

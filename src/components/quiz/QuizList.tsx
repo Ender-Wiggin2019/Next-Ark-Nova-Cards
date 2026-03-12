@@ -200,7 +200,7 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
         <>
           <QuizSkeleton />
           <Separator orientation='horizontal' className='my-2' />
-          <Card className='grid grid-cols-1 gap-2 bg-white/50 p-2'>
+          <Card className='grid grid-cols-1 gap-2 bg-card/50 p-2'>
             <CardHeader>
               <CardTitle>{t('quiz.prev')}</CardTitle>
             </CardHeader>
@@ -228,7 +228,7 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
             />
           )}
           <Separator orientation='horizontal' className='my-2' />
-          <Card className='grid grid-cols-1 gap-2 bg-white/50 p-2'>
+          <Card className='grid grid-cols-1 gap-2 bg-card/50 p-2'>
             <CardHeader>
               <CardTitle>{t('quiz.prev')}</CardTitle>
             </CardHeader>

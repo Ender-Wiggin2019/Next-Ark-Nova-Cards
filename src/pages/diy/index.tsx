@@ -76,7 +76,7 @@ export default function Page(
       return;
     }
 
-    toPng(downloadRef.current, { quality: 0.8, pixelRatio: 7 })
+    toPng(downloadRef.current, { quality: 0.8, pixelRatio: 3 })
       .then((dataUrl) => {
         const link = document.createElement('a');
         link.download = diyAnimalCard.name + '.png';
@@ -159,9 +159,11 @@ export default function Page(
         </Button>
       </div>
       <div className='flex flex-col items-center gap-8 px-3 py-8 md:flex-row md:items-start md:justify-center md:gap-12 md:px-6 lg:gap-16'>
-        <div className='mt-6 origin-top scale-125 py-4 md:sticky md:top-24 md:mt-4 xl:scale-150'>
-          <div ref={downloadRef}>
-            <BaseAnimalCard animal={valuesToAnimalCard(diyAnimalCard)} />
+        <div className='mt-6 w-full max-w-full overflow-x-auto py-4 md:sticky md:top-24 md:mt-4'>
+          <div className='mx-auto w-fit origin-top scale-95 sm:scale-110 md:scale-125 xl:scale-150'>
+            <div ref={downloadRef}>
+              <BaseAnimalCard animal={valuesToAnimalCard(diyAnimalCard)} />
+            </div>
           </div>
         </div>
         <Card className='w-full max-w-[400px] bg-card/80 backdrop-blur-sm'>

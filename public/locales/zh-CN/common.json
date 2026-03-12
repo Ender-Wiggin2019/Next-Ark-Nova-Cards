@@ -5,6 +5,10 @@
   "Association": "协会",
   "Animal": "动物",
   "Build": "建造",
+  "Close": "关闭",
+  "Reset filters": "重置筛选",
+  "Open action card details": "打开行动卡详情",
+  "Open people sponsors page": "打开人物赞助卡页面",
   "Fan Made": "史前纪元",
   "quiz": {
     "today": "每日题目",
@@ -12,6 +16,9 @@
     "random": "随机题目",
     "prev": "历年真题",
     "total": "参与人数",
+    "share": "分享",
+    "link_copied": "链接已复制",
+    "game_config": "游戏配置",
     "banner_desc": "可以加入<1>Discord群组</1>来讨论每日选卡及各种游戏相关话题"
   },
   "abilities": {

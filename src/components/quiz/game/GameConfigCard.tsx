@@ -12,7 +12,7 @@ export const GameConfigCard: React.FC<Props> = ({ gameConfig }) => {
   const { t } = useTranslation('common');
 
   return (
-    <div className='flex flex-col gap-2 bg-white/50 p-2 text-sm font-normal'>
+    <div className='flex flex-col gap-2 bg-card/50 p-2 text-sm font-normal'>
       <div className='flex gap-2'>
         <div className=''>{t('Game Mode')}:</div>
         <div className=''>{gameConfig.mode}</div>

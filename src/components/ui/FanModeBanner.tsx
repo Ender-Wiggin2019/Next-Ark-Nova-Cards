@@ -9,7 +9,7 @@ import React from 'react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 export const FanModeBanner: React.FC = () => {
   return (
-    <Alert className='bg-[#6D401D]/20 border-[#6D401D]/40 text-[#6D401D] my-3'>
+    <Alert className='my-3 border-border bg-secondary/70 text-foreground'>
       <AlertDescription className='text-center'>
         目前你使用的是<span className='font-bold'>粉丝扩展预览模式</span>
         ，对于史前纪元扩展，欢迎联系 QQ{' '}

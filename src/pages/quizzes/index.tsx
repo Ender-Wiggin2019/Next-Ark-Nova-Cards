@@ -16,7 +16,7 @@ export default function Page(
       <Seo templateTitle='Quizzes' />
       <Seo />
 
-      <main>
+      <div>
         <div className='mt-4 p-2'>
           {/* <Alert className='bg-[#5765f2]/90'>
             <AlertDescription>
@@ -56,7 +56,7 @@ export default function Page(
             </div>
           </TabsContent>
         </Tabs>
-      </main>
+      </div>
     </Layout>
   );
 }

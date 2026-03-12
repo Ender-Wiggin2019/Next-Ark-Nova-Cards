@@ -65,16 +65,27 @@ export const Quiz: React.FC<Props> = ({
               )}
               <HoverCard>
                 <HoverCardTrigger asChild>
-                  <button className='text-muted-foreground transition-colors hover:text-foreground'>
+                  <Button
+                    type='button'
+                    variant='ghost'
+                    size='icon'
+                    aria-label={t('quiz.game_config')}
+                    className='text-muted-foreground hover:text-foreground'
+                  >
                     <Info className='h-5 w-5' />
-                  </button>
+                  </Button>
                 </HoverCardTrigger>
                 <HoverCardContent className='w-full'>
                   <GameConfigCard gameConfig={gameConfig} />
                 </HoverCardContent>
               </HoverCard>
             </div>
-            <Button variant='outline' size='icon' onClick={handleShare}>
+            <Button
+              variant='outline'
+              size='icon'
+              onClick={handleShare}
+              aria-label={isCopied ? t('quiz.link_copied') : t('quiz.share')}
+            >
               {isCopied ? (
                 <Check className='h-4 w-4' />
               ) : (

@@ -60,11 +60,11 @@ export default function Page(
         description='Sharpen your gaming skills and deepen your understanding with Daily Quiz! Dive into fresh challenges every day, answer questions, and compare your stats with fellow quiz enthusiasts. Perfect for gamers looking to level up their strategy and knowledge in a fun, engaging way.'
       />
 
-      <main className='flex flex-col items-center px-3 py-8 md:px-6'>
+      <div className='flex flex-col items-center px-3 py-8 md:px-6'>
         <Button onClick={handleSubmit} variant='nature' size='lg'>
           Submit Data
         </Button>
-      </main>
+      </div>
     </Layout>
   );
 }

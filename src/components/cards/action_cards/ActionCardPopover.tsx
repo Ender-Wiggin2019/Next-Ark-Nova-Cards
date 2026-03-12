@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useId, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
-
+import { Button } from '@/components/ui/button';
 import { getActionCardDescription } from '@/data/ActionCardDescriptions';
 import {
   ActionCard,
@@ -32,6 +32,9 @@ const ActionCardModal: React.FC<ActionCardModalProps> = ({
   const [selectedLevel, setSelectedLevel] = useState<1 | 2>(() =>
     getInitialLevel(cardId),
   );
+  const titleId = useId();
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const lastActiveElementRef = useRef<HTMLElement | null>(null);
   const description = getActionCardDescription(cardId);
 
   const level1Card = ALL_ACTION_CARDS.find(
@@ -58,11 +61,14 @@ const ActionCardModal: React.FC<ActionCardModalProps> = ({
     if (isOpen) {
       document.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
+      lastActiveElementRef.current = document.activeElement as HTMLElement;
+      closeButtonRef.current?.focus();
       setSelectedLevel(getInitialLevel(cardId));
     }
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
+      lastActiveElementRef.current?.focus();
     };
   }, [cardId, isOpen, handleKeyDown]);
 
@@ -110,13 +116,22 @@ const ActionCardModal: React.FC<ActionCardModalProps> = ({
             transition={{ duration: 0.2, ease: 'easeOut' }}
             className='relative z-10 w-full max-w-3xl max-h-[85vh] overflow-hidden rounded-2xl border border-border/50 bg-background shadow-2xl'
             onClick={(e) => e.stopPropagation()}
+            role='dialog'
+            aria-modal='true'
+            aria-labelledby={titleId}
           >
             <div className='flex items-center justify-between border-b border-border/30 bg-gradient-to-r from-sage-50/80 to-forest-50/80 px-4 py-4 sm:px-6 dark:from-sage-900/30 dark:to-forest-900/30'>
-              <h3 className='text-xl font-bold text-foreground'>{cardName}</h3>
-              <button
+              <h3 id={titleId} className='text-xl font-bold text-foreground'>
+                {cardName}
+              </h3>
+              <Button
                 type='button'
+                variant='ghost'
+                size='icon'
+                ref={closeButtonRef}
                 onClick={onClose}
-                className='rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground'
+                aria-label={t('Close')}
+                className='rounded-full text-muted-foreground hover:bg-muted hover:text-foreground'
               >
                 <svg
                   className='h-5 w-5'
@@ -131,7 +146,7 @@ const ActionCardModal: React.FC<ActionCardModalProps> = ({
                     d='M6 18L18 6M6 6l12 12'
                   />
                 </svg>
-              </button>
+              </Button>
             </div>
 
             <div
@@ -140,11 +155,13 @@ const ActionCardModal: React.FC<ActionCardModalProps> = ({
             >
               <div className='flex justify-center gap-2 sm:gap-3'>
                 {selectableLevels.map((item) => (
-                  <button
+                  <Button
                     key={item.level}
                     type='button'
+                    variant='ghost'
+                    size='sm'
                     onClick={() => setSelectedLevel(item.level)}
-                    className='shrink-0 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2'
+                    className='h-auto shrink-0 rounded-xl p-0 focus-visible:ring-primary/70'
                     aria-pressed={selectedLevel === item.level}
                     aria-label={
                       item.level === 1
@@ -171,7 +188,7 @@ const ActionCardModal: React.FC<ActionCardModalProps> = ({
                         sizes='(max-width: 640px) 123px, (max-width: 1024px) 166px, 178px'
                       />
                     </div>
-                  </button>
+                  </Button>
                 ))}
               </div>
 
@@ -209,6 +226,7 @@ export const ActionCardPopover: React.FC<ActionCardPopoverProps> = ({
   cardId,
   children,
 }) => {
+  const { t } = useTranslation('common');
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
@@ -221,9 +239,16 @@ export const ActionCardPopover: React.FC<ActionCardPopoverProps> = ({
 
   return (
     <>
-      <div onClick={handleClick} className='cursor-pointer'>
+      <Button
+        type='button'
+        variant='ghost'
+        size='sm'
+        onClick={handleClick}
+        className='h-auto cursor-pointer p-0 hover:bg-transparent'
+        aria-label={t('Open action card details')}
+      >
         {children}
-      </div>
+      </Button>
       <ActionCardModal cardId={cardId} isOpen={isOpen} onClose={handleClose} />
     </>
   );

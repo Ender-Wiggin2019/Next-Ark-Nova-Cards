@@ -109,7 +109,12 @@ export const QuizResult: React.FC<Props> = ({
         <CardTitle>
           <div className='flex w-full items-center justify-between'>
             <span>{t('quiz.result')}</span>
-            <Button variant='outline' size='icon' onClick={handleShare}>
+            <Button
+              variant='outline'
+              size='icon'
+              onClick={handleShare}
+              aria-label={isCopied ? t('quiz.link_copied') : t('quiz.share')}
+            >
               {isCopied ? (
                 <Check className='h-4 w-4' />
               ) : (

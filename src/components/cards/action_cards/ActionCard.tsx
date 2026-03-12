@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactCardFlip from 'react-card-flip';
-
+import { Button } from '@/components/ui/button';
 import ActionCardWrapper from '@/components/wrapper/ActionWrapper';
 
 import { AnimalCard as AnimalCardType } from '@/types/AnimalCard';
@@ -17,13 +17,27 @@ export const ActionCard: React.FC<AnimalCardProps> = ({ animal }) => {
   };
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection='horizontal'>
-      <div onClick={handleClick}>
+      <Button
+        type='button'
+        variant='ghost'
+        size='sm'
+        onClick={handleClick}
+        className='h-auto cursor-pointer p-0 hover:bg-transparent'
+        aria-label='Flip action card'
+      >
         <ActionCardWrapper id={animal.id}>1</ActionCardWrapper>
-      </div>
+      </Button>
 
-      <div onClick={handleClick}>
+      <Button
+        type='button'
+        variant='ghost'
+        size='sm'
+        onClick={handleClick}
+        className='h-auto cursor-pointer p-0 hover:bg-transparent'
+        aria-label='Flip action card'
+      >
         <ActionCardWrapper id={animal.id}>2</ActionCardWrapper>
-      </div>
+      </Button>
     </ReactCardFlip>
   );
 };

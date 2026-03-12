@@ -76,8 +76,8 @@ export const CardSourceFilter: React.FC<CardSourceFilterProps> = ({
       {includeFanMade && (
         <TextButton
           selected={selectedCardSource.includes(CardSource.FAN_MADE)}
-          className='hover:text-[#6D401D]'
-          selectClassName='text-[#6D401D] ring-[#6D401D]/90 ring-2'
+          className='hover:text-primary'
+          selectClassName='text-primary ring-primary/90 ring-2'
           onClick={() => handleCategoryChange(CardSource.FAN_MADE)}
         >
           {t('Fan Made')}

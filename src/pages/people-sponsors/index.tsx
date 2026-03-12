@@ -29,7 +29,7 @@ export default function EndGamePage(
         templateTitle='People Sponsors'
         description='Collection of all people sponsors in Ark Nova'
       />
-      <main>
+      <div>
         <div className='relative flex gap-4 px-4 pt-2'>
           <div className='text-3xl font-bold text-lime-600'>
             {t('People Sponsors')}
@@ -42,7 +42,7 @@ export default function EndGamePage(
           }}
           showHumanSponsors={true}
         />
-      </main>
+      </div>
     </Layout>
   );
 }

@@ -22,11 +22,11 @@ export default function Page(
     <Layout>
       <Seo templateTitle='Random Quiz' />
 
-      <main className='px-3 py-8 md:px-6'>
+      <div className='px-3 py-8 md:px-6'>
         <p className='text-center text-muted-foreground'>
           Due to the Server pressure, this page is temporarily disabled.
         </p>
-      </main>
+      </div>
     </Layout>
   );
 }

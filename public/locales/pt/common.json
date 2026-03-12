@@ -4,12 +4,19 @@
   "Association": "Associação",
   "Animal": "Animal",
   "Build": "Construção",
+  "Close": "Fechar",
+  "Reset filters": "Redefinir filtros",
+  "Open action card details": "Abrir detalhes da carta de ação",
+  "Open people sponsors page": "Abrir página de patrocinadores de pessoas",
   "quiz": {
     "today": "Quiz Diário",
     "result": "Estatísticas",
     "random": "Quiz Aleatório",
     "prev": "Quizzes Anteriores",
     "total": "Total",
+    "share": "Compartilhar",
+    "link_copied": "Link copiado",
+    "game_config": "Configuração do jogo",
     "banner_desc": "Participe do <1>Grupo no Discord</1> para discutir quizzes e qualquer assunto sobre Ark Nova!"
   },
   "abilities": {

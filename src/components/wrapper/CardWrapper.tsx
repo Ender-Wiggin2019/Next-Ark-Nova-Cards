@@ -3,6 +3,7 @@ import { BaseAnimalCard } from '@/components/cards/animal_cards/BaseAnimalCard';
 import { BaseEndGameCard } from '@/components/cards/endgame_cards/BaseEndGameCard';
 import { TokenProjectCard } from '@/components/cards/project_cards/ProjectCard';
 import { BaseSponsorCard } from '@/components/cards/sponsor_cards/BaseSponsorCard';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import {
   isAnimalCard,
@@ -47,6 +48,9 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
       onSelect(id, !selected);
     }
   };
+
+  const isInteractive = canSelect && (!disable || selected);
+
   const cardData = getCardById(id);
   if (!cardData) {
     return null;
@@ -61,17 +65,32 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
   ) : isEndGameCard(cardData) ? (
     <BaseEndGameCard card={cardData} />
   ) : null;
-  return (
-    <div
-      className={cn('player-board-hand w-min cursor-pointer', {
-        'rounded-sm ring-4 ring-lime-500 ring-offset-2': selected,
-        preview: preview,
 
-        'cursor-auto': !canSelect,
-        'cursor-not-allowed grayscale': disable && !selected,
-      })}
-      onClick={handleSelect}
-    >
+  const wrapperClassName = cn('player-board-hand w-min', {
+    'rounded-sm ring-4 ring-lime-500 ring-offset-2': selected,
+    preview: preview,
+    'cursor-pointer': isInteractive,
+    'cursor-auto': !canSelect,
+    'cursor-not-allowed grayscale': disable && !selected,
+  });
+
+  if (isInteractive) {
+    return (
+      <Button
+        type='button'
+        variant='ghost'
+        size='sm'
+        className={cn(wrapperClassName, 'h-auto p-0 hover:bg-transparent')}
+        onClick={handleSelect}
+        aria-label={`Select card ${id}`}
+      >
+        {Card}
+      </Button>
+    );
+  }
+
+  return (
+    <div className={wrapperClassName} aria-disabled='true'>
       {Card}
     </div>
   );

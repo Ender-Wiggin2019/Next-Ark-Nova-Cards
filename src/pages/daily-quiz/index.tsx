@@ -26,14 +26,14 @@ export default function Page() {
     <Layout>
       <Seo templateTitle='Daily Quiz' />
 
-      <main className='px-3 py-4 md:px-5'>
+      <div className='px-3 py-4 md:px-5'>
         {seed && !result && (
           <Quiz seed={seed} gameConfig={gameConfig} isDailyQuiz={true} />
         )}
         {seed && result && (
           <QuizResult seed={seed} gameConfig={gameConfig} isDailyQuiz={true} />
         )}
-      </main>
+      </div>
     </Layout>
   );
 }

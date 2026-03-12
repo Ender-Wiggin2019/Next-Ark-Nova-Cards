@@ -59,8 +59,8 @@ export default function Page(
       <div className='mb-24 flex flex-col'>
         <div className='flex flex-col items-center py-24 md:py-36 lg:pb-48 lg:pt-36'>
           {getCardTypeById(router.query.id) === CardType.ANIMAL_CARD ? (
-            <div className='flex flex-row md:scale-125 lg:scale-150'>
-              <div className='mr-3 flex-initial md:mr-10 lg:mr-20'>
+            <div className='flex flex-col items-center gap-4 md:flex-row md:gap-0 md:scale-125 lg:scale-150'>
+              <div className='flex-initial md:mr-10 lg:mr-20'>
                 <BaseAnimalCard animal={card as AnimalCardType} />
               </div>
               <AnimalModelCard
@@ -72,16 +72,16 @@ export default function Page(
           ) : null}
 
           {getCardTypeById(router.query.id) === CardType.SPONSOR_CARD ? (
-            <div className='flex flex-row md:scale-125 lg:scale-150'>
-              <div className='mr-3 flex-initial md:mr-10 lg:mr-20'>
+            <div className='flex flex-col items-center gap-4 md:flex-row md:gap-0 md:scale-125 lg:scale-150'>
+              <div className='flex-initial md:mr-10 lg:mr-20'>
                 <BaseSponsorCard sponsor={card as SponsorCardType} />
               </div>
             </div>
           ) : null}
 
           {getCardTypeById(router.query.id) === CardType.END_GAME_CARD ? (
-            <div className='flex flex-row md:scale-125 lg:scale-150'>
-              <div className='mr-3 flex-initial md:mr-10 lg:mr-20'>
+            <div className='flex flex-col items-center gap-4 md:flex-row md:gap-0 md:scale-125 lg:scale-150'>
+              <div className='flex-initial md:mr-10 lg:mr-20'>
                 <BaseEndGameCard card={card as EndGameCardType} />
               </div>
               <EndGameHoverCard

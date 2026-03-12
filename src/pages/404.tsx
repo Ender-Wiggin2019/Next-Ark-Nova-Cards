@@ -13,9 +13,9 @@ export default function NotFoundPage(
     <Layout>
       <Seo templateTitle='Not Found' />
 
-      <main>
-        <section className='bg-white/0'>
-          <div className='layout flex min-h-screen flex-col items-center justify-center text-center text-black'>
+      <div>
+        <section className='bg-transparent'>
+          <div className='layout flex min-h-screen flex-col items-center justify-center text-center text-foreground'>
             <AlertTriangle
               size={60}
               className='drop-shadow-glow animate-flicker text-red-500'
@@ -26,7 +26,7 @@ export default function NotFoundPage(
             </ArrowLink>
           </div>
         </section>
-      </main>
+      </div>
     </Layout>
   );
 }

@@ -5,12 +5,19 @@
   "Association": "Association",
   "Animal": "Animal",
   "Build": "Build",
+  "Close": "Close",
+  "Reset filters": "Reset filters",
+  "Open action card details": "Open action card details",
+  "Open people sponsors page": "Open people sponsors page",
   "quiz": {
     "today": "Daily Quiz",
     "result": "Statistics",
     "random": "Random Quiz",
     "prev": "Previous Quizzes",
     "total": "Total",
+    "share": "Share",
+    "link_copied": "Link copied",
+    "game_config": "Game configuration",
     "banner_desc": "Join the <1>Discord Group</1> to discuss quizzes and any topics about Ark Nova!"
   },
   "abilities": {

@@ -49,7 +49,6 @@ export const TextFilter: React.FC<TTextFilterProps> = ({
         value={text}
         placeholder={t('Filter text') + '...'}
         onChange={(event) => handleChange(event.target.value)}
-        autoFocus
       />
     </div>
   );

@@ -17,6 +17,7 @@ import { TagFilter } from '@/components/filters/TagFilter';
 import { TextFilter } from '@/components/filters/TextFilter';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
+import { Button } from '@/components/ui/button';
 import { CardOdometer } from '@/components/ui/CardOdometer';
 import { FanModeBanner } from '@/components/ui/FanModeBanner';
 import { Separator } from '@/components/ui/separator';
@@ -92,7 +93,7 @@ export default function HomePage(
 
       {includeFanMade && <FanModeBanner />}
 
-      <main className='flex flex-col gap-6'>
+      <div className='flex flex-col gap-6'>
         <div className='flex flex-col gap-4 px-3 py-3 md:px-6'>
           <div className='flex flex-col gap-4 md:flex-row md:items-center'>
             <CardTypeFilter
@@ -121,12 +122,16 @@ export default function HomePage(
           />
           <div className='flex items-center gap-3'>
             <TextFilter onTextChange={setTextFilter} reset={reset} />
-            <button
+            <Button
+              type='button'
+              variant='ghost'
+              size='icon'
               onClick={resetAll}
-              className='flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-sage-700 text-white transition-colors hover:bg-sage-600 dark:bg-sage-800 dark:hover:bg-sage-700'
+              aria-label={t('Reset filters')}
+              className='shrink-0 bg-sage-700 text-white hover:bg-sage-600 hover:text-white dark:bg-sage-800 dark:hover:bg-sage-700'
             >
               <RotateCcw className='h-4 w-4' />
-            </button>
+            </Button>
           </div>
           <div className='flex flex-wrap items-center gap-2 md:gap-3'>
             <SortButton sortOrder={sortOrder} setSortOrder={setSortOrder} />
@@ -174,7 +179,7 @@ export default function HomePage(
             />
           )}
         </div>
-      </main>
+      </div>
     </Layout>
   );
 }

@@ -187,54 +187,58 @@ export default function Page(
     <Layout>
       <Seo templateTitle='Victory Column DIY' />
       <div className='flex flex-col items-center gap-8 px-3 py-8 md:flex-row md:items-start md:justify-center md:gap-12 md:px-6 lg:gap-16'>
-        <div className='mt-6 origin-top py-4 md:sticky md:top-24 md:mt-4'>
-          <div ref={downloadRef} className='victory-column-preview'>
-            <SponsorCardWrapper id={defaultVictoryColumnSponsor.id}>
-              {uploadedImage ? (
-                <img
-                  className='victory-column-image-layer'
-                  src={uploadedImage}
-                  alt='Custom uploaded background'
+        <div className='mt-6 w-full max-w-full overflow-x-auto py-4 md:sticky md:top-24 md:mt-4'>
+          <div className='mx-auto w-fit origin-top scale-[0.82] sm:scale-100'>
+            <div ref={downloadRef} className='victory-column-preview'>
+              <SponsorCardWrapper id={defaultVictoryColumnSponsor.id}>
+                {uploadedImage ? (
+                  <img
+                    className='victory-column-image-layer'
+                    src={uploadedImage}
+                    alt='Custom uploaded background'
+                  />
+                ) : (
+                  <div className='victory-column-image-layer victory-column-image-fallback' />
+                )}
+                <Image
+                  src='/img/victory_column.png'
+                  alt='Victory column frame'
+                  fill
+                  priority
+                  className='victory-column-frame-layer'
                 />
-              ) : (
-                <div className='victory-column-image-layer victory-column-image-fallback' />
-              )}
-              <Image
-                src='/img/victory_column.png'
-                alt='Victory column frame'
-                fill
-                priority
-                className='victory-column-frame-layer'
-              />
 
-              <div className='ark-card-top'>
-                <div className='ark-card-top-left sf-hidden'></div>
-                <div className='ark-card-top-right'></div>
-              </div>
-              {showTopLabel && (
-                <div className='victory-column-top-label'>
-                  <span>{topLabel}</span>
+                <div className='ark-card-top'>
+                  <div className='ark-card-top-left sf-hidden'></div>
+                  <div className='ark-card-top-right'></div>
                 </div>
-              )}
-              <div className='ark-card-middle'>
-                <div className='ark-card-number sf-hidden'>
-                  {defaultVictoryColumnSponsor.id}
-                </div>
-                <div className='ark-card-title-wrapper'>
-                  <div className='ark-card-title'>
-                    {title || defaultVictoryColumnSponsor.name}
+                {showTopLabel && (
+                  <div className='victory-column-top-label'>
+                    <span>{topLabel}</span>
+                  </div>
+                )}
+                <div className='ark-card-middle'>
+                  <div className='ark-card-number sf-hidden'>
+                    {defaultVictoryColumnSponsor.id}
+                  </div>
+                  <div className='ark-card-title-wrapper'>
+                    <div className='ark-card-title'>
+                      {title || defaultVictoryColumnSponsor.name}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className='ark-card-bottom text-start'>
-                {previewEffects.map((effect, index) => {
-                  if (effect.display === undefined || effect.display) {
-                    return <Effect key={index} effect={effect} style='full' />;
-                  }
-                  return null;
-                })}
-              </div>
-            </SponsorCardWrapper>
+                <div className='ark-card-bottom text-start'>
+                  {previewEffects.map((effect, index) => {
+                    if (effect.display === undefined || effect.display) {
+                      return (
+                        <Effect key={index} effect={effect} style='full' />
+                      );
+                    }
+                    return null;
+                  })}
+                </div>
+              </SponsorCardWrapper>
+            </div>
           </div>
         </div>
 
