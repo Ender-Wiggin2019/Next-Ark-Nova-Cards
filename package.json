@@ -100,7 +100,7 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": ["biome check --write --diagnostic-level=error"],
-    "**/*.{json,css,scss,md,webmanifest}": ["biome format --write"]
+    "**/*.{json,css,scss,md,webmanifest}": ["./scripts/format-staged.sh"]
   },
   "packageManager": "pnpm@9.0.0"
 }
