@@ -77,8 +77,8 @@ export const PlayerArea: React.FC<Props> = ({
   }, 2000); // 2000毫秒内最多执行一次
 
   return (
-    <div className='flex w-full flex-col items-center gap-3 p-2'>
-      <div className='flex max-w-3xl justify-between gap-2 md:gap-4'>
+    <div className='flex w-full flex-col items-center gap-3 rounded-xl border border-border/70 bg-gradient-to-br from-card/85 via-card/75 to-accent/50 p-2 shadow-sm shadow-primary/10 ring-1 ring-border/50'>
+      <div className='flex max-w-3xl justify-between gap-2 rounded-lg bg-secondary/50 px-2 py-1 ring-1 ring-border/60 md:gap-4'>
         {playerData.actionCards.map((actionCard) => (
           <ActionIconCard key={actionCard} action={actionCard} />
         ))}
@@ -86,7 +86,8 @@ export const PlayerArea: React.FC<Props> = ({
       <Badge
         className={cn('text-sm', {
           'bg-primary text-primary-foreground': playerData.isMainPlayer,
-          'bg-foreground text-background': !playerData.isMainPlayer,
+          'border-border bg-secondary text-secondary-foreground':
+            !playerData.isMainPlayer,
         })}
       >
         {playerData.isMainPlayer
@@ -146,7 +147,7 @@ export const PlayerArea: React.FC<Props> = ({
             ))}
           </div>
           {handList.length === 4 && canSubmit && (
-            <div className='flex w-full max-w-md flex-col items-center gap-3'>
+            <div className='flex w-full max-w-md flex-col items-center gap-3 rounded-lg border border-border/70 bg-card/80 p-4 shadow-sm'>
               <SignedOut>
                 <SignInButton mode='modal' forceRedirectUrl={pathname}>
                   <Button type='button'>
@@ -191,7 +192,7 @@ export const PlayerArea: React.FC<Props> = ({
           )}
         </>
       )}
-      <div className='w-full max-w-2xl'>
+      <div className='w-full max-w-2xl rounded-lg border border-border/70 bg-card/70 p-2 shadow-sm'>
         <MapBoard id={playerData.maps[0]} />
       </div>
     </div>

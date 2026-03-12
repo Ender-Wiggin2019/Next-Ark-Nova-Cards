@@ -9,7 +9,9 @@ export const RerollButton: React.FC = () => {
   const { t } = useTranslation('common');
   return (
     <Link href={`/quiz/random?seed=${uuidv4()}`}>
-      <Button className='w-full bg-lime-500'>{t('Reroll')}</Button>
+      <Button variant='nature' className='w-full'>
+        {t('Reroll')}
+      </Button>
     </Link>
   );
 };

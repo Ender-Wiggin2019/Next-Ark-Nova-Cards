@@ -26,7 +26,7 @@ function Comment({
     <li className='relative pb-6'>
       {idx !== length - 1 && (
         <span
-          className='absolute left-5 top-12 -ml-px h-[calc(100%-3.5rem)] w-0.5 rounded bg-border'
+          className='absolute left-5 top-12 -ml-px h-[calc(100%-3.5rem)] w-0.5 rounded bg-primary/30'
           aria-hidden='true'
         />
       )}
@@ -80,7 +80,7 @@ export function CommentFeeds(props: {
   );
   return (
     <div className='mt-3'>
-      <div className='mb-4 inline-flex items-center gap-2.5 rounded-lg bg-card px-4 py-2.5 text-sm font-medium text-foreground shadow-sm ring-1 ring-border/60'>
+      <div className='mb-4 inline-flex items-center gap-2.5 rounded-lg bg-gradient-to-r from-card via-card to-secondary/50 px-4 py-2.5 text-sm font-medium text-foreground shadow-sm ring-1 ring-border/60'>
         <Rating
           emptyStyle={{ display: 'flex' }}
           fillStyle={{ display: '-webkit-inline-box' }}

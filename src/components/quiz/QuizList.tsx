@@ -26,7 +26,7 @@ const ITEMS_PER_PAGE = 5;
 
 const QuizInfoSkeleton: React.FC = () => {
   return (
-    <Card className='flex h-12 items-center justify-between px-4 py-2'>
+    <Card className='flex h-12 items-center justify-between border-border/80 bg-card/85 px-4 py-2'>
       <div className='flex items-center justify-start gap-2'>
         <div className='space-y-1'>
           <Skeleton className='h-4 w-16' />
@@ -44,7 +44,7 @@ const QuizInfoSkeleton: React.FC = () => {
 
 const QuizSkeleton: React.FC = () => {
   return (
-    <Card className='p-4'>
+    <Card className='border-border/80 bg-gradient-to-br from-card/90 to-secondary/50 p-4'>
       <div className='space-y-4'>
         <div className='space-y-2'>
           <Skeleton className='h-8 w-48' />
@@ -107,6 +107,9 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
             if (currentPage > 1) handlePageChange(currentPage - 1);
           }}
           aria-disabled={currentPage === 1}
+          className={
+            currentPage === 1 ? 'pointer-events-none opacity-50' : undefined
+          }
         />
       </PaginationItem>,
     );
@@ -187,6 +190,11 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
             if (currentPage < totalPages) handlePageChange(currentPage + 1);
           }}
           aria-disabled={currentPage === totalPages}
+          className={
+            currentPage === totalPages
+              ? 'pointer-events-none opacity-50'
+              : undefined
+          }
         />
       </PaginationItem>,
     );
@@ -195,14 +203,16 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
   };
 
   return (
-    <div className=''>
+    <div>
       {isLoading ? (
         <>
           <QuizSkeleton />
           <Separator orientation='horizontal' className='my-2' />
-          <Card className='grid grid-cols-1 gap-2 bg-card/50 p-2'>
+          <Card className='grid grid-cols-1 gap-2 border-border/80 bg-gradient-to-br from-card/90 to-secondary/50 p-2 ring-1 ring-border/60'>
             <CardHeader>
-              <CardTitle>{t('quiz.prev')}</CardTitle>
+              <CardTitle className='text-xl text-primary'>
+                {t('quiz.prev')}
+              </CardTitle>
             </CardHeader>
             {Array.from({ length: ITEMS_PER_PAGE }).map((_, index) => (
               <QuizInfoSkeleton key={index} />
@@ -228,18 +238,26 @@ export const QuizList: React.FC<{ mode: GameMode }> = ({ mode }) => {
             />
           )}
           <Separator orientation='horizontal' className='my-2' />
-          <Card className='grid grid-cols-1 gap-2 bg-card/50 p-2'>
+          <Card className='grid grid-cols-1 gap-2 border-border/80 bg-gradient-to-br from-card/90 to-secondary/50 p-2 ring-1 ring-border/60'>
             <CardHeader>
-              <CardTitle>{t('quiz.prev')}</CardTitle>
+              <CardTitle className='text-xl text-primary'>
+                {t('quiz.prev')}
+              </CardTitle>
             </CardHeader>
-            {currentQuizzes.map((quiz: IQuizData, index: number) => (
-              <QuizInfo
-                key={quiz.id}
-                {...quiz}
-                idx={index}
-                day={filteredQuizzes.length - (startIndex + index)}
-              />
-            ))}
+            {currentQuizzes.length > 0 ? (
+              currentQuizzes.map((quiz: IQuizData, index: number) => (
+                <QuizInfo
+                  key={quiz.id}
+                  {...quiz}
+                  idx={index}
+                  day={filteredQuizzes.length - (startIndex + index)}
+                />
+              ))
+            ) : (
+              <p className='px-4 py-6 text-center text-sm text-muted-foreground'>
+                {t('quiz.empty', { defaultValue: 'No quizzes yet' })}
+              </p>
+            )}
             {totalPages > 1 && (
               <div className='mt-4 flex justify-center'>
                 <Pagination>

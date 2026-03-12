@@ -26,7 +26,7 @@ export default function Page() {
     <Layout>
       <Seo templateTitle='Daily Quiz' />
 
-      <div className='px-3 py-4 md:px-5'>
+      <div className='rounded-xl bg-gradient-to-b from-background via-secondary/25 to-background px-3 py-4 ring-1 ring-border/60 md:px-5'>
         {seed && !result && (
           <Quiz seed={seed} gameConfig={gameConfig} isDailyQuiz={true} />
         )}

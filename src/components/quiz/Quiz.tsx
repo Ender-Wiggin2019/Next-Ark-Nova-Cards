@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 import { GameConfigCard } from '@/components/quiz/game/GameConfigCard';
 import { PlayerArea } from '@/components/quiz/PlayerArea';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -52,16 +53,19 @@ export const Quiz: React.FC<Props> = ({
   };
 
   return (
-    <Card className='flex flex-col gap-4 bg-card/60 p-3 backdrop-blur-sm md:p-4'>
+    <Card className='flex flex-col gap-4 bg-gradient-to-br from-background/95 via-card/90 to-secondary/60 p-3 shadow-lg shadow-primary/10 ring-1 ring-border/70 backdrop-blur-md md:p-4'>
       <CardHeader className='pb-0'>
         <CardTitle>
-          <div className='flex w-full items-center justify-between'>
+          <div className='flex w-full items-center justify-between gap-3'>
             <div className='flex items-center gap-3'>
               <span>{t(header || 'quiz.today')}</span>
               {isDailyQuiz && (
-                <span className='rounded-md bg-yellow-200/60 px-2 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300'>
+                <Badge
+                  variant='secondary'
+                  className='rounded-md px-2 py-0.5 text-[10px] uppercase tracking-wide'
+                >
                   BETA
-                </span>
+                </Badge>
               )}
               <HoverCard>
                 <HoverCardTrigger asChild>
@@ -70,12 +74,12 @@ export const Quiz: React.FC<Props> = ({
                     variant='ghost'
                     size='icon'
                     aria-label={t('quiz.game_config')}
-                    className='text-muted-foreground hover:text-foreground'
+                    className='text-muted-foreground hover:bg-primary/10 hover:text-primary'
                   >
                     <Info className='h-5 w-5' />
                   </Button>
                 </HoverCardTrigger>
-                <HoverCardContent className='w-full'>
+                <HoverCardContent className='w-full border-border/70 bg-gradient-to-br from-card/95 to-secondary/60 backdrop-blur-md'>
                   <GameConfigCard gameConfig={gameConfig} />
                 </HoverCardContent>
               </HoverCard>
@@ -85,6 +89,7 @@ export const Quiz: React.FC<Props> = ({
               size='icon'
               onClick={handleShare}
               aria-label={isCopied ? t('quiz.link_copied') : t('quiz.share')}
+              className='border-primary/30 bg-primary/5 text-primary hover:bg-primary/15 hover:text-primary'
             >
               {isCopied ? (
                 <Check className='h-4 w-4' />
@@ -121,7 +126,7 @@ export const Quiz: React.FC<Props> = ({
 
         <Separator orientation='vertical' className='hidden xl:block' />
 
-        <Card className='flex w-full flex-col items-center gap-4 bg-card/50 p-3'>
+        <Card className='flex w-full flex-col items-center gap-4 bg-gradient-to-br from-card/85 via-card/75 to-accent/60 p-3 ring-1 ring-border/70'>
           <div className='flex w-full max-w-2xl justify-between xl:w-full'>
             {setup.conservations.map((id, idx) => (
               <CardWrapper

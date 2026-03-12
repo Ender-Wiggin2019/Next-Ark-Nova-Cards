@@ -14,32 +14,10 @@ export default function Page(
   return (
     <Layout>
       <Seo templateTitle='Quizzes' />
-      <Seo />
 
-      <div>
-        <div className='mt-4 p-2'>
-          {/* <Alert className='bg-[#5765f2]/90'>
-            <AlertDescription>
-              <div className='flex items-center justify-start gap-4'>
-                <FaDiscord className='h-6 w-6 text-white' />
-                <div className='max-w-2xl text-white'>
-                  <Trans i18nKey='quiz.banner_desc'>
-                    Join the
-                    <Link
-                      className='font-medium text-white underline underline-offset-4'
-                      href='https://discord.gg/8ffMZATB'
-                    >
-                      Discord Group
-                    </Link>
-                    to discuss daily quizzes and any stuff about Ark Nova.
-                  </Trans>
-                </div>
-              </div>
-            </AlertDescription>
-          </Alert> */}
-        </div>
+      <div className='mt-4'>
         <Tabs defaultValue='default' className='mt-6 w-full'>
-          <TabsList>
+          <TabsList className='bg-gradient-to-r from-secondary/80 via-accent/70 to-secondary/80 ring-1 ring-border/70 backdrop-blur-md'>
             <TabsTrigger value='default'>
               {t('All Expansions Mode')}
             </TabsTrigger>

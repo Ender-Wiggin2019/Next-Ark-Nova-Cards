@@ -12,14 +12,14 @@ export const GameConfigCard: React.FC<Props> = ({ gameConfig }) => {
   const { t } = useTranslation('common');
 
   return (
-    <div className='flex flex-col gap-2 bg-card/50 p-2 text-sm font-normal'>
+    <div className='flex flex-col gap-2 rounded-md border border-border/70 bg-gradient-to-br from-card/90 to-secondary/60 p-3 text-sm font-normal shadow-sm'>
       <div className='flex gap-2'>
-        <div className=''>{t('Game Mode')}:</div>
-        <div className=''>{gameConfig.mode}</div>
+        <div className='text-muted-foreground'>{t('Game Mode')}:</div>
+        <div className='font-medium text-foreground'>{gameConfig.mode}</div>
       </div>
 
       <div className='flex gap-2'>
-        <div className=''>{t('Card Source')}:</div>
+        <div className='text-muted-foreground'>{t('Card Source')}:</div>
         <div className='flex gap-2'>
           {gameConfig.cardSources.map((src) => (
             <ConfigBadge key={src} source={src} />
@@ -28,7 +28,7 @@ export const GameConfigCard: React.FC<Props> = ({ gameConfig }) => {
       </div>
 
       <div className='flex gap-2'>
-        <div className=''>{t('Map Source')}:</div>
+        <div className='text-muted-foreground'>{t('Map Source')}:</div>
         <div className='flex gap-2'>
           {gameConfig.mapSources.map((src) => (
             <ConfigBadge key={src} source={src} />
@@ -37,8 +37,8 @@ export const GameConfigCard: React.FC<Props> = ({ gameConfig }) => {
       </div>
 
       <div className='flex gap-2'>
-        <div className=''>{t('Players')}:</div>
-        <div className=''>{gameConfig.players}</div>
+        <div className='text-muted-foreground'>{t('Players')}:</div>
+        <div className='font-medium text-foreground'>{gameConfig.players}</div>
       </div>
     </div>
   );

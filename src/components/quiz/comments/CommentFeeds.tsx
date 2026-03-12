@@ -33,7 +33,7 @@ function Comment({
             comment.userinfo?.imageUrl ||
             `https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png`
           }
-          alt=''
+          alt={`${comment.userinfo?.username ?? 'Anonymous'} avatar`}
           width={40}
           height={40}
           className='h-10 w-10 shrink-0 rounded-full bg-muted ring-2 ring-border'
@@ -90,9 +90,12 @@ export function CommentFeeds(props: {
   // );
   return (
     <div className='mt-3 w-full'>
-      <ul role='list' className='mt-2 flex flex-col gap-2 px-1 md:px-4'>
+      <ul role='list' className='mt-2 flex flex-col gap-3 px-1 md:px-4'>
         {sortedCommentsArray.map(([key, comments]) => (
-          <div key={key} className='relative flex flex-col gap-2'>
+          <li
+            key={key}
+            className='relative flex flex-col gap-2 rounded-lg border border-border/70 bg-card/70 p-3 shadow-sm ring-1 ring-border/40'
+          >
             {/* {true && (
         <span className='absolute left-0 top-14 -ml-px h-[calc(100%-4.5rem)] w-0.5 rounded bg-zinc-200 dark:bg-zinc-800'
           aria-hidden='true'
@@ -102,11 +105,14 @@ export function CommentFeeds(props: {
               {(JSON.parse(key) as string[]).map((cardId) => (
                 <TitleWrapper id={cardId} key={cardId} />
               ))}
-              <Badge className='flex w-12 items-center justify-center'>
+              <Badge
+                variant='nature'
+                className='flex w-12 items-center justify-center'
+              >
                 {comments.length}
               </Badge>
             </div>
-            <div className='ml-4 flex flex-col gap-2'>
+            <ul role='list' className='ml-4 flex flex-col gap-2'>
               {comments
                 .filter((c) => c?.content?.length && c.content.length > 0)
                 .map((comment, idx) => (
@@ -117,8 +123,8 @@ export function CommentFeeds(props: {
                     // length={withContentComments.length}
                   />
                 ))}
-            </div>
-          </div>
+            </ul>
+          </li>
         ))}
       </ul>
     </div>

@@ -104,7 +104,7 @@ export const QuizResult: React.FC<Props> = ({
   };
 
   return (
-    <Card className='flex flex-col gap-4 bg-card/60 p-3 backdrop-blur-sm md:p-4'>
+    <Card className='flex flex-col gap-4 bg-gradient-to-br from-background/95 via-card/90 to-secondary/60 p-3 shadow-lg shadow-primary/10 ring-1 ring-border/70 backdrop-blur-md md:p-4'>
       <CardHeader className='pb-0'>
         <CardTitle>
           <div className='flex w-full items-center justify-between'>
@@ -114,6 +114,7 @@ export const QuizResult: React.FC<Props> = ({
               size='icon'
               onClick={handleShare}
               aria-label={isCopied ? t('quiz.link_copied') : t('quiz.share')}
+              className='border-primary/30 bg-primary/5 text-primary hover:bg-primary/15 hover:text-primary'
             >
               {isCopied ? (
                 <Check className='h-4 w-4' />
@@ -149,15 +150,15 @@ export const QuizResult: React.FC<Props> = ({
           </CarouselContent>
         </Carousel>
 
-        <Card className='flex w-full flex-col items-center gap-4 bg-card/50 p-3'>
+        <Card className='flex w-full flex-col items-center gap-4 bg-gradient-to-br from-card/85 via-card/75 to-accent/60 p-3 ring-1 ring-border/70'>
           {setup.display && setup.display.length > 0 && (
             <div className='grid w-full grid-cols-3 justify-items-center gap-2 lg:grid-cols-6'>
               {setup.display.map((id, idx) => (
                 <div
                   key={'q_display_' + id}
-                  className='preview relative w-min scale-90 rounded-lg bg-amber-500/40 p-2 xl:scale-100'
+                  className='preview relative w-min scale-90 rounded-lg bg-primary/15 p-2 ring-1 ring-border/60 xl:scale-100'
                 >
-                  <div className='absolute -top-2 left-1/2 z-10 flex h-5 w-5 -translate-x-1/2 items-center justify-center rounded-md bg-amber-700 text-xs font-bold text-white shadow-sm'>
+                  <div className='absolute -top-2 left-1/2 z-10 flex h-5 w-5 -translate-x-1/2 items-center justify-center rounded-md bg-primary text-xs font-bold text-primary-foreground shadow-sm'>
                     {idx + 1}
                   </div>
                   <CardWrapper

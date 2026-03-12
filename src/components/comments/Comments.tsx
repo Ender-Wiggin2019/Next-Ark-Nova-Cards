@@ -54,7 +54,7 @@ export function Comments({ cardId, initialComments }: CommentProps) {
     return null;
   }, [user, commentsFromAPI, cardId]);
   return (
-    <section className='flex flex-col gap-4 py-4'>
+    <section className='flex flex-col gap-4 rounded-lg border border-border/70 bg-gradient-to-b from-card/85 to-secondary/40 p-4 shadow-sm shadow-primary/5 ring-1 ring-border/50'>
       <SignedOut>
         <SignInButton mode='modal' forceRedirectUrl={pathname}>
           <Button type='button'>
